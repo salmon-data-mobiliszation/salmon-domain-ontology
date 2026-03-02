@@ -5,9 +5,9 @@
 | Field | Value |
 | --- | --- |
 | Owner | Alan (OpenClaw subagent on behalf of @Br-Johnson) |
-| Date/time (PT) | 2026-03-02 08:31 PST |
+| Date/time (PT) | 2026-03-02 08:56 PST |
 | Build target | `ontology/salmon-domain-ontology.ttl` (shared modules fixture execution) |
-| Branch/commit | `feat/module-domain-decomposition` @ `330d8da52b7a33e69f4589fe0f156733a36fc95a` |
+| Branch/commit | `feat/module-bootstrap-alignment-port-phase1-3` @ `473d2a722c5408266040d106b8f86662822b1949` |
 | Dataset/input snapshot | `docs/migrations/gcdfo-to-salmon-wave1.csv`; shared modules `01-07` + `alignment-main`; local DFO repo scan; local SPSR template dictionary proxy for deferred-profile survivability |
 | Environment | Local workspace fixture run (no live DFO consumer runtime available) |
 
@@ -33,16 +33,19 @@
 
 #### DFO smoke run — 2026-03-02
 - Owner: Alan (OpenClaw subagent)
-- Build/commit: `feat/module-domain-decomposition` @ `330d8da52b7a33e69f4589fe0f156733a36fc95a`
+- Build/commit: `feat/module-bootstrap-alignment-port-phase1-3` @ `473d2a722c5408266040d106b8f86662822b1949`
 - Dataset: fixture run from migration map + shared modules + local repo scans
 - Result: **DEFERRED**
 - Evidence:
   - `docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.md`
   - `docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json`
-- Notes: Live DFO consumer config/output artifacts are external to this workspace; fixture checks passed where executable, but prefix-binding + output-parity remain blocked pending DFO operational run.
+  - `docs/migrations/evidence/2026-03-02-dfo-live-smoke-preflight.log`
+  - `docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md`
+  - `docs/migrations/phase2-dfo-live-smoke-runbook.md`
+- Notes: Live DFO consumer config/output artifacts are external to this workspace; fixture checks passed where executable, but prefix-binding + output-parity remain blocked pending one DFO operational run using the final runbook.
 
 ## Deferred-run required fields
 
 - Explicit blocker reason: no live DFO consumer runtime/config/output baseline available locally.
-- Owner for unblock action: DFO consumer lead (TBD in issue #3 owner checklist).
+- Owner for unblock action: @Br-Johnson (assign named DFO smoke-run owner) + assigned DFO owner (execute live runbook and post artifacts).
 - Next execution date: 2026-03-05 (or next available DFO runtime window).

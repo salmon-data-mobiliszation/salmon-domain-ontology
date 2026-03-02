@@ -19,6 +19,8 @@ Paste completed records as comments on issue #3.
 
 ## 2) DFO smoke-run template
 
+For the **final live parity gate**, execute `phase2-dfo-live-smoke-runbook.md` and attach its evidence artifacts in addition to this template.
+
 ### Metadata
 
 | Field | Value |

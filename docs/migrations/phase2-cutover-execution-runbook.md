@@ -9,6 +9,7 @@ This runbook defines the minimum execution contract to declare phase-2 migration
 - Works with:
   - `phase2-adoption-checklist.md`
   - `phase2-downstream-smoke-run-templates.md`
+  - `phase2-dfo-live-smoke-runbook.md`
   - `phase2-tier3-mapping-triage.md`
 
 ## 2) Owner matrix

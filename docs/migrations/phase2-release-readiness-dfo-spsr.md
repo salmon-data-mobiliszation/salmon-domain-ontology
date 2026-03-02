@@ -20,6 +20,7 @@ These notes track the minimum evidence required before publish-ready migration/c
   - `phase2-adoption-checklist.md`
   - `phase2-cutover-execution-runbook.md`
   - `phase2-downstream-smoke-run-templates.md`
+  - `phase2-dfo-live-smoke-runbook.md`
   - `phase2-tier3-mapping-triage.md`
 
 ### 3) DFO downstream readiness
@@ -42,8 +43,8 @@ Required evidence:
 
 | Blocker | Owner | Evidence | Status |
 | --- | --- | --- | --- |
-| DFO consumer smoke-run evidence recorded | DFO smoke-run owner (TBD by team) | Use template in `phase2-downstream-smoke-run-templates.md` and post result to issue #3 | Open |
-| SPSR consumer smoke-run evidence recorded | SPSR smoke-run owner (TBD by team) | Use template in `phase2-downstream-smoke-run-templates.md` and post result to issue #3 | Open |
+| DFO consumer smoke-run evidence recorded | `@Br-Johnson` (assign named DFO runtime owner) + assigned DFO smoke-run owner (execute) | `docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md` + `phase2-dfo-live-smoke-runbook.md` + final live-run issue comment artifacts | **Partial / blocked on live runtime parity run** |
+| SPSR consumer smoke-run evidence recorded | Alan (OpenClaw subagent) | Issue #3 SPSR evidence comment + `docs/migrations/evidence/2026-03-02-spsr-smoke-run.md` | **Cleared** |
 | Cutover execution runbook finalized (timing, owner, rollback) | Ontology maintainer (`@Br-Johnson`) | `phase2-cutover-execution-runbook.md` | Cleared |
 | Tier-3 mapping queue explicitly triaged for production policy | Ontology maintainer (`@Br-Johnson`) | `phase2-tier3-mapping-triage.md` | Cleared |
 
