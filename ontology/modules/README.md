@@ -23,7 +23,7 @@ This directory contains the modular build-out for the salmon-domain ontology.
 
 - `../salmon-domain-ontology.ttl` imports modules 01–07 + `alignment-main.ttl`.
 - `../salmon-domain-ontology-research.ttl` imports the conservative build and then adds `alignment-research.ttl`.
-- `../salmon-domain-ontology-rda-case-study.ttl` imports the conservative build and then adds `08-rda-case-study-profile-bridges.ttl`.
+- `../salmon-domain-ontology-rda-case-study.ttl` imports the conservative build and then adds `08-rda-case-study-profile-bridges.ttl` and `09-rda-neville-decomposition-profile-bridges.ttl`.
 
 ## Guardrails
 
