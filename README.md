@@ -2,6 +2,20 @@
 
 Shared salmon interoperability ontology for cross-organization data integration.
 
+## Project status
+
+This repository is under active development as we build out the **Salmon Domain Ontology** as a reusable, cross-organization semantic layer for salmon data.
+
+## Contributions welcome
+
+We welcome contributions from domain experts, data stewards, and ontology practitioners.
+
+If you want to contribute:
+- Open an issue describing the use case, gap, or term request.
+- Reference relevant domain standards, vocabularies, or source schemas where possible.
+- Submit a pull request for proposed ontology/module updates.
+- Follow `CONVENTIONS.md` for namespace and modeling rules.
+
 ## Current structure
 
 - `ontology/salmon-domain-ontology.ttl` — modular primary build (imports modules 01–07 + conservative alignment)
