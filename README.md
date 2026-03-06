@@ -2,6 +2,8 @@
 
 Shared salmon interoperability ontology for cross-organization data integration.
 
+**Integration context:** See the Salmon Data Integration System overview page (https://br-johnson.github.io/salmon-data-integration-system/) and walkthrough video (https://youtu.be/B0Zqac49zng?si=VmOjbfMDMd2xW9fH).
+
 ## Project status
 
 This repository is under active development as we build out the **Salmon Domain Ontology** as a reusable, cross-organization semantic layer for salmon data.
