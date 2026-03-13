@@ -32,6 +32,8 @@ Required evidence:
 - DFO/provider-side docs and route-coverage artifacts align to the locked
   `smn:` shared / `gcdfo:` profile boundary.
 - Existing fixture/prereq evidence is retained as non-live supporting evidence.
+- The canonical machine-readable route-contract anchor is merged SPSR
+  PR #247; closed DFO PR #54 is only transfer/pointer context if cited.
 - The absence of a separate DFO downstream consumer runtime is recorded
   explicitly, rather than hidden behind a fictional live-smoke gate.
 
@@ -47,7 +49,7 @@ Required evidence:
 
 | Blocker | Owner | Evidence | Status |
 | --- | --- | --- | --- |
-| DFO provider verification recorded (no separate DFO consumer runtime exists) | Ontology maintainer (`@Br-Johnson`) | `docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md` + `phase2-dfo-live-smoke-runbook.md` + issue #3 provider-verification comment | Pending issue #3 provider-verification note |
+| DFO provider verification recorded (no separate DFO consumer runtime exists) | Ontology maintainer (`@Br-Johnson`) | `docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md` + `phase2-dfo-live-smoke-runbook.md` + issue #3 provider-verification comment + merged SPSR PR #247 route-contract evidence | **Cleared** |
 | SPSR consumer smoke-run evidence recorded | Alan (OpenClaw subagent) | Issue #3 SPSR evidence comment + `docs/migrations/evidence/2026-03-02-spsr-smoke-run.md` | **Cleared** |
 | Cutover execution runbook finalized (timing, owner, rollback) | Ontology maintainer (`@Br-Johnson`) | `phase2-cutover-execution-runbook.md` | Cleared |
 | Tier-3 mapping queue explicitly triaged for production policy | Ontology maintainer (`@Br-Johnson`) | `phase2-tier3-mapping-triage.md` | Cleared |
