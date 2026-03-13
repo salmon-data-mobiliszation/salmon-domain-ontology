@@ -1,15 +1,15 @@
-# Phase 2 downstream smoke-run templates (DFO + SPSR)
+# Phase 2 downstream evidence templates (DFO provider + SPSR consumer)
 
 Use these templates to produce minimum publish-ready evidence for issue #3.
 
-## 1) Evidence requirements (both consumers)
+## 1) Evidence requirements
 
-For each smoke run, record:
+For each evidence note, record:
 
 - owner
 - date/time (Pacific)
 - build target (file/branch/commit)
-- dataset/input used
+- dataset/input used (if applicable)
 - pass/fail per checkpoint
 - links to logs/screenshots/query outputs
 
@@ -17,9 +17,10 @@ Paste completed records as comments on issue #3.
 
 ---
 
-## 2) DFO smoke-run template
+## 2) DFO provider-verification template
 
-For the **final live parity gate**, execute `phase2-dfo-live-smoke-runbook.md` and attach its evidence artifacts in addition to this template.
+Use this template when there is **no separate DFO downstream consumer runtime**
+for the current phase. It replaces the old live-smoke expectation.
 
 ### Metadata
 
@@ -29,35 +30,28 @@ For the **final live parity gate**, execute `phase2-dfo-live-smoke-runbook.md` a
 | Date/time (PT) |  |
 | Build target | `ontology/salmon-domain-ontology.ttl` (or case-study build if used) |
 | Branch/commit |  |
-| Dataset/input snapshot |  |
-| Environment |  |
+| Environment | DFO provider / ontology-maintainer context |
 
 ### Checklist
 
-- [ ] **Prefix migration check**: consumer configs bind shared namespace to `https://w3id.org/smn/`.
-- [ ] **Migrated-term check**: at least 3 `status=migrated` terms from `gcdfo-to-salmon-wave1.csv` resolve in pipeline/query output.
-- [ ] **Deferred-profile check**: at least 2 `status=deferred_profile` terms remain profile-resolved (not promoted to shared).
-- [ ] **Bridge handling check**: profile bridge terms are accepted without forcing canonical promotion.
-- [ ] **Output parity check**: key output fields match expected structure from last known-good run.
-
-### Minimum query/inspection set (recommended)
-
-1. One class/entity lookup (example: `smn:Stock` or `smn:ReportingOrManagementStratum`).
-2. One event/measurement lookup (example: `smn:SurveyEvent`, `smn:EscapementMeasurement`).
-3. One deferred profile term path (example: `ConservationUnit` or `StockManagementUnit`) proving profile-only handling still works.
+- [ ] **No-runtime confirmation**: no separate DFO downstream consumer runtime/check-out/baseline artifact exists for this phase.
+- [ ] **Boundary alignment check**: DFO docs/provider references align to `smn:` shared terms and `gcdfo:` DFO-specific/profile terms.
+- [ ] **Route-coverage anchor check**: merged PR #54 is linked as provider-side route-coverage evidence.
+- [ ] **Fixture evidence retention check**: existing prereq/fixture evidence is retained as non-live supporting evidence.
+- [ ] **Consumer-lane handoff check**: SPSR remains the operative downstream smoke lane for this phase.
 
 ### Result block (paste in issue #3)
 
 ```markdown
-#### DFO smoke run — <date>
+#### DFO provider verification — <date>
 - Owner: <name>
 - Build/commit: <ref>
-- Dataset: <ref>
-- Result: PASS | FAIL | DEFERRED
+- Result: PASS | FAIL
 - Evidence:
-  - <link 1>
-  - <link 2>
-- Notes: <regressions or none>
+  - <link to prereq package>
+  - <link to PR #54 or merged artifact>
+  - <link to SPSR smoke evidence comment>
+- Notes: No separate DFO downstream consumer runtime exists for this phase, so the former live-smoke gate is not applicable.
 ```
 
 ---
@@ -107,9 +101,14 @@ For the **final live parity gate**, execute `phase2-dfo-live-smoke-runbook.md` a
 
 ## 4) If live execution is unavailable
 
-Use a controlled fixture dataset and run the same checklist. Mark result as `DEFERRED` only when blocked by external environment constraints (not by missing prep).
+- If the **SPSR** live execution lane is unavailable, use a controlled fixture
+  dataset and mark result as `DEFERRED` only when blocked by external
+  environment constraints (not by missing prep).
+- If a **separate DFO downstream runtime does not exist at all**, do **not**
+  fabricate a deferred live run. Record the DFO provider-verification note
+  instead.
 
-Required for deferred runs:
+Required for deferred SPSR runs:
 
 - explicit blocker reason
 - owner for unblock action

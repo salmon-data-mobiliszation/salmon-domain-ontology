@@ -1,16 +1,23 @@
-# Phase 2 DFO live smoke runbook (final parity gate)
+# Phase 2 DFO provider verification note (supersedes final live smoke gate)
 
-This runbook is the **exact final execution checklist** to clear the remaining DFO blocker in issue #3.
+This document records the phase-2 cutover reality check for the DFO side:
+there is **no separate DFO downstream consumer runtime/check-out/baseline
+artifact currently available** for this migration wave.
 
-Use it only in a DFO runtime that can execute the real downstream consumer smoke flow.
+Because of that, the previous "final live DFO smoke gate" cannot be satisfied
+honestly and is **superseded** by an explicit provider-verification note in
+issue #3.
 
 ## 1) What is already pre-cleared
 
-The following checks are already evidenced from fixture and ontology-level validation:
+The following checks are already evidenced from fixture and ontology-level
+validation:
 
 - Migrated-term presence in shared modules (`smn:`): **pre-cleared**
-- Deferred-profile terms (`ConservationUnit`, `StockManagementUnit`) not promoted into shared core: **pre-cleared**
-- Bridge handling safety posture for deferred profile terms: **pre-cleared (fixture)**
+- Deferred-profile terms (`ConservationUnit`, `StockManagementUnit`) not
+  promoted into shared core: **pre-cleared**
+- Bridge handling safety posture for deferred profile terms:
+  **pre-cleared (fixture)**
 
 Evidence package:
 
@@ -19,98 +26,74 @@ Evidence package:
 - `docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json`
 - `docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md`
 
-## 2) Remaining blocker (must be executed live)
+## 2) Reality check (authoritative as of 2026-03-13)
 
-Two checks still require one real DFO consumer run in operational context:
+The former live-smoke gate assumed assets that do not actually exist in the
+current cutover context:
 
-1. Prefix migration check in **actual consumer config/runtime** (`https://w3id.org/smn/` binding)
-2. Output parity check against last known-good DFO output baseline
+- no separate DFO downstream consumer repo/runtime has been identified
+- no authoritative DFO smoke command exists for a separate consumer pipeline
+- no last-known-good DFO output artifact exists for parity comparison
+- browser/public-repo inspection cannot manufacture missing operational evidence
 
-## 3) Required inputs (fill before starting)
+Therefore a required PASS based on a fictional runtime would be fabricated and
+should not remain in the gate contract.
 
-| Input | Value required | Owner |
-| --- | --- | --- |
-| `DFO_CONSUMER_REPO` | Absolute path to live DFO consumer repo/runtime checkout | DFO smoke-run owner |
-| `DFO_SMOKE_CMD` | Exact command used by DFO team to run smoke pipeline (same command family as last known-good) | DFO smoke-run owner |
-| `DFO_OUTPUT_ARTIFACT` | Path to generated output artifact from this run (CSV or JSON) | DFO smoke-run owner |
-| `DFO_BASELINE_ARTIFACT` | Path to last known-good output artifact for parity comparison | DFO smoke-run owner |
-| `SALMON_DOMAIN_REPO` | Absolute path to this repository checkout (`salmon-domain-ontology`) in the runtime environment | DFO smoke-run owner |
-| `EVIDENCE_DIR` | Directory where logs/artifacts for this run will be written | DFO smoke-run owner |
+## 3) Replacement gate for issue #3
 
-## 4) Final live execution commands
+Instead of demanding nonexistent live-runtime artifacts, issue #3 should require
+all of the following:
 
-> Run in a shell with access to the real DFO consumer runtime.
+1. **DFO provider verification note**
+   - explicitly state that no separate DFO downstream consumer runtime exists
+     for this phase
+   - confirm DFO provider-side docs/route-bundle references align to the locked
+     boundary: `smn:` shared layer, `gcdfo:` DFO-specific/profile layer
+   - confirm PR #54 is merged and referenced as provider-side route-coverage
+     evidence
+2. **Pre-cleared fixture/prereq evidence retained**
+   - keep the existing prerequisite package linked; do not pretend it is a live
+     consumer run
+3. **SPSR remains the operative downstream consumer smoke lane**
+   - SPSR smoke evidence remains the real downstream-consumer execution proof
+     for this phase
+4. **Final go/no-go note still required**
+   - issue #3 must still carry an explicit cutover decision with timestamp and
+     owner
 
-```bash
-set -euo pipefail
+## 4) Minimum evidence package for closure
 
-# 0) Required vars (populate these exactly for your environment)
-: "${DFO_CONSUMER_REPO:?set DFO_CONSUMER_REPO}"
-: "${DFO_SMOKE_CMD:?set DFO_SMOKE_CMD}"
-: "${DFO_OUTPUT_ARTIFACT:?set DFO_OUTPUT_ARTIFACT}"
-: "${DFO_BASELINE_ARTIFACT:?set DFO_BASELINE_ARTIFACT}"
-: "${SALMON_DOMAIN_REPO:?set SALMON_DOMAIN_REPO}"
-: "${EVIDENCE_DIR:?set EVIDENCE_DIR}"
+The replacement DFO-side closure package is:
 
-mkdir -p "$EVIDENCE_DIR"
+- the provider-verification issue note described below
+- `docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md`
+- the SPSR smoke evidence comment/artifacts already linked in issue #3
+- merged DFO route-coverage evidence (PR #54)
+- final issue #3 go/no-go note
 
-# 1) Prefix migration check (must find salmon namespace binding)
-# Expected: one or more hits containing https://w3id.org/smn/
-grep -RIn "https://w3id.org/smn/" "$DFO_CONSUMER_REPO" \
-  | tee "$EVIDENCE_DIR/01-prefix-binding.txt"
-
-# 2) Execute live DFO smoke command
-# Expected: exit code 0 and no critical errors in log
-(
-  cd "$DFO_CONSUMER_REPO"
-  bash -lc "$DFO_SMOKE_CMD"
-) 2>&1 | tee "$EVIDENCE_DIR/02-live-smoke.log"
-
-# 3) Capture immutable hashes for generated output and baseline
-# Expected: both files exist; SHA256 lines produced
-shasum -a 256 "$DFO_OUTPUT_ARTIFACT" | tee "$EVIDENCE_DIR/03-output-sha256.txt"
-shasum -a 256 "$DFO_BASELINE_ARTIFACT" | tee "$EVIDENCE_DIR/04-baseline-sha256.txt"
-
-# 4) Header/key parity check (CSV or JSON)
-# Expected: script exits 0 and prints "PARITY PASS"
-python3 "$SALMON_DOMAIN_REPO"/docs/migrations/evidence/check_dfo_output_parity.py \
-  --candidate "$DFO_OUTPUT_ARTIFACT" \
-  --baseline "$DFO_BASELINE_ARTIFACT" \
-  --out-json "$EVIDENCE_DIR/05-output-parity.json" \
-  --out-md "$EVIDENCE_DIR/05-output-parity.md"
-```
-
-## 5) Expected outputs to mark PASS
-
-- `01-prefix-binding.txt`: at least one config hit with `https://w3id.org/smn/`
-- `02-live-smoke.log`: smoke command completed (`exit 0`)
-- `03-output-sha256.txt` and `04-baseline-sha256.txt`: both artifact hashes captured
-- `05-output-parity.md` and `05-output-parity.json`: parity status `pass`
-
-If any expected output is missing, mark result as `FAIL` or `DEFERRED` (with blocker reason).
-
-## 6) Evidence capture format for issue #3
-
-Post one issue comment with this structure:
+## 5) Provider-verification note template for issue #3
 
 ```markdown
-#### DFO live smoke run — <YYYY-MM-DD>
+#### DFO provider verification — <YYYY-MM-DD>
 - Owner: <name>
-- Runtime: <environment name>
-- Build/commit: <ref>
-- Smoke command: `<exact command used>`
-- Result: PASS | FAIL | DEFERRED
-- Pre-cleared checks reused:
-  - <link to 2026-03-02-dfo-live-smoke-prereq-package.md>
-- Live evidence:
-  - <link 01-prefix-binding.txt>
-  - <link 02-live-smoke.log>
-  - <link 05-output-parity.md>
-  - <link 05-output-parity.json>
+- Result: PASS | FAIL
+- Statement: No separate DFO downstream consumer runtime/check-out/baseline artifact exists for this phase-2 cutover, so the former live DFO smoke gate is not applicable.
+- Provider-side checks:
+  - DFO docs/route bundle align to `smn:` shared / `gcdfo:` DFO-specific boundary
+  - PR #54 is merged and serves as the route-coverage/provider-side evidence anchor
+  - Existing DFO prerequisite/fixture evidence is retained as non-live supporting evidence only
+  - SPSR remains the operative downstream consumer smoke lane for this phase
+- Evidence:
+  - <link to prereq package>
+  - <link to PR #54 or merged artifact>
+  - <link to SPSR smoke evidence comment>
 - Notes: <regressions or none>
 ```
 
-## 7) Gate decision rule
+## 6) Gate decision rule
 
-- Mark issue #3 DFO blocker complete **only when** prefix check and parity check are both `PASS` with live-run artifacts.
-- If either is missing, issue #3 remains blocked and the post-merge cutover package stays incomplete.
+- Do **not** require fabricated DFO live-smoke artifacts when no separate DFO
+  downstream consumer runtime exists.
+- Close the former DFO blocker when the provider-verification note is recorded
+  in issue #3 and the SPSR downstream smoke evidence remains intact.
+- Final cutover still requires an explicit go/no-go note in issue #3.

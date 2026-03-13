@@ -30,7 +30,7 @@ Status: proposed
 - Published RDF/XML serialization.
 - Published JSON-LD serialization.
 - Versioned release snapshot directories served from a stable public host.
-- DFO live-runtime smoke evidence needed to close issue #3.
+- A separate DFO live-runtime smoke pass. There is currently no separate DFO downstream consumer runtime for this phase, so issue #3 closure depends on the provider-verification note + final go/no-go logging instead.
 
 ## Release notes draft
 
@@ -62,5 +62,5 @@ The W3ID path is live, but publication remains intentionally conservative for no
 
 - publish richer HTML/RDF/XML/JSON-LD targets
 - add versioned release snapshot redirects
-- complete remaining DFO live smoke evidence and final go/no-go logging for issue #3
+- record the DFO provider-verification note (no separate DFO consumer runtime for this phase) and the final go/no-go logging for issue #3
 ```
