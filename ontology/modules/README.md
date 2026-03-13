@@ -2,6 +2,11 @@
 
 This directory contains the modular build-out for the salmon-domain ontology.
 
+If you are new to ontologies, read this first:
+- `../../docs/guides/modules-and-bridges-for-biologists.md`
+
+That guide explains (in plain language) how modules, local program ontologies, and bridge profiles work together when mapping real datasets.
+
 ## Category modules (phase 1 scaffold)
 
 1. `01-entity-systematics.ttl` — core entities, strata classes, and biological unit composition relations.
@@ -27,6 +32,6 @@ This directory contains the modular build-out for the salmon-domain ontology.
 
 ## Guardrails
 
-- Use `salmon:` for domain terms intended for reuse across organizations.
+- Use `smn:` for domain terms intended for reuse across organizations.
 - Preserve source-provenance notes when migrating terms from DFO Salmon Ontology.
 - Do **not** remove terms from DFO source ontology as part of this phase.

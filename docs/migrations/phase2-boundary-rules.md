@@ -1,16 +1,16 @@
-# Phase 2 boundary rules (shared `salmon:` vs profile vocabularies)
+# Phase 2 boundary rules (shared `smn:` vs profile vocabularies)
 
 This document is the operational boundary contract for migration phase 2.
 
 ## 1) Goal
 
-Keep the shared `salmon:` layer stable for cross-organization reuse while preserving program/policy specificity in profile namespaces.
+Keep the shared `smn:` layer stable for cross-organization reuse while preserving program/policy specificity in profile namespaces.
 
 Conservative default: **if uncertain, keep terms in profile scope and bridge to shared anchors**.
 
 ## 2) Scope boundary (authoritative for phase 2)
 
-### In shared `salmon:` scope
+### In shared `smn:` scope
 
 - Policy-neutral domain classes/properties reused across organizations
 - Shared event and measurement semantics (`SurveyEvent`, `EscapementMeasurement`, etc.)

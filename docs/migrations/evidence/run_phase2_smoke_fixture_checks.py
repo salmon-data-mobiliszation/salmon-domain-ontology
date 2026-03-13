@@ -131,7 +131,7 @@ def main() -> None:
     deferred_eval = []
     for old_iri in probe_deferred:
         local = iri_local_name(old_iri)
-        shared_candidate = f"http://w3id.org/salmon/{local}"
+        shared_candidate = f"https://w3id.org/smn/{local}"
         promoted = (URIRef(shared_candidate), RDF.type, None) in shared_graph
         deferred_eval.append({"old_iri": old_iri, "shared_candidate": shared_candidate, "promoted": promoted})
 
@@ -140,7 +140,7 @@ def main() -> None:
             CheckResult(
                 name="Deferred-profile check",
                 status="pass",
-                evidence="ConservationUnit + StockManagementUnit are not promoted into shared salmon: namespace.",
+                evidence="ConservationUnit + StockManagementUnit are not promoted into shared smn: namespace.",
             )
         )
     else:
@@ -169,13 +169,13 @@ def main() -> None:
         )
     )
 
-    dfo_salmon_hits = scan_files_for_token(dfo_repo, "w3id.org/salmon/")
-    if dfo_salmon_hits:
+    dfo_smn_hits = scan_files_for_token(dfo_repo, "w3id.org/smn/")
+    if dfo_smn_hits:
         dfo_checks.append(
             CheckResult(
                 name="Prefix migration check",
                 status="pass",
-                evidence=f"Found local DFO assets referencing shared salmon namespace ({len(dfo_salmon_hits)} files).",
+                evidence=f"Found local DFO assets referencing shared smn namespace ({len(dfo_smn_hits)} files).",
             )
         )
     else:
@@ -184,7 +184,7 @@ def main() -> None:
                 name="Prefix migration check",
                 status="gap",
                 evidence=(
-                    "No local DFO consumer asset in dfo-salmon-ontology currently references w3id.org/salmon/. "
+                    "No local DFO consumer asset in dfo-salmon-ontology currently references w3id.org/smn/. "
                     "DFO live consumer config is external/not present in this workspace."
                 ),
             )
@@ -215,7 +215,7 @@ def main() -> None:
             CheckResult(
                 name="Prefix/query update check",
                 status="pass",
-                evidence=f"SPSR namespace bridge map contains {len(migrated_compat)} explicit migrated gcdfo→salmon mappings.",
+                evidence=f"SPSR namespace bridge map contains {len(migrated_compat)} explicit migrated gcdfo→smn mappings.",
             )
         )
     else:
@@ -233,7 +233,7 @@ def main() -> None:
             continue
         s_text = str(s)
         o_text = str(o)
-        if "/profile/" in s_text and o_text.startswith("http://w3id.org/salmon/"):
+        if "/profile/" in s_text and o_text.startswith("https://w3id.org/smn/"):
             bridge_links.append({"source": s_text, "predicate": str(p), "target": o_text})
 
     bridge_links_unique = []
@@ -340,7 +340,7 @@ def main() -> None:
             "checks": [asdict(c) for c in dfo_checks],
             "migrated_presence": migrated_presence,
             "deferred_eval": deferred_eval,
-            "dfo_salmon_namespace_hits": dfo_salmon_hits,
+            "dfo_smn_namespace_hits": dfo_smn_hits,
         },
         "spsr": {
             "overall": spsr_overall,

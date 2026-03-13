@@ -1,7 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://w3id.org/salmon-domain-ontology/root-compat> a owl:Ontology ;
+<https://w3id.org/smn/root-compat> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology root compatibility wrapper"@en ;
   rdfs:comment "Compatibility entrypoint retained at repository root. The modular source of truth is ontology/salmon-domain-ontology.ttl."@en ;
-  owl:imports <http://w3id.org/salmon-domain-ontology> .
+  owl:imports <https://w3id.org/smn> .

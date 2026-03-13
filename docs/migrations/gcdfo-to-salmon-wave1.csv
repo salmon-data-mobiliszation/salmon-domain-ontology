@@ -1,27 +1,27 @@
 old_iri,new_iri,module,status,notes
-https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,http://w3id.org/salmon/ReportingOrManagementStratum,01-entity-systematics.ttl,migrated,shared abstraction
-https://w3id.org/gcdfo/salmon#Stock,http://w3id.org/salmon/Stock,01-entity-systematics.ttl,migrated,explicitly approved shared
-https://w3id.org/gcdfo/salmon#Deme,http://w3id.org/salmon/Deme,01-entity-systematics.ttl,migrated,shared biological unit
-https://w3id.org/gcdfo/salmon#Population,http://w3id.org/salmon/Population,01-entity-systematics.ttl,migrated,shared biological unit
-https://w3id.org/gcdfo/salmon#IndicatorRiver,http://w3id.org/salmon/IndicatorRiver,01-entity-systematics.ttl,migrated,explicitly approved shared
-https://w3id.org/gcdfo/salmon#hasDeme,http://w3id.org/salmon/hasDeme,01-entity-systematics.ttl,migrated,shared composition relation
-https://w3id.org/gcdfo/salmon#demeOf,http://w3id.org/salmon/demeOf,01-entity-systematics.ttl,migrated,shared composition relation inverse
-https://w3id.org/gcdfo/salmon#hasPopulation,http://w3id.org/salmon/hasPopulation,01-entity-systematics.ttl,migrated,re-scoped to generic reporting/management stratum
-https://w3id.org/gcdfo/salmon#populationOf,http://w3id.org/salmon/populationOf,01-entity-systematics.ttl,migrated,re-scoped inverse
-https://w3id.org/gcdfo/salmon#SurveyEvent,http://w3id.org/salmon/SurveyEvent,02-observation-measurement.ttl,migrated,shared monitoring event
-https://w3id.org/gcdfo/salmon#EscapementSurveyEvent,http://w3id.org/salmon/EscapementSurveyEvent,02-observation-measurement.ttl,migrated,shared event
-https://w3id.org/gcdfo/salmon#EscapementMeasurement,http://w3id.org/salmon/EscapementMeasurement,02-observation-measurement.ttl,migrated,shared measurement class
-https://w3id.org/gcdfo/salmon#Escapement,http://w3id.org/salmon/Escapement,02-observation-measurement.ttl,migrated,shared concept
-https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance,http://w3id.org/salmon/ObservedRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base metric
-https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance,http://w3id.org/salmon/TargetOrLimitRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base target/limit metric
-https://w3id.org/gcdfo/salmon#StockAssessment,http://w3id.org/salmon/StockAssessment,03-assessment-benchmarks.ttl,migrated,shared assessment process
-https://w3id.org/gcdfo/salmon#ReferencePoint,http://w3id.org/salmon/ReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral reference abstraction
-https://w3id.org/gcdfo/salmon#LimitReferencePoint,http://w3id.org/salmon/LimitReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral lower-threshold abstraction
-https://w3id.org/gcdfo/salmon#MetricBenchmark,http://w3id.org/salmon/MetricBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
-https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,http://w3id.org/salmon/LowerBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
-https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,http://w3id.org/salmon/UpperBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
-https://w3id.org/gcdfo/salmon#ExploitationRate,http://w3id.org/salmon/ExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric
-https://w3id.org/gcdfo/salmon#TotalExploitationRate,http://w3id.org/salmon/TotalExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric subtype
+https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,https://w3id.org/smn/ReportingOrManagementStratum,01-entity-systematics.ttl,migrated,shared abstraction
+https://w3id.org/gcdfo/salmon#Stock,https://w3id.org/smn/Stock,01-entity-systematics.ttl,migrated,explicitly approved shared
+https://w3id.org/gcdfo/salmon#Deme,https://w3id.org/smn/Deme,01-entity-systematics.ttl,migrated,shared biological unit
+https://w3id.org/gcdfo/salmon#Population,https://w3id.org/smn/Population,01-entity-systematics.ttl,migrated,shared biological unit
+https://w3id.org/gcdfo/salmon#IndicatorRiver,https://w3id.org/smn/IndicatorRiver,01-entity-systematics.ttl,migrated,explicitly approved shared
+https://w3id.org/gcdfo/salmon#hasDeme,https://w3id.org/smn/hasDeme,01-entity-systematics.ttl,migrated,shared composition relation
+https://w3id.org/gcdfo/salmon#demeOf,https://w3id.org/smn/demeOf,01-entity-systematics.ttl,migrated,shared composition relation inverse
+https://w3id.org/gcdfo/salmon#hasPopulation,https://w3id.org/smn/hasPopulation,01-entity-systematics.ttl,migrated,re-scoped to generic reporting/management stratum
+https://w3id.org/gcdfo/salmon#populationOf,https://w3id.org/smn/populationOf,01-entity-systematics.ttl,migrated,re-scoped inverse
+https://w3id.org/gcdfo/salmon#SurveyEvent,https://w3id.org/smn/SurveyEvent,02-observation-measurement.ttl,migrated,shared monitoring event
+https://w3id.org/gcdfo/salmon#EscapementSurveyEvent,https://w3id.org/smn/EscapementSurveyEvent,02-observation-measurement.ttl,migrated,shared event
+https://w3id.org/gcdfo/salmon#EscapementMeasurement,https://w3id.org/smn/EscapementMeasurement,02-observation-measurement.ttl,migrated,shared measurement class
+https://w3id.org/gcdfo/salmon#Escapement,https://w3id.org/smn/Escapement,02-observation-measurement.ttl,migrated,shared concept
+https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance,https://w3id.org/smn/ObservedRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base metric
+https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance,https://w3id.org/smn/TargetOrLimitRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base target/limit metric
+https://w3id.org/gcdfo/salmon#StockAssessment,https://w3id.org/smn/StockAssessment,03-assessment-benchmarks.ttl,migrated,shared assessment process
+https://w3id.org/gcdfo/salmon#ReferencePoint,https://w3id.org/smn/ReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral reference abstraction
+https://w3id.org/gcdfo/salmon#LimitReferencePoint,https://w3id.org/smn/LimitReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral lower-threshold abstraction
+https://w3id.org/gcdfo/salmon#MetricBenchmark,https://w3id.org/smn/MetricBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
+https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,https://w3id.org/smn/LowerBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
+https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,https://w3id.org/smn/UpperBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
+https://w3id.org/gcdfo/salmon#ExploitationRate,https://w3id.org/smn/ExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric
+https://w3id.org/gcdfo/salmon#TotalExploitationRate,https://w3id.org/smn/TotalExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric subtype
 https://w3id.org/gcdfo/salmon#ConservationUnit,,deferred-profile,deferred_profile,DFO-specific boundary decision
 https://w3id.org/gcdfo/salmon#StockManagementUnit,,deferred-profile,deferred_profile,DFO-specific boundary decision
 https://w3id.org/gcdfo/salmon#hasConservationUnit,,deferred-profile,deferred_profile,depends on SMU/CU profile scope
