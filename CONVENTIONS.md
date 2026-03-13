@@ -10,7 +10,7 @@ Conservative default: **if unsure, keep terms in a profile ontology first**. Pro
 
 ## 2) Layered model (authoritative)
 
-### Layer A — Shared OWL semantic core (`salmon:`)
+### Layer A — Shared OWL semantic core (`smn:`)
 
 Use for cross-agency concepts with stable semantics and reusable logical structure.
 
@@ -19,7 +19,7 @@ Examples:
 - reusable monitoring/measurement semantics (`SurveyEvent`, `EscapementMeasurement`)
 - reusable quantitative semantics (`ExploitationRate`)
 
-### Layer B — Shared SKOS interoperability layer (`salmon:`)
+### Layer B — Shared SKOS interoperability layer (`smn:`)
 
 A **small curated SKOS layer** for truly cross-agency controlled vocabularies.
 
@@ -59,7 +59,7 @@ A concept may exist as both OWL and SKOS **only with separate IRIs** and explici
 
 ## 4) IRI strategy
 
-1. Shared terms use `salmon:` IRIs.
+1. Shared terms use `smn:` IRIs.
 2. Profile-specific terms use the profile namespace.
 3. Do not overload a single IRI with incompatible roles.
 4. OWL class IRIs and SKOS concept IRIs must remain distinct where both are needed.
@@ -97,7 +97,7 @@ When a profile concept corresponds to shared domain semantics:
 5. Attach provenance and reviewer metadata for each bridge.
 
 Example (conceptual):
-- `profile:SomeMethodConcept skos:closeMatch salmon:EscapementMeasurement .`
+- `profile:SomeMethodConcept skos:closeMatch smn:EscapementMeasurement .`
 - `profile:SomeMethodConcept prov:wasDerivedFrom <source-doc> .`
 
 ## 7) LLM-assisted integration policy

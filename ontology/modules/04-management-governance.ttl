@@ -1,9 +1,9 @@
-@prefix salmon: <http://w3id.org/salmon/> .
+@prefix smn: <https://w3id.org/smn/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 
-<http://w3id.org/salmon-domain-ontology/modules/04-management-governance> a owl:Ontology ;
+<https://w3id.org/smn/modules/04-management-governance> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 04: Management and governance"@en ;
   rdfs:comment "Conservative shared event taxonomy. Policy/program-specific schemes remain in profile ontologies."@en .
 
@@ -11,14 +11,14 @@
 # Event taxonomy
 #################################################################
 
-salmon:EventType a owl:Class ;
+smn:EventType a owl:Class ;
   rdfs:label "Event type"@en ;
   iao:0000115 "A class used to categorize fisheries or survey event instances by operational type."@en .
 
-salmon:FishingType a owl:Class ;
+smn:FishingType a owl:Class ;
   rdfs:label "Fishing type"@en ;
-  rdfs:subClassOf salmon:EventType .
+  rdfs:subClassOf smn:EventType .
 
-salmon:seiningEvent a owl:Class ;
+smn:seiningEvent a owl:Class ;
   rdfs:label "Seining event"@en ;
-  rdfs:subClassOf salmon:FishingType .
+  rdfs:subClassOf smn:FishingType .

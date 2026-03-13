@@ -8,7 +8,7 @@ Use it only in a DFO runtime that can execute the real downstream consumer smoke
 
 The following checks are already evidenced from fixture and ontology-level validation:
 
-- Migrated-term presence in shared modules (`salmon:`): **pre-cleared**
+- Migrated-term presence in shared modules (`smn:`): **pre-cleared**
 - Deferred-profile terms (`ConservationUnit`, `StockManagementUnit`) not promoted into shared core: **pre-cleared**
 - Bridge handling safety posture for deferred profile terms: **pre-cleared (fixture)**
 
@@ -23,7 +23,7 @@ Evidence package:
 
 Two checks still require one real DFO consumer run in operational context:
 
-1. Prefix migration check in **actual consumer config/runtime** (`http://w3id.org/salmon/` binding)
+1. Prefix migration check in **actual consumer config/runtime** (`https://w3id.org/smn/` binding)
 2. Output parity check against last known-good DFO output baseline
 
 ## 3) Required inputs (fill before starting)
@@ -55,8 +55,8 @@ set -euo pipefail
 mkdir -p "$EVIDENCE_DIR"
 
 # 1) Prefix migration check (must find salmon namespace binding)
-# Expected: one or more hits containing http://w3id.org/salmon/
-grep -RIn "http://w3id.org/salmon/" "$DFO_CONSUMER_REPO" \
+# Expected: one or more hits containing https://w3id.org/smn/
+grep -RIn "https://w3id.org/smn/" "$DFO_CONSUMER_REPO" \
   | tee "$EVIDENCE_DIR/01-prefix-binding.txt"
 
 # 2) Execute live DFO smoke command
@@ -82,7 +82,7 @@ python3 "$SALMON_DOMAIN_REPO"/docs/migrations/evidence/check_dfo_output_parity.p
 
 ## 5) Expected outputs to mark PASS
 
-- `01-prefix-binding.txt`: at least one config hit with `http://w3id.org/salmon/`
+- `01-prefix-binding.txt`: at least one config hit with `https://w3id.org/smn/`
 - `02-live-smoke.log`: smoke command completed (`exit 0`)
 - `03-output-sha256.txt` and `04-baseline-sha256.txt`: both artifact hashes captured
 - `05-output-parity.md` and `05-output-parity.json`: parity status `pass`
@@ -113,4 +113,4 @@ Post one issue comment with this structure:
 ## 7) Gate decision rule
 
 - Mark issue #3 DFO blocker complete **only when** prefix check and parity check are both `PASS` with live-run artifacts.
-- If either is missing, PR #2 remains draft.
+- If either is missing, issue #3 remains blocked and the post-merge cutover package stays incomplete.

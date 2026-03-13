@@ -1,11 +1,11 @@
-@prefix salmon: <http://w3id.org/salmon/> .
+@prefix smn: <https://w3id.org/smn/> .
 @prefix iadopt: <https://w3id.org/iadopt/ont/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://w3id.org/salmon-domain-ontology/modules/06-data-interoperability> a owl:Ontology ;
+<https://w3id.org/smn/modules/06-data-interoperability> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 06: Data interoperability"@en ;
   rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, and Darwin Core interoperability."@en .
 

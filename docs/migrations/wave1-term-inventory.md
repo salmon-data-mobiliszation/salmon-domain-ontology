@@ -1,4 +1,4 @@
-# Wave 1 term inventory (gcdfo -> salmon)
+# Wave 1 term inventory (gcdfo -> smn)
 
 ## Scope rule used
 
@@ -33,4 +33,4 @@ Deferred groups include:
 ## Non-destructive migration stance
 
 No term removals are made in `dfo-salmon-ontology` during wave 1.
-DFO remains intact while shared/profile boundaries are hardened in salmon-domain.
+DFO remains intact while shared/profile boundaries are hardened around the canonical `smn:` shared layer.

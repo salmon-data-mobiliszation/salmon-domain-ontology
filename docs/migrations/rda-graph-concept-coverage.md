@@ -11,17 +11,17 @@
 
 ## Coverage result
 
-The yEd graph contains 37 `salmon:` node labels. After this pass, all 37 are represented in the Salmon Domain Ontology codebase as shared terms or profile bridges.
+The yEd graph contains 37 `smn:` node labels. After this pass, all 37 are represented in the Salmon Domain Ontology codebase as shared terms or profile bridges.
 
 ## Shared-layer additions made in this pass
 
 Added to `ontology/modules/02-observation-measurement.ttl`:
 
-1. `salmon:EnumerationMethod` (OWL class)
-2. `salmon:NCBITaxon_8018` (OWL class proxy linked to `obo:NCBITaxon_8018`)
-3. `salmon:orbitalLength`
-4. `salmon:standardLength`
-5. `salmon:totalLength`
+1. `smn:EnumerationMethod` (OWL class)
+2. `smn:NCBITaxon_8018` (OWL class proxy linked to `obo:NCBITaxon_8018`)
+3. `smn:orbitalLength`
+4. `smn:standardLength`
+5. `smn:totalLength`
 6. Taxonomy bridge axiom: `obo:NCBITaxon_8018 rdfs:subClassOf obo:NCBITaxon_8015`
 
 ## Profile-bridge additions from graph and decomposition source terms
@@ -31,13 +31,13 @@ Added modules:
 1. `ontology/modules/08-rda-case-study-profile-bridges.ttl` (Hakai bridge terms from graph)
 2. `ontology/modules/09-rda-neville-decomposition-profile-bridges.ttl` (Neville decomposition bridge terms)
 
-Mapped Hakai source terms to shared salmon terms using conservative `skos:closeMatch` links:
+Mapped Hakai source terms to shared `smn:` terms using conservative `skos:closeMatch` links:
 
-1. `hakai:Fork_Length_Measurement_Method` -> `salmon:FishForkLengthMeasurementMethod`
-2. `hakai:fork_length_measurement_field_method` -> `salmon:ForkLengthMeasurementFieldMethod`
-3. `hakai:fork_length_measurement_lab_method` -> `salmon:ForkLengthMeasurementLabMethod`
-4. `hakai:Fork_Length_Field_Measurement` -> `salmon:ForkLengthMeasurement`
-5. `hakai:Fork_Length_Lab_Measurement` -> `salmon:ForkLengthMeasurement`
+1. `hakai:Fork_Length_Measurement_Method` -> `smn:FishForkLengthMeasurementMethod`
+2. `hakai:fork_length_measurement_field_method` -> `smn:ForkLengthMeasurementFieldMethod`
+3. `hakai:fork_length_measurement_lab_method` -> `smn:ForkLengthMeasurementLabMethod`
+4. `hakai:Fork_Length_Field_Measurement` -> `smn:ForkLengthMeasurement`
+5. `hakai:Fork_Length_Lab_Measurement` -> `smn:ForkLengthMeasurement`
 
 Added Neville decomposition bridge concepts (19 unique term concepts) with conservative mappings to shared anchors, including:
 

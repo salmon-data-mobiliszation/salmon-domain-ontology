@@ -1,4 +1,4 @@
-@prefix salmon:  <http://w3id.org/salmon/> .
+@prefix smn:  <https://w3id.org/smn/> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
@@ -7,10 +7,10 @@
 @prefix dwc:     <http://rs.tdwg.org/dwc/terms/> .
 @prefix ro:      <http://purl.obolibrary.org/obo/RO_> .
 
-<http://w3id.org/salmon-domain-ontology/modules/alignment-research> a owl:Ontology ;
+<https://w3id.org/smn/modules/alignment-research> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Alignment Module (research)"@en ;
   rdfs:comment "Exploratory upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). Contains stronger candidate axioms for review."@en ;
-  owl:imports <http://w3id.org/salmon-domain-ontology> .
+  owl:imports <https://w3id.org/smn> .
 
 #################################################################
 # External class stubs (readability)
@@ -33,61 +33,61 @@
 # Stronger subclass candidates
 #################################################################
 
-salmon:SurveyEvent rdfs:subClassOf prov:Activity ;
+smn:SurveyEvent rdfs:subClassOf prov:Activity ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
 
-salmon:EscapementSurveyEvent rdfs:subClassOf prov:Activity, <http://www.w3.org/ns/sosa/Sampling> ;
+smn:EscapementSurveyEvent rdfs:subClassOf prov:Activity, <http://www.w3.org/ns/sosa/Sampling> ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
 
-salmon:EscapementMeasurement rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
+smn:EscapementMeasurement rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Observation>, <https://w3id.org/iadopt/ont/Variable> .
 
-salmon:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>, <https://w3id.org/iadopt/ont/Entity> .
-salmon:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-salmon:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>, <https://w3id.org/iadopt/ont/Entity> .
+smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
-salmon:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
-salmon:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
-salmon:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+smn:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+smn:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
 #################################################################
 # Candidate bridge properties
 #################################################################
 
-salmon:hasFeatureOfInterest a owl:ObjectProperty ;
+smn:hasFeatureOfInterest a owl:ObjectProperty ;
   rdfs:label "has feature of interest"@en ;
   iao:0000115 "Relates a survey or observation event to the reporting or management stratum that is the focus of inference."@en ;
   rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
-  rdfs:domain salmon:SurveyEvent ;
-  rdfs:range salmon:ReportingOrManagementStratum .
+  rdfs:domain smn:SurveyEvent ;
+  rdfs:range smn:ReportingOrManagementStratum .
 
-salmon:hasObservationResult a owl:ObjectProperty ;
+smn:hasObservationResult a owl:ObjectProperty ;
   rdfs:label "has observation result"@en ;
   iao:0000115 "Relates a survey event to the measurement datum produced by that event."@en ;
   rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasResult> ;
-  rdfs:domain salmon:SurveyEvent ;
-  rdfs:range salmon:EscapementMeasurement .
+  rdfs:domain smn:SurveyEvent ;
+  rdfs:range smn:EscapementMeasurement .
 
-salmon:usesObservationProcedure a owl:ObjectProperty ;
+smn:usesObservationProcedure a owl:ObjectProperty ;
   rdfs:label "uses observation procedure"@en ;
   iao:0000115 "Relates a survey event to the protocol or procedure used to conduct it."@en ;
   rdfs:subPropertyOf <http://www.w3.org/ns/sosa/usedProcedure> ;
-  rdfs:domain salmon:SurveyEvent ;
+  rdfs:domain smn:SurveyEvent ;
   rdfs:range iao:0000104 .
 
-salmon:isSampleOfStratum a owl:ObjectProperty ;
+smn:isSampleOfStratum a owl:ObjectProperty ;
   rdfs:label "is sample of stratum"@en ;
   iao:0000115 "Relates a sample to the reporting or management stratum it represents in analysis."@en ;
   rdfs:subPropertyOf <http://www.w3.org/ns/sosa/isSampleOf> ;
   rdfs:domain dwc:MaterialEntity ;
-  rdfs:range salmon:ReportingOrManagementStratum .
+  rdfs:range smn:ReportingOrManagementStratum .
 
 #################################################################
 # RO + representation-level bridges
 #################################################################
 
-salmon:hasDeme rdfs:subPropertyOf ro:0002351 .
-salmon:hasPopulation rdfs:subPropertyOf ro:0002351 .
+smn:hasDeme rdfs:subPropertyOf ro:0002351 .
+smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 
 <http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
 <http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .

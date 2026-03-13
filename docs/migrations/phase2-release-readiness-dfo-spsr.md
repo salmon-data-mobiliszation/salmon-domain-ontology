@@ -27,7 +27,7 @@ These notes track the minimum evidence required before publish-ready migration/c
 
 Required evidence:
 
-- DFO pipelines can consume shared `salmon:` terms for migrated rows.
+- DFO pipelines can consume shared `smn:` terms for migrated rows.
 - Deferred DFO terms remain profile-resolved without loss.
 - No production dependency on auto-canonicalizing Tier-3 mappings.
 

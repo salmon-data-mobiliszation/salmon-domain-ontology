@@ -32,6 +32,6 @@ That guide explains (in plain language) how modules, local program ontologies, a
 
 ## Guardrails
 
-- Use `salmon:` for domain terms intended for reuse across organizations.
+- Use `smn:` for domain terms intended for reuse across organizations.
 - Preserve source-provenance notes when migrating terms from DFO Salmon Ontology.
 - Do **not** remove terms from DFO source ontology as part of this phase.

@@ -34,7 +34,7 @@ For the **final live parity gate**, execute `phase2-dfo-live-smoke-runbook.md` a
 
 ### Checklist
 
-- [ ] **Prefix migration check**: consumer configs bind shared namespace to `http://w3id.org/salmon/`.
+- [ ] **Prefix migration check**: consumer configs bind shared namespace to `https://w3id.org/smn/`.
 - [ ] **Migrated-term check**: at least 3 `status=migrated` terms from `gcdfo-to-salmon-wave1.csv` resolve in pipeline/query output.
 - [ ] **Deferred-profile check**: at least 2 `status=deferred_profile` terms remain profile-resolved (not promoted to shared).
 - [ ] **Bridge handling check**: profile bridge terms are accepted without forcing canonical promotion.
@@ -42,8 +42,8 @@ For the **final live parity gate**, execute `phase2-dfo-live-smoke-runbook.md` a
 
 ### Minimum query/inspection set (recommended)
 
-1. One class/entity lookup (example: `salmon:Stock` or `salmon:ReportingOrManagementStratum`).
-2. One event/measurement lookup (example: `salmon:SurveyEvent`, `salmon:EscapementMeasurement`).
+1. One class/entity lookup (example: `smn:Stock` or `smn:ReportingOrManagementStratum`).
+2. One event/measurement lookup (example: `smn:SurveyEvent`, `smn:EscapementMeasurement`).
 3. One deferred profile term path (example: `ConservationUnit` or `StockManagementUnit`) proving profile-only handling still works.
 
 ### Result block (paste in issue #3)
@@ -77,7 +77,7 @@ For the **final live parity gate**, execute `phase2-dfo-live-smoke-runbook.md` a
 
 ### Checklist
 
-- [ ] **Prefix/query update check**: SPSR query/report layer uses `salmon:` canonical terms.
+- [ ] **Prefix/query update check**: SPSR query/report layer uses `smn:` canonical terms.
 - [ ] **Bridge resolution check**: at least 2 bridge mappings from modules 08/09 resolve in query results.
 - [ ] **Tier-3 safety check**: Tier-3 mappings are treated as advisory (no automatic production canonicalization).
 - [ ] **Report continuity check**: one end-to-end report/extract completes with expected key metrics.

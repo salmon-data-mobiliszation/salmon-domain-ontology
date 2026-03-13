@@ -1,58 +1,79 @@
-# Namespace decision for Salmon Domain Ontology
+# Namespace decision for Salmon Domain Ontology (`smn`)
 
-Status: **proposed for immediate ratification**
+Status: **implemented; stabilization release pending**
 Owner: `@Br-Johnson`
-Date: 2026-03-05
+Date: 2026-03-13
 
 ## Why this is needed now
 
-Current state is not safe for broad downstream migration:
+Current state is materially better than before, but not fully closed for broad downstream migration:
 
 - `https://w3id.org/salmon/` resolves to an unrelated external project (name collision).
-- `https://w3id.org/salmon-domain-ontology` is not registered yet (404).
-- Internal ontology files currently use `http://w3id.org/salmon/` for `salmon:` terms, which cannot be guaranteed under our control.
+- `https://w3id.org/smn` is now live and gives the project a maintainer-controlled persistent base.
+- The live W3ID surface is intentionally conservative: root, `/latest`, representative term/module/build/profile paths currently resolve to Turtle artifacts only.
+- Internal ontology files and migration artifacts previously used draft IRIs under `http://w3id.org/salmon/` and `http://w3id.org/salmon-domain-ontology`, which are not the canonical persistent identifiers.
 
-Until this is fixed, app-level namespace rewiring should remain paused.
+Until that live namespace state is documented and tagged, broad app-level cutover should remain gated.
 
-## Canonical namespace decision (proposed)
+## Canonical namespace decision
 
-Use one persistent base under our own path:
+Use one persistent shared-layer base:
 
-- **Term namespace (`salmon:`):** `https://w3id.org/salmon-domain-ontology/`
-- **Ontology IRI (main build):** `https://w3id.org/salmon-domain-ontology`
-- **Module IRIs:** `https://w3id.org/salmon-domain-ontology/modules/<module-name>`
-- **Research build IRI:** `https://w3id.org/salmon-domain-ontology/research`
-- **Case-study build IRI:** `https://w3id.org/salmon-domain-ontology/rda-case-study`
+- **Shared prefix:** `smn:`
+- **Term namespace (`smn:`):** `https://w3id.org/smn/`
+- **Ontology IRI (main build):** `https://w3id.org/smn`
+- **Module IRIs:** `https://w3id.org/smn/modules/<module-name>`
+- **Research build IRI:** `https://w3id.org/smn/research`
+- **Case-study build IRI:** `https://w3id.org/smn/rda-case-study`
 - **Profile namespaces:**
-  - `https://w3id.org/salmon-domain-ontology/profile/hakai/`
-  - `https://w3id.org/salmon-domain-ontology/profile/neville/`
-  - `https://w3id.org/salmon-domain-ontology/profile/rda-case-study/`
+  - `https://w3id.org/smn/profile/hakai/`
+  - `https://w3id.org/smn/profile/neville/`
+  - `https://w3id.org/smn/profile/rda-case-study/`
 
-## Transition mapping (from current draft IRIs)
+## Boundary rule
+
+- Shared reusable terms live in `smn:`.
+- DFO-specific policy/program terms stay in `gcdfo:` (or other profile namespaces) and bridge to shared anchors where appropriate.
+
+## Transition mapping (from prior draft IRIs)
 
 | Current pattern | Canonical pattern |
 | --- | --- |
-| `http://w3id.org/salmon/<x>` | `https://w3id.org/salmon-domain-ontology/<x>` |
-| `http://w3id.org/salmon-domain-ontology...` | `https://w3id.org/salmon-domain-ontology...` |
-| `https://w3id.org/salmon/profile/<p>/...` | `https://w3id.org/salmon-domain-ontology/profile/<p>/...` |
+| `http://w3id.org/salmon/<x>` | `https://w3id.org/smn/<x>` |
+| `http://w3id.org/salmon-domain-ontology...` | `https://w3id.org/smn...` |
+| `https://w3id.org/salmon-domain-ontology...` | `https://w3id.org/smn...` |
+| `https://w3id.org/salmon/profile/<p>/...` | `https://w3id.org/smn/profile/<p>/...` |
 
 ## Freeze rule
 
-Do **not** perform broad dependent-app namespace cutover until both are true:
+Do **not** perform broad downstream cutover until all are true:
 
-1. W3ID redirect registration is merged and live.
-2. Ontology IRIs in this repo are rewritten to the canonical namespace above.
+1. The `smn` W3ID path is live and redirect behavior is recorded.
+2. Ontology IRIs in this repo are rewritten to the canonical `https://w3id.org/smn` base.
+3. Current migration docs/maps used by downstream consumers are updated to the same canonical `smn` namespace story.
+4. One stabilization release is tagged from the live namespace state.
 
 ## Acceptance checklist
 
-- [ ] W3ID request submitted with `.htaccess` payload
-- [ ] W3ID redirect rules merged and resolvable
-- [ ] Ontology files updated to canonical namespace
-- [ ] Migration map (`docs/migrations/gcdfo-to-salmon-wave1.csv`) updated to canonical `new_iri` values
-- [ ] README + conventions updated to the same canonical namespace
-- [ ] One tagged release from `main` after namespace rewrite
+- [x] W3ID path `smn` is merged and resolvable
+- [x] Conservative Turtle-first redirect behavior is recorded (`docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`)
+- [x] Ontology files updated to canonical `smn` IRIs
+- [x] Migration map (`docs/migrations/gcdfo-to-salmon-wave1.csv`) updated to canonical `new_iri` values
+- [x] README + conventions + cutover docs updated to the same canonical namespace story
+- [ ] One stabilization release tagged from the live namespace state
 
-## Notes on root TTL duplication concern
+## Publication caveat
 
-`/salmon-domain-ontology.ttl` at repo root is a compatibility wrapper and intentionally imports the modular source of truth at `ontology/salmon-domain-ontology.ttl`.
-That is expected and can remain as-is.
+The W3ID registration is live, but the repo does **not** yet expose a DFO-style public publication surface:
+
+- no published HTML docs are available,
+- no published RDF/XML serialization is available,
+- no published JSON-LD serialization is available,
+- no SemVer release snapshot directories exist yet.
+
+That means the current W3ID behavior is an intentionally conservative Turtle-first publication surface, not the richer final content-negotiated/versioned surface. See `w3id-request-payload.md`, `w3id-smn-draft/`, and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
+
+## Notes on root TTL compatibility file
+
+`/salmon-domain-ontology.ttl` at repo root remains a repository-level compatibility wrapper.
+The canonical ontology IRI is now `https://w3id.org/smn`, while the modular source of truth remains `ontology/salmon-domain-ontology.ttl`.

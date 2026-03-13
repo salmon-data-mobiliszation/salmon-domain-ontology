@@ -4,7 +4,7 @@ Use this checklist when adopting the modular `salmon-domain-ontology` migration 
 
 ## A) Ontology maintainers (repo-level)
 
-- [ ] Confirm canonical namespace usage matches `docs/publishing/namespace-decision.md` (proposed: `https://w3id.org/salmon-domain-ontology/` as `salmon:`)
+- [ ] Confirm canonical namespace usage matches `docs/publishing/namespace-decision.md` (`https://w3id.org/smn/` as `smn:`; W3ID path live)
 - [ ] Confirm shared build imports modules `01`-`07` + `alignment-main`
 - [ ] Confirm case-study build imports modules `08` and `09` only as profile bridges
 - [ ] Verify migration map (`gcdfo-to-salmon-wave1.csv`) is up to date for migrated/deferred terms
@@ -20,7 +20,7 @@ Use this checklist when adopting the modular `salmon-domain-ontology` migration 
 
 ## C) SPSR consumer adoption
 
-- [ ] Update prefix bindings and graph queries to use `salmon:` canonical shared terms
+- [ ] Update prefix bindings and graph queries to use `smn:` canonical shared terms
 - [ ] Validate joins still resolve when profile terms are mapped via bridge modules (Tier 2/3 mappings)
 - [ ] Confirm dashboards/reports treat Tier 3 mappings as advisory unless promoted
 - [ ] Confirm no hard dependency on removed-in-shared policy-specific SKOS families

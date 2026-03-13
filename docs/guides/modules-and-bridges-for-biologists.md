@@ -10,7 +10,7 @@ If you work with salmon datasets and you are **not** an ontology specialist, sta
 
 Think of this ontology stack like field work across many organizations:
 
-1. **Shared domain ontology (`salmon:`)** = the common language everyone agrees on.
+1. **Shared domain ontology (`smn:`)** = the common language everyone agrees on.
 2. **Organization/program ontology (your local profile)** = your team’s local terms, methods, and policy vocabulary.
 3. **Bridge profile** = the translation layer that connects your local terms to shared terms.
 
@@ -76,7 +76,7 @@ Make a simple table from columns/variables/method fields:
 
 For each local term, ask:
 
-- Is there already a `salmon:` term with the same meaning?
+- Is there already a `smn:` term with the same meaning?
 
 If yes, reuse it.
 
@@ -110,7 +110,7 @@ Run representative records through the mapping and check:
 
 ### Step 7 — Promote only when justified
 
-Promote a local term into shared `salmon:` only if:
+Promote a local term into shared `smn:` only if:
 
 - more than one organization needs it
 - semantics are stable across contexts
@@ -125,7 +125,7 @@ If not, keep it profile-scoped and bridged.
 1. Pick your namespace (for example, `myorg:`).
 2. Define your local classes/concepts there.
 3. Keep policy/program-specific statuses and method bins local.
-4. Add a separate bridge module that links `myorg:` to `salmon:`.
+4. Add a separate bridge module that links `myorg:` to `smn:`.
 5. Keep bridge mappings conservative until validated with data.
 
 ---
@@ -133,17 +133,17 @@ If not, keep it profile-scoped and bridged.
 ## Minimal bridge example
 
 ```turtle
-@prefix salmon: <https://w3id.org/salmon-domain-ontology/> .
+@prefix smn: <https://w3id.org/smn/> .
 @prefix myorg:  <https://example.org/myorg/salmon/> .
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 
 myorg:SpawnerSurveyEvent
-  skos:exactMatch salmon:SurveyEvent ;
+  skos:exactMatch smn:SurveyEvent ;
   prov:wasDerivedFrom <https://example.org/myorg/sop/survey-protocol-v3> .
 
 myorg:RapidStatusConfidenceBand
-  skos:closeMatch salmon:MetricBenchmark .
+  skos:closeMatch smn:MetricBenchmark .
 ```
 
 Interpretation:

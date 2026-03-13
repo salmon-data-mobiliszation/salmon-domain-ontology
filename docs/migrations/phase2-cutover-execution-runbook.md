@@ -4,7 +4,7 @@ This runbook defines the minimum execution contract to declare phase-2 migration
 
 ## 1) Scope
 
-- Applies to downstream consumers using shared `salmon:` terms and profile bridge handling.
+- Applies to downstream consumers using shared `smn:` terms and profile bridge handling.
 - Covers pre-cutover checks, cutover execution timing, owner assignments, and rollback triggers.
 - Works with:
   - `phase2-adoption-checklist.md`
@@ -31,7 +31,7 @@ This runbook defines the minimum execution contract to declare phase-2 migration
 
 ### T-5 business days
 
-- Confirm PR #2 scope is stable and blocker checklist is current.
+- Confirm merged PR #2 follow-up scope is stable and blocker checklist is current.
 - Confirm smoke-run owners and meeting time.
 - Confirm Tier-3 triage register has explicit dispositions.
 
@@ -50,7 +50,7 @@ This runbook defines the minimum execution contract to declare phase-2 migration
    - Owner: ontology maintainer
 3. Execute DFO + SPSR smoke runs against cutover target
    - Owners: DFO/SPSR smoke-run owners
-4. Record results in issue #3 and PR #2
+4. Record results in issue #3 and the merged PR #2 follow-up thread/log
    - Owner: cutover coordinator
 
 ### T+1 business day
@@ -77,7 +77,7 @@ Rollback is mandatory if any of the following occurs:
 
 ## 6) Rollback procedure
 
-1. Announce rollback in issue #3 and PR #2 immediately.
+1. Announce rollback in issue #3 and the merged PR #2 follow-up thread/log immediately.
 2. Revert consumer pointers/config to last known-good release artifact.
 3. Mark failed cutover as `deferred` and capture root cause.
 4. Open follow-up blocker item with owner + due date before rescheduling.

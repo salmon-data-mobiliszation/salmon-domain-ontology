@@ -1,4 +1,4 @@
-@prefix salmon: <http://w3id.org/salmon/> .
+@prefix smn: <https://w3id.org/smn/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
@@ -8,7 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 
-<http://w3id.org/salmon-domain-ontology/modules/02-observation-measurement> a owl:Ontology ;
+<https://w3id.org/smn/modules/02-observation-measurement> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 02: Observation and measurement"@en ;
   rdfs:comment "Observation and measurement model (SOSA-aligned) with reusable escapement and survey terms migrated from DFO Salmon Ontology."@en .
 
@@ -16,142 +16,142 @@
 # Observation and measurement classes (existing salmon-domain terms)
 #################################################################
 
-salmon:Observation a owl:Class ;
+smn:Observation a owl:Class ;
   rdfs:label "Observation"@en ;
   rdfs:subClassOf sosa:Observation .
 
-salmon:Characteristic a owl:Class ;
+smn:Characteristic a owl:Class ;
   rdfs:label "Characteristic"@en ;
   rdfs:subClassOf sosa:Property .
 
-salmon:MorphologicalCharacteristic a owl:Class ;
+smn:MorphologicalCharacteristic a owl:Class ;
   rdfs:label "Morphological characteristic"@en ;
-  rdfs:subClassOf salmon:Characteristic .
+  rdfs:subClassOf smn:Characteristic .
 
-salmon:FishLength a owl:Class ;
+smn:FishLength a owl:Class ;
   rdfs:label "Fish length"@en ;
-  rdfs:subClassOf salmon:MorphologicalCharacteristic .
+  rdfs:subClassOf smn:MorphologicalCharacteristic .
 
-salmon:forkLength a owl:Class ;
+smn:forkLength a owl:Class ;
   rdfs:label "Fork length"@en ;
-  owl:equivalentClass salmon:FishLength .
+  owl:equivalentClass smn:FishLength .
 
-salmon:standardLength a owl:Class ;
+smn:standardLength a owl:Class ;
   rdfs:label "Standard length"@en ;
-  rdfs:subClassOf salmon:FishLength .
+  rdfs:subClassOf smn:FishLength .
 
-salmon:totalLength a owl:Class ;
+smn:totalLength a owl:Class ;
   rdfs:label "Total length"@en ;
-  rdfs:subClassOf salmon:FishLength .
+  rdfs:subClassOf smn:FishLength .
 
-salmon:orbitalLength a owl:Class ;
+smn:orbitalLength a owl:Class ;
   rdfs:label "Orbital length"@en ;
-  rdfs:subClassOf salmon:FishLength .
+  rdfs:subClassOf smn:FishLength .
 
-salmon:FishWeight a owl:Class ;
+smn:FishWeight a owl:Class ;
   rdfs:label "Fish weight"@en ;
-  rdfs:subClassOf salmon:MorphologicalCharacteristic .
+  rdfs:subClassOf smn:MorphologicalCharacteristic .
 
-salmon:BodyShape a owl:Class ;
+smn:BodyShape a owl:Class ;
   rdfs:label "Body shape"@en ;
-  rdfs:subClassOf salmon:Characteristic .
+  rdfs:subClassOf smn:Characteristic .
 
-salmon:SalmonLifeStage a owl:Class ;
+smn:SalmonLifeStage a owl:Class ;
   rdfs:label "Salmon life stage"@en ;
-  rdfs:subClassOf salmon:Characteristic .
+  rdfs:subClassOf smn:Characteristic .
 
-salmon:Life-HistoryCharacteristic a owl:Class ;
+smn:Life-HistoryCharacteristic a owl:Class ;
   rdfs:label "Life-history characteristic"@en ;
-  rdfs:subClassOf salmon:Characteristic .
+  rdfs:subClassOf smn:Characteristic .
 
-salmon:fusiform a owl:Class ;
+smn:fusiform a owl:Class ;
   rdfs:label "Fusiform"@en ;
-  rdfs:subClassOf salmon:BodyShape .
+  rdfs:subClassOf smn:BodyShape .
 
-salmon:alevin a owl:Class ;
+smn:alevin a owl:Class ;
   rdfs:label "Alevin"@en ;
-  rdfs:subClassOf salmon:SalmonLifeStage .
+  rdfs:subClassOf smn:SalmonLifeStage .
 
-salmon:Run a owl:Class ;
+smn:Run a owl:Class ;
   rdfs:label "Run"@en ;
-  rdfs:subClassOf salmon:Life-HistoryCharacteristic .
+  rdfs:subClassOf smn:Life-HistoryCharacteristic .
 
-salmon:FishLengthMeasurementMethod a owl:Class ;
+smn:FishLengthMeasurementMethod a owl:Class ;
   rdfs:label "Fish length measurement method"@en ;
   rdfs:subClassOf sosa:Procedure .
 
-salmon:FishForkLengthMeasurementMethod a owl:Class ;
+smn:FishForkLengthMeasurementMethod a owl:Class ;
   rdfs:label "Fish fork-length measurement method"@en ;
-  rdfs:subClassOf salmon:FishLengthMeasurementMethod .
+  rdfs:subClassOf smn:FishLengthMeasurementMethod .
 
-salmon:ForkLengthMeasurementMethod a owl:Class ;
+smn:ForkLengthMeasurementMethod a owl:Class ;
   rdfs:label "Fork-length measurement method"@en ;
-  rdfs:subClassOf salmon:FishForkLengthMeasurementMethod .
+  rdfs:subClassOf smn:FishForkLengthMeasurementMethod .
 
-salmon:ForkLengthMeasurementFieldMethod a owl:Class ;
+smn:ForkLengthMeasurementFieldMethod a owl:Class ;
   rdfs:label "Fork-length field method"@en ;
-  rdfs:subClassOf salmon:ForkLengthMeasurementMethod .
+  rdfs:subClassOf smn:ForkLengthMeasurementMethod .
 
-salmon:ForkLengthMeasurementLabMethod a owl:Class ;
+smn:ForkLengthMeasurementLabMethod a owl:Class ;
   rdfs:label "Fork-length lab method"@en ;
-  rdfs:subClassOf salmon:ForkLengthMeasurementMethod .
+  rdfs:subClassOf smn:ForkLengthMeasurementMethod .
 
-salmon:EnumerationMethod a owl:Class ;
+smn:EnumerationMethod a owl:Class ;
   rdfs:label "Enumeration method"@en ;
   rdfs:subClassOf sosa:Procedure .
 
-salmon:Measurement a owl:Class ;
+smn:Measurement a owl:Class ;
   rdfs:label "Measurement"@en ;
   rdfs:comment "A salmon-domain observation focused on one feature of interest and one characteristic."@en ;
-  rdfs:subClassOf salmon:Observation ,
+  rdfs:subClassOf smn:Observation ,
     [ a owl:Restriction ;
       owl:onProperty sosa:hasFeatureOfInterest ;
-      owl:someValuesFrom salmon:Entity ],
+      owl:someValuesFrom smn:Entity ],
     [ a owl:Restriction ;
       owl:onProperty sosa:observedProperty ;
-      owl:someValuesFrom salmon:Characteristic ] .
+      owl:someValuesFrom smn:Characteristic ] .
 
-salmon:FishLengthMeasurementType a owl:Class ;
+smn:FishLengthMeasurementType a owl:Class ;
   rdfs:label "Fish length measurement type"@en ;
-  rdfs:subClassOf salmon:Measurement ,
+  rdfs:subClassOf smn:Measurement ,
     [ a owl:Restriction ;
       owl:onProperty sosa:observedProperty ;
-      owl:someValuesFrom salmon:FishLength ],
+      owl:someValuesFrom smn:FishLength ],
     [ a owl:Restriction ;
       owl:onProperty sosa:usedProcedure ;
-      owl:someValuesFrom salmon:FishLengthMeasurementMethod ] .
+      owl:someValuesFrom smn:FishLengthMeasurementMethod ] .
 
-salmon:ForkLengthMeasurement a owl:Class ;
+smn:ForkLengthMeasurement a owl:Class ;
   rdfs:label "Fork-length measurement"@en ;
-  rdfs:subClassOf salmon:FishLengthMeasurementType ,
+  rdfs:subClassOf smn:FishLengthMeasurementType ,
     [ a owl:Restriction ;
       owl:onProperty sosa:observedProperty ;
-      owl:someValuesFrom salmon:forkLength ] .
+      owl:someValuesFrom smn:forkLength ] .
 
-salmon:StandardLengthMeasurement a owl:Class ;
+smn:StandardLengthMeasurement a owl:Class ;
   rdfs:label "Standard length measurement"@en ;
-  rdfs:subClassOf salmon:FishLengthMeasurementType .
+  rdfs:subClassOf smn:FishLengthMeasurementType .
 
-salmon:TotalLengthMeasurement a owl:Class ;
+smn:TotalLengthMeasurement a owl:Class ;
   rdfs:label "Total length measurement"@en ;
-  rdfs:subClassOf salmon:FishLengthMeasurementType .
+  rdfs:subClassOf smn:FishLengthMeasurementType .
 
-salmon:IndividualMeasurement a owl:Class ;
+smn:IndividualMeasurement a owl:Class ;
   rdfs:label "Individual measurement"@en ;
-  rdfs:subClassOf salmon:Measurement .
+  rdfs:subClassOf smn:Measurement .
 
-salmon:ModelMeasurement a owl:Class ;
+smn:ModelMeasurement a owl:Class ;
   rdfs:label "Model measurement"@en ;
-  rdfs:subClassOf salmon:Measurement .
+  rdfs:subClassOf smn:Measurement .
 
-salmon:AggregatedMeasurement a owl:Class ;
+smn:AggregatedMeasurement a owl:Class ;
   rdfs:label "Aggregated measurement"@en ;
-  rdfs:subClassOf salmon:Measurement ,
+  rdfs:subClassOf smn:Measurement ,
     [ a owl:Restriction ;
-      owl:onProperty salmon:basedOn ;
-      owl:someValuesFrom salmon:EnumerationMethod ] .
+      owl:onProperty smn:basedOn ;
+      owl:someValuesFrom smn:EnumerationMethod ] .
 
-salmon:SamplingEvent a owl:Class ;
+smn:SamplingEvent a owl:Class ;
   rdfs:label "Sampling event"@en ;
   rdfs:comment "A sampling activity that targets a geographic feature, yields a sample, and records a time."@en ;
   rdfs:subClassOf sosa:Sampling ,
@@ -170,7 +170,7 @@ sosa:Sample sosa:isResultOf sosa:Sampling .
 
 obo:NCBITaxon_8018 rdfs:subClassOf obo:NCBITaxon_8015 .
 
-salmon:NCBITaxon_8018 a owl:Class ;
+smn:NCBITaxon_8018 a owl:Class ;
   rdfs:label "Oncorhynchus keta proxy class"@en ;
   rdfs:subClassOf obo:NCBITaxon_8018 .
 
@@ -178,22 +178,22 @@ salmon:NCBITaxon_8018 a owl:Class ;
 # Reusable escapement and survey terms (migrated from gcdfo)
 #################################################################
 
-salmon:Escapement a owl:Class ;
+smn:Escapement a owl:Class ;
   rdfs:label "Escapement"@en ;
   iao:0000115 "The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn."@en ;
   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> .
 
-salmon:SurveyEvent a owl:Class ;
+smn:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;
   iao:0000115 "A field event that collects information about fish populations to evaluate status and support management decisions."@en ;
   rdfs:subClassOf dwc:Event .
 
-salmon:EscapementSurveyEvent a owl:Class ;
+smn:EscapementSurveyEvent a owl:Class ;
   rdfs:label "Escapement survey event"@en ;
   iao:0000115 "A survey event specifically for estimating escapement."@en ;
-  rdfs:subClassOf salmon:SurveyEvent .
+  rdfs:subClassOf smn:SurveyEvent .
 
-salmon:EscapementMeasurement a owl:Class ;
+smn:EscapementMeasurement a owl:Class ;
   rdfs:label "Escapement measurement"@en ;
   iao:0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
   rdfs:subClassOf iao:0000109 .
@@ -202,32 +202,32 @@ salmon:EscapementMeasurement a owl:Class ;
 # Properties used by observations and event models
 #################################################################
 
-salmon:hasMeasurement a owl:ObjectProperty ;
+smn:hasMeasurement a owl:ObjectProperty ;
   rdfs:label "has measurement"@en ;
   rdfs:domain sosa:FeatureOfInterest ;
-  rdfs:range salmon:Measurement .
+  rdfs:range smn:Measurement .
 
-salmon:observedTaxonFamily a owl:ObjectProperty ;
+smn:observedTaxonFamily a owl:ObjectProperty ;
   rdfs:label "observed taxon family"@en ;
   rdfs:domain sosa:Observation ;
   rdfs:range obo:NCBITaxon_8015 .
 
-salmon:observedTaxonSpecies a owl:ObjectProperty ;
+smn:observedTaxonSpecies a owl:ObjectProperty ;
   rdfs:label "observed taxon species"@en ;
   rdfs:domain sosa:Observation ;
   rdfs:range obo:NCBITaxon_8018 .
 
-salmon:hasEventType a owl:ObjectProperty ;
+smn:hasEventType a owl:ObjectProperty ;
   rdfs:label "has event type"@en ;
-  rdfs:domain salmon:SamplingEvent ;
-  rdfs:range salmon:EventType .
+  rdfs:domain smn:SamplingEvent ;
+  rdfs:range smn:EventType .
 
-salmon:basedOn a owl:ObjectProperty ;
+smn:basedOn a owl:ObjectProperty ;
   rdfs:label "based on"@en ;
-  rdfs:domain salmon:AggregatedMeasurement ;
-  rdfs:range salmon:EnumerationMethod .
+  rdfs:domain smn:AggregatedMeasurement ;
+  rdfs:range smn:EnumerationMethod .
 
-salmon:characteristicFor a owl:ObjectProperty ;
+smn:characteristicFor a owl:ObjectProperty ;
   rdfs:label "characteristic for"@en ;
   rdfs:domain sosa:Property ;
   rdfs:range sosa:FeatureOfInterest .

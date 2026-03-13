@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Modeling conventions
+    url: https://github.com/Br-Johnson/salmon-domain-ontology/blob/main/CONVENTIONS.md
+    about: Read namespace and modeling rules before submitting ontology changes.
+  - name: Modules and bridges guide (biologists)
+    url: https://github.com/Br-Johnson/salmon-domain-ontology/blob/main/docs/guides/modules-and-bridges-for-biologists.md
+    about: Plain-language guide to module and bridge boundaries.
