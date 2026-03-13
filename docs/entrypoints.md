@@ -10,12 +10,18 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 
 ## Build
 
-- Build command(s): no compile step; committed Turtle files are the canonical build artifacts.
+- Canonical publication refresh: `make docs-refresh`
+- WIDOCO only: `make docs-widoco`
+- Serializations only: `make docs-serializations`
+- Immutable release snapshot: `make release-snapshot VERSION=X.Y.Z`
 - Main deliverables:
   - `ontology/salmon-domain-ontology.ttl` — primary modular build
   - `ontology/salmon-domain-ontology-research.ttl` — research overlay build
   - `ontology/salmon-domain-ontology-rda-case-study.ttl` — case-study/profile-bridge build
   - `salmon-domain-ontology.ttl` — root compatibility wrapper that imports `https://w3id.org/smn`
+  - `docs/index.html` — latest generated HTML docs
+  - `docs/smn.ttl` / `docs/smn.owl` / `docs/smn.jsonld` — latest downloadable serializations
+  - `docs/releases/<version>/` — immutable release snapshot surface
 
 ## Test
 
@@ -80,6 +86,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - `docs/migrations/phase2-cutover-execution-runbook.md`
   - `docs/migrations/phase2-tier3-mapping-triage.md`
 - Changing namespace/publication docs:
+  - `docs/context/widoco.md`
   - `docs/publishing/namespace-decision.md`
   - `docs/publishing/w3id-request-payload.md`
   - `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`
