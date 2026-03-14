@@ -79,7 +79,7 @@ docs-widoco: check-widoco
 		cp "$$OUT/index-en.html" "$$OUT/index.html"; \
 	fi; \
 	mkdir -p docs; \
-	rsync -a --delete --exclude "/ontology.*" "$$OUT/" docs/; \
+	rsync -a --exclude "/ontology.*" "$$OUT/" docs/; \
 	rm -f docs/ontology.jsonld docs/ontology.nt docs/ontology.owl docs/ontology.ttl; \
 	rm -rf "$$OUT"; \
 	echo "✅ WIDOCO regenerated into docs/"

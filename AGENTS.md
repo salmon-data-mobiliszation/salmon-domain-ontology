@@ -89,7 +89,9 @@ Current posture:
 - canonical shared namespace is `smn:` at `https://w3id.org/smn`
 - `0.0.0` is the pre-alpha namespace-stabilization tag
 - phase-2 migration/cutover is closed
-- W3ID is live, but public publication is still Turtle-first (no HTML/RDFXML/JSON-LD surface yet)
+- a generated latest publication surface now exists in-repo under `docs/` (`index.html`, `smn.ttl`, `smn.owl`, `smn.jsonld`)
+- an immutable `docs/releases/0.0.0/` snapshot now exists in-repo
+- live W3ID routing is still the conservative Turtle-first/publication-v1 contract until a second-wave W3ID upgrade is reviewed and merged
 
 ### Agent Context (agent-maintained)
 
@@ -97,28 +99,36 @@ Keep this small and current; agents should update it when behavior/wiring change
 
 ```yaml
 repo: salmon-data-mobilization/salmon-domain-ontology
-phase: post-0.0.0 namespace-stabilized modular ontology; phase-2 migration closed
+phase: post-0.0.0 namespace-stabilized modular ontology; phase-2 migration closed; second-wave publication surface generated in-repo
 stack:
   - RDF/Turtle
   - OWL
   - SKOS
+  - WIDOCO
+  - ROBOT
   - Python (rdflib validation/evidence helper)
 entrypoints:
   - ontology/salmon-domain-ontology.ttl
   - ontology/salmon-domain-ontology-research.ttl
   - ontology/salmon-domain-ontology-rda-case-study.ttl
   - salmon-domain-ontology.ttl
+  - docs/index.html
+  - docs/smn.ttl
+  - docs/releases/0.0.0/
   - docs/migrations/README.md
   - docs/publishing/namespace-decision.md
+  - docs/context/widoco.md
 autonomy:
   green:
     - doc maintenance that preserves current publication/cutover reality
     - ontology/module edits that follow CONVENTIONS.md and existing namespace policy
     - validation updates and evidence regeneration that do not change published contracts
+    - publication-surface regeneration that stays within the current docs/releases contract
   red:
     - deleting historical evidence artifacts without clear replacement
     - changing canonical IRIs or W3ID/publication contract without explicit instruction
     - removing compatibility wrappers or migration docs that downstream users may still rely on
+    - destructive docs sync that can wipe hand-maintained docs alongside generated output
 last_updated: 2026-03-13
 ```
 

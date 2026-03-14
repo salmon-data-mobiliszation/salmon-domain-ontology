@@ -49,7 +49,7 @@ Generated publication targets:
 - `docs/smn.jsonld`
 - `docs/releases/<version>/`
 
-Note: Java is required for WIDOCO and ROBOT. The richer public publication surface is scaffolded here, but W3ID should not be upgraded to HTML/RDF/XML/JSON-LD/version redirects until those assets are generated, published, and verified.
+Note: Java is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus an immutable `docs/releases/0.0.0/` snapshot, but W3ID should not be upgraded to HTML/RDF/XML/JSON-LD/version redirects until those public targets are published on a stable host and verified.
 
 ## New to ontologies?
 

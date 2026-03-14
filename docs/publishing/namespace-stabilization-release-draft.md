@@ -27,9 +27,7 @@ Status: **completed; retained as the release-note draft for `0.0.0`**
 
 ## Explicitly not included in this release
 
-- Published HTML docs.
-- Published RDF/XML serialization.
-- Published JSON-LD serialization.
+- W3ID-backed routing to the generated HTML/RDF/XML/JSON-LD assets.
 - Versioned release snapshot directories served from a stable public host.
 - Rich DFO-style content-negotiated publication targets.
 
@@ -46,14 +44,17 @@ This release establishes `https://w3id.org/smn` as the canonical shared namespac
 - aligns migration artifacts and cutover docs to `smn:`
 - records the DFO no-runtime provider-verification contract in place of the fictional DFO live-smoke gate
 - documents the live W3ID redirect behavior for the current Turtle-first publication surface
+- records an in-repo latest publication surface plus `docs/releases/0.0.0/` snapshot artifacts
 - adds issue templates for new terms, missing superclasses, definition updates, and obsoletions
 
 ## Current publication posture
 
-The W3ID path is live, but publication remains intentionally conservative for now:
+The W3ID path is live, and the repo now contains generated publication artifacts, but public routing remains intentionally conservative for now:
 
 - root, `/latest`, representative term/module/build/profile paths resolve to current Turtle artifacts
-- HTML docs, RDF/XML, JSON-LD, and W3ID-backed version snapshot redirects are not published yet
+- generated latest assets exist at `docs/index.html`, `docs/smn.ttl`, `docs/smn.owl`, and `docs/smn.jsonld`
+- an immutable snapshot exists at `docs/releases/0.0.0/`
+- W3ID-backed HTML/RDF/XML/JSON-LD/version redirects are not published yet
 
 ## Validation
 
@@ -63,7 +64,7 @@ The W3ID path is live, but publication remains intentionally conservative for no
 
 ## Follow-up
 
-- publish richer HTML/RDF/XML/JSON-LD targets
+- publish the generated HTML/RDF/XML/JSON-LD/latest-version assets on a stable public host
 - add W3ID-backed versioned release snapshot redirects
-- cut the next real release only after the richer publication surface exists
+- cut the next real release only after the richer public routing surface exists
 ```

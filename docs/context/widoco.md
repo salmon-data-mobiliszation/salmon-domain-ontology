@@ -38,7 +38,7 @@ Immutable version snapshots:
 ## Current limitations
 
 - Java is required for both WIDOCO and ROBOT.
-- W3ID still points at the conservative Turtle-first fallback until the richer publication surface is generated, published, and verified.
+- W3ID still points at the conservative Turtle-first fallback even though generated latest assets now exist under `docs/` and `docs/releases/0.0.0/`; only switch routing after stable public targets are published and verified.
 - Ontology header metadata is still thin, so WIDOCO output quality will improve once version / attribution / namespace metadata are expanded.
 
 ## Guardrails

@@ -67,14 +67,15 @@ The namespace transition was treated as complete only after all were true:
 
 ## Publication caveat
 
-The W3ID registration is live, but the repo does **not** yet expose a DFO-style public publication surface:
+The W3ID registration is live, and the repo now includes a generated publication surface:
 
-- no published HTML docs are available,
-- no published RDF/XML serialization is available,
-- no published JSON-LD serialization is available,
-- no SemVer release snapshot directories are published behind W3ID yet.
+- latest HTML docs at `docs/index.html`,
+- latest Turtle at `docs/smn.ttl`,
+- latest RDF/XML at `docs/smn.owl`,
+- latest JSON-LD at `docs/smn.jsonld`,
+- immutable snapshot assets at `docs/releases/0.0.0/`.
 
-That means the current W3ID behavior is an intentionally conservative Turtle-first publication surface, not the richer final content-negotiated/versioned surface. See `w3id-request-payload.md`, `w3id-smn-draft/`, and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
+What has **not** changed yet is the live public routing contract: W3ID still serves the intentionally conservative Turtle-first/publication-v1 behavior, not the richer final content-negotiated/versioned surface. See `w3id-request-payload.md`, `w3id-smn-draft/`, and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
 
 ## Notes on root TTL compatibility file
 
