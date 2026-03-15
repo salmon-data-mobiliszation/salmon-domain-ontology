@@ -39,9 +39,19 @@ Current module pattern (plain language):
 - `06` interoperability alignments (how this talks to other standards)
 - `07` shared controlled vocabularies
 - `08/09` profile bridge examples (case-study mappings; not auto-promoted into shared core)
+  - `08` is split into a case-study **measurement scheme + measurement methods** fragment.
+  - `09` is split into entities, observations, and constraint/statistics fragments.
+  - These fragments are assembled into `08`/`09` for distribution.
+
+There is one explicit pilot in this repo: the juvenile-condition RDA case study (Hakai + Neville). It is set up as a **manual-to-automation proof path**:
+
+1. map local entities (`species`, `area`, `survey`, `sample`) to shared anchors,
+2. map observations/variables (`length`, `weight`, `condition`) to shared properties,
+3. map method context and modifiers (`field/lab`, `standard`, `average`, `std dev`, `count`) to local profile terms and/or shared SKOS constraints.
+
+`08` is mostly method/context vocabulary. The `09` workflow is split into entities, observations, and constraint/statistics perspectives; once assembled they become the same distribution modules you consume. This keeps the case study from reading like ontology theory and makes it directly useful as a first-pass mapping template for the biologist workflow.
 
 See: `ontology/modules/README.md`
-
 ---
 
 ## What is a bridge profile?
@@ -56,8 +66,6 @@ It is the safest way to integrate new datasets because it avoids two bad outcome
 2. creating duplicate shared terms for every program nuance
 
 Bridge profiles are where we record mapping confidence and provenance.
-
----
 
 ## Mapping a new dataset: practical workflow
 
@@ -122,11 +130,13 @@ If not, keep it profile-scoped and bridged.
 
 ## Creating an organization/program ontology (simple pattern)
 
-1. Pick your namespace (for example, `myorg:`).
+1. Pick your namespace (for example, `myorg:`). Prefer an org-owned namespace (their own domain or own w3id), not a central `https://w3id.org/smn/...` namespace, unless stewarding centrally.
 2. Define your local classes/concepts there.
 3. Keep policy/program-specific statuses and method bins local.
 4. Add a separate bridge module that links `myorg:` to `smn:`.
 5. Keep bridge mappings conservative until validated with data.
+
+A useful exception for early pilots: orgs may use a shared `https://w3id.org/smn/profile/...` bridge package only as a temporary collaboration artifact, while the canonical local terms stay in org-owned namespaces.
 
 ---
 
@@ -171,8 +181,6 @@ When in doubt, choose the less aggressive mapping.
 - Skipping provenance notes
 - Mixing policy-specific terms into shared core
 
----
-
 ## Definition of done for a new dataset mapping
 
 A mapping is "done" when:
@@ -182,8 +190,6 @@ A mapping is "done" when:
 - bridge mappings exist with rationale
 - sample data passes smoke checks
 - unresolved high-risk mappings are explicitly marked for review
-
----
 
 ## Where to go next
 

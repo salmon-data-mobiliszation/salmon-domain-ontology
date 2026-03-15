@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://w3id.org/smn#"
      xml:base="https://w3id.org/smn"
-     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:geo="http://www.opengis.net/ont/geosparql#"
+     xmlns:ns1="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -9,19 +10,1288 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:sosa="http://www.w3.org/ns/sosa/"
-     xmlns:terms="http://purl.org/dc/terms/">
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/smn">
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/alignment-main"/>
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/01-entity-systematics"/>
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/02-observation-measurement"/>
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/03-assessment-benchmarks"/>
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/04-management-governance"/>
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/05-provenance-quality"/>
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/06-data-interoperability"/>
-        <owl:imports rdf:resource="https://w3id.org/smn/modules/07-controlled-vocabularies"/>
+        <rdfs:comment xml:lang="en">Conservative shared event taxonomy. Policy/program-specific schemes remain in profile ontologies.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Conservative shared stock-assessment and benchmark semantics. Policy-program-specific reference classes remain profile-scoped.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Core salmon entities, reporting strata, and composition relationships for cross-agency reuse. Includes migrated reusable structure terms from DFO Salmon Ontology (no removals from DFO source).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Cross-ontology bridge statements for SOSA, I-ADOPT, and Darwin Core interoperability.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Observation and measurement model (SOSA-aligned) with reusable escapement and survey terms migrated from DFO Salmon Ontology.</rdfs:comment>
         <rdfs:comment xml:lang="en">Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Shared provenance and quality artifact classes. Program-specific confidence vocabularies remain profile-scoped.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Small curated shared SKOS layer. Policy/program-specific schemes are profile-scoped by default.</rdfs:comment>
         <rdfs:label xml:lang="en">Salmon Domain Ontology (modular build)</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Alignment Module (main-candidate)</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Module 01: Entity and systematics</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Module 02: Observation and measurement</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Module 03: Assessment and benchmarks</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Module 04: Management and governance</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Module 05: Provenance and quality</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Module 06: Data interoperability</rdfs:label>
+        <rdfs:label xml:lang="en">Salmon Domain Ontology Module 07: Controlled vocabularies</rdfs:label>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hasTopConcept -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasSample -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/sosa/hasSample"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/isResultOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/sosa/isResultOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002351 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasFeatureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasResult -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasResult"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/observedProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observedProperty"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/resultTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/resultTime"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/usedProcedure -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/usedProcedure"/>
+    
+
+
+    <!-- https://w3id.org/smn/basedOn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/basedOn">
+        <rdfs:domain rdf:resource="https://w3id.org/smn/AggregatedMeasurement"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
+        <rdfs:label xml:lang="en">based on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/characteristicFor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/characteristicFor">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+        <rdfs:label xml:lang="en">characteristic for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/demeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/demeOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/smn/hasDeme"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/Deme"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/Population"/>
+        <ns1:IAO_0000115 xml:lang="en">Relates a deme to the population it belongs to.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">deme of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/hasDeme -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasDeme">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/Deme"/>
+        <ns1:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">has deme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/hasEventType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasEventType">
+        <rdfs:domain rdf:resource="https://w3id.org/smn/SamplingEvent"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/EventType"/>
+        <rdfs:label xml:lang="en">has event type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/hasMeasurement -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasMeasurement">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/Measurement"/>
+        <rdfs:label xml:lang="en">has measurement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/hasPopulation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasPopulation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/smn/populationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/Population"/>
+        <ns1:IAO_0000115 xml:lang="en">Relates a reporting or management stratum to one of its constituent populations.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">has population</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/observedTaxonFamily -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/observedTaxonFamily">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8015"/>
+        <rdfs:label xml:lang="en">observed taxon family</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/observedTaxonSpecies -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/observedTaxonSpecies">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8018"/>
+        <rdfs:label xml:lang="en">observed taxon species</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/populationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/populationOf">
+        <rdfs:domain rdf:resource="https://w3id.org/smn/Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
+        <ns1:IAO_0000115 xml:lang="en">Relates a population to the reporting or management stratum it belongs to.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">population of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000015 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000030 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000030"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000109 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000109"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCBITaxon_8015 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_8015"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCBITaxon_8018 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_8018">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8015"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rs.tdwg.org/dwc/terms/Event -->
+
+    <owl:Class rdf:about="http://rs.tdwg.org/dwc/terms/Event">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rs.tdwg.org/dwc/terms/MaterialSample -->
+
+    <owl:Class rdf:about="http://rs.tdwg.org/dwc/terms/MaterialSample">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/sosa/Sample"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rs.tdwg.org/dwc/terms/Occurrence -->
+
+    <owl:Class rdf:about="http://rs.tdwg.org/dwc/terms/Occurrence">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rs.tdwg.org/dwc/terms/Organism -->
+
+    <owl:Class rdf:about="http://rs.tdwg.org/dwc/terms/Organism"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Feature -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/FeatureOfInterest -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/FeatureOfInterest">
+        <owl:equivalentClass rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
+        <sosa:hasSample rdf:resource="http://www.w3.org/ns/sosa/Sample"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Observation -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Observation">
+        <skos:closeMatch rdf:resource="http://rs.tdwg.org/dwc/terms/Occurrence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Procedure -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Procedure">
+        <skos:closeMatch rdf:resource="https://rs.tdwg.org/dwc/dp/terms/Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Property -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Property">
+        <owl:equivalentClass rdf:resource="https://w3id.org/iadopt/ont/Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Sample -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sample">
+        <rdfs:comment xml:lang="en">Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows.</rdfs:comment>
+        <skos:closeMatch rdf:resource="http://rs.tdwg.org/dwc/terms/MaterialEntity"/>
+        <sosa:isResultOf rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Sampling -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sampling">
+        <skos:closeMatch rdf:resource="http://rs.tdwg.org/dwc/terms/Event"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Constraint -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Constraint"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Entity"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Property -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Property"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/StatisticalModifier -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Variable -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Variable"/>
+    
+
+
+    <!-- https://w3id.org/smn/AggregatedMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/AggregatedMeasurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/smn/basedOn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Aggregated measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/BodyShape -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/BodyShape">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
+        <rdfs:label xml:lang="en">Body shape</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Characteristic -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Characteristic">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+        <rdfs:label xml:lang="en">Characteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/DataQualityAssessment -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/DataQualityAssessment">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <ns1:IAO_0000115 xml:lang="en">An assessment artifact describing confidence, uncertainty, and quality constraints for a salmon data product or metric.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Data quality assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Deme -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Deme">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <ns1:IAO_0000115 xml:lang="en">A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Deme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Entity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/EnumerationMethod -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/EnumerationMethod">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:label xml:lang="en">Enumeration method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Escapement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Escapement">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <ns1:IAO_0000115 xml:lang="en">The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Escapement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/EscapementMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/EscapementMeasurement">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <ns1:IAO_0000115 xml:lang="en">A measurement or estimate of escapement tied to a stock and a survey event.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Escapement measurement</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/EscapementSurveyEvent -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/EscapementSurveyEvent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SurveyEvent"/>
+        <ns1:IAO_0000115 xml:lang="en">A survey event specifically for estimating escapement.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Escapement survey event</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/EventType -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/EventType">
+        <ns1:IAO_0000115 xml:lang="en">A class used to categorize fisheries or survey event instances by operational type.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Event type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ExploitationRate -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ExploitationRate">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/TargetOrLimitRateOrAbundance"/>
+        <ns1:IAO_0000115 xml:lang="en">The proportion of returning adult salmon removed by fishing activity over a defined period.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Exploitation rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/FishForkLengthMeasurementMethod -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/FishForkLengthMeasurementMethod">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLengthMeasurementMethod"/>
+        <rdfs:label xml:lang="en">Fish fork-length measurement method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/FishLength -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/FishLength">
+        <owl:equivalentClass rdf:resource="https://w3id.org/smn/forkLength"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MorphologicalCharacteristic"/>
+        <rdfs:label xml:lang="en">Fish length</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/FishLengthMeasurementMethod -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/FishLengthMeasurementMethod">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:label xml:lang="en">Fish length measurement method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/FishLengthMeasurementType -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/FishLengthMeasurementType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/FishLength"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/usedProcedure"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/FishLengthMeasurementMethod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Fish length measurement type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/FishWeight -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/FishWeight">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MorphologicalCharacteristic"/>
+        <rdfs:label xml:lang="en">Fish weight</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/FishingType -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/FishingType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/EventType"/>
+        <rdfs:label xml:lang="en">Fishing type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ForkLengthMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ForkLengthMeasurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLengthMeasurementType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/forkLength"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Fork-length measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ForkLengthMeasurementFieldMethod -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ForkLengthMeasurementFieldMethod">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ForkLengthMeasurementMethod"/>
+        <rdfs:label xml:lang="en">Fork-length field method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ForkLengthMeasurementLabMethod -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ForkLengthMeasurementLabMethod">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ForkLengthMeasurementMethod"/>
+        <rdfs:label xml:lang="en">Fork-length lab method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ForkLengthMeasurementMethod -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ForkLengthMeasurementMethod">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishForkLengthMeasurementMethod"/>
+        <rdfs:label xml:lang="en">Fork-length measurement method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/GeographicFeature -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/GeographicFeature">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:label xml:lang="en">Geographic feature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/HabitatUnit -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/HabitatUnit">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Entity"/>
+        <rdfs:label xml:lang="en">Habitat unit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/IndicatorRiver -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/IndicatorRiver">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/GeographicFeature"/>
+        <ns1:IAO_0000115 xml:lang="en">A river or stream used as a relatively reliable abundance index for nearby salmon returns due to survey intensity and method quality.</ns1:IAO_0000115>
+        <dcterms:source rdf:resource="https://www.salmonexplorer.ca/methods/glossary.html"/>
+        <rdfs:label xml:lang="en">Indicator river</rdfs:label>
+        <skos:altLabel xml:lang="en">Indicator stream</skos:altLabel>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/IndividualMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/IndividualMeasurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Measurement"/>
+        <rdfs:label xml:lang="en">Individual measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Life-HistoryCharacteristic -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Life-HistoryCharacteristic">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
+        <rdfs:label xml:lang="en">Life-history characteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/LimitReferencePoint -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/LimitReferencePoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReferencePoint"/>
+        <ns1:IAO_0000115 xml:lang="en">A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Limit reference point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/LowerBiologicalBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/LowerBiologicalBenchmark">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MetricBenchmark"/>
+        <ns1:IAO_0000115 xml:lang="en">Lower benchmark value used to delineate lower status boundaries for salmon assessment units.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Lower biological benchmark</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Measurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Measurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Observation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A salmon-domain observation focused on one feature of interest and one characteristic.</rdfs:comment>
+        <rdfs:label xml:lang="en">Measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/MethodDocumentation -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/MethodDocumentation">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <ns1:IAO_0000115 xml:lang="en">A documented method description linked to how a salmon metric or estimate was produced.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Method documentation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/MetricBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/MetricBenchmark">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <ns1:IAO_0000115 xml:lang="en">Benchmark value for a metric used to delineate status categories.</ns1:IAO_0000115>
+        <dcterms:source rdf:resource="https://publications.gc.ca/site/eng/9.928944/publication.html"/>
+        <rdfs:label xml:lang="en">Metric benchmark</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ModelMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ModelMeasurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Measurement"/>
+        <rdfs:label xml:lang="en">Model measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/MorphologicalCharacteristic -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/MorphologicalCharacteristic">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
+        <rdfs:label xml:lang="en">Morphological characteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/NCBITaxon_8018 -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/NCBITaxon_8018">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8018"/>
+        <rdfs:label xml:lang="en">Oncorhynchus keta proxy class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Observation -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Observation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ObservedRateOrAbundance -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ObservedRateOrAbundance">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <ns1:IAO_0000115 xml:lang="en">A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Observed rate or abundance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Population -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Population">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <ns1:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Population</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ReferencePoint -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ReferencePoint">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <ns1:IAO_0000115 xml:lang="en">A target or limit used to guide management actions.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Reference point</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ReportingOrManagementStratum -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ReportingOrManagementStratum">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <ns1:IAO_0000115 xml:lang="en">An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes across salmon programs.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Reporting or management stratum</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Run -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Run">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Life-HistoryCharacteristic"/>
+        <rdfs:label xml:lang="en">Run</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonGroup -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SalmonGroup">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Entity"/>
+        <rdfs:label xml:lang="en">Salmon group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonIndividual -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SalmonIndividual">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Entity"/>
+        <rdfs:label xml:lang="en">Salmon individual</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonLifeStage -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SalmonLifeStage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
+        <rdfs:label xml:lang="en">Salmon life stage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonPopulationGroup -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SalmonPopulationGroup">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SalmonGroup"/>
+        <rdfs:label xml:lang="en">Salmon population group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonStockUnit -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SalmonStockUnit">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SalmonGroup"/>
+        <rdfs:label xml:lang="en">Salmon stock unit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SamplingEvent -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SamplingEvent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/hasResult"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Sample"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/resultTime"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Instant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A sampling activity that targets a geographic feature, yields a sample, and records a time.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sampling event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/StandardLengthMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/StandardLengthMeasurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLengthMeasurementType"/>
+        <rdfs:label xml:lang="en">Standard length measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Stock -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Stock">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
+        <ns1:IAO_0000115 xml:lang="en">An operationally defined grouping of salmon used for assessment and management purposes.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Stock</rdfs:label>
+        <skos:altLabel xml:lang="en">Fish stock</skos:altLabel>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/StockAssessment -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/StockAssessment">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <ns1:IAO_0000115 xml:lang="en">The scientific process of analyzing data to estimate abundance and productivity across time.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Stock assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SurveyEvent -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SurveyEvent">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Event"/>
+        <ns1:IAO_0000115 xml:lang="en">A field event that collects information about fish populations to evaluate status and support management decisions.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Survey event</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/TargetOrLimitRateOrAbundance -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/TargetOrLimitRateOrAbundance">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <ns1:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Target or limit rate or abundance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/TotalExploitationRate -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/TotalExploitationRate">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ExploitationRate"/>
+        <ns1:IAO_0000115 xml:lang="en">The overall proportion of returning adult salmon removed by all fisheries over a defined period.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Total exploitation rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/TotalLengthMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/TotalLengthMeasurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLengthMeasurementType"/>
+        <rdfs:label xml:lang="en">Total length measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/UpperBiologicalBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/UpperBiologicalBenchmark">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MetricBenchmark"/>
+        <ns1:IAO_0000115 xml:lang="en">Upper benchmark value used to delineate higher status boundaries for salmon assessment units.</ns1:IAO_0000115>
+        <rdfs:label xml:lang="en">Upper biological benchmark</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/alevin -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/alevin">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SalmonLifeStage"/>
+        <rdfs:label xml:lang="en">Alevin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/forkLength -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/forkLength">
+        <rdfs:label xml:lang="en">Fork length</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/fusiform -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/fusiform">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/BodyShape"/>
+        <rdfs:label xml:lang="en">Fusiform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/orbitalLength -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/orbitalLength">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLength"/>
+        <rdfs:label xml:lang="en">Orbital length</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/seiningEvent -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/seiningEvent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishingType"/>
+        <rdfs:label xml:lang="en">Seining event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/standardLength -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/standardLength">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLength"/>
+        <rdfs:label xml:lang="en">Standard length</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/totalLength -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/totalLength">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLength"/>
+        <rdfs:label xml:lang="en">Total length</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/smn/CatchContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/CatchContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Catch context</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/HatcheryOrigin -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/HatcheryOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Hatchery-origin</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/InRiverPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/InRiverPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">In-river phase</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/LifePhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifePhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Life phase</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/LifePhaseScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifePhaseScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:prefLabel xml:lang="en">Life phase scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/MainstemPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MainstemPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Mainstem phase</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/MeasurementContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MeasurementContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">A context qualifier used to disambiguate interpretation of a measurement.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Measurement context</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/MeasurementContextScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MeasurementContextScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:prefLabel xml:lang="en">Measurement context scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/NaturalOrigin -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/NaturalOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Natural-origin</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/OceanPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/OceanPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:altLabel xml:lang="en">Marine phase</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Ocean phase</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/RunContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/RunContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Run context</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonOrigin -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Salmon origin</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonOriginScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonOriginScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
+        <skos:prefLabel xml:lang="en">Salmon origin scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/SpawnerStageContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SpawnerStageContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Spawner stage context</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/SurvivalOrMortalityContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SurvivalOrMortalityContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Survival or mortality context</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/TerminalPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/TerminalPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Terminal phase</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/sosa/ObservingProcedure">
+        <rdfs:comment xml:lang="en">Darwin Core does not define Protocol as an OWL class; this bridge preserves crosswalk intent for practical integration use.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/smn/FisheriesReferencePointLower">
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+    </rdf:Description>
 </rdf:RDF>
 
 

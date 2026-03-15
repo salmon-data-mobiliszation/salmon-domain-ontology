@@ -10,12 +10,25 @@
 @prefix iadopt: <https://w3id.org/iadopt/ont/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 
+# Auto-generated. Do NOT edit directly.
+# Edit fragments under ontology/case-studies/rda-juvenile-condition/ and
+# regenerate with: python3 scripts/build_rda_case_study_modules.py
+
 <https://w3id.org/smn/modules/09-rda-neville-decomposition-profile-bridges> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 09: RDA Neville decomposition profile bridges"@en ;
-  rdfs:comment "Profile-layer bridge concepts from Neville juvenile salmon decomposition materials. Terms remain profile-scoped and map conservatively to shared salmon-domain anchors."@en ;
+  rdfs:comment "Profile-layer bridge concepts from Neville juvenile salmon decomposition materials. This working pilot module captures entity/observation/statistical-concept vocabulary and maps it conservatively to shared salmon-domain anchors."@en ;
   dcterms:source <https://docs.google.com/document/d/1myb-EsbtiJS7-x5wyuzMT9anrQyFC6zELy-WwykChRE/edit> ;
   dcterms:source <https://drive.google.com/drive/folders/1lM-qrgRib_vob-YEYzpqYqGCG_xBwo1V> ;
   dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+# --- begin ontology/case-studies/rda-juvenile-condition/09-rda-neville-entities.ttl ---
+# NOTE: edit this file and regenerate the assembled module via scripts/build_rda_case_study_modules.py
+
+@prefix smn: <https://w3id.org/smn/> .
+@prefix neville: <https://w3id.org/smn/profile/neville/> .
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 
 rda:NevilleDecompositionTermScheme a skos:ConceptScheme ;
   skos:prefLabel "Neville decomposition term scheme (RDA case-study bridge)"@en ;
@@ -59,6 +72,32 @@ neville:Age a skos:Concept ;
   skos:relatedMatch smn:SalmonLifeStage ;
   prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
+neville:NonStandardSurvey a skos:Concept ;
+  skos:prefLabel "Non-standard Survey"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch neville:StandardSurvey ;
+  skos:relatedMatch smn:SurveyEvent .
+
+neville:NonStandardSurveyArea a skos:Concept ;
+  skos:prefLabel "Non-standard Survey Area"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch smn:GeographicFeature .
+
+neville:SurveyArea a skos:Concept ;
+  skos:prefLabel "Survey Area"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch smn:GeographicFeature .
+# --- end ontology/case-studies/rda-juvenile-condition/09-rda-neville-entities.ttl ---
+
+# --- begin ontology/case-studies/rda-juvenile-condition/09-rda-neville-observations.ttl ---
+# NOTE: edit this file and regenerate the assembled module via scripts/build_rda_case_study_modules.py
+
+@prefix smn: <https://w3id.org/smn/> .
+@prefix neville: <https://w3id.org/smn/profile/neville/> .
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
 neville:Length_mm a skos:Concept ;
   skos:prefLabel "Length (mm)"@en ;
   skos:definition "Fork length measurement in millimetres."@en ;
@@ -81,40 +120,6 @@ neville:AverageConditionFactor a skos:Concept ;
   skos:relatedMatch smn:FishWeight ;
   skos:relatedMatch smn:forkLength ;
   prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
-
-neville:NonStandardSurvey a skos:Concept ;
-  skos:prefLabel "Non-standard Survey"@en ;
-  skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:relatedMatch neville:StandardSurvey ;
-  skos:relatedMatch smn:SurveyEvent .
-
-neville:NonStandardSurveyArea a skos:Concept ;
-  skos:prefLabel "Non-standard Survey Area"@en ;
-  skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:closeMatch smn:GeographicFeature .
-
-neville:StandardDeviationWeight_g a skos:Concept ;
-  skos:prefLabel "Standard Deviation (g) [of weight]"@en ;
-  skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:closeMatch iadopt:StatisticalModifier ;
-  skos:relatedMatch smn:FishWeight .
-
-neville:StandardDeviationLength_mm a skos:Concept ;
-  skos:prefLabel "Standard Deviation (mm) [of length]"@en ;
-  skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:closeMatch iadopt:StatisticalModifier ;
-  skos:relatedMatch smn:forkLength .
-
-neville:SpatialAndTemporalExtent a skos:Concept ;
-  skos:prefLabel "Spatial and Temporal Extent"@en ;
-  skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:relatedMatch smn:GeographicFeature ;
-  skos:relatedMatch time:Instant .
-
-neville:NumberSampled a skos:Concept ;
-  skos:prefLabel "Number Sampled"@en ;
-  skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:relatedMatch smn:AggregatedMeasurement .
 
 neville:ADCWT a skos:Concept ;
   skos:prefLabel "ADCWT"@en ;
@@ -139,8 +144,37 @@ neville:AverageWeight_g a skos:Concept ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:AggregatedMeasurement ;
   skos:relatedMatch smn:FishWeight .
+# --- end ontology/case-studies/rda-juvenile-condition/09-rda-neville-observations.ttl ---
 
-neville:SurveyArea a skos:Concept ;
-  skos:prefLabel "Survey Area"@en ;
+# --- begin ontology/case-studies/rda-juvenile-condition/09-rda-neville-constraints.ttl ---
+# NOTE: edit this file and regenerate the assembled module via scripts/build_rda_case_study_modules.py
+
+@prefix smn: <https://w3id.org/smn/> .
+@prefix neville: <https://w3id.org/smn/profile/neville/> .
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+
+neville:StandardDeviationWeight_g a skos:Concept ;
+  skos:prefLabel "Standard Deviation (g) [of weight]"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:closeMatch smn:GeographicFeature .
+  skos:closeMatch iadopt:StatisticalModifier ;
+  skos:relatedMatch smn:FishWeight .
+
+neville:StandardDeviationLength_mm a skos:Concept ;
+  skos:prefLabel "Standard Deviation (mm) [of length]"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch iadopt:StatisticalModifier ;
+  skos:relatedMatch smn:forkLength .
+
+neville:SpatialAndTemporalExtent a skos:Concept ;
+  skos:prefLabel "Spatial and Temporal Extent"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch smn:GeographicFeature ;
+  skos:relatedMatch <http://www.w3.org/2006/time#Instant> .
+
+neville:NumberSampled a skos:Concept ;
+  skos:prefLabel "Number Sampled"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch smn:AggregatedMeasurement .
+# --- end ontology/case-studies/rda-juvenile-condition/09-rda-neville-constraints.ttl ---

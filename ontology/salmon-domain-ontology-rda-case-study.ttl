@@ -3,7 +3,7 @@
 
 <https://w3id.org/smn/rda-case-study> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology (RDA case-study bridge build)"@en ;
-  rdfs:comment "Build that layers RDA juvenile-condition profile bridge terms on top of the shared salmon-domain core."@en ;
+  rdfs:comment "Build that layers the RDA juvenile-condition case-study bridge terms on top of the shared salmon-domain core. This is a working case-study proof artifact for manual ontology integration and is not intended as an always-on canonical baseline."@en ;
   owl:imports
     <https://w3id.org/smn>,
     <https://w3id.org/smn/modules/08-rda-case-study-profile-bridges>,

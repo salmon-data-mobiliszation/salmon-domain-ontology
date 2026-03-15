@@ -1,0 +1,9 @@
+# NOTE: edit this file and regenerate assembled 08 module via scripts/build_rda_case_study_modules.py
+
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+rda:HakaiJSPMeasurementTermScheme a skos:ConceptScheme ;
+  skos:prefLabel "Hakai JSP measurement term scheme (RDA case-study bridge)"@en ;
+  skos:definition "Bridge scheme for mapping Hakai source measurement terms to shared salmon ontology terms in the RDA juvenile-condition case-study."@en ;
+  skos:hasTopConcept <https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method> .

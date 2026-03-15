@@ -111,7 +111,7 @@ entrypoints:
   - ontology/salmon-domain-ontology.ttl
   - ontology/salmon-domain-ontology-research.ttl
   - ontology/salmon-domain-ontology-rda-case-study.ttl
-  - salmon-domain-ontology.ttl
+  - salmon-domain-ontology.ttl (generated flattened master)
   - docs/index.html
   - docs/smn.ttl
   - docs/releases/0.0.0/

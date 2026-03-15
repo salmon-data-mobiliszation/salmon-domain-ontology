@@ -1,0 +1,30 @@
+# NOTE: edit this file and regenerate the assembled module via scripts/build_rda_case_study_modules.py
+
+@prefix smn: <https://w3id.org/smn/> .
+@prefix neville: <https://w3id.org/smn/profile/neville/> .
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+
+neville:StandardDeviationWeight_g a skos:Concept ;
+  skos:prefLabel "Standard Deviation (g) [of weight]"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch iadopt:StatisticalModifier ;
+  skos:relatedMatch smn:FishWeight .
+
+neville:StandardDeviationLength_mm a skos:Concept ;
+  skos:prefLabel "Standard Deviation (mm) [of length]"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch iadopt:StatisticalModifier ;
+  skos:relatedMatch smn:forkLength .
+
+neville:SpatialAndTemporalExtent a skos:Concept ;
+  skos:prefLabel "Spatial and Temporal Extent"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch smn:GeographicFeature ;
+  skos:relatedMatch <http://www.w3.org/2006/time#Instant> .
+
+neville:NumberSampled a skos:Concept ;
+  skos:prefLabel "Number Sampled"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch smn:AggregatedMeasurement .

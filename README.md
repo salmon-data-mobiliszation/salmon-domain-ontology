@@ -22,6 +22,7 @@ If you want to contribute:
 ## Current structure
 
 - `ontology/salmon-domain-ontology.ttl` — modular primary build (imports modules 01–07 + conservative alignment)
+- `salmon-domain-ontology.ttl` — flattened, import-free master TTL artifact for one-file consumers (generated)
 - `ontology/salmon-domain-ontology-research.ttl` — optional research build (adds exploratory alignment module)
 - `ontology/salmon-domain-ontology-rda-case-study.ttl` — optional case-study bridge build (adds profile bridge mappings from RDA juvenile-condition graph, including Hakai + Neville decomposition terms)
 - `ontology/modules/` — category modules + alignment modules + profile bridge modules
@@ -39,6 +40,9 @@ The repo now has a first-pass publication pipeline matching the DFO pattern in a
 Core commands:
 - `make install-widoco`
 - `make install-robot`
+- `make compose-case-study-modules`
+- `make compose-flat-ttl`
+- `make verify-flat-ttl`
 - `make docs-refresh`
 - `make release-snapshot VERSION=X.Y.Z`
 

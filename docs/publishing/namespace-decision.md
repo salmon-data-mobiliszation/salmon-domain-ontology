@@ -65,6 +65,17 @@ The namespace transition was treated as complete only after all were true:
 - [x] README + conventions + cutover docs updated to the same canonical namespace story
 - [x] Stabilization release tagged from the live namespace state (`0.0.0`)
 
+
+### Governance note for profile namespaces
+
+`/profile/*` paths in the live `smn` namespace are currently intended for **project-curated bridge artifacts** (e.g. the RDA pilot profiles), not for everyone's canonical organization namespaces.
+
+Recommended default for any organization:
+- publish local/profile terms from an organization-owned namespace (their own domain, own w3id slug, etc.);
+- keep local terms there, and publish bridge modules to `smn`'s bridge artifacts via mapping files.
+
+Publishing under `https://w3id.org/smn/<org>/...` would make `smn` the namespace steward for those terms, which is usually not desired unless the organization explicitly delegates stewardship for that profile.
+
 ## Publication caveat
 
 The W3ID registration is live, and the repo now includes a generated publication surface:
@@ -77,7 +88,8 @@ The W3ID registration is live, and the repo now includes a generated publication
 
 What has **not** changed yet is the live public routing contract: W3ID still serves the intentionally conservative Turtle-first/publication-v1 behavior, not the richer final content-negotiated/versioned surface. See `w3id-request-payload.md`, `w3id-smn-draft/`, and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
 
-## Notes on root TTL compatibility file
+## Notes on repository entrypoint
 
-`/salmon-domain-ontology.ttl` at repo root remains a repository-level compatibility wrapper.
-The canonical ontology IRI is now `https://w3id.org/smn`, while the modular source of truth remains `ontology/salmon-domain-ontology.ttl`.
+`/salmon-domain-ontology.ttl` at repo root now exists as a generated, flattened, import-free master TTL for one-file consumers.
+`ontology/salmon-domain-ontology.ttl` remains the canonical modular local source of truth.
+Canonical public ontology IRI is still `https://w3id.org/smn`.

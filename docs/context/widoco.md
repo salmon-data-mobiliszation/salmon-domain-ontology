@@ -10,7 +10,7 @@ This repo uses WIDOCO as part of a broader publication contract that also includ
 
 ## Canonical source
 
-- Main ontology input for WIDOCO: `ontology/salmon-domain-ontology.ttl`
+- Main ontology input for WIDOCO: `salmon-domain-ontology.ttl` (generated flattened master from `ontology/salmon-domain-ontology.ttl`)
 
 ## Canonical outputs
 

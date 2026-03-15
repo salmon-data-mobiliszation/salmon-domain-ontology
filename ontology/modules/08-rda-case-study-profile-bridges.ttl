@@ -7,16 +7,35 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
+# Auto-generated. Do NOT edit directly.
+# Edit fragments under ontology/case-studies/rda-juvenile-condition/ and
+# regenerate with: python3 scripts/build_rda_case_study_modules.py
+
 <https://w3id.org/smn/modules/08-rda-case-study-profile-bridges> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 08: RDA case-study profile bridges"@en ;
-  rdfs:comment "Profile-layer bridge concepts from the RDA juvenile salmon condition case-study graph. This module captures source vocabulary terms and maps them to shared salmon-domain semantics without promoting profile terms into shared core."@en ;
+  rdfs:comment "Profile-layer bridge concepts from the RDA juvenile salmon condition case-study graph. This is a working pilot module: it captures source vocabulary terms and maps them to shared salmon-domain semantics without promoting profile terms into shared core unless adoption criteria are met."@en ;
   dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> ;
   dcterms:source <https://docs.google.com/document/d/1myb-EsbtiJS7-x5wyuzMT9anrQyFC6zELy-WwykChRE/edit> .
+# --- begin ontology/case-studies/rda-juvenile-condition/08-rda-hakai-method-scheme.ttl ---
+# NOTE: edit this file and regenerate assembled 08 module via scripts/build_rda_case_study_modules.py
+
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 rda:HakaiJSPMeasurementTermScheme a skos:ConceptScheme ;
   skos:prefLabel "Hakai JSP measurement term scheme (RDA case-study bridge)"@en ;
-  skos:definition "Bridge scheme for mapping Hakai source terms to shared salmon ontology terms in the RDA juvenile-condition case-study."@en ;
-  skos:hasTopConcept hakai:Fork_Length_Measurement_Method .
+  skos:definition "Bridge scheme for mapping Hakai source measurement terms to shared salmon ontology terms in the RDA juvenile-condition case-study."@en ;
+  skos:hasTopConcept <https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method> .
+# --- end ontology/case-studies/rda-juvenile-condition/08-rda-hakai-method-scheme.ttl ---
+
+# --- begin ontology/case-studies/rda-juvenile-condition/08-rda-hakai-measurement-methods.ttl ---
+# NOTE: edit this file and regenerate assembled 08 module via scripts/build_rda_case_study_modules.py
+
+@prefix smn: <https://w3id.org/smn/> .
+@prefix hakai: <https://w3id.org/smn/profile/hakai/> .
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 
 hakai:Fork_Length_Measurement_Method a skos:Concept ;
   skos:prefLabel "Fork Length Measurement Method"@en ;
@@ -50,3 +69,4 @@ hakai:Fork_Length_Lab_Measurement a skos:Concept ;
   skos:closeMatch smn:ForkLengthMeasurement ;
   skos:note "Graph label appears as hakai:Fork_Length_Lab_Measurement in yEd export."@en ;
   prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
+# --- end ontology/case-studies/rda-juvenile-condition/08-rda-hakai-measurement-methods.ttl ---

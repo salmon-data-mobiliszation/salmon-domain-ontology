@@ -1,0 +1,45 @@
+name: Ontology CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  flat-ttl-drift-check:
+    name: Verify flattened TTL artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python deps
+        run: |
+          pip install rdflib
+
+      - name: Rebuild flat TTL and check for drift
+        run: |
+          python3 scripts/build_flat_smn_ttl.py --source ontology/salmon-domain-ontology.ttl --output /tmp/salmon-domain-ontology.ttl
+          if ! cmp -s salmon-domain-ontology.ttl /tmp/salmon-domain-ontology.ttl; then
+            echo "❌ salmon-domain-ontology.ttl is out of date."
+            echo "   Run: make compose-flat-ttl"
+            echo "   and commit the regenerated artifact."
+            exit 1
+          fi
+          echo "✅ salmon-domain-ontology.ttl is synchronized with source ontology/salmon-domain-ontology.ttl"
+
+      - name: Validate ontology TTL parse
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from rdflib import Graph
+
+          for path in sorted(Path('ontology').rglob('*.ttl')):
+              Graph().parse(path, format='turtle')
+          print('OK parsed ontology/*.ttl')
+          PY

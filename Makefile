@@ -5,13 +5,18 @@ WIDOCO_VERSION := 1.4.25
 WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
 ONTOLOGY_TTL := ontology/salmon-domain-ontology.ttl
+FLAT_TTL := salmon-domain-ontology.ttl
+COMPOSE_FLAT_TTL := $(FLAT_TTL)
 
-.PHONY: help install-robot install-widoco check-robot check-widoco docs-widoco docs-serializations docs-postprocess docs-refresh release-snapshot
+.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl verify-flat-ttl docs-widoco docs-serializations docs-postprocess docs-refresh release-snapshot
 
 help:
 	@echo "🧭 Salmon Domain Ontology build targets"
 	@echo "  install-robot    Download ROBOT JAR into tools/"
 	@echo "  install-widoco   Download WIDOCO JAR into tools/"
+	@echo "  compose-case-study-modules  Recompose split case-study profile modules"
+	@echo "  compose-flat-ttl  Build flattened read-only root TTL from source imports"
+	@echo "  verify-flat-ttl  Verify committed flat TTL is in sync with source"
 	@echo "  docs-widoco      Regenerate WIDOCO HTML docs into docs/"
 	@echo "  docs-serializations Regenerate docs/smn.{ttl,owl,jsonld}"
 	@echo "  docs-postprocess Apply project-specific WIDOCO HTML cleanup"
@@ -54,6 +59,26 @@ check-robot:
 		exit 1; \
 	fi
 
+compose-case-study-modules:
+	@echo "🧩 Rebuilding split case-study module 09 from fragments..."
+	@python3 scripts/build_rda_case_study_modules.py
+
+compose-flat-ttl:
+	@echo "📦 Building flattened root TTL: $(COMPOSE_FLAT_TTL)"
+	@python3 scripts/build_flat_smn_ttl.py --source $(ONTOLOGY_TTL) --output $(COMPOSE_FLAT_TTL)
+
+verify-flat-ttl:
+	@python3 scripts/build_rda_case_study_modules.py >/dev/null
+	@tmp=$$(mktemp); \
+	python3 scripts/build_flat_smn_ttl.py --source $(ONTOLOGY_TTL) --output $$tmp; \
+	if ! cmp -s $(COMPOSE_FLAT_TTL) $$tmp; then \
+		echo "❌ Flat TTL is out of sync. Run 'make compose-flat-ttl' and commit the generated file."; \
+		rm -f $$tmp; \
+		exit 1; \
+	fi
+	@rm -f $$tmp
+	@echo "✅ Flat TTL is up-to-date."
+
 check-widoco:
 	@if [ ! -f "$(WIDOCO_JAR)" ]; then \
 		echo "❌ WIDOCO not found at $(WIDOCO_JAR). Run 'make install-widoco' first."; \
@@ -64,13 +89,13 @@ check-widoco:
 		exit 1; \
 	fi
 
-docs-widoco: check-widoco
+docs-widoco: compose-case-study-modules compose-flat-ttl check-widoco
 	@echo "🧙 Regenerating WIDOCO docs..."
 	@OUT="release/tmp/widoco"; \
 	rm -rf "$$OUT"; \
 	mkdir -p "$$OUT"; \
 	java -jar $(WIDOCO_JAR) \
-		-ontFile $(ONTOLOGY_TTL) \
+		-ontFile $(COMPOSE_FLAT_TTL) \
 		-outFolder "$$OUT" \
 		-uniteSections \
 		-rewriteAll \
@@ -84,12 +109,12 @@ docs-widoco: check-widoco
 	rm -rf "$$OUT"; \
 	echo "✅ WIDOCO regenerated into docs/"
 
-docs-serializations: check-robot
+docs-serializations: compose-case-study-modules compose-flat-ttl check-robot
 	@echo "🔄 Regenerating docs/ downloadable serializations..."
 	@mkdir -p docs
-	@java -jar $(ROBOT_JAR) convert --input $(ONTOLOGY_TTL) --output docs/smn.ttl
-	@java -jar $(ROBOT_JAR) convert --input $(ONTOLOGY_TTL) --output docs/smn.owl
-	@python3 scripts/convert_ttl_to_jsonld.py $(ONTOLOGY_TTL) docs/smn.jsonld
+	@java -jar $(ROBOT_JAR) convert --input $(COMPOSE_FLAT_TTL) --output docs/smn.ttl
+	@java -jar $(ROBOT_JAR) convert --input $(COMPOSE_FLAT_TTL) --output docs/smn.owl
+	@python3 scripts/convert_ttl_to_jsonld.py $(COMPOSE_FLAT_TTL) docs/smn.jsonld
 	@echo "✅ Wrote docs/smn.ttl, docs/smn.owl, docs/smn.jsonld"
 
 docs-postprocess:
@@ -97,7 +122,7 @@ docs-postprocess:
 	@python3 scripts/postprocess_widoco_html.py
 	@echo "✅ WIDOCO post-processing complete."
 
-docs-refresh: docs-widoco docs-serializations docs-postprocess
+docs-refresh: compose-flat-ttl docs-widoco docs-serializations docs-postprocess
 	@echo "✅ Docs refresh complete."
 
 release-snapshot: docs-refresh

@@ -1,0 +1,66 @@
+# NOTE: edit this file and regenerate the assembled module via scripts/build_rda_case_study_modules.py
+
+@prefix smn: <https://w3id.org/smn/> .
+@prefix neville: <https://w3id.org/smn/profile/neville/> .
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+
+rda:NevilleDecompositionTermScheme a skos:ConceptScheme ;
+  skos:prefLabel "Neville decomposition term scheme (RDA case-study bridge)"@en ;
+  skos:definition "Bridge scheme for terms used in the Neville decomposition case-study table."@en ;
+  skos:hasTopConcept neville:StandardSurvey, neville:Area, neville:Species,
+    neville:SampleType, neville:Age, neville:Length_mm, neville:Weight_g,
+    neville:AverageConditionFactor .
+
+neville:StandardSurvey a skos:Concept ;
+  skos:prefLabel "Standard Survey"@en ;
+  skos:definition "Categorical yes/no indicator for whether sampling was conducted on the annual standard survey trackline."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch smn:SurveyEvent ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Area a skos:Concept ;
+  skos:prefLabel "Area"@en ;
+  skos:definition "General geographic area or stratum of sampling (for example, Strait of Georgia, Bute Inlet, Discovery Islands, Howe Sound)."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch smn:GeographicFeature ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Species a skos:Concept ;
+  skos:prefLabel "Species"@en ;
+  skos:definition "Common name and taxonomic assignment of sampled salmon."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch obo:NCBITaxon_8015 ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:SampleType a skos:Concept ;
+  skos:prefLabel "Sample Type"@en ;
+  skos:definition "Subsampling strategy (for example Random, Select, Total)."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch smn:SurveyEvent ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Age a skos:Concept ;
+  skos:prefLabel "Age"@en ;
+  skos:definition "Ocean age category (for example 0+ and 1+) used in the case-study decomposition."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch smn:SalmonLifeStage ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:NonStandardSurvey a skos:Concept ;
+  skos:prefLabel "Non-standard Survey"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch neville:StandardSurvey ;
+  skos:relatedMatch smn:SurveyEvent .
+
+neville:NonStandardSurveyArea a skos:Concept ;
+  skos:prefLabel "Non-standard Survey Area"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch smn:GeographicFeature .
+
+neville:SurveyArea a skos:Concept ;
+  skos:prefLabel "Survey Area"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch smn:GeographicFeature .
