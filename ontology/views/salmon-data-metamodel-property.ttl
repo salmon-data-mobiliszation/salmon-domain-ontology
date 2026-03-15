@@ -1,0 +1,21 @@
+@prefix smn:   <https://w3id.org/smn/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa:  <http://www.w3.org/ns/sosa/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix iao:   <http://purl.obolibrary.org/obo/IAO_> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel/property> a owl:Ontology ;
+  rdfs:label "Salmon data metamodel view — property slice"@en ;
+  rdfs:comment "Property-focused slice: the aspect or characteristic of a salmon entity that an observation is trying to describe."@en .
+
+iadopt:Property rdfs:subClassOf iao:0000030 .
+
+smn:Characteristic rdfs:comment "Plain-language anchor for the aspect being described, such as length, weight, abundance, escapement, or life stage."@en ;
+  skos:closeMatch sosa:Property, iadopt:Property .
+
+smn:FishLength skos:closeMatch iadopt:Property .
+smn:FishWeight skos:closeMatch iadopt:Property .
+
+sosa:Property skos:closeMatch iadopt:Property .

@@ -1287,7 +1287,9 @@
      -->
 
     <rdf:Description rdf:about="http://www.w3.org/ns/sosa/ObservingProcedure">
-        <rdfs:comment xml:lang="en">Darwin Core does not define Protocol as an OWL class; this bridge preserves crosswalk intent for practical integration use.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://rs.tdwg.org/dwc/terms/protocol"/>
+        <rdfs:seeAlso rdf:resource="https://rs.tdwg.org/dwc/dp/terms/Protocol"/>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/smn/FisheriesReferencePointLower">
         <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>

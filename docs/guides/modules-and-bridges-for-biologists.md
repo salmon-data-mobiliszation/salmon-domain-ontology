@@ -52,6 +52,11 @@ There is one explicit pilot in this repo: the juvenile-condition RDA case study 
 `08` is mostly method/context vocabulary. The `09` workflow is split into entities, observations, and constraint/statistics perspectives; once assembled they become the same distribution modules you consume. This keeps the case study from reading like ontology theory and makes it directly useful as a first-pass mapping template for the biologist workflow.
 
 See: `ontology/modules/README.md`
+
+If you want the optional "how the pieces fit together" mental model, also see:
+- `ontology/views/README.md`
+- `ontology/views/salmon-data-metamodel.ttl`
+
 ---
 
 ## What is a bridge profile?

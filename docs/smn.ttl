@@ -876,7 +876,9 @@ sosa:Sampling rdf:type owl:Class ;
 #    Annotations
 #################################################################
 
-sosa:ObservingProcedure rdfs:comment "Darwin Core does not define Protocol as an OWL class; this bridge preserves crosswalk intent for practical integration use."@en .
+sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class."@en ;
+                        rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/protocol> ,
+                                     <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 
 <https://w3id.org/smn/FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .

@@ -4,32 +4,6 @@ This file tracks technical debt with rationale, impact, and remediation notes. K
 
 ## Active Technical Debt
 
-### 2026-03-15 — ROBOT/WIDOCO serialization warning on external SOSA/DWC axiom
-
-**Description**: `make docs-refresh` logs a non-blocking ROBOT conversion warning for
-`<http://www.w3.org/ns/sosa/ObservingProcedure> owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Protocol>` while generating `docs/smn.owl`.
-
-**Rationale**: External modeling shape appears to violate strict serializable assumptions in one conversion path, but this has not broken local parsing or ontology semantics.
-
-**Impact**:
-- **Severity**: Low
-- **Affected Areas**: serialisation QA and release artifact generation
-- **User Impact**: low direct user impact today
-- **Maintenance Cost**: recurring noise during docs refresh and future artifact review
-
-**Remediation**:
-- **Effort Estimate**: Medium
-- **Approach**: either upstream-compatible remap in source ontology or explicit tolerance note in publication runbook so this warning is treated as expected
-- **Prerequisites**: access to source of the SOSA/DWC axiom and agreement on compatibility risk
-- **Risk**: low semantic risk if tolerated, medium risk if we patch semantics without broader review
-
-**Status**: Active
-
-**Related Issues/PRs**:
-- `Makefile`
-- `docs/migrations/README.md`
-- `docs/context/widoco.md`
-
 ### 2026-03-15 — WIDOCO changelog rendering errors on complex restrictions
 
 **Description**: `docs-widoco` can emit `OntologyDifferencesRenderer` errors for several `SubClassOf` restrictions whose fillers are property restrictions rather than OWL classes in import chain assertions.
@@ -55,6 +29,12 @@ This file tracks technical debt with rationale, impact, and remediation notes. K
 - `docs/context/widoco.md`
 
 ## Resolved Technical Debt
+
+### 2026-03-15 — External SOSA/DWC protocol bridge no longer emits docs-refresh serialization noise
+
+**Resolved Date**: 2026-03-15
+**Resolution**: replaced the `sosa:ObservingProcedure owl:equivalentClass dwc:Protocol` axiom in `ontology/modules/06-data-interoperability.ttl` with a documentation-level bridge (`rdfs:comment` + `rdfs:seeAlso` to `dwc:protocol` and `dwcdp:Protocol`). `make docs-refresh` now completes without the previous ROBOT conversion warning.
+**Lessons Learned**: publication-oriented interoperability hints belong in documentation-level or annotation-level bridges unless both sides are clean OWL classes with compatible semantics.
 
 ### 2026-03-15 — Migration scaffolding for build/verify docs path is in place
 

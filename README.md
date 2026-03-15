@@ -26,6 +26,7 @@ If you want to contribute:
 - `ontology/salmon-domain-ontology-research.ttl` — optional research build (adds exploratory alignment module)
 - `ontology/salmon-domain-ontology-rda-case-study.ttl` — optional case-study bridge build (adds profile bridge mappings from RDA juvenile-condition graph, including Hakai + Neville decomposition terms)
 - `ontology/modules/` — category modules + alignment modules + profile bridge modules
+- `ontology/views/` — optional, non-normative metamodel views for maintainers and salmon biologists
 - `CONVENTIONS.md` — modeling and namespace conventions (`smn:` canonical)
 - `docs/context/widoco.md` — WIDOCO publication workflow and output contract
 - `docs/migrations/README.md` — migration map, boundary rules, adoption checklist, cutover runbook, smoke-run templates, and release-readiness notes
@@ -59,3 +60,5 @@ Note: Java is required for WIDOCO and ROBOT. The repo now carries generated late
 
 Start with `docs/guides/modules-and-bridges-for-biologists.md`.
 It explains the module + bridge approach in plain language for dataset teams.
+
+If you want the optional mental-model view of how entity/property/variable/constraint/method/result pieces fit together, then read `ontology/views/README.md` next.

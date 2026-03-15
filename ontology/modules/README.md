@@ -45,11 +45,19 @@ Importantly, both modules stay in profile-space and map to `smn:` with conservat
 - `alignment-main.ttl` — conservative merge-safe upper-level alignment bridges.
 - `alignment-research.ttl` — exploratory alignment candidates with stronger axioms.
 
+## Optional metamodel views
+
+These do **not** live in `modules/` because they are not part of the normative shared-core import spine:
+
+- `../views/salmon-data-metamodel.ttl` — optional non-normative composition root
+- `../views/*.ttl` — focused entity/property/variable/method/event/result/provenance slices for architecture review and biologist-friendly orientation
+
 ## Import behavior
 
 - `../salmon-domain-ontology.ttl` imports modules 01–07 + `alignment-main.ttl`.
 - `../salmon-domain-ontology-research.ttl` imports the conservative build and then adds `alignment-research.ttl`.
 - `../salmon-domain-ontology-rda-case-study.ttl` imports the conservative build and then adds `08-rda-case-study-profile-bridges.ttl` and `09-rda-neville-decomposition-profile-bridges.ttl`.
+- `../views/salmon-data-metamodel.ttl` is intentionally **not** imported by any of the above entrypoints.
 
 ## Suggested editing posture for future refactors
 
@@ -61,4 +69,5 @@ Importantly, both modules stay in profile-space and map to `smn:` with conservat
 
 - Use `smn:` for domain terms intended for reuse across organizations.
 - Preserve source-provenance notes when migrating terms from DFO Salmon Ontology.
-- Do **not** remove terms from DFO source ontology as part of this phase.
+- Keep the optional metamodel view layer in `ontology/views/` rather than the shared-core module chain.
+- DFO-specific core terms should not be removed casually, but shared non-normative metamodel views now live here rather than in the DFO repo.

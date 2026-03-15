@@ -75,6 +75,17 @@ This folder is the canonical ontology source for the Salmon Domain Ontology. Eve
 - **`modules/alignment-research.ttl`**
   - Exploratory, stronger-style alignments held out from baseline.
 
+### Optional metamodel views
+
+- **`views/salmon-data-metamodel.ttl`**
+  - Non-normative composition root for the salmon data metamodel view.
+  - Intended for maintainers and salmon biologists who want the entity/property/variable/constraint/method/result mental model in one place.
+  - Deliberately **not** imported by the shared-core build.
+
+- **`views/*.ttl`**
+  - Focused slices for entity, property, variable, method/protocol, event/observation, result/datum, and provenance.
+  - These files are the right home for optional upper-level framing that should stay out of `01`–`07` by default.
+
 ### How case-study modules map to the onboarding workflow
 
 The case-study modules were intentionally arranged to mirror the same onboarding sequence used by Salmon Data GPT:
@@ -91,7 +102,7 @@ For changes to shared semantics:
 
 - Put genuinely cross-organization terms in `01`–`07` (and only there).
 - Keep local program/partner vocabulary in profile files, then bridge there.
-- Keep uncertain or higher-friction upper-level modeling in `alignment-research` or profile modules until reviewed.
+- Keep uncertain or higher-friction upper-level modeling in `alignment-research` or `views/` until reviewed.
 
 ## How this lines up with the biologist onboarding workflow
 
@@ -108,7 +119,7 @@ In that flow, the practical first pass is usually driven by:
 - `07-controlled-vocabularies`
 - optionally `06-data-interoperability` when teams explicitly need interoperability scaffolds.
 
-The current pattern does **not** require BFO/IAO-first modeling for first-pass output; those richer semantics are available as the ontology matures and become useful for reasoning-heavy consumers.
+The current pattern does **not** require BFO/IAO-first modeling for first-pass output; those richer semantics are available in optional alignment/view layers when they become useful for reasoning-heavy consumers.
 
 ## Is the current module count too much?
 

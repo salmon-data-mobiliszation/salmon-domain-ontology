@@ -1,0 +1,88 @@
+@prefix smn:    <https://w3id.org/smn/> .
+@prefix smnv:   <https://w3id.org/smn/views/salmon-data-metamodel#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix dwc:    <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwcdp: <https://rs.tdwg.org/dwc/dp/terms/> .
+@prefix bfo:    <http://purl.obolibrary.org/obo/BFO_> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel/event-observation> a owl:Ontology ;
+  rdfs:label "Salmon data metamodel view — event/observation slice"@en ;
+  rdfs:comment "Event and observation context slice: when/where/by whom, the survey structure, and the connection from salmon-domain observations to publication-oriented event models."@en .
+
+sosa:Observation rdfs:subClassOf bfo:0000015, prov:Activity .
+sosa:Sampling rdfs:subClassOf bfo:0000015, prov:Activity .
+
+smn:Measurement skos:closeMatch sosa:Observation .
+smn:SamplingEvent skos:closeMatch sosa:Sampling .
+smn:SurveyEvent skos:closeMatch sosa:Sampling, dwc:Event .
+smn:EscapementSurveyEvent skos:closeMatch sosa:Sampling .
+
+smn:ReportingOrManagementStratum rdfs:comment "In salmon practice this is often the practical feature-of-interest for assessment and survey reporting, even though the core ontology models it as an information-defined grouping."@en ;
+  skos:closeMatch sosa:FeatureOfInterest .
+
+smnv:SalmonDataObservation a owl:Class ;
+  rdfs:label "salmon data observation"@en ;
+  rdfs:subClassOf sosa:Observation ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ; owl:onProperty smnv:hasVariable ; owl:someValuesFrom iadopt:Variable ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:someValuesFrom sosa:Result ] .
+
+smnv:SalmonDataSampling a owl:Class ;
+  rdfs:label "salmon data sampling"@en ;
+  rdfs:subClassOf sosa:Sampling ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:someValuesFrom sosa:Sample ] .
+
+smnv:observationUsedFeature a owl:ObjectProperty ;
+  rdfs:label "observation used feature"@en ;
+  rdfs:subPropertyOf sosa:hasFeatureOfInterest, prov:used ;
+  rdfs:domain sosa:Observation ;
+  rdfs:range sosa:FeatureOfInterest .
+
+smnv:samplingMadeBySampler a owl:ObjectProperty ;
+  rdfs:label "sampling made by sampler"@en ;
+  rdfs:subPropertyOf sosa:madeBySampler ;
+  rdfs:domain sosa:Sampling ;
+  rdfs:range sosa:Sampler .
+
+sosa:Sampling skos:closeMatch dwc:Event .
+sosa:Observation skos:closeMatch dwc:Occurrence .
+
+dwcdp:Event a owl:Class ;
+  rdfs:subClassOf prov:Activity ;
+  rdfs:label "DwC-DP Event"@en .
+
+dwcdp:Survey a owl:Class ;
+  rdfs:subClassOf prov:Activity ;
+  rdfs:label "DwC-DP Survey"@en .
+
+dwcdp:Occurrence a owl:Class ;
+  rdfs:subClassOf prov:Activity ;
+  rdfs:label "DwC-DP Occurrence"@en .
+
+smnv:partOfSurvey a owl:ObjectProperty ;
+  rdfs:label "part of survey"@en ;
+  rdfs:comment "Use this view property (or a stronger part-of relation elsewhere) to group many sampling acts under a survey or campaign activity."@en ;
+  rdfs:domain sosa:Sampling ;
+  rdfs:range dwcdp:Survey .
+
+smnv:dwcdpEventID a owl:ObjectProperty ;
+  rdfs:label "eventID (happened during)"@en ;
+  rdfs:comment "Reference-style linkage used in DwC-DP rows to point a record at its event context."@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:range dwcdp:Event .
+
+smnv:dwcdpParentEventID a owl:ObjectProperty ;
+  rdfs:label "parentEventID (happened during)"@en ;
+  rdfs:comment "Parent-child event linkage in DwC-DP event hierarchies."@en ;
+  rdfs:domain dwcdp:Event ;
+  rdfs:range dwcdp:Event .
+
+dwcdp:Survey smnv:dwcdpEventID dwcdp:Event .
+dwcdp:Occurrence smnv:dwcdpEventID dwcdp:Event .
+dwcdp:Event smnv:dwcdpParentEventID dwcdp:Event .

@@ -185,12 +185,15 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Darwin Core does not define Protocol as an OWL class; this bridge preserves crosswalk intent for practical integration use."
+        "@value": "Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class."
       }
     ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "http://rs.tdwg.org/dwc/terms/Protocol"
+        "@id": "http://rs.tdwg.org/dwc/terms/protocol"
+      },
+      {
+        "@id": "https://rs.tdwg.org/dwc/dp/terms/Protocol"
       }
     ]
   },

@@ -26,6 +26,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - `docs/index.html` — latest generated HTML docs
   - `docs/smn.ttl` / `docs/smn.owl` / `docs/smn.jsonld` — latest downloadable serializations
   - `docs/releases/<version>/` — immutable release snapshot surface
+  - `ontology/views/salmon-data-metamodel.ttl` — optional non-normative metamodel view (not part of default imports)
 
 ## Test
 
@@ -79,6 +80,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 - Research alignment overlay → `ontology/salmon-domain-ontology-research.ttl` + `ontology/modules/alignment-research.ttl`
 - Case-study/profile bridges → `ontology/salmon-domain-ontology-rda-case-study.ttl` + modules `08` and `09` (RDA juvenile-condition pilot, explicit manual-to-automation mapping reference)
   - `08` and `09` are assembled from split files under `ontology/case-studies/rda-juvenile-condition/`.
+- Optional metamodel view surface → `ontology/views/salmon-data-metamodel.ttl` + supporting files under `ontology/views/` (kept out of the shared-core import spine by default)
 
 - `https://w3id.org/smn` root + canonical term/module routes are served via W3ID publication config and evidence artifacts
 - Modeling rules and boundary decisions → `CONVENTIONS.md` + `docs/migrations/phase2-boundary-rules.md`
@@ -90,6 +92,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 - Changing ontology terms/modules/build imports:
   - `CONVENTIONS.md`
   - `ontology/modules/README.md`
+  - `ontology/views/README.md` (if you are touching the optional metamodel view layer)
   - the relevant module(s) under `ontology/modules/`
 - Changing migration/cutover docs:
   - `docs/migrations/README.md`

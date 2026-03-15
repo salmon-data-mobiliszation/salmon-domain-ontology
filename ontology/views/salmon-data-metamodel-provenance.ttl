@@ -1,0 +1,16 @@
+@prefix smn:   <https://w3id.org/smn/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix sosa:  <http://www.w3.org/ns/sosa/> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel/provenance> a owl:Ontology ;
+  rdfs:label "Salmon data metamodel view — provenance slice"@en ;
+  rdfs:comment "Provenance slice: lightweight lineage links showing how salmon observations use inputs, generate outputs, and derive samples."@en .
+
+smn:MethodDocumentation rdfs:subClassOf prov:Entity .
+smn:DataQualityAssessment rdfs:subClassOf prov:Entity .
+
+sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
+sosa:hasResult rdfs:subPropertyOf prov:generated .
+sosa:isSampleOf rdfs:subPropertyOf prov:wasDerivedFrom .
