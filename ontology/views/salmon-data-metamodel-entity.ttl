@@ -1,16 +1,13 @@
 @prefix smn:   <https://w3id.org/smn/> .
-@prefix smnv:  <https://w3id.org/smn/views/salmon-data-metamodel#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
-@prefix prov:  <http://www.w3.org/ns/prov#> .
 @prefix sosa:  <http://www.w3.org/ns/sosa/> .
 @prefix iadopt: <https://w3id.org/iadopt/ont/> .
-@prefix dwcdp: <https://rs.tdwg.org/dwc/dp/terms/> .
 
 <https://w3id.org/smn/views/salmon-data-metamodel/entity> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — entity slice"@en ;
-  rdfs:comment "Entity-centric slice: what the data is about, and how salmon-domain entities line up with SOSA/I-ADOPT and Darwin Core publication structures."@en .
+  rdfs:comment "Simple entity slice: what the data is about."@en .
 
 smn:Entity rdfs:comment "Plain-language anchor for the thing a salmon dataset is about: a fish, group, habitat unit, stock, river, or similar feature."@en ;
   skos:closeMatch sosa:FeatureOfInterest, iadopt:Entity .
@@ -18,15 +15,3 @@ smn:Entity rdfs:comment "Plain-language anchor for the thing a salmon dataset is
 smn:GeographicFeature skos:closeMatch sosa:FeatureOfInterest .
 
 sosa:FeatureOfInterest skos:closeMatch iadopt:Entity .
-
-dwcdp:Organism a owl:Class ;
-  rdfs:subClassOf prov:Entity ;
-  rdfs:label "DwC-DP Organism"@en .
-
-smnv:dwcdpOrganismID a owl:ObjectProperty ;
-  rdfs:label "organismID (of an)"@en ;
-  rdfs:comment "Reference-style linkage from a published occurrence record to the organism it is about."@en ;
-  rdfs:domain dwcdp:Occurrence ;
-  rdfs:range dwcdp:Organism .
-
-dwcdp:Occurrence smnv:dwcdpOrganismID dwcdp:Organism .

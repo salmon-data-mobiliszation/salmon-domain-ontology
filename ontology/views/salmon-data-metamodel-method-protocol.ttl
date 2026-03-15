@@ -2,17 +2,14 @@
 @prefix smnv:   <https://w3id.org/smn/views/salmon-data-metamodel#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
-@prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix sosa:   <http://www.w3.org/ns/sosa/> .
-@prefix dwcdp: <https://rs.tdwg.org/dwc/dp/terms/> .
+@prefix dwc:    <http://rs.tdwg.org/dwc/terms/> .
 
 <https://w3id.org/smn/views/salmon-data-metamodel/method-protocol> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — method/protocol slice"@en ;
-  rdfs:comment "Method and protocol slice: how an observation or sampling act was carried out, and how that procedure is documented for downstream reuse."@en .
+  rdfs:comment "Simple method slice: how the work was done and where that method is documented."@en .
 
-smn:MethodDocumentation rdfs:comment "Shared salmon anchor for the method or protocol documentation that explains how a metric or estimate was produced."@en ;
-  skos:closeMatch dwcdp:Protocol .
+smn:MethodDocumentation rdfs:comment "Shared salmon anchor for the method or protocol documentation that explains how a metric or estimate was produced."@en .
 
 smnv:observationUsedProcedure a owl:ObjectProperty ;
   rdfs:label "observation used procedure"@en ;
@@ -28,22 +25,9 @@ smnv:samplingUsedProcedure a owl:ObjectProperty ;
 
 smnv:procedureDocumentedBy a owl:ObjectProperty ;
   rdfs:label "procedure documented by"@en ;
-  rdfs:comment "Links an operational procedure to the protocol or method documentation record that explains it."@en ;
+  rdfs:comment "Links a procedure to the documentation that explains it."@en ;
   rdfs:domain sosa:Procedure ;
   rdfs:range smn:MethodDocumentation .
 
-sosa:Procedure skos:closeMatch dwcdp:Protocol .
-
-sosa:ObservingProcedure rdfs:comment "Documentation-only bridge: in salmon data exchange this usually points to a referenced protocol description (for example a Darwin Core protocol value or a DwC-DP Protocol record), not to an OWL-equivalent class."@en .
-
-dwcdp:Protocol a owl:Class ;
-  rdfs:subClassOf prov:Plan ;
-  rdfs:label "DwC-DP Protocol"@en .
-
-smnv:dwcdpSamplingEffortProtocolID a owl:ObjectProperty ;
-  rdfs:label "samplingEffortProtocolID (followed)"@en ;
-  rdfs:comment "Reference-style linkage from a published survey record to the protocol documentation it followed."@en ;
-  rdfs:domain dwcdp:Survey ;
-  rdfs:range dwcdp:Protocol .
-
-dwcdp:Survey smnv:dwcdpSamplingEffortProtocolID dwcdp:Protocol .
+sosa:ObservingProcedure rdfs:comment "Documentation-only bridge: in salmon data exchange this usually points to a referenced protocol description rather than an OWL-equivalent class."@en ;
+  rdfs:seeAlso dwc:samplingProtocol .

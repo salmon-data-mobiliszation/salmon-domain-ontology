@@ -9,10 +9,16 @@
 
 <https://w3id.org/smn/views/salmon-data-metamodel/variable> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — variable slice"@en ;
-  rdfs:comment "Variable-focused slice: how salmon teams often package entity + property + constraints/modifiers into the practical thing they call a variable."@en .
+  rdfs:comment "Simple variable slice: the practical thing salmon teams often call a variable."@en .
 
 iadopt:Variable rdfs:subClassOf iao:0000030, sosa:Property .
 iadopt:Constraint rdfs:subClassOf iao:0000030 .
+
+smn:MeasurementContext skos:relatedMatch iadopt:Constraint .
+smn:CatchContext skos:relatedMatch iadopt:Constraint .
+smn:RunContext skos:relatedMatch iadopt:Constraint .
+smn:SpawnerStageContext skos:relatedMatch iadopt:Constraint .
+smn:SurvivalOrMortalityContext skos:relatedMatch iadopt:Constraint .
 
 smn:MetricBenchmark skos:closeMatch iadopt:Constraint .
 smn:ReferencePoint skos:closeMatch iadopt:Constraint .
@@ -21,38 +27,38 @@ smn:UpperBiologicalBenchmark skos:closeMatch iadopt:Constraint .
 
 smnv:SalmonDataVariable a owl:Class ;
   rdfs:label "salmon data variable"@en ;
-  rdfs:comment "A non-normative helper class for the common salmon-data pattern where a published variable bundles the entity of interest, the property of interest, and any important qualifiers or statistical modifiers."@en ;
+  rdfs:comment "A simple helper class for the common salmon-data pattern where a variable bundles an entity, a property, and any important context."@en ;
   rdfs:subClassOf iadopt:Variable ,
     [ a owl:Restriction ; owl:onProperty smnv:variableRepresentsEntity ; owl:someValuesFrom iadopt:Entity ] ,
     [ a owl:Restriction ; owl:onProperty smnv:variableRepresentsProperty ; owl:someValuesFrom iadopt:Property ] .
 
 smnv:variableRepresentsEntity a owl:ObjectProperty ;
   rdfs:label "variable represents entity"@en ;
-  rdfs:comment "Links a variable decomposition to the entity or feature it is about."@en ;
+  rdfs:comment "Links a variable to the entity or feature it is about."@en ;
   rdfs:domain iadopt:Variable ;
   rdfs:range iadopt:Entity .
 
 smnv:variableRepresentsProperty a owl:ObjectProperty ;
   rdfs:label "variable represents property"@en ;
-  rdfs:comment "Links a variable decomposition to the property or characteristic being described."@en ;
+  rdfs:comment "Links a variable to the property or characteristic being described."@en ;
   rdfs:domain iadopt:Variable ;
   rdfs:range iadopt:Property .
 
 smnv:variableUsesConstraint a owl:ObjectProperty ;
   rdfs:label "variable uses constraint"@en ;
-  rdfs:comment "Adds qualifiers such as brood year, location, life stage, or benchmark framing when those are part of the variable definition rather than just row-level data values."@en ;
+  rdfs:comment "Adds context such as brood year, location, life stage, or benchmark framing when it changes the meaning of the variable."@en ;
   rdfs:domain iadopt:Variable ;
   rdfs:range iadopt:Constraint .
 
 smnv:variableUsesStatisticalModifier a owl:ObjectProperty ;
   rdfs:label "variable uses statistical modifier"@en ;
-  rdfs:comment "Captures choices such as average, count, proportion, or confidence framing when they materially change the meaning of the published variable."@en ;
+  rdfs:comment "Captures choices such as average, count, proportion, or confidence framing."@en ;
   rdfs:domain iadopt:Variable ;
   rdfs:range owl:Thing .
 
 smnv:hasVariable a owl:ObjectProperty ;
   rdfs:label "has variable"@en ;
-  rdfs:comment "Links an observation to the variable decomposition used in a salmon data workflow. In practice this is often managed as a compound term with decomposition annotations rather than a single pure OWL class."@en ;
+  rdfs:comment "Links an observation to the variable framing used in the workflow."@en ;
   rdfs:domain sosa:Observation ;
   rdfs:range iadopt:Variable .
 

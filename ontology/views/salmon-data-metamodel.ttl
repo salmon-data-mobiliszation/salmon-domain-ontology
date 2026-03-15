@@ -3,7 +3,7 @@
 
 <https://w3id.org/smn/views/salmon-data-metamodel> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view"@en ;
-  rdfs:comment "Non-normative, salmon-biologist-friendly decomposition view for the shared salmon ontology. It explains how entity, property, variable, constraint, method/context, observation/event, result/datum, and provenance pieces fit together across SMN, SOSA, I-ADOPT, PROV, Darwin Core, and selected BFO/IAO framing. This view is intentionally optional and is not imported by the shared-core 01-07 build."@en ;
+  rdfs:comment "Optional, non-normative mental model for the shared salmon ontology. It gives a simple reading of how entity, property, variable, context, method, observation, result, and provenance fit together. This view is intentionally not imported by the shared-core 01-07 build."@en ;
   owl:imports
     <salmon-data-metamodel-entity.ttl> ,
     <salmon-data-metamodel-property.ttl> ,

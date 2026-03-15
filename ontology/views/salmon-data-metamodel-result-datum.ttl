@@ -6,14 +6,12 @@
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix sosa:   <http://www.w3.org/ns/sosa/> .
 @prefix dwc:    <http://rs.tdwg.org/dwc/terms/> .
-@prefix dwcdp: <https://rs.tdwg.org/dwc/dp/terms/> .
-@prefix bfo:    <http://purl.obolibrary.org/obo/BFO_> .
 
 <https://w3id.org/smn/views/salmon-data-metamodel/result-datum> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — result/datum slice"@en ;
-  rdfs:comment "Result-oriented slice: what comes out of an observation or sampling act, whether that is a value-like datum, an assessment result, or a material sample."@en .
+  rdfs:comment "Simple result slice: what comes out of an observation or sampling act."@en .
 
-sosa:Sample rdfs:subClassOf bfo:0000040, prov:Entity .
+sosa:Sample rdfs:subClassOf prov:Entity .
 sosa:Result rdfs:subClassOf prov:Entity .
 
 smn:EscapementMeasurement skos:closeMatch sosa:Result .
@@ -32,10 +30,4 @@ smnv:samplingGeneratedSample a owl:ObjectProperty ;
   rdfs:domain sosa:Sampling ;
   rdfs:range sosa:Sample .
 
-sosa:Sample skos:closeMatch dwc:MaterialEntity .
-
-dwcdp:MaterialEntity a owl:Class ;
-  rdfs:subClassOf prov:Entity ;
-  rdfs:label "DwC-DP MaterialEntity"@en .
-
-dwcdp:MaterialEntity smnv:dwcdpEventID dwcdp:Event .
+sosa:Sample skos:closeMatch dwc:MaterialSample .
