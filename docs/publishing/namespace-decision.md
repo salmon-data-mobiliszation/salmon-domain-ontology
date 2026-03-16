@@ -68,15 +68,17 @@ The namespace transition was treated as complete only after all were true:
 
 ### Governance note for profile namespaces
 
-`/profile/*` paths in the live `smn` namespace are intended for **project-curated bridge artifacts** (for example, the RDA pilot profiles), not for owning every organization’s canonical vocabulary.
+`/profile/*` paths in the live `smn` namespace are intended for **project-curated bridge artifacts** (for example, the RDA pilot profiles), not by default for every organization’s canonical vocabulary.
 
 Recommended default for any organization:
 - publish local/program terms from an organization-owned namespace (their own domain, own w3id slug, etc.);
 - keep canonical local terms there; for shared collaboration, publish bridge modules using one of these tracks:
   1) local draft only (no public IRI commitment yet)
-  2) temporary shared bridge at `https://w3id.org/smn/profile/<program>/` (for active cross-team work), with explicit stewardship.
+  2) shared collaboration bridge at `https://w3id.org/smn/profile/<program>/` (for cross-team reuse), with explicit stewardship.
 
-If a team wants a standalone WIDOCO/HTML site for profile terms, run WIDOCO in that team’s own ontology workspace and host docs there; SMN stays focused on shared-core and pilot profile bridge artifacts.
+A shared profile under `/profile/<program>/` may stay there long-term, but only with a governance decision that records: owner(s), acceptance/review rhythm, version/deprecation policy, and whether SMN remains the steward of any exposed docs.
+
+If a team wants a standalone WIDOCO/HTML site for profile terms, run WIDOCO in that team’s own ontology workspace and host docs there; SMN stays focused on shared-core and pilot profile bridge artifacts. If a team wants `smn/profile` itself to serve a profile WIDOCO site, that must be an explicit routing change in `w3id-smn-draft/.htaccess` plus an agreed publication contract.
 
 Publishing under `https://w3id.org/smn/<org>/...` should be treated as a stewarded, cross-cutting decision, not the default.
 
