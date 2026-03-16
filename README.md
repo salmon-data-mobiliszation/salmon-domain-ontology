@@ -34,6 +34,17 @@ If you want to contribute:
 - `docs/publishing/w3id-request-payload.md` — merged `smn` W3ID registration record + follow-up publication checklist
 - `docs/guides/modules-and-bridges-for-biologists.md` — beginner-friendly guide to modules, local profiles, and bridge mapping
 
+## Where non-core terms live
+
+For teams using MetaSalmon Data GPT / R package with local or program-specific terms:
+
+1. **File-first (recommended first step):** keep local terms in a project-local profile file (their own namespace), map conservatively to shared `smn:`.
+2. **Collaborative profile artifact (optional):** if multiple teams need shared access to the same local contract, use `https://w3id.org/smn/profile/<program>/` as a temporary bridge namespace.
+3. **Shared-core promotion (rare):** promote to `smn:` only when term reuse is broad and semantics are stable.
+
+If a team wants an independent WIDOCO site for profile terms, run WIDOCO against their own profile ontology source and host that site under their own namespace/hosting.
+SMN’s own publication workflow remains centered on shared ontology + curated pilot profiles, so this is the simplest way to serve a separate profile docs site without expanding the core namespace.
+
 ## Docs / publication workflow
 
 The repo now has a first-pass publication pipeline matching the DFO pattern in a lighter form.

@@ -68,13 +68,17 @@ The namespace transition was treated as complete only after all were true:
 
 ### Governance note for profile namespaces
 
-`/profile/*` paths in the live `smn` namespace are currently intended for **project-curated bridge artifacts** (e.g. the RDA pilot profiles), not for everyone's canonical organization namespaces.
+`/profile/*` paths in the live `smn` namespace are intended for **project-curated bridge artifacts** (for example, the RDA pilot profiles), not for owning every organization’s canonical vocabulary.
 
 Recommended default for any organization:
-- publish local/profile terms from an organization-owned namespace (their own domain, own w3id slug, etc.);
-- keep local terms there, and publish bridge modules to `smn`'s bridge artifacts via mapping files.
+- publish local/program terms from an organization-owned namespace (their own domain, own w3id slug, etc.);
+- keep canonical local terms there; for shared collaboration, publish bridge modules using one of these tracks:
+  1) local draft only (no public IRI commitment yet)
+  2) temporary shared bridge at `https://w3id.org/smn/profile/<program>/` (for active cross-team work), with explicit stewardship.
 
-Publishing under `https://w3id.org/smn/<org>/...` would make `smn` the namespace steward for those terms, which is usually not desired unless the organization explicitly delegates stewardship for that profile.
+If a team wants a standalone WIDOCO/HTML site for profile terms, run WIDOCO in that team’s own ontology workspace and host docs there; SMN stays focused on shared-core and pilot profile bridge artifacts.
+
+Publishing under `https://w3id.org/smn/<org>/...` should be treated as a stewarded, cross-cutting decision, not the default.
 
 ## Publication caveat
 

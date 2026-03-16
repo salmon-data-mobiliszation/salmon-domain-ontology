@@ -141,7 +141,13 @@ If not, keep it profile-scoped and bridged.
 4. Add a separate bridge module that links `myorg:` to `smn:`.
 5. Keep bridge mappings conservative until validated with data.
 
-A useful exception for early pilots: orgs may use a shared `https://w3id.org/smn/profile/...` bridge package only as a temporary collaboration artifact, while the canonical local terms stay in org-owned namespaces.
+A useful exception for early pilots: orgs may use a shared `https://w3id.org/smn/profile/<program>/` bridge package only as a temporary collaboration artifact, while the canonical local terms stay in org-owned namespaces.
+
+### Publishing progression for profile terms
+
+- **Local draft file:** keep local terms in your own namespace/module first.
+- **Shared collaboration profile:** publish a temporary bridge profile under `https://w3id.org/smn/profile/<program>/` when multiple teams need to consume the same mapping contract.
+- **Independent public docs:** if you want your own WIDOCO page for that profile, generate it from your profile ontology in your own namespace/hosting; SMN’s WIDOCO build remains the shared-core documentation surface.
 
 ---
 

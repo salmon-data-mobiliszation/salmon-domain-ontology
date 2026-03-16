@@ -29,11 +29,25 @@ Use for:
 
 ### Layer C — Agency/profile ontologies (organization namespaces)
 
-Use for policy/program-specific SKOS schemes and agency-specific interpretation layers.
+Use for policy/program-specific vocabularies that should remain local, including one-off project terms, local method taxonomies, and governance interpretation layers.
 
 Examples:
 - named policy schemes and statuses that are not broadly governed across agencies
 - organization-specific method taxonomies and quality bins
+
+A profile can start in a local namespace (recommended default), and only later be promoted to a shared collaboration namespace such as `https://w3id.org/smn/profile/<program>/` if needed for cross-organization reuse.
+
+## 2b) Profile publishing progression (practical)
+
+Use this decision path to reduce namespace burden while still allowing formal semantics:
+
+1. **Private/local draft (fastest):** define terms in your project repo or package as a simple TTL file.
+   - No public namespace commitment required.
+   - Link terms to shared anchors with provisional mappings for testing/integration.
+2. **Project bridge (shared in collaboration):** if multiple teams need shared access, publish a profile artifact under `https://w3id.org/smn/profile/<program>/` only for bridge terms that are actively co-owned.
+   - This is a *collaboration artifact*, not a guarantee of long-term canonical shared meaning.
+   - Keep detailed provenance + mapping rationale in the profile module.
+3. **Shared namespace promotion:** only move terms into `smn:` when reuse is stable across multiple agencies and semantics are policy-neutral.
 
 ### Layer D — Mapping/bridge artifacts
 
@@ -60,9 +74,16 @@ A concept may exist as both OWL and SKOS **only with separate IRIs** and explici
 ## 4) IRI strategy
 
 1. Shared terms use `smn:` IRIs.
-2. Profile-specific terms use the profile namespace.
-3. Do not overload a single IRI with incompatible roles.
-4. OWL class IRIs and SKOS concept IRIs must remain distinct where both are needed.
+2. Default for local/project ontologies: use organization-owned namespaces first.
+3. Optional collaboration publishing: `https://w3id.org/smn/profile/<program>/` only for curated bridge artifacts.
+4. Do not overload a single IRI with incompatible roles.
+5. OWL class IRIs and SKOS concept IRIs must remain distinct where both are needed.
+
+### Profile artifact rule for publication
+
+- **If terms are only for one team/project:** keep them in a local namespace.
+- **If terms are needed across a specific collaborating group:** use the `smn/profile/<program>/` pattern as an agreed-on bridge container.
+- **If terms are intended for broad cross-organization reuse:** propose promotion to shared `smn:` after evidence review.
 
 ## 5) Mapping strength policy
 
