@@ -22,8 +22,6 @@ smn:SurvivalOrMortalityContext skos:relatedMatch iadopt:Constraint .
 
 smn:MetricBenchmark skos:closeMatch iadopt:Constraint .
 smn:ReferencePoint skos:closeMatch iadopt:Constraint .
-smn:LowerBiologicalBenchmark skos:closeMatch iadopt:Constraint .
-smn:UpperBiologicalBenchmark skos:closeMatch iadopt:Constraint .
 
 smnv:SalmonDataVariable a owl:Class ;
   rdfs:label "salmon data variable"@en ;

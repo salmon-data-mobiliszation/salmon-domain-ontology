@@ -47,7 +47,6 @@ smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
 smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
-smn:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 smn:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
 #################################################################

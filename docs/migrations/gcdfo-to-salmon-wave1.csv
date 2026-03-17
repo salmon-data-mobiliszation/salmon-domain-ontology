@@ -18,8 +18,8 @@ https://w3id.org/gcdfo/salmon#StockAssessment,https://w3id.org/smn/StockAssessme
 https://w3id.org/gcdfo/salmon#ReferencePoint,https://w3id.org/smn/ReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral reference abstraction
 https://w3id.org/gcdfo/salmon#LimitReferencePoint,https://w3id.org/smn/LimitReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral lower-threshold abstraction
 https://w3id.org/gcdfo/salmon#MetricBenchmark,https://w3id.org/smn/MetricBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
-https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,https://w3id.org/smn/LowerBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
-https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,https://w3id.org/smn/UpperBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
+https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,,deferred-profile,deferred_profile,returned to DFO profile scope (WSP-specific benchmark)
+https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,,deferred-profile,deferred_profile,returned to DFO profile scope (WSP-specific benchmark)
 https://w3id.org/gcdfo/salmon#ExploitationRate,https://w3id.org/smn/ExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric
 https://w3id.org/gcdfo/salmon#TotalExploitationRate,https://w3id.org/smn/TotalExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric subtype
 https://w3id.org/gcdfo/salmon#ConservationUnit,,deferred-profile,deferred_profile,DFO-specific boundary decision

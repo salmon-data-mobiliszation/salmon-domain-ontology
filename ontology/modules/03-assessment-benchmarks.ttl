@@ -47,16 +47,6 @@ smn:MetricBenchmark a owl:Class ;
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
   rdfs:subClassOf iao:0000030 .
 
-smn:LowerBiologicalBenchmark a owl:Class ;
-  rdfs:label "Lower biological benchmark"@en ;
-  iao:0000115 "Lower benchmark value used to delineate lower status boundaries for salmon assessment units."@en ;
-  rdfs:subClassOf smn:MetricBenchmark .
-
-smn:UpperBiologicalBenchmark a owl:Class ;
-  rdfs:label "Upper biological benchmark"@en ;
-  iao:0000115 "Upper benchmark value used to delineate higher status boundaries for salmon assessment units."@en ;
-  rdfs:subClassOf smn:MetricBenchmark .
-
 #################################################################
 # Shared exploitation semantics
 #################################################################

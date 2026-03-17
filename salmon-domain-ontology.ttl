@@ -105,12 +105,6 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     ns1:IAO_0000115 "A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered."@en ;
     rdfs:subClassOf <https://w3id.org/smn/ReferencePoint> .
 
-<https://w3id.org/smn/LowerBiologicalBenchmark> a owl:Class ;
-    rdfs:label "Lower biological benchmark"@en ;
-    ns1:IAO_0000115 "Lower benchmark value used to delineate lower status boundaries for salmon assessment units."@en ;
-    rdfs:subClassOf <https://w3id.org/smn/MetricBenchmark> ;
-    skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
-
 <https://w3id.org/smn/MainstemPhase> a skos:Concept ;
     skos:broader <https://w3id.org/smn/LifePhase> ;
     skos:inScheme <https://w3id.org/smn/LifePhaseScheme> ;
@@ -119,6 +113,12 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/smn/MethodDocumentation> a owl:Class ;
     rdfs:label "Method documentation"@en ;
     ns1:IAO_0000115 "A documented method description linked to how a salmon metric or estimate was produced."@en ;
+    rdfs:subClassOf ns1:IAO_0000030 .
+
+<https://w3id.org/smn/MetricBenchmark> a owl:Class ;
+    rdfs:label "Metric benchmark"@en ;
+    ns1:IAO_0000115 "Benchmark value for a metric used to delineate status categories."@en ;
+    dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
     rdfs:subClassOf ns1:IAO_0000030 .
 
 <https://w3id.org/smn/ModelMeasurement> a owl:Class ;
@@ -205,11 +205,6 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/smn/TotalLengthMeasurement> a owl:Class ;
     rdfs:label "Total length measurement"@en ;
     rdfs:subClassOf <https://w3id.org/smn/FishLengthMeasurementType> .
-
-<https://w3id.org/smn/UpperBiologicalBenchmark> a owl:Class ;
-    rdfs:label "Upper biological benchmark"@en ;
-    ns1:IAO_0000115 "Upper benchmark value used to delineate higher status boundaries for salmon assessment units."@en ;
-    rdfs:subClassOf <https://w3id.org/smn/MetricBenchmark> .
 
 <https://w3id.org/smn/alevin> a owl:Class ;
     rdfs:label "Alevin"@en ;
@@ -413,6 +408,8 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
     skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity> ;
     sosa:isResultOf sosa:Sampling .
 
+<https://w3id.org/iadopt/ont/Constraint> a owl:Class .
+
 <https://w3id.org/smn/Deme> a owl:Class ;
     rdfs:label "Deme"@en ;
     ns1:IAO_0000115 "A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit."@en ;
@@ -434,12 +431,6 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
     rdfs:label "Fork-length measurement method"@en ;
     rdfs:subClassOf <https://w3id.org/smn/FishForkLengthMeasurementMethod> .
 
-<https://w3id.org/smn/MetricBenchmark> a owl:Class ;
-    rdfs:label "Metric benchmark"@en ;
-    ns1:IAO_0000115 "Benchmark value for a metric used to delineate status categories."@en ;
-    dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
-    rdfs:subClassOf ns1:IAO_0000030 .
-
 <https://w3id.org/smn/MorphologicalCharacteristic> a owl:Class ;
     rdfs:label "Morphological characteristic"@en ;
     rdfs:subClassOf <https://w3id.org/smn/Characteristic> .
@@ -450,8 +441,6 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
 
 sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
     skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
-
-<https://w3id.org/iadopt/ont/Constraint> a owl:Class .
 
 <https://w3id.org/smn/FishLengthMeasurementType> a owl:Class ;
     rdfs:label "Fish length measurement type"@en ;
