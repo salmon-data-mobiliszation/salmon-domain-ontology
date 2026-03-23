@@ -1,0 +1,224 @@
+@prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
+@prefix rdac: <https://w3id.org/smn/profile/rda-case-study/candidate/> .
+@prefix smn: <https://w3id.org/smn/> .
+@prefix hakai: <https://w3id.org/smn/profile/hakai/> .
+@prefix neville: <https://w3id.org/smn/profile/neville/> .
+@prefix smnv: <https://w3id.org/smn/views/salmon-data-metamodel#> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://w3id.org/smn/profile/rda-case-study/integrated-metamodel-walkthrough> a owl:Ontology ;
+  rdfs:label "RDA juvenile-condition integrated metamodel walkthrough"@en ;
+  rdfs:comment "Discussion-prep artifact that integrates Hakai and Neville case-study terms using the Salmon Domain Ontology decomposition style and the salmon metamodel connections. This artifact is intentionally profile-scoped and review-oriented; it does not promote candidate terms into shared smn: by itself."@en ;
+  dcterms:source <https://w3id.org/smn/modules/08-rda-case-study-profile-bridges> ;
+  dcterms:source <https://w3id.org/smn/modules/09-rda-neville-decomposition-profile-bridges> ;
+  dcterms:source <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+#################################################################
+# Integrated variable decomposition schemes
+#################################################################
+
+rda:IntegratedCaseStudyVariableScheme a skos:ConceptScheme ;
+  skos:prefLabel "Integrated Hakai + Neville variable scheme"@en ;
+  rdfs:label "Integrated Hakai + Neville variable scheme"@en ;
+  skos:definition "Case-study variable concepts that show how Hakai and Neville terms align to salmon metamodel slots and shared salmon-domain anchors."@en ;
+  skos:hasTopConcept
+    rda:JuvenileForkLengthVariable,
+    rda:JuvenileWeightVariable,
+    rda:AverageJuvenileWeightVariable,
+    rda:AverageJuvenileConditionFactorVariable,
+    rda:JuvenileSampleCountVariable ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+rda:IntegratedCaseStudyPatternScheme a skos:ConceptScheme ;
+  skos:prefLabel "Integrated Hakai + Neville observation/sampling pattern scheme"@en ;
+  rdfs:label "Integrated Hakai + Neville observation/sampling pattern scheme"@en ;
+  skos:definition "Case-study pattern concepts that connect integrated variables to observation, sampling, procedure, and result slots in the salmon metamodel view."@en ;
+  skos:hasTopConcept
+    rda:ForkLengthObservationPattern,
+    rda:IntegratedSurveySamplingPattern ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+rdac:SharedTermCandidateScheme a skos:ConceptScheme ;
+  skos:prefLabel "RDA case-study shared-term candidate scheme"@en ;
+  rdfs:label "RDA case-study shared-term candidate scheme"@en ;
+  skos:definition "Candidate shared abstractions surfaced by integrated Hakai + Neville decomposition that are not yet represented as canonical shared smn: terms."@en ;
+  skos:hasTopConcept
+    rdac:ConditionFactor,
+    rdac:SampleCount,
+    rdac:AverageStatisticalModifier,
+    rdac:SurveyDesignContext,
+    rdac:SpatialTemporalExtentConstraint,
+    rdac:OceanAgeClass,
+    rdac:MeasurementSettingContext ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .
+
+#################################################################
+# Integrated variables (metamodel slot connections)
+#################################################################
+
+rda:JuvenileForkLengthVariable a skos:Concept, iadopt:Variable, sosa:Property ;
+  skos:prefLabel "Juvenile fork length variable"@en ;
+  rdfs:label "Juvenile fork length variable"@en ;
+  skos:definition "Integrated variable for juvenile salmon fork length observations across Hakai and Neville sources."@en ;
+  skos:inScheme rda:IntegratedCaseStudyVariableScheme ;
+  smnv:variableRepresentsEntity smn:SalmonIndividual ;
+  smnv:variableRepresentsProperty smn:forkLength ;
+  smnv:variableUsesConstraint neville:Age, neville:Area, neville:SampleType, neville:StandardSurvey ;
+  skos:relatedMatch neville:Length_mm, hakai:Fork_Length_Field_Measurement, hakai:Fork_Length_Lab_Measurement ;
+  skos:relatedMatch smnv:SalmonDataVariable ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+rda:JuvenileWeightVariable a skos:Concept, iadopt:Variable, sosa:Property ;
+  skos:prefLabel "Juvenile weight variable"@en ;
+  rdfs:label "Juvenile weight variable"@en ;
+  skos:definition "Integrated variable for juvenile salmon body weight observations across Neville decomposition contexts."@en ;
+  skos:inScheme rda:IntegratedCaseStudyVariableScheme ;
+  smnv:variableRepresentsEntity smn:SalmonIndividual ;
+  smnv:variableRepresentsProperty smn:FishWeight ;
+  smnv:variableUsesConstraint neville:Age, neville:Area, neville:SampleType, neville:StandardSurvey ;
+  skos:relatedMatch neville:Weight_g ;
+  skos:relatedMatch smnv:SalmonDataVariable ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+rda:AverageJuvenileWeightVariable a skos:Concept, iadopt:Variable, sosa:Property ;
+  skos:prefLabel "Average juvenile weight variable"@en ;
+  rdfs:label "Average juvenile weight variable"@en ;
+  skos:definition "Integrated variable for averaged juvenile salmon weight over a defined spatial-temporal subset."@en ;
+  skos:inScheme rda:IntegratedCaseStudyVariableScheme ;
+  smnv:variableRepresentsEntity smn:SalmonGroup ;
+  smnv:variableRepresentsProperty smn:FishWeight ;
+  smnv:variableUsesConstraint neville:SpatialAndTemporalExtent, neville:Area ;
+  smnv:variableUsesStatisticalModifier rdac:AverageStatisticalModifier ;
+  skos:relatedMatch neville:AverageWeight_g ;
+  skos:relatedMatch smnv:SalmonDataVariable ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+rda:AverageJuvenileConditionFactorVariable a skos:Concept, iadopt:Variable, sosa:Property ;
+  skos:prefLabel "Average juvenile condition factor variable"@en ;
+  rdfs:label "Average juvenile condition factor variable"@en ;
+  skos:definition "Integrated variable for averaged juvenile condition factor over a defined spatial-temporal subset."@en ;
+  skos:inScheme rda:IntegratedCaseStudyVariableScheme ;
+  smnv:variableRepresentsEntity smn:SalmonGroup ;
+  smnv:variableRepresentsProperty rdac:ConditionFactor ;
+  smnv:variableUsesConstraint neville:SpatialAndTemporalExtent, neville:Area, neville:Age ;
+  smnv:variableUsesStatisticalModifier rdac:AverageStatisticalModifier ;
+  skos:relatedMatch neville:AverageConditionFactor ;
+  skos:relatedMatch smnv:SalmonDataVariable ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+rda:JuvenileSampleCountVariable a skos:Concept, iadopt:Variable, sosa:Property ;
+  skos:prefLabel "Juvenile sample count variable"@en ;
+  rdfs:label "Juvenile sample count variable"@en ;
+  skos:definition "Integrated variable for number of juveniles sampled in a defined spatial-temporal subset."@en ;
+  skos:inScheme rda:IntegratedCaseStudyVariableScheme ;
+  smnv:variableRepresentsEntity smn:SalmonGroup ;
+  smnv:variableRepresentsProperty rdac:SampleCount ;
+  smnv:variableUsesConstraint neville:SpatialAndTemporalExtent, neville:Area, neville:SampleType, neville:StandardSurvey ;
+  skos:relatedMatch neville:NumberSampled ;
+  skos:relatedMatch smnv:SalmonDataVariable ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+#################################################################
+# Observation/sampling patterns (metamodel fit examples)
+#################################################################
+
+rda:ForkLengthObservationPattern a skos:Concept ;
+  skos:prefLabel "Fork length observation pattern"@en ;
+  rdfs:label "Fork length observation pattern"@en ;
+  skos:definition "Pattern concept linking integrated fork-length variable framing to observation, procedure, and result slots."@en ;
+  skos:inScheme rda:IntegratedCaseStudyPatternScheme ;
+  skos:relatedMatch smnv:SalmonDataObservation ;
+  skos:relatedMatch rda:JuvenileForkLengthVariable, smn:ForkLengthMeasurement ;
+  skos:relatedMatch hakai:fork_length_measurement_field_method, hakai:fork_length_measurement_lab_method ;
+  rdfs:seeAlso smnv:observationUsedProcedure, smnv:observationGeneratedResult ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+rda:IntegratedSurveySamplingPattern a skos:Concept ;
+  skos:prefLabel "Integrated survey sampling pattern"@en ;
+  rdfs:label "Integrated survey sampling pattern"@en ;
+  skos:definition "Pattern concept linking integrated variables to survey/sampling context terms, including standard versus non-standard survey framing."@en ;
+  skos:inScheme rda:IntegratedCaseStudyPatternScheme ;
+  skos:relatedMatch smnv:SalmonDataSampling ;
+  skos:relatedMatch neville:StandardSurvey, neville:NonStandardSurvey, neville:SampleType, neville:SpatialAndTemporalExtent ;
+  rdfs:seeAlso smnv:samplingUsedProcedure, smnv:samplingGeneratedSample ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study> .
+
+#################################################################
+# Candidate shared abstractions (not yet in canonical shared smn:)
+#################################################################
+
+rdac:ConditionFactor a skos:Concept ;
+  skos:prefLabel "Condition factor"@en ;
+  rdfs:label "Condition factor"@en ;
+  skos:definition "Candidate shared property abstraction for fish condition metrics derived from length and weight relationships."@en ;
+  skos:inScheme rdac:SharedTermCandidateScheme ;
+  skos:relatedMatch neville:AverageConditionFactor, smn:FishWeight, smn:forkLength ;
+  rdfs:seeAlso smnv:variableRepresentsProperty ;
+  skos:scopeNote "Candidate only: no canonical shared smn: term currently captures this abstraction directly."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .
+
+rdac:SampleCount a skos:Concept ;
+  skos:prefLabel "Sample count"@en ;
+  rdfs:label "Sample count"@en ;
+  skos:definition "Candidate shared property abstraction for the count of individuals included in a sampling subset."@en ;
+  skos:inScheme rdac:SharedTermCandidateScheme ;
+  skos:relatedMatch neville:NumberSampled, smn:AggregatedMeasurement ;
+  rdfs:seeAlso smnv:variableRepresentsProperty ;
+  skos:scopeNote "Candidate only: no canonical shared smn: term currently captures this abstraction directly."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .
+
+rdac:AverageStatisticalModifier a skos:Concept ;
+  skos:prefLabel "Average statistical modifier"@en ;
+  rdfs:label "Average statistical modifier"@en ;
+  skos:definition "Candidate shared statistical modifier abstraction indicating that a variable is expressed as an average over a defined subset."@en ;
+  skos:inScheme rdac:SharedTermCandidateScheme ;
+  skos:relatedMatch neville:AverageLength_mm, neville:AverageWeight_g, neville:AverageConditionFactor ;
+  rdfs:seeAlso smnv:variableUsesStatisticalModifier ;
+  skos:scopeNote "Candidate only: no canonical shared smn: term currently captures this abstraction directly."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .
+
+rdac:SurveyDesignContext a skos:Concept ;
+  skos:prefLabel "Survey design context"@en ;
+  rdfs:label "Survey design context"@en ;
+  skos:definition "Candidate shared constraint abstraction for design qualifiers such as standard versus non-standard survey framing."@en ;
+  skos:inScheme rdac:SharedTermCandidateScheme ;
+  skos:relatedMatch neville:StandardSurvey, neville:NonStandardSurvey ;
+  rdfs:seeAlso smnv:variableUsesConstraint ;
+  skos:scopeNote "Candidate only: no canonical shared smn: term currently captures this abstraction directly."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .
+
+rdac:SpatialTemporalExtentConstraint a skos:Concept ;
+  skos:prefLabel "Spatial-temporal extent constraint"@en ;
+  rdfs:label "Spatial-temporal extent constraint"@en ;
+  skos:definition "Candidate shared constraint abstraction for coupled spatial and temporal extent qualifiers on integrated variables."@en ;
+  skos:inScheme rdac:SharedTermCandidateScheme ;
+  skos:relatedMatch neville:SpatialAndTemporalExtent, smn:GeographicFeature, time:Instant ;
+  rdfs:seeAlso smnv:variableUsesConstraint ;
+  skos:scopeNote "Candidate only: no canonical shared smn: term currently captures this abstraction directly."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .
+
+rdac:OceanAgeClass a skos:Concept ;
+  skos:prefLabel "Ocean age class"@en ;
+  rdfs:label "Ocean age class"@en ;
+  skos:definition "Candidate shared constraint abstraction for ocean-age qualifiers used in juvenile decomposition workflows."@en ;
+  skos:inScheme rdac:SharedTermCandidateScheme ;
+  skos:relatedMatch neville:Age, smn:SalmonLifeStage ;
+  rdfs:seeAlso smnv:variableUsesConstraint ;
+  skos:scopeNote "Candidate only: no canonical shared smn: term currently captures this abstraction directly."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .
+
+rdac:MeasurementSettingContext a skos:Concept ;
+  skos:prefLabel "Measurement setting context"@en ;
+  rdfs:label "Measurement setting context"@en ;
+  skos:definition "Candidate shared context abstraction for distinguishing field versus laboratory measurement execution settings."@en ;
+  skos:inScheme rdac:SharedTermCandidateScheme ;
+  skos:relatedMatch hakai:fork_length_measurement_field_method, hakai:fork_length_measurement_lab_method ;
+  rdfs:seeAlso smnv:observationUsedProcedure ;
+  skos:scopeNote "Candidate only: no canonical shared smn: term currently captures this abstraction directly."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn/profile/rda-case-study/candidate> .

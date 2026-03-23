@@ -31,3 +31,16 @@ smnv:samplingGeneratedSample a owl:ObjectProperty ;
   rdfs:range sosa:Sample .
 
 sosa:Sample skos:closeMatch dwc:MaterialSample .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/views/salmon-data-metamodel#observationGeneratedResult>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates an observation activity to the result datum it produces."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#samplingGeneratedSample>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a sampling activity to the sample it generates."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---

@@ -87,6 +87,50 @@ neville:SurveyArea a skos:Concept ;
   skos:prefLabel "Survey Area"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:GeographicFeature .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/neville/Age>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Age"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Area>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Area"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/NonStandardSurvey>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Non-standard Survey"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept indicating sampling conducted outside the standard survey design."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/NonStandardSurveyArea>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Non-standard Survey Area"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept identifying geographic areas associated with non-standard survey sampling."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/SampleType>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Sample Type"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Species>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Species"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/StandardSurvey>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Standard Survey"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/SurveyArea>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Survey Area"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept identifying the geographic area used to define a survey stratum or sampling frame."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/rda-case-study/NevilleDecompositionTermScheme>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Neville decomposition term scheme (RDA case-study bridge)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/rda-case-study> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---
 # --- end ontology/case-studies/rda-juvenile-condition/09-rda-neville-entities.ttl ---
 
 # --- begin ontology/case-studies/rda-juvenile-condition/09-rda-neville-observations.ttl ---
@@ -144,6 +188,41 @@ neville:AverageWeight_g a skos:Concept ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:AggregatedMeasurement ;
   skos:relatedMatch smn:FishWeight .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/neville/ADCWT>
+  <http://www.w3.org/2000/01/rdf-schema#label> "ADCWT"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/AverageConditionFactor>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Average Condition Factor"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/AverageLength_mm>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Average Length (mm)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/AverageWeight_g>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Average Weight (g)"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing average juvenile salmon weight, reported in grams, for a defined subset."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Length_mm>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Length (mm)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Weight_g>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Weight (g)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/WoundsParasitesOther>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Wounds, Parasites, Other"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept capturing observed wounds, parasite load, or other external condition notes."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---
 # --- end ontology/case-studies/rda-juvenile-condition/09-rda-neville-observations.ttl ---
 
 # --- begin ontology/case-studies/rda-juvenile-condition/09-rda-neville-constraints.ttl ---
@@ -177,4 +256,29 @@ neville:NumberSampled a skos:Concept ;
   skos:prefLabel "Number Sampled"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:relatedMatch smn:AggregatedMeasurement .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/neville/NumberSampled>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Number Sampled"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing the count of individuals included in a sample or subsample."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/SpatialAndTemporalExtent>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Spatial and Temporal Extent"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept describing the combined spatial and temporal bounds of a sampling subset."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/StandardDeviationLength_mm>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Standard Deviation (mm) [of length]"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing the standard deviation of juvenile salmon length measurements in millimetres."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/StandardDeviationWeight_g>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Standard Deviation (g) [of weight]"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing the standard deviation of juvenile salmon weight measurements in grams."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---
 # --- end ontology/case-studies/rda-juvenile-condition/09-rda-neville-constraints.ttl ---

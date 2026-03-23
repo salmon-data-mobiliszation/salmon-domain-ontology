@@ -50,3 +50,24 @@ smnv:samplingMadeBySampler a owl:ObjectProperty ;
 
 sosa:Sampling skos:closeMatch dwc:Event .
 sosa:Observation skos:closeMatch dwc:Occurrence .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/views/salmon-data-metamodel#SalmonDataObservation>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "A metamodel observation activity that applies a variable to a feature of interest using a procedure and yields a result."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#SalmonDataSampling>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "A metamodel sampling activity that applies a variable to a feature of interest and yields a sample."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#observationUsedFeature>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates an observation activity to the feature of interest it addresses."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#samplingMadeBySampler>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a sampling activity to the agent or instrument that performed it."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---

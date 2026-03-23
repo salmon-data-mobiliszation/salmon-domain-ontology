@@ -31,3 +31,20 @@ smnv:procedureDocumentedBy a owl:ObjectProperty ;
 
 sosa:ObservingProcedure rdfs:comment "Documentation-only bridge: in salmon data exchange this usually points to a referenced protocol description rather than an OWL-equivalent class."@en ;
   rdfs:seeAlso dwc:samplingProtocol .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/views/salmon-data-metamodel#observationUsedProcedure>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates an observation activity to the procedure used to perform it."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#procedureDocumentedBy>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a procedure to documentation that specifies or describes how it is applied."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#samplingUsedProcedure>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a sampling activity to the procedure used to perform it."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---

@@ -14,3 +14,6 @@ smn:DataQualityAssessment rdfs:subClassOf prov:Entity .
 sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
 sosa:hasResult rdfs:subPropertyOf prov:generated .
 sosa:isSampleOf rdfs:subPropertyOf prov:wasDerivedFrom .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# --- END REQUIRED ANNOTATION BACKFILL ---

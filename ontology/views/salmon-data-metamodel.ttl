@@ -12,3 +12,6 @@
     <salmon-data-metamodel-event-observation.ttl> ,
     <salmon-data-metamodel-result-datum.ttl> ,
     <salmon-data-metamodel-provenance.ttl> .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# --- END REQUIRED ANNOTATION BACKFILL ---

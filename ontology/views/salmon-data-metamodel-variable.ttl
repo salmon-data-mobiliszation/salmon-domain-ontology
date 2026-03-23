@@ -67,3 +67,36 @@ smnv:constraintConstrains a owl:ObjectProperty ;
   rdfs:range owl:Thing .
 
 iadopt:Variable skos:closeMatch sosa:Property .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/views/salmon-data-metamodel#SalmonDataVariable>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "A metamodel variable representing an observed property of an entity with optional constraints and statistical modifiers."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#constraintConstrains>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable constraint to the variable it qualifies."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#hasVariable>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates an observation or sampling activity to the variable it applies."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#variableRepresentsEntity>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to the entity that is the object of interest for the variable."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#variableRepresentsProperty>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to the property or characteristic it represents."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#variableUsesConstraint>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to a constraint that narrows its interpretation or scope."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+<https://w3id.org/smn/views/salmon-data-metamodel#variableUsesStatisticalModifier>
+  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to a statistical modifier that qualifies how the variable is summarized or expressed."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---

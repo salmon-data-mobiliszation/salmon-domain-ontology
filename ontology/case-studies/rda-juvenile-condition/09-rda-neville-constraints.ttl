@@ -28,3 +28,28 @@ neville:NumberSampled a skos:Concept ;
   skos:prefLabel "Number Sampled"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:relatedMatch smn:AggregatedMeasurement .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/neville/NumberSampled>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Number Sampled"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing the count of individuals included in a sample or subsample."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/SpatialAndTemporalExtent>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Spatial and Temporal Extent"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept describing the combined spatial and temporal bounds of a sampling subset."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/StandardDeviationLength_mm>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Standard Deviation (mm) [of length]"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing the standard deviation of juvenile salmon length measurements in millimetres."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/StandardDeviationWeight_g>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Standard Deviation (g) [of weight]"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing the standard deviation of juvenile salmon weight measurements in grams."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---

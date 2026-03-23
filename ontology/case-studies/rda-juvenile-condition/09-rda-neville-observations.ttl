@@ -52,3 +52,38 @@ neville:AverageWeight_g a skos:Concept ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:AggregatedMeasurement ;
   skos:relatedMatch smn:FishWeight .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/neville/ADCWT>
+  <http://www.w3.org/2000/01/rdf-schema#label> "ADCWT"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/AverageConditionFactor>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Average Condition Factor"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/AverageLength_mm>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Average Length (mm)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/AverageWeight_g>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Average Weight (g)"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept representing average juvenile salmon weight, reported in grams, for a defined subset."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Length_mm>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Length (mm)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Weight_g>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Weight (g)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/WoundsParasitesOther>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Wounds, Parasites, Other"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept capturing observed wounds, parasite load, or other external condition notes."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---

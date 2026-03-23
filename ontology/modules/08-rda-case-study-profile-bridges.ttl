@@ -26,6 +26,15 @@ rda:HakaiJSPMeasurementTermScheme a skos:ConceptScheme ;
   skos:prefLabel "Hakai JSP measurement term scheme (RDA case-study bridge)"@en ;
   skos:definition "Bridge scheme for mapping Hakai source measurement terms to shared salmon ontology terms in the RDA juvenile-condition case-study."@en ;
   skos:hasTopConcept <https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method> .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/rda-case-study/HakaiJSPMeasurementTermScheme>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Hakai JSP measurement term scheme (RDA case-study bridge)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/rda-case-study> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---
 # --- end ontology/case-studies/rda-juvenile-condition/08-rda-hakai-method-scheme.ttl ---
 
 # --- begin ontology/case-studies/rda-juvenile-condition/08-rda-hakai-measurement-methods.ttl ---
@@ -69,4 +78,33 @@ hakai:Fork_Length_Lab_Measurement a skos:Concept ;
   skos:closeMatch smn:ForkLengthMeasurement ;
   skos:note "Graph label appears as hakai:Fork_Length_Lab_Measurement in yEd export."@en ;
   prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/hakai/Fork_Length_Field_Measurement>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Fork Length Field Measurement"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Hakai profile concept for fork-length measurements recorded during field sampling activities."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/hakai> .
+
+<https://w3id.org/smn/profile/hakai/Fork_Length_Lab_Measurement>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Fork Length Lab Measurement"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Hakai profile concept for fork-length measurements recorded during laboratory processing."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/hakai> .
+
+<https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Fork Length Measurement Method"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/hakai> .
+
+<https://w3id.org/smn/profile/hakai/fork_length_measurement_field_method>
+  <http://www.w3.org/2000/01/rdf-schema#label> "fork_length_measurement_field_method"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Hakai profile concept for the field protocol used to obtain fork-length measurements."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/hakai> .
+
+<https://w3id.org/smn/profile/hakai/fork_length_measurement_lab_method>
+  <http://www.w3.org/2000/01/rdf-schema#label> "fork_length_measurement_lab_method"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Hakai profile concept for the laboratory protocol used to obtain fork-length measurements."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/hakai> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---
 # --- end ontology/case-studies/rda-juvenile-condition/08-rda-hakai-measurement-methods.ttl ---

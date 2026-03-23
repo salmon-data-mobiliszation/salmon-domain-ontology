@@ -19,3 +19,6 @@ smn:FishLength skos:closeMatch iadopt:Property .
 smn:FishWeight skos:closeMatch iadopt:Property .
 
 sosa:Property skos:closeMatch iadopt:Property .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# --- END REQUIRED ANNOTATION BACKFILL ---

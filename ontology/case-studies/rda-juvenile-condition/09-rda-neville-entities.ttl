@@ -64,3 +64,47 @@ neville:SurveyArea a skos:Concept ;
   skos:prefLabel "Survey Area"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:GeographicFeature .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# Added to enforce required term metadata parity with DFO conventions.
+
+<https://w3id.org/smn/profile/neville/Age>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Age"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Area>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Area"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/NonStandardSurvey>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Non-standard Survey"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept indicating sampling conducted outside the standard survey design."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/NonStandardSurveyArea>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Non-standard Survey Area"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept identifying geographic areas associated with non-standard survey sampling."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/SampleType>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Sample Type"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/Species>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Species"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/StandardSurvey>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Standard Survey"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/neville/SurveyArea>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Survey Area"@en ;
+  <http://www.w3.org/2004/02/skos/core#definition> "Neville profile concept identifying the geographic area used to define a survey stratum or sampling frame."@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/neville> .
+
+<https://w3id.org/smn/profile/rda-case-study/NevilleDecompositionTermScheme>
+  <http://www.w3.org/2000/01/rdf-schema#label> "Neville decomposition term scheme (RDA case-study bridge)"@en ;
+  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/rda-case-study> .
+
+# --- END REQUIRED ANNOTATION BACKFILL ---

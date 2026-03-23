@@ -15,3 +15,6 @@ smn:Entity rdfs:comment "Plain-language anchor for the thing a salmon dataset is
 smn:GeographicFeature skos:closeMatch sosa:FeatureOfInterest .
 
 sosa:FeatureOfInterest skos:closeMatch iadopt:Entity .
+
+# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
+# --- END REQUIRED ANNOTATION BACKFILL ---
