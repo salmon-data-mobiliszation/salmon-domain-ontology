@@ -5,6 +5,7 @@ Salmon Domain Ontology shared namespace (`smn:`).
 ## Canonical IRIs
 
 - Latest ontology IRI: `https://w3id.org/smn`
+- Version IRIs: `https://w3id.org/smn/X.Y.Z`
 - Term namespace: `https://w3id.org/smn/`
 - Module namespace: `https://w3id.org/smn/modules/<module-name>`
 - Research build: `https://w3id.org/smn/research`
@@ -24,25 +25,30 @@ Salmon Domain Ontology shared namespace (`smn:`).
 
 ## Local reference status
 
-This folder records the conservative Turtle-first W3ID registration materials now live for `smn`.
-Keep it as the local reference copy for future redirect revisions.
+This folder now records the **follow-up W3ID update** for `smn`, not just the original conservative registration.
 
 Current publication posture:
 
-1. Generated latest assets now exist in-repo at `docs/index.html`, `docs/smn.ttl`, `docs/smn.owl`, and `docs/smn.jsonld`.
-2. An immutable `docs/releases/0.0.0/` snapshot now exists in-repo.
-3. No stable public host is yet wired into W3ID for the HTML/RDF/XML/JSON-LD/latest-version surface.
-4. No W3ID-backed SemVer release snapshot redirects are live yet; version-path routing is still future work.
+1. GitHub Pages targets are live at `https://salmon-data-mobilization.github.io/salmon-domain-ontology/`.
+2. Latest HTML / Turtle / RDF/XML / JSON-LD assets are published there.
+3. An immutable `releases/0.0.0/` snapshot is published there.
+4. The live W3ID rules have **not** been updated yet, so `https://w3id.org/smn` still serves the older Turtle-first behavior.
 
-Because of that routing gap, the live `.htaccess` rules currently use a safe latest-Turtle fallback and keep the full DFO-style content-negotiation pattern documented for later activation.
+The draft `.htaccess` in this folder intentionally mirrors the live DFO Salmon Ontology routing pattern for root + SemVer IRIs:
+
+- HTML by default
+- Turtle / RDF/XML / JSON-LD via `Accept`
+- versioned release redirects for `/X.Y.Z`
+- no `/latest` alias in the updated contract
+
+Secondary surfaces (`/research`, `/rda-case-study`, `/modules/*`, `/profile/*`, and term paths) remain Turtle-first for now.
 
 ## Verification commands
 
-### Conservative Turtle-first checks
+### Current live behavior
 
 ```bash
 curl -I https://w3id.org/smn
-curl -I https://w3id.org/smn/latest
 curl -I https://w3id.org/smn/Stock
 curl -I https://w3id.org/smn/modules/01-entity-systematics
 curl -I https://w3id.org/smn/research
@@ -53,27 +59,15 @@ curl -I -H 'Accept: text/turtle' https://w3id.org/smn
 
 Expected: root returns `301` to the trailing-slash form, then `303` redirects resolve to the matching raw GitHub Turtle artifact.
 
-### Future DFO-style checks
-
-Run these only after stable public assets exist:
+### Expected behavior after the follow-up W3ID PR
 
 ```bash
+curl -I https://w3id.org/smn
 curl -I -H 'Accept: text/turtle' https://w3id.org/smn
 curl -I -H 'Accept: application/rdf+xml' https://w3id.org/smn
 curl -I -H 'Accept: application/ld+json' https://w3id.org/smn
 curl -I https://w3id.org/smn/0.0.0
+curl -I -H 'Accept: text/turtle' https://w3id.org/smn/0.0.0
 ```
 
-Expected: `303` redirects to latest HTML/Turtle/RDFXML/JSON-LD assets plus SemVer release snapshots.
-
-## Upgrade step
-
-Before switching the W3ID rules to the richer publication pattern, publish or stage the existing asset surface on a stable public target for:
-
-- latest HTML docs,
-- latest Turtle,
-- latest RDF/XML,
-- latest JSON-LD,
-- versioned release snapshots.
-
-Then replace the conservative fallback section in `.htaccess` with the DFO-style latest/version redirect rules.
+Expected: `303` redirects to the GitHub Pages HTML/Turtle/RDFXML/JSON-LD latest surface and to the corresponding `releases/X.Y.Z/` assets.

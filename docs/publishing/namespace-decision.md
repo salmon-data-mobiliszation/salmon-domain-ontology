@@ -92,7 +92,9 @@ The W3ID registration is live, and the repo now includes a generated publication
 - latest JSON-LD at `docs/smn.jsonld`,
 - immutable snapshot assets at `docs/releases/0.0.0/`.
 
-What has **not** changed yet is the live public routing contract: W3ID still serves the intentionally conservative Turtle-first/publication-v1 behavior, not the richer final content-negotiated/versioned surface. See `w3id-request-payload.md`, `w3id-smn-draft/`, and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
+Those targets are also live on GitHub Pages at `https://salmon-data-mobilization.github.io/salmon-domain-ontology/`.
+
+What has **not** changed yet is the live public routing contract: W3ID still serves the intentionally conservative Turtle-first/publication-v1 behavior, not the richer final content-negotiated/versioned surface. The repo now contains the exact follow-up routing draft for that switch in `docs/publishing/w3id-smn-draft/.htaccess`, aligned to the same root + SemVer content-negotiation pattern used by the live DFO Salmon Ontology W3ID rules. See also `w3id-request-payload.md` and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
 
 ## Notes on repository entrypoint
 
