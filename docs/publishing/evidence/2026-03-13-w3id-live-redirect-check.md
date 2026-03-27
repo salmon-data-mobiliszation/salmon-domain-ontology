@@ -1,5 +1,9 @@
 # W3ID live redirect check — 2026-03-13
 
+> Historical note: this records the **initial conservative registration state** after PR #5829 merged.
+> It is superseded as the current live-contract check by
+> `docs/publishing/evidence/2026-03-26-w3id-content-negotiation-live-check.md`.
+
 Run timestamp (UTC): `2026-03-13T12:46:54Z`
 
 Purpose: verify the live conservative Turtle-first `https://w3id.org/smn` surface after W3ID PR #5829 merged.

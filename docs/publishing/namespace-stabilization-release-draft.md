@@ -2,6 +2,10 @@
 
 Status: **completed; retained as the release-note draft for `0.0.0`**
 
+> Historical note: this draft intentionally describes the `0.0.0` publication posture at the time.
+> The later W3ID routing upgrade for root + SemVer content negotiation is recorded separately in
+> `docs/publishing/evidence/2026-03-26-w3id-content-negotiation-live-check.md`.
+
 ## Recorded tag
 
 `0.0.0`

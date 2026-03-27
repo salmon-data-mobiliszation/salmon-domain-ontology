@@ -16,7 +16,7 @@ The project needed a maintainer-controlled persistent namespace because:
 - `https://w3id.org/salmon/` resolves to an unrelated external project (name collision).
 - `https://w3id.org/smn` is live and gives the project a maintainer-controlled persistent base.
 - Internal ontology files and migration artifacts previously used draft IRIs under `http://w3id.org/salmon/` and `http://w3id.org/salmon-domain-ontology`, which are not the canonical persistent identifiers.
-- The live W3ID publication surface is intentionally conservative for now: root, `/latest`, representative term/module/build/profile paths currently resolve to Turtle artifacts only.
+- The live W3ID publication surface now uses DFO-style root + SemVer content negotiation for the shared ontology root and release paths, while representative term/module/build/profile secondary surfaces remain Turtle-first.
 
 ## Canonical namespace decision
 
@@ -59,7 +59,8 @@ The namespace transition was treated as complete only after all were true:
 ## Closure checklist
 
 - [x] W3ID path `smn` is merged and resolvable
-- [x] Conservative Turtle-first redirect behavior is recorded (`docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`)
+- [x] Initial conservative redirect behavior is recorded (`docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`)
+- [x] Current content-negotiated root + SemVer routing is recorded (`docs/publishing/evidence/2026-03-26-w3id-content-negotiation-live-check.md`)
 - [x] Ontology files updated to canonical `smn` IRIs
 - [x] Migration map (`docs/migrations/gcdfo-to-salmon-wave1.csv`) updated to canonical `new_iri` values
 - [x] README + conventions + cutover docs updated to the same canonical namespace story
@@ -94,7 +95,7 @@ The W3ID registration is live, and the repo now includes a generated publication
 
 Those targets are also live on GitHub Pages at `https://salmon-data-mobilization.github.io/salmon-domain-ontology/`.
 
-What has **not** changed yet is the live public routing contract: W3ID still serves the intentionally conservative Turtle-first/publication-v1 behavior, not the richer final content-negotiated/versioned surface. The repo now contains the exact follow-up routing draft for that switch in `docs/publishing/w3id-smn-draft/.htaccess`, aligned to the same root + SemVer content-negotiation pattern used by the live DFO Salmon Ontology W3ID rules. See also `w3id-request-payload.md` and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
+What changed after the initial registration is the live public routing contract itself: W3ID now serves the richer content-negotiated/versioned surface for the shared ontology root and SemVer paths, aligned to the same root + SemVer pattern used by the live DFO Salmon Ontology W3ID rules. The local draft in `docs/publishing/w3id-smn-draft/.htaccess` now matches the merged live rules. See also `w3id-request-payload.md`, `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md` (historical initial state), and `docs/publishing/evidence/2026-03-26-w3id-content-negotiation-live-check.md` (current live state).
 
 ## Notes on repository entrypoint
 

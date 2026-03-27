@@ -1,6 +1,6 @@
 # W3ID registration record for `smn`
 
-Status: merged in `perma-id/w3id.org` PR #5829; path live
+Status: registration merged in `perma-id/w3id.org` PR #5829; follow-up routing update merged in PR #5873; path live
 Target registry: <https://github.com/perma-id/w3id.org>
 Requested path: `smn`
 
@@ -11,19 +11,21 @@ The W3ID registration is now live.
 Current live behavior:
 
 - `https://w3id.org/smn` resolves as the canonical ontology IRI.
-- The live redirect surface is still the conservative Turtle-first registration.
-- Root, representative term paths, module paths, build paths, and profile roots resolve via `303` to raw GitHub Turtle artifacts.
-- The repo now also carries live GitHub Pages publication targets at `https://salmon-data-mobilization.github.io/salmon-domain-ontology/`, including `smn.ttl`, `smn.owl`, `smn.jsonld`, and an immutable `releases/0.0.0/` snapshot.
-- `docs/publishing/w3id-smn-draft/.htaccess` now contains the exact follow-up routing draft to switch `https://w3id.org/smn` and `https://w3id.org/smn/X.Y.Z` to the GitHub Pages publication surface using the same root + SemVer content-negotiation pattern as the live DFO Salmon Ontology rules, while leaving research/module/profile/term paths Turtle-first.
+- Root routing now follows the live DFO Salmon Ontology pattern: HTML by default, with Turtle / RDF/XML / JSON-LD served via `Accept`-based `303` redirects.
+- SemVer version paths such as `https://w3id.org/smn/0.0.0` now resolve to immutable release HTML by default, with versioned Turtle / RDF/XML / JSON-LD served via `Accept`-based `303` redirects.
+- Secondary surfaces remain intentionally Turtle-first for now: representative term paths, module paths, research/case-study builds, and profile roots still resolve via `303` to raw GitHub Turtle artifacts.
+- The routed publication targets live at `https://salmon-data-mobilization.github.io/salmon-domain-ontology/`, including `smn.ttl`, `smn.owl`, `smn.jsonld`, and immutable `releases/X.Y.Z/` snapshots.
 
-This file keeps the merged registration payload in-repo and records the follow-up publication work.
+This file keeps the merged registration payload in-repo and records the initial registration plus the later routing upgrade.
 
 ## Follow-up update status
 
-A follow-up W3ID PR has now been opened to switch `smn` root + SemVer routing to the GitHub Pages publication surface using the same content-negotiation pattern as the live DFO Salmon Ontology rules:
+The follow-up W3ID routing update is now merged and live:
 
 - PR: <https://github.com/perma-id/w3id.org/pull/5873>
 - Title: `smn: align W3ID root/version redirects with DFO content negotiation`
+- Merged: `2026-03-26T23:54:33Z`
+- Live verification: `docs/publishing/evidence/2026-03-26-w3id-content-negotiation-live-check.md`
 
 ## Merged PR contents in `perma-id/w3id.org`
 
@@ -45,7 +47,7 @@ Local reference sources:
 
 `Add w3id redirects for smn`
 
-## Registration PR body (reference)
+## Registration PR body (historical reference)
 
 ```markdown
 This PR registers persistent identifiers for the Salmon Domain Ontology shared layer.
@@ -77,25 +79,11 @@ Follow-up after publication-target work:
 - add SemVer version-path redirects matching the live DFO pattern
 ```
 
-Since that registration landed, the repo has gained generated in-repo assets under `docs/` plus `docs/releases/0.0.0/`, but the live W3ID rules still intentionally serve the conservative Turtle-first surface until stable public targets are chosen and verified.
+Since that registration landed, the repo gained generated in-repo assets under `docs/` plus `docs/releases/0.0.0/`, and the later follow-up W3ID routing update has now switched the root + SemVer public contract to the verified GitHub Pages publication surface.
 
 ## Verification commands for the live registration
 
-### Conservative Turtle-first checks
-
-```bash
-curl -I https://w3id.org/smn
-curl -I https://w3id.org/smn/Stock
-curl -I https://w3id.org/smn/modules/01-entity-systematics
-curl -I https://w3id.org/smn/research
-curl -I https://w3id.org/smn/rda-case-study
-curl -I https://w3id.org/smn/profile/hakai
-curl -I -H 'Accept: text/turtle' https://w3id.org/smn
-```
-
-Expected for the current registration: root returns `301` to the trailing-slash form, then `303` redirects resolve to the corresponding raw GitHub Turtle artifacts. See `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md` for recorded evidence.
-
-### Follow-up content-negotiation checks (for the next W3ID PR)
+### Current live checks
 
 ```bash
 curl -I https://w3id.org/smn
@@ -104,18 +92,25 @@ curl -I -H 'Accept: application/rdf+xml' https://w3id.org/smn
 curl -I -H 'Accept: application/ld+json' https://w3id.org/smn
 curl -I https://w3id.org/smn/0.0.0
 curl -I -H 'Accept: text/turtle' https://w3id.org/smn/0.0.0
+curl -I https://w3id.org/smn/Stock
+curl -I https://w3id.org/smn/modules/01-entity-systematics
+curl -I https://w3id.org/smn/research
+curl -I https://w3id.org/smn/rda-case-study
 ```
 
-Expected after the follow-up routing change: content-negotiated `303` redirects for latest HTML/Turtle/RDFXML/JSON-LD plus SemVer version-path redirects to the GitHub Pages publication surface, matching the live DFO Salmon Ontology root + version pattern.
+Expected for the current live contract:
+
+- root returns `301` to the trailing-slash form, then `303` redirects to latest HTML / Turtle / RDFXML / JSON-LD targets depending on `Accept`
+- SemVer version paths return `303` redirects to immutable `releases/X.Y.Z/` HTML or versioned serializations depending on `Accept`
+- representative term/module/build/profile secondary surfaces continue resolving to Turtle artifacts
+
+See:
+
+- `docs/publishing/evidence/2026-03-26-w3id-content-negotiation-live-check.md` for the current live contract
+- `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md` for the initial conservative registration state (historical)
 
 ## Follow-up W3ID step
 
-The publication targets now exist and have been verified on GitHub Pages:
+Completed.
 
-- latest HTML docs,
-- latest Turtle,
-- latest RDF/XML,
-- latest JSON-LD,
-- versioned release snapshots.
-
-That follow-up `perma-id/w3id.org` PR has now been opened and replaces the conservative root + generic catch-all behavior with DFO-style root + SemVer content negotiation using the exact GitHub Pages routing captured in `docs/publishing/w3id-smn-draft/.htaccess`.
+The follow-up `perma-id/w3id.org` PR merged and the live `smn` contract now uses DFO-style root + SemVer content negotiation for the shared ontology root while keeping secondary surfaces Turtle-first.
