@@ -91,7 +91,7 @@ Current posture:
 - phase-2 migration/cutover is closed
 - a generated latest publication surface now exists in-repo under `docs/` (`index.html`, `smn.ttl`, `smn.owl`, `smn.jsonld`)
 - an immutable `docs/releases/0.0.0/` snapshot now exists in-repo
-- live W3ID routing is still the conservative Turtle-first/publication-v1 contract until a second-wave W3ID upgrade is reviewed and merged
+- live W3ID routing now serves the root + SemVer publication surface from GitHub Pages; canonical term-path human dereferencing is the remaining pending resolver follow-up
 
 ### Agent Context (agent-maintained)
 
@@ -99,7 +99,7 @@ Keep this small and current; agents should update it when behavior/wiring change
 
 ```yaml
 repo: salmon-data-mobilization/salmon-domain-ontology
-phase: post-0.0.0 namespace-stabilized modular ontology; phase-2 migration closed; second-wave publication surface generated in-repo
+phase: post-0.0.0 namespace-stabilized modular ontology; phase-2 migration closed; root + SemVer publication surface live; term-path human dereferencing pending resolver follow-up
 stack:
   - RDF/Turtle
   - OWL
@@ -129,7 +129,7 @@ autonomy:
     - changing canonical IRIs or W3ID/publication contract without explicit instruction
     - removing compatibility wrappers or migration docs that downstream users may still rely on
     - destructive docs sync that can wipe hand-maintained docs alongside generated output
-last_updated: 2026-03-13
+last_updated: 2026-03-27
 ```
 
 ### Before changing docs / ontology / builds

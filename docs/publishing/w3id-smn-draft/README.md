@@ -27,6 +27,8 @@ Salmon Domain Ontology shared namespace (`smn:`).
 
 This folder records the **merged routing update** for `smn`, not just the original conservative registration.
 
+For the next pending term-IRI human-dereferencing follow-up, see `../w3id-term-dereference-draft/`.
+
 Current publication posture:
 
 1. GitHub Pages targets are live at `https://salmon-data-mobilization.github.io/salmon-domain-ontology/`.
