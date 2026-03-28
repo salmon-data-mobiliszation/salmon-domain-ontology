@@ -10,9 +10,11 @@
 smn:DataQualityAssessment a owl:Class ;
   rdfs:label "Data quality assessment"@en ;
   iao:0000115 "An assessment artifact describing confidence, uncertainty, and quality constraints for a salmon data product or metric."@en ;
-  rdfs:subClassOf iao:0000030 .
+  rdfs:subClassOf iao:0000030 ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:MethodDocumentation a owl:Class ;
   rdfs:label "Method documentation"@en ;
   iao:0000115 "A documented method description linked to how a salmon metric or estimate was produced."@en ;
-  rdfs:subClassOf iao:0000030 .
+  rdfs:subClassOf iao:0000030 ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .

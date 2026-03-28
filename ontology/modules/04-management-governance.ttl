@@ -13,12 +13,15 @@
 
 smn:EventType a owl:Class ;
   rdfs:label "Event type"@en ;
-  iao:0000115 "A class used to categorize fisheries or survey event instances by operational type."@en .
+  iao:0000115 "A class used to categorize fisheries or survey event instances by operational type."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:FishingType a owl:Class ;
   rdfs:label "Fishing type"@en ;
-  rdfs:subClassOf smn:EventType .
+  rdfs:subClassOf smn:EventType ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:seiningEvent a owl:Class ;
   rdfs:label "Seining event"@en ;
-  rdfs:subClassOf smn:FishingType .
+  rdfs:subClassOf smn:FishingType ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .

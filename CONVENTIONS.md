@@ -156,7 +156,46 @@ Current posture:
 3. maintain explicit migration notes per release
 4. endpoint cutover timing may be deferred until profile/shared boundary stabilizes
 
-## 10) Current boundary decisions (working set)
+## 10) Term annotation completeness and rendering
+
+This section is canonical for the annotation fields that make shared terms complete and render well in generated docs.
+
+### Shared OWL terms (classes + properties)
+
+Required:
+- `rdfs:label "Human Name"@en`
+- `iao:0000115 "1–2 sentence definition."@en`
+- `rdfs:isDefinedBy <https://w3id.org/smn>`
+
+Recommended when authoritative wording already exists:
+- `iao:0000119 "Citation text here."@en`
+- `dcterms:source <https://example.org/source>`
+
+Use `rdfs:comment` only for editorial notes, migration notes, scope notes, or maintainer guidance. Do **not** use `rdfs:comment` as the primary definition field for OWL terms.
+
+### Shared SKOS concepts and schemes
+
+Required:
+- `skos:prefLabel "Human Name"@en`
+- `rdfs:isDefinedBy <https://w3id.org/smn>`
+
+Additional expectations:
+- Concepts should include `skos:inScheme :SchemeName`
+- Concepts and schemes should include `skos:definition "1–2 sentence definition."@en` whenever authoritative wording is available
+- Provenance should be attached with `iao:0000119` and/or `dcterms:source` when that information already exists
+
+### Backfilling migrated terms
+
+When shared `smn:` terms were migrated from another ontology or profile:
+1. reuse the existing definition/provenance text exactly where possible
+2. do **not** invent new IRIs, sources, or definitions during migration cleanup
+3. if a required/recommended field cannot be filled from existing written material, leave the term unresolved and track it in the gap ledger for follow-up
+
+### Rendering rule of thumb
+
+If you care how WIDOCO/docs render, put the definition on the term itself using `iao:0000115` (OWL) or `skos:definition` (SKOS), keep `rdfs:isDefinedBy` present, and attach provenance directly to that same term.
+
+## 11) Current boundary decisions (working set)
 
 ### Keep in shared domain (current)
 1. `Stock`
