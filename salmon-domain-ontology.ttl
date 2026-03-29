@@ -471,7 +471,7 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/smn/forkLength> a owl:Class ;
     rdfs:label "Fork length"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    owl:equivalentClass <https://w3id.org/smn/FishLength> .
+    rdfs:subClassOf <https://w3id.org/smn/FishLength> .
 
 <https://w3id.org/smn/hasDeme> a owl:ObjectProperty ;
     rdfs:label "has deme"@en ;

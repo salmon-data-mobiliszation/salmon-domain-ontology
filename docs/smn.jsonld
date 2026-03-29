@@ -2439,7 +2439,7 @@
         "@value": "Fork length"
       }
     ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/smn/FishLength"
       }
