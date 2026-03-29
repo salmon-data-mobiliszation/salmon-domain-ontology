@@ -171,6 +171,22 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:IAO_0000109 .
 
+<https://w3id.org/smn/CatchAbundance> a owl:Class ;
+    rdfs:label "Catch abundance"@en ;
+    ns1:IAO_0000115 "A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context."@en ;
+    ns1:IAO_0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:subClassOf <https://w3id.org/smn/ObservedRateOrAbundance> .
+
+<https://w3id.org/smn/RecruitAbundance> a owl:Class ;
+    rdfs:label "Recruit abundance"@en ;
+    ns1:IAO_0000115 "A measurement datum recording the number of recruits added to a salmon stock, population, or indicator return series for a defined brood-year or assessment accounting context."@en ;
+    ns1:IAO_0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:subClassOf <https://w3id.org/smn/ObservedRateOrAbundance> .
+
 <https://w3id.org/smn/OceanPhase> a skos:Concept ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:altLabel "Marine phase"@en ;
@@ -639,4 +655,3 @@ sosa:FeatureOfInterest sosa:hasSample sosa:Sample .
 <https://w3id.org/smn> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology (modular build)"@en ;
     rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en .
-
