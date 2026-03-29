@@ -63,7 +63,8 @@ These do **not** live in `modules/` because they are not part of the normative s
 
 - If your goal is a simpler onboarding draft, keep the build surface to `smn`, `02`, `07` initially and layer in other shared modules by need.
 - If review pressure spikes, merge additional semantics from modules 08/09 into shared core only after cross-dataset reuse is demonstrated.
-- Prefer adding explicit `rdfs:comment` + provenance fields to profile terms to preserve mapping rationale before any promotion decision.
+- Prefer adding explicit term definitions (`iao:0000115` for OWL terms, `skos:definition` for SKOS terms) plus `rdfs:isDefinedBy`; attach provenance when authoritative wording exists. Use `rdfs:comment` only for editorial mapping rationale or scope notes, not as the primary definition field.
+- Track unresolved definition/provenance gaps in `../../docs/annotation-gap-ledger.md` rather than inventing new wording during migration cleanup.
 
 ## Guardrails
 

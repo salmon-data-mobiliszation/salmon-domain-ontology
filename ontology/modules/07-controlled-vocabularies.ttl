@@ -2,6 +2,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 
 <https://w3id.org/smn/modules/07-controlled-vocabularies> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
@@ -13,15 +15,21 @@
 
 smn:MeasurementContextScheme a skos:ConceptScheme ;
   skos:prefLabel "Measurement context scheme"@en ;
-  skos:hasTopConcept smn:MeasurementContext .
+  skos:hasTopConcept smn:MeasurementContext ;
+  skos:definition "Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:LifePhaseScheme a skos:ConceptScheme ;
   skos:prefLabel "Life phase scheme"@en ;
-  skos:hasTopConcept smn:LifePhase .
+  skos:hasTopConcept smn:LifePhase ;
+  skos:definition "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:SalmonOriginScheme a skos:ConceptScheme ;
   skos:prefLabel "Salmon origin scheme"@en ;
-  skos:hasTopConcept smn:SalmonOrigin .
+  skos:hasTopConcept smn:SalmonOrigin ;
+  skos:definition "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 #################################################################
 # Shared concepts
@@ -30,63 +38,92 @@ smn:SalmonOriginScheme a skos:ConceptScheme ;
 smn:MeasurementContext a skos:Concept ;
   skos:prefLabel "Measurement context"@en ;
   skos:inScheme smn:MeasurementContextScheme ;
-  skos:definition "A context qualifier used to disambiguate interpretation of a measurement."@en .
+  skos:definition "A context qualifier used to disambiguate interpretation of a measurement."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:CatchContext a skos:Concept ;
   skos:prefLabel "Catch context"@en ;
   skos:broader smn:MeasurementContext ;
-  skos:inScheme smn:MeasurementContextScheme .
+  skos:inScheme smn:MeasurementContextScheme ;
+  skos:definition "Measurement context indicating values refer to fishery catch."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:RunContext a skos:Concept ;
   skos:prefLabel "Run context"@en ;
   skos:broader smn:MeasurementContext ;
-  skos:inScheme smn:MeasurementContextScheme .
+  skos:inScheme smn:MeasurementContextScheme ;
+  skos:definition "Measurement context indicating values refer to run size or returning run composition."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:SpawnerStageContext a skos:Concept ;
   skos:prefLabel "Spawner stage context"@en ;
   skos:broader smn:MeasurementContext ;
-  skos:inScheme smn:MeasurementContextScheme .
+  skos:inScheme smn:MeasurementContextScheme ;
+  skos:definition "Measurement context indicating values refer to spawners or spawning-stage fish."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:SurvivalOrMortalityContext a skos:Concept ;
   skos:prefLabel "Survival or mortality context"@en ;
   skos:broader smn:MeasurementContext ;
-  skos:inScheme smn:MeasurementContextScheme .
+  skos:inScheme smn:MeasurementContextScheme ;
+  skos:definition "Measurement context indicating values represent survival, mortality, or related rates."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:LifePhase a skos:Concept ;
   skos:prefLabel "Life phase"@en ;
-  skos:inScheme smn:LifePhaseScheme .
+  skos:inScheme smn:LifePhaseScheme ;
+  skos:definition "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:OceanPhase a skos:Concept ;
   skos:prefLabel "Ocean phase"@en ;
   skos:altLabel "Marine phase"@en ;
   skos:broader smn:LifePhase ;
-  skos:inScheme smn:LifePhaseScheme .
+  skos:inScheme smn:LifePhaseScheme ;
+  skos:definition "Phase of the salmon life cycle or assessment period occurring in the marine environment."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:TerminalPhase a skos:Concept ;
   skos:prefLabel "Terminal phase"@en ;
   skos:broader smn:LifePhase ;
-  skos:inScheme smn:LifePhaseScheme .
+  skos:inScheme smn:LifePhaseScheme ;
+  skos:definition "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:MainstemPhase a skos:Concept ;
   skos:prefLabel "Mainstem phase"@en ;
   skos:broader smn:LifePhase ;
-  skos:inScheme smn:LifePhaseScheme .
+  skos:inScheme smn:LifePhaseScheme ;
+  skos:definition "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:InRiverPhase a skos:Concept ;
   skos:prefLabel "In-river phase"@en ;
   skos:broader smn:LifePhase ;
-  skos:inScheme smn:LifePhaseScheme .
+  skos:inScheme smn:LifePhaseScheme ;
+  skos:definition "Freshwater in-river phase (migration and/or residence) outside the marine environment."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:SalmonOrigin a skos:Concept ;
   skos:prefLabel "Salmon origin"@en ;
-  skos:inScheme smn:SalmonOriginScheme .
+  skos:inScheme smn:SalmonOriginScheme ;
+  skos:definition "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:NaturalOrigin a skos:Concept ;
   skos:prefLabel "Natural-origin"@en ;
   skos:broader smn:SalmonOrigin ;
-  skos:inScheme smn:SalmonOriginScheme .
+  skos:inScheme smn:SalmonOriginScheme ;
+  skos:definition "Individuals that are born and reared in the wild (natural environment)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> .
 
 smn:HatcheryOrigin a skos:Concept ;
   skos:prefLabel "Hatchery-origin"@en ;
   skos:broader smn:SalmonOrigin ;
-  skos:inScheme smn:SalmonOriginScheme .
+  skos:inScheme smn:SalmonOriginScheme ;
+  skos:definition "Individuals that were born or reared in a hatchery facility."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> .

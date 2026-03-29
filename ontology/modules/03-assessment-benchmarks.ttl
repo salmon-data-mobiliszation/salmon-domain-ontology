@@ -15,17 +15,22 @@
 smn:ObservedRateOrAbundance a owl:Class ;
   rdfs:label "Observed rate or abundance"@en ;
   iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ;
-  rdfs:subClassOf iao:0000109 .
+  rdfs:subClassOf iao:0000109 ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
   iao:0000115 "A value specification representing a policy- or model-defined target or limit."@en ;
-  rdfs:subClassOf iao:0000109 .
+  rdfs:subClassOf iao:0000109 ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:StockAssessment a owl:Class ;
   rdfs:label "Stock assessment"@en ;
   iao:0000115 "The scientific process of analyzing data to estimate abundance and productivity across time."@en ;
-  rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> .
+  rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html> .
 
 #################################################################
 # Shared benchmark classes (policy-neutral)
@@ -34,18 +39,26 @@ smn:StockAssessment a owl:Class ;
 smn:ReferencePoint a owl:Class ;
   rdfs:label "Reference point"@en ;
   iao:0000115 "A target or limit used to guide management actions."@en ;
-  rdfs:subClassOf iao:0000030 .
+  rdfs:subClassOf iao:0000030 ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> .
 
 smn:LimitReferencePoint a owl:Class ;
   rdfs:label "Limit reference point"@en ;
   iao:0000115 "A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered."@en ;
-  rdfs:subClassOf smn:ReferencePoint .
+  rdfs:subClassOf smn:ReferencePoint ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> .
 
 smn:MetricBenchmark a owl:Class ;
   rdfs:label "Metric benchmark"@en ;
   iao:0000115 "Benchmark value for a metric used to delineate status categories."@en ;
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
-  rdfs:subClassOf iao:0000030 .
+  rdfs:subClassOf iao:0000030 ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en .
 
 #################################################################
 # Shared exploitation semantics
@@ -54,9 +67,13 @@ smn:MetricBenchmark a owl:Class ;
 smn:ExploitationRate a owl:Class ;
   rdfs:label "Exploitation rate"@en ;
   iao:0000115 "The proportion of returning adult salmon removed by fishing activity over a defined period."@en ;
-  rdfs:subClassOf smn:TargetOrLimitRateOrAbundance .
+  rdfs:subClassOf smn:TargetOrLimitRateOrAbundance ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
+  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> .
 
 smn:TotalExploitationRate a owl:Class ;
   rdfs:label "Total exploitation rate"@en ;
   iao:0000115 "The overall proportion of returning adult salmon removed by all fisheries over a defined period."@en ;
-  rdfs:subClassOf smn:ExploitationRate .
+  rdfs:subClassOf smn:ExploitationRate ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
