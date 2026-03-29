@@ -90,7 +90,7 @@ Current posture:
 - `0.0.0` is the pre-alpha namespace-stabilization tag
 - phase-2 migration/cutover is closed
 - a generated latest publication surface now exists in-repo under `docs/` (`index.html`, `smn.ttl`, `smn.owl`, `smn.jsonld`)
-- an immutable `docs/releases/0.0.0/` snapshot now exists in-repo
+- immutable release snapshots now exist in-repo under `docs/releases/<version>/` (`0.0.0/`, `0.0.1/`)
 - live W3ID routing now serves the root + SemVer publication surface from GitHub Pages; canonical term-path human dereferencing is the remaining pending resolver follow-up
 
 ### Agent Context (agent-maintained)
@@ -114,7 +114,7 @@ entrypoints:
   - salmon-domain-ontology.ttl (generated flattened master)
   - docs/index.html
   - docs/smn.ttl
-  - docs/releases/0.0.0/
+  - docs/releases/<version>/
   - docs/migrations/README.md
   - docs/publishing/namespace-decision.md
   - docs/context/widoco.md
@@ -129,7 +129,7 @@ autonomy:
     - changing canonical IRIs or W3ID/publication contract without explicit instruction
     - removing compatibility wrappers or migration docs that downstream users may still rely on
     - destructive docs sync that can wipe hand-maintained docs alongside generated output
-last_updated: 2026-03-27
+last_updated: 2026-03-29
 ```
 
 ### Before changing docs / ontology / builds

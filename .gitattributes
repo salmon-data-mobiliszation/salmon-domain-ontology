@@ -1,0 +1,11 @@
+* text=auto
+
+*.ttl text eol=lf
+*.owl text eol=lf
+*.jsonld text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+Makefile text eol=lf

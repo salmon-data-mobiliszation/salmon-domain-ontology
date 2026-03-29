@@ -1,9 +1,15 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/smn> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology (modular build)"@en ;
   rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ;
+  dcterms:modified "2026-03-29"^^xsd:date ;
+  owl:versionIRI <https://w3id.org/smn/0.0.1> ;
+  owl:priorVersion <https://w3id.org/smn/0.0.0> ;
+  owl:versionInfo "0.0.1" ;
   owl:imports
     <https://w3id.org/smn/modules/01-entity-systematics>,
     <https://w3id.org/smn/modules/02-observation-measurement>,

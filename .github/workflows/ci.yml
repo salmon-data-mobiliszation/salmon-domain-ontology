@@ -2,12 +2,12 @@ name: Ontology CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
 
 jobs:
-  flat-ttl-drift-check:
-    name: Verify flattened TTL artifact
+  validation:
+    name: Validate committed ontology artifacts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,24 +22,37 @@ jobs:
         run: |
           pip install rdflib
 
-      - name: Rebuild flat TTL and check for drift
+      - name: Run validation bundle
         run: |
-          python3 scripts/build_flat_smn_ttl.py --source ontology/salmon-domain-ontology.ttl --output /tmp/salmon-domain-ontology.ttl
-          if ! cmp -s salmon-domain-ontology.ttl /tmp/salmon-domain-ontology.ttl; then
-            echo "❌ salmon-domain-ontology.ttl is out of date."
-            echo "   Run: make compose-flat-ttl"
-            echo "   and commit the regenerated artifact."
-            exit 1
-          fi
-          echo "✅ salmon-domain-ontology.ttl is synchronized with source ontology/salmon-domain-ontology.ttl"
+          make test
 
-      - name: Validate ontology TTL parse
+  publication-surface-drift-check:
+    name: Verify published docs artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install Python deps
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          from rdflib import Graph
+          pip install rdflib
 
-          for path in sorted(Path('ontology').rglob('*.ttl')):
-              Graph().parse(path, format='turtle')
-          print('OK parsed ontology/*.ttl')
-          PY
+      - name: Install docs build tools
+        run: |
+          make install-robot
+          make install-widoco
+
+      - name: Refresh docs and check for drift
+        run: |
+          make verify-generated-artifacts

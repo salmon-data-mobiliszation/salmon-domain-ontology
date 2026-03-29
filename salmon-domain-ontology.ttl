@@ -11,6 +11,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class."@en ;
     rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/protocol>,
@@ -21,6 +22,14 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/iadopt/ont/StatisticalModifier> a owl:Class .
 
 <https://w3id.org/iadopt/ont/Variable> a owl:Class .
+
+<https://w3id.org/smn/CatchAbundance> a owl:Class ;
+    rdfs:label "Catch abundance"@en ;
+    ns1:IAO_0000115 "A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context."@en ;
+    ns1:IAO_0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:subClassOf <https://w3id.org/smn/ObservedRateOrAbundance> .
 
 <https://w3id.org/smn/CatchContext> a skos:Concept ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
@@ -165,12 +174,6 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     skos:inScheme <https://w3id.org/smn/SalmonOriginScheme> ;
     skos:prefLabel "Natural-origin"@en .
 
-<https://w3id.org/smn/ObservedRateOrAbundance> a owl:Class ;
-    rdfs:label "Observed rate or abundance"@en ;
-    ns1:IAO_0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ;
-    rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf ns1:IAO_0000109 .
-
 <https://w3id.org/smn/OceanPhase> a skos:Concept ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:altLabel "Marine phase"@en ;
@@ -178,6 +181,14 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     skos:definition "Phase of the salmon life cycle or assessment period occurring in the marine environment."@en ;
     skos:inScheme <https://w3id.org/smn/LifePhaseScheme> ;
     skos:prefLabel "Ocean phase"@en .
+
+<https://w3id.org/smn/RecruitAbundance> a owl:Class ;
+    rdfs:label "Recruit abundance"@en ;
+    ns1:IAO_0000115 "A measurement datum recording the number of recruits contributing to a salmon stock, population, or indicator return series for a defined year basis and assessment context."@en ;
+    ns1:IAO_0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:subClassOf <https://w3id.org/smn/ObservedRateOrAbundance> .
 
 <https://w3id.org/smn/Run> a owl:Class ;
     rdfs:label "Run"@en ;
@@ -534,6 +545,12 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/Characteristic> .
 
+<https://w3id.org/smn/ObservedRateOrAbundance> a owl:Class ;
+    rdfs:label "Observed rate or abundance"@en ;
+    ns1:IAO_0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:subClassOf ns1:IAO_0000109 .
+
 <https://w3id.org/smn/SalmonGroup> a owl:Class ;
     rdfs:label "Salmon group"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
@@ -638,5 +655,9 @@ sosa:FeatureOfInterest sosa:hasSample sosa:Sample .
 
 <https://w3id.org/smn> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology (modular build)"@en ;
-    rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en .
+    dcterms:modified "2026-03-29"^^xsd:date ;
+    rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ;
+    owl:priorVersion <https://w3id.org/smn/0.0.0> ;
+    owl:versionIRI <https://w3id.org/smn/0.0.1> ;
+    owl:versionInfo "0.0.1" .
 

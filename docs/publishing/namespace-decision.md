@@ -92,7 +92,7 @@ The W3ID registration is live, and the repo now includes a generated publication
 - latest Turtle at `docs/smn.ttl`,
 - latest RDF/XML at `docs/smn.owl`,
 - latest JSON-LD at `docs/smn.jsonld`,
-- immutable snapshot assets at `docs/releases/0.0.0/`.
+- immutable snapshot assets at `docs/releases/<version>/` (currently `0.0.0/` and `0.0.1/`).
 
 Those targets are also live on GitHub Pages at `https://salmon-data-mobilization.github.io/salmon-domain-ontology/`.
 

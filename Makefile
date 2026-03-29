@@ -7,25 +7,34 @@ WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERS
 ONTOLOGY_TTL := ontology/salmon-domain-ontology.ttl
 FLAT_TTL := salmon-domain-ontology.ttl
 COMPOSE_FLAT_TTL := $(FLAT_TTL)
+WIDOCO_INPUT := release/tmp/widoco-input.ttl
 
-.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl verify-flat-ttl verify-doc-term-anchors docs-widoco docs-serializations docs-postprocess docs-refresh release-snapshot
+.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl docs-widoco-input verify-ontology-parse verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata test ci verify-generated-artifacts docs-widoco docs-serializations docs-postprocess docs-refresh snapshot-release release-snapshot release
 
 help:
-	@echo "🧭 Salmon Domain Ontology build targets"
+	@echo "Salmon Domain Ontology build targets"
 	@echo "  install-robot    Download ROBOT JAR into tools/"
 	@echo "  install-widoco   Download WIDOCO JAR into tools/"
 	@echo "  compose-case-study-modules  Recompose split case-study profile modules"
 	@echo "  compose-flat-ttl  Build flattened read-only root TTL from source imports"
+	@echo "  docs-widoco-input Build the root-ontology-only input used by WIDOCO"
+	@echo "  verify-ontology-parse  Parse all ontology Turtle files with rdflib"
 	@echo "  verify-flat-ttl  Verify committed flat TTL is in sync with source"
 	@echo "  verify-doc-term-anchors  Verify WIDOCO HTML exposes stable #/Term anchors"
+	@echo "  verify-doc-version-metadata  Verify WIDOCO HTML exposes ontology version metadata"
+	@echo "  test            Run the fast validation bundle"
+	@echo "  ci              Run the full local CI bundle (docs refresh + validation)"
+	@echo "  verify-generated-artifacts  Rebuild publication artifacts and fail if git shows drift"
 	@echo "  docs-widoco      Regenerate WIDOCO HTML docs into docs/"
 	@echo "  docs-serializations Regenerate docs/smn.{ttl,owl,jsonld}"
 	@echo "  docs-postprocess Apply project-specific WIDOCO HTML cleanup"
 	@echo "  docs-refresh     Run full docs refresh pipeline"
-	@echo "  release-snapshot VERSION=X.Y.Z   Write immutable docs/releases/X.Y.Z/ assets"
+	@echo "  snapshot-release VERSION=X.Y.Z   Write immutable docs/releases/X.Y.Z/ assets from current docs/"
+	@echo "  release-snapshot VERSION=X.Y.Z   Refresh docs and write immutable docs/releases/X.Y.Z/ assets"
+	@echo "  release VERSION=X.Y.Z [PRIOR_VERSION=A.B.C]  Update release metadata, rebuild, validate, and write the immutable snapshot"
 
 install-robot:
-	@echo "📥 Downloading ROBOT..."
+	@echo "Downloading ROBOT..."
 	@mkdir -p tools
 	@if command -v curl >/dev/null 2>&1; then \
 		curl -fL --retry 3 --retry-delay 2 $(ROBOT_URL) -o $(ROBOT_JAR); \
@@ -35,10 +44,10 @@ install-robot:
 		echo "Neither curl nor wget is available; please install one to fetch ROBOT."; \
 		exit 1; \
 	fi
-	@echo "✅ ROBOT installed at $(ROBOT_JAR)"
+	@echo "ROBOT installed at $(ROBOT_JAR)"
 
 install-widoco:
-	@echo "📥 Downloading WIDOCO..."
+	@echo "Downloading WIDOCO..."
 	@mkdir -p tools
 	@if command -v curl >/dev/null 2>&1; then \
 		curl -fL --retry 3 --retry-delay 2 $(WIDOCO_URL) -o $(WIDOCO_JAR); \
@@ -48,58 +57,84 @@ install-widoco:
 		echo "Neither curl nor wget is available; please install one to fetch WIDOCO."; \
 		exit 1; \
 	fi
-	@echo "✅ WIDOCO installed at $(WIDOCO_JAR)"
+	@echo "WIDOCO installed at $(WIDOCO_JAR)"
 
 check-robot:
 	@if [ ! -f "$(ROBOT_JAR)" ]; then \
-		echo "❌ ROBOT not found at $(ROBOT_JAR). Run 'make install-robot' first."; \
+		echo "ROBOT not found at $(ROBOT_JAR). Run 'make install-robot' first."; \
 		exit 1; \
 	fi
 	@if ! command -v java >/dev/null 2>&1; then \
-		echo "❌ Java runtime not found. Install Java 17+ to run ROBOT."; \
+		echo "Java runtime not found. Install Java 17+ to run ROBOT."; \
+		exit 1; \
+	fi
+
+check-widoco:
+	@if [ ! -f "$(WIDOCO_JAR)" ]; then \
+		echo "WIDOCO not found at $(WIDOCO_JAR). Run 'make install-widoco' first."; \
+		exit 1; \
+	fi
+	@if ! command -v java >/dev/null 2>&1; then \
+		echo "Java runtime not found. Install Java 17+ to run WIDOCO."; \
 		exit 1; \
 	fi
 
 compose-case-study-modules:
-	@echo "🧩 Rebuilding split case-study module 09 from fragments..."
+	@echo "Rebuilding split case-study module 09 from fragments..."
 	@python3 scripts/build_rda_case_study_modules.py
 
 compose-flat-ttl:
-	@echo "📦 Building flattened root TTL: $(COMPOSE_FLAT_TTL)"
+	@echo "Building flattened root TTL: $(COMPOSE_FLAT_TTL)"
 	@python3 scripts/build_flat_smn_ttl.py --source $(ONTOLOGY_TTL) --output $(COMPOSE_FLAT_TTL)
+
+docs-widoco-input: compose-flat-ttl
+	@echo "Building WIDOCO input: $(WIDOCO_INPUT)"
+	@python3 scripts/build_widoco_input.py --input $(COMPOSE_FLAT_TTL) --output $(WIDOCO_INPUT)
+
+verify-ontology-parse:
+	@python3 scripts/verify_ontology_parse.py
 
 verify-flat-ttl:
 	@python3 scripts/build_rda_case_study_modules.py >/dev/null
 	@tmp=$$(mktemp); \
 	python3 scripts/build_flat_smn_ttl.py --source $(ONTOLOGY_TTL) --output $$tmp; \
 	if ! cmp -s $(COMPOSE_FLAT_TTL) $$tmp; then \
-		echo "❌ Flat TTL is out of sync. Run 'make compose-flat-ttl' and commit the generated file."; \
+		echo "Flat TTL is out of sync. Run 'make compose-flat-ttl' and commit the generated file."; \
 		rm -f $$tmp; \
 		exit 1; \
-	fi
-	@rm -f $$tmp
-	@echo "✅ Flat TTL is up-to-date."
+	fi; \
+	rm -f $$tmp
+	@echo "Flat TTL is up-to-date."
 
 verify-doc-term-anchors:
 	@python3 scripts/verify_widoco_term_anchors.py
 
-check-widoco:
-	@if [ ! -f "$(WIDOCO_JAR)" ]; then \
-		echo "❌ WIDOCO not found at $(WIDOCO_JAR). Run 'make install-widoco' first."; \
-		exit 1; \
-	fi
-	@if ! command -v java >/dev/null 2>&1; then \
-		echo "❌ Java runtime not found. Install Java 17+ to run WIDOCO."; \
-		exit 1; \
-	fi
+verify-doc-version-metadata:
+	@python3 scripts/verify_widoco_version_metadata.py
 
-docs-widoco: compose-case-study-modules compose-flat-ttl check-widoco
-	@echo "🧙 Regenerating WIDOCO docs..."
+test: verify-ontology-parse verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata
+	@echo "Validation bundle completed."
+
+ci: docs-refresh test
+	@echo "CI bundle completed."
+
+verify-generated-artifacts: ci
+	@if ! git diff --quiet -- docs/ $(COMPOSE_FLAT_TTL); then \
+		echo "Generated publication artifacts are out of date."; \
+		echo "Run: make ci"; \
+		echo "and commit the regenerated docs/ files."; \
+		git --no-pager diff -- docs/ $(COMPOSE_FLAT_TTL); \
+		exit 1; \
+	fi
+	@echo "Generated publication artifacts are synchronized."
+
+docs-widoco: compose-case-study-modules docs-widoco-input check-widoco
+	@echo "Regenerating WIDOCO docs..."
 	@OUT="release/tmp/widoco"; \
 	rm -rf "$$OUT"; \
 	mkdir -p "$$OUT"; \
 	java -jar $(WIDOCO_JAR) \
-		-ontFile $(COMPOSE_FLAT_TTL) \
+		-ontFile $(WIDOCO_INPUT) \
 		-outFolder "$$OUT" \
 		-uniteSections \
 		-rewriteAll \
@@ -110,33 +145,33 @@ docs-widoco: compose-case-study-modules compose-flat-ttl check-widoco
 	mkdir -p docs; \
 	rsync -a --exclude "/ontology.*" "$$OUT/" docs/; \
 	rm -f docs/ontology.jsonld docs/ontology.nt docs/ontology.owl docs/ontology.ttl; \
-	rm -rf "$$OUT"; \
-	echo "✅ WIDOCO regenerated into docs/"
+	rm -rf "$$OUT"
+	@echo "WIDOCO regenerated into docs/"
 
 docs-serializations: compose-case-study-modules compose-flat-ttl check-robot
-	@echo "🔄 Regenerating docs/ downloadable serializations..."
+	@echo "Regenerating docs/ downloadable serializations..."
 	@mkdir -p docs
 	@java -jar $(ROBOT_JAR) convert --input $(COMPOSE_FLAT_TTL) --output docs/smn.ttl
 	@java -jar $(ROBOT_JAR) convert --input $(COMPOSE_FLAT_TTL) --output docs/smn.owl
 	@python3 scripts/convert_ttl_to_jsonld.py $(COMPOSE_FLAT_TTL) docs/smn.jsonld
-	@echo "✅ Wrote docs/smn.ttl, docs/smn.owl, docs/smn.jsonld"
+	@echo "Wrote docs/smn.ttl, docs/smn.owl, docs/smn.jsonld"
 
 docs-postprocess:
-	@echo "🧩 Applying project-specific WIDOCO post-processing..."
+	@echo "Applying project-specific WIDOCO post-processing..."
 	@python3 scripts/postprocess_widoco_html.py
-	@echo "✅ WIDOCO post-processing complete."
+	@echo "WIDOCO post-processing complete."
 
 docs-refresh: compose-flat-ttl docs-widoco docs-serializations docs-postprocess
-	@echo "✅ Docs refresh complete."
+	@echo "Docs refresh complete."
 
-release-snapshot: docs-refresh
+snapshot-release:
 	@if [ -z "$(VERSION)" ]; then \
-		echo "❌ VERSION is required (e.g., make release-snapshot VERSION=0.0.0)"; \
+		echo "VERSION is required (e.g., make snapshot-release VERSION=0.0.1)"; \
 		exit 1; \
 	fi
 	@DEST="docs/releases/$(VERSION)"; \
 	if [ -d "$$DEST" ] && [ "$(FORCE)" != "1" ]; then \
-		echo "❌ Snapshot already exists: $$DEST (set FORCE=1 to overwrite)"; \
+		echo "Snapshot already exists: $$DEST (set FORCE=1 to overwrite)"; \
 		exit 1; \
 	fi; \
 	mkdir -p "$$DEST"; \
@@ -150,11 +185,11 @@ release-snapshot: docs-refresh
 		'  <meta charset="UTF-8" />' \
 		'  <meta name="viewport" content="width=device-width, initial-scale=1" />' \
 		'  <link rel="canonical" href="https://w3id.org/smn/$(VERSION)" />' \
-		'  <title>Salmon Domain Ontology — Version $(VERSION)</title>' \
+		'  <title>Salmon Domain Ontology - Version $(VERSION)</title>' \
 		'</head>' \
 		'<body>' \
 		'  <main>' \
-		'    <h1>Salmon Domain Ontology — Version $(VERSION)</h1>' \
+		'    <h1>Salmon Domain Ontology - Version $(VERSION)</h1>' \
 		'    <p>This is an immutable release snapshot hosted from GitHub Pages.</p>' \
 		'    <h2>Download</h2>' \
 		'    <ul>' \
@@ -171,4 +206,18 @@ release-snapshot: docs-refresh
 		'</body>' \
 		'</html>' \
 		> "$$DEST/index.html"
-	@echo "✅ Wrote snapshot: docs/releases/$(VERSION)/ (index.html + smn.{ttl,owl,jsonld})"
+	@echo "Wrote snapshot: docs/releases/$(VERSION)/ (index.html + smn.{ttl,owl,jsonld})"
+
+release-snapshot: docs-refresh snapshot-release
+
+release:
+	@if [ -z "$(VERSION)" ]; then \
+		echo "VERSION is required (e.g., make release VERSION=0.0.1)"; \
+		exit 1; \
+	fi
+	@args="--version $(VERSION)"; \
+	if [ -n "$(PRIOR_VERSION)" ]; then args="$$args --prior-version $(PRIOR_VERSION)"; fi; \
+	python3 scripts/update_root_release_metadata.py $$args
+	@$(MAKE) ci
+	@$(MAKE) snapshot-release VERSION=$(VERSION) FORCE=$(FORCE)
+	@echo "Release $(VERSION) prepared."

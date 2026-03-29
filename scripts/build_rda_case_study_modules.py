@@ -84,9 +84,10 @@ def main() -> None:
             fragment_text = fragment.read_text().strip()
             if not fragment_text:
                 continue
-            lines.append(f"# --- begin {fragment.relative_to(ROOT)} ---")
+            relative_fragment = fragment.relative_to(ROOT).as_posix()
+            lines.append(f"# --- begin {relative_fragment} ---")
             lines.append(fragment_text)
-            lines.append(f"# --- end {fragment.relative_to(ROOT)} ---")
+            lines.append(f"# --- end {relative_fragment} ---")
             lines.append("")
 
         output_path.write_text("\n".join(lines).strip() + "\n")

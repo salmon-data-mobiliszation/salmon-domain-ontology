@@ -21,18 +21,18 @@ If you want to contribute:
 
 ## Current structure
 
-- `ontology/salmon-domain-ontology.ttl` — modular primary build (imports modules 01–07 + conservative alignment)
-- `salmon-domain-ontology.ttl` — flattened, import-free master TTL artifact for one-file consumers (generated)
-- `ontology/salmon-domain-ontology-research.ttl` — optional research build (adds exploratory alignment module)
-- `ontology/salmon-domain-ontology-rda-case-study.ttl` — optional case-study bridge build (adds profile bridge mappings from RDA juvenile-condition graph, including Hakai + Neville decomposition terms)
-- `ontology/modules/` — category modules + alignment modules + profile bridge modules
-- `ontology/views/` — optional, non-normative metamodel views for maintainers and salmon biologists
-- `CONVENTIONS.md` — modeling and namespace conventions (`smn:` canonical)
-- `docs/context/widoco.md` — WIDOCO publication workflow and output contract
-- `docs/migrations/README.md` — migration map, boundary rules, adoption checklist, cutover runbook, smoke-run templates, and release-readiness notes
-- `docs/publishing/namespace-decision.md` — namespace stabilization decision and freeze rule
-- `docs/publishing/w3id-request-payload.md` — merged `smn` W3ID registration record + follow-up publication checklist
-- `docs/guides/modules-and-bridges-for-biologists.md` — beginner-friendly guide to modules, local profiles, and bridge mapping
+- `ontology/salmon-domain-ontology.ttl` - modular primary build (imports modules 01-07 + conservative alignment)
+- `salmon-domain-ontology.ttl` - flattened, import-free master TTL artifact for one-file consumers (generated)
+- `ontology/salmon-domain-ontology-research.ttl` - optional research build (adds exploratory alignment module)
+- `ontology/salmon-domain-ontology-rda-case-study.ttl` - optional case-study bridge build (adds profile bridge mappings from the RDA juvenile-condition graph, including Hakai + Neville decomposition terms)
+- `ontology/modules/` - category modules + alignment modules + profile bridge modules
+- `ontology/views/` - optional, non-normative metamodel views for maintainers and salmon biologists
+- `CONVENTIONS.md` - modeling and namespace conventions (`smn:` canonical)
+- `docs/context/widoco.md` - WIDOCO publication workflow and output contract
+- `docs/migrations/README.md` - migration map, boundary rules, adoption checklist, cutover runbook, smoke-run templates, and release-readiness notes
+- `docs/publishing/namespace-decision.md` - namespace stabilization decision and freeze rule
+- `docs/publishing/w3id-request-payload.md` - merged `smn` W3ID registration record + follow-up publication checklist
+- `docs/guides/modules-and-bridges-for-biologists.md` - beginner-friendly guide to modules, local profiles, and bridge mapping
 
 ## Where non-core terms live
 
@@ -42,8 +42,7 @@ For teams using MetaSalmon Data GPT / R package with local or program-specific t
 2. **Collaborative profile artifact (optional):** if multiple teams need shared access to the same local contract, use `https://w3id.org/smn/profile/<program>/` as a temporary bridge namespace.
 3. **Shared-core promotion (rare):** promote to `smn:` only when term reuse is broad and semantics are stable.
 
-If a team wants an independent WIDOCO site for profile terms, run WIDOCO against their own profile ontology source and host that site under their own namespace/hosting.
-SMN’s own publication workflow remains centered on shared ontology + curated pilot profiles, so this is the simplest way to serve a separate profile docs site without expanding the core namespace.
+If a team wants an independent WIDOCO site for profile terms, run WIDOCO against their own profile ontology source and host that site under their own namespace/hosting. SMN's own publication workflow remains centered on the shared ontology plus curated pilot profiles, so this is the simplest way to serve a separate profile docs site without expanding the core namespace.
 
 ## Docs / publication workflow
 
@@ -54,10 +53,16 @@ Core commands:
 - `make install-robot`
 - `make compose-case-study-modules`
 - `make compose-flat-ttl`
+- `make verify-ontology-parse`
 - `make verify-flat-ttl`
 - `make verify-doc-term-anchors`
+- `make verify-doc-version-metadata`
+- `make test`
+- `make ci`
+- `make verify-generated-artifacts`
 - `make docs-refresh`
 - `make release-snapshot VERSION=X.Y.Z`
+- `make release VERSION=X.Y.Z`
 
 Generated publication targets:
 - `docs/index.html`
@@ -66,7 +71,7 @@ Generated publication targets:
 - `docs/smn.jsonld`
 - `docs/releases/<version>/`
 
-Note: Java is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus an immutable `docs/releases/0.0.0/` snapshot. Root + SemVer W3ID routing already use those published targets; the next pending resolver follow-up is term-path human dereferencing (`https://w3id.org/smn/<Term>` → `/#/<Term>` by default) as documented under `docs/publishing/`.
+Note: Java 17+ is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus immutable release snapshots under `docs/releases/<version>/`. `make release VERSION=X.Y.Z` is the canonical release path: it updates ontology version metadata, refreshes the WIDOCO publication surface, runs validation, and writes the immutable snapshot. Root + SemVer W3ID routing already use those published targets; the next pending resolver follow-up is term-path human dereferencing (`https://w3id.org/smn/<Term>` to `/#/<Term>` by default) as documented under `docs/publishing/`.
 
 ## New to ontologies?
 
