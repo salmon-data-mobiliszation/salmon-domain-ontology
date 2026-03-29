@@ -189,7 +189,7 @@ Additional expectations:
 When shared `smn:` terms were migrated from another ontology or profile:
 1. reuse the existing definition/provenance text exactly where possible
 2. do **not** invent new IRIs, sources, or definitions during migration cleanup
-3. if a required/recommended field cannot be filled from existing written material, leave the term unresolved and track it in the gap ledger for follow-up
+3. if a required/recommended field cannot be filled from existing written material, leave the term unresolved and track it in `docs/annotation-gap-ledger.md` for follow-up
 
 ### Rendering rule of thumb
 
