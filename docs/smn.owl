@@ -616,7 +616,6 @@
     <!-- https://w3id.org/smn/FishLength -->
 
     <owl:Class rdf:about="https://w3id.org/smn/FishLength">
-        <owl:equivalentClass rdf:resource="https://w3id.org/smn/forkLength"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MorphologicalCharacteristic"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Fish length</rdfs:label>
@@ -1112,6 +1111,7 @@
     <!-- https://w3id.org/smn/forkLength -->
 
     <owl:Class rdf:about="https://w3id.org/smn/forkLength">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLength"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Fork length</rdfs:label>
     </owl:Class>

@@ -39,7 +39,7 @@ smn:FishLength a owl:Class ;
 
 smn:forkLength a owl:Class ;
   rdfs:label "Fork length"@en ;
-  owl:equivalentClass smn:FishLength ;
+  rdfs:subClassOf smn:FishLength ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:standardLength a owl:Class ;
