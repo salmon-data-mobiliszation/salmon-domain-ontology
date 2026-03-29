@@ -11,6 +11,3 @@ This folder contains the split profile-bridge fragments for the RDA juvenile-con
 - `09-rda-neville-constraints.ttl` — context, modifiers, and aggregate-statistics vocabulary.
 - `10-rda-integrated-metamodel-walkthrough.ttl` — integrated Hakai + Neville decomposition walkthrough aligned to salmon metamodel slots, including provisional candidate shared terms not yet in canonical `smn:`.
 
-The assembled
-`08-rda-case-study-profile-bridges.ttl` and
-`09-rda-neville-decomposition-profile-bridges.ttl` files are regenerated from these fragments for downstream ontology imports.
