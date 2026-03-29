@@ -326,15 +326,15 @@ Those may still be perfectly good ontology terms. They just do not obviously bel
 
 ## So where does that leave us?
 
-At the moment, the comparison seems to point in a fairly clear direction.
+At this point, the comparison seems to point in a fairly clear direction.
 
 ### What seems true right now
 
 1. **SALMON is useful as a comparison ontology.**  
    It gives us breadth, examples, and a way to spot recurring salmon concepts.
 
-2. **SMN should probably stay disciplined as a shared-core ontology.**  
-   Its value partly comes from not trying to absorb every local or operational term.
+2. **SMN should stay disciplined as a shared-core ontology.**  
+   Its value comes partly from *not* trying to absorb every local or operational term.
 
 3. **The DFO salmon ontology still has a very real job to do.**  
    It remains the right place for DFO-owned semantics that are important but not yet truly shared.
@@ -345,15 +345,28 @@ At the moment, the comparison seems to point in a fairly clear direction.
 5. **Same label does not mean same concept.**  
    We still need to compare meaning, scope, and modeling role, not just names.
 
-### What seems like the sensible group posture for now
+### Here is the direction that seems right
 
-For now, the most sensible posture seems to be:
+The direction that seems right is:
 
-- use SALMON as a source of comparison and learning
-- keep SMN fairly tight as the shared layer
-- keep DFO-specific semantics where they belong
-- be conservative about strong equivalence claims
-- keep talking in terms of boundaries and direction, not rush into pretending the alignment questions are already settled
+- **use SALMON as a comparison ontology, not as the thing SMN should try to become**
+- **keep SMN fairly tight as the shared layer**
+- **keep DFO-specific semantics in the DFO ontology unless there is a genuinely good reason to promote them**
+- **be conservative about strong equivalence claims**
+- **let repeated real dataset use drive promotion decisions, not just the fact that a term exists somewhere else**
+
+### Why this seems like the right direction
+
+Because if we try to make SMN as broad as SALMON too quickly, we will probably lose the very thing that makes SMN useful — namely, that it is starting to behave like a clean shared interoperability layer rather than a grab-bag of everything.
+
+And on the flip side, if we ignore SALMON, we would be missing a genuinely useful source of comparison and a pretty rich signal about what kinds of salmon concepts do keep recurring.
+
+So the middle path seems best:
+
+- learn from SALMON
+- do not clone SALMON
+- keep the SMN/DFO boundary real
+- only promote shared terms when there is a solid reuse case
 
 ## Bottom line
 
@@ -363,7 +376,9 @@ SALMON helps show us breadth.
 SMN helps us keep the shared architecture clean.  
 The DFO salmon ontology helps keep agency-specific meaning where it belongs.
 
-If those roles stay clear, then there is probably a very good path here: learn from SALMON, keep the SMN conventions disciplined, and avoid stuffing the shared layer full of useful-but-local semantics just because they happen to be available.
+So if there is one plain-language version of the recommendation, it is probably this:
+
+> keep SMN clean, use SALMON as a comparison source, and do not move local semantics into the shared layer just because they are useful.
 
 That feels like the right direction at this stage.
 
