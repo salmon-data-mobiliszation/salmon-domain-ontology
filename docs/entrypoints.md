@@ -14,6 +14,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 - Compose split case-study fragments: `make compose-case-study-modules`
 - Rebuild flattened master TTL: `make compose-flat-ttl`
 - Verify flat TTL is up-to-date: `make verify-flat-ttl`
+- Verify WIDOCO term anchors stay stable: `make verify-doc-term-anchors`
 - CI check for drift: `.github/workflows/ci.yml`
 - WIDOCO only: `make docs-widoco`
 - Serializations only: `make docs-serializations`
@@ -45,6 +46,10 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
     ```bash
     make verify-flat-ttl
     ```
+  - Verify documented `smn:` terms still expose stable WIDOCO `#/Term` anchors:
+    ```bash
+    make verify-doc-term-anchors
+    ```
   - Regenerate fixture smoke evidence when the migration/evidence helper changes:
     ```bash
     python3 docs/migrations/evidence/run_phase2_smoke_fixture_checks.py
@@ -63,7 +68,8 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - Publication-routing source of truth lives in:
     - `docs/publishing/namespace-decision.md`
     - `docs/publishing/w3id-request-payload.md`
-    - `docs/publishing/w3id-smn-draft/.htaccess`
+    - `docs/publishing/w3id-smn-draft/.htaccess` (current live root + SemVer contract mirror)
+    - `docs/publishing/w3id-term-dereference-draft/.htaccess` (pending term-path human-dereferencing follow-up)
 - Background jobs (if any): none.
 
 ## UI Styling
@@ -82,7 +88,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - `08` and `09` are assembled from split files under `ontology/case-studies/rda-juvenile-condition/`.
 - Optional metamodel view surface → `ontology/views/salmon-data-metamodel.ttl` + supporting files under `ontology/views/` (kept out of the shared-core import spine by default)
 
-- `https://w3id.org/smn` root + canonical term/module routes are served via W3ID publication config and evidence artifacts
+- `https://w3id.org/smn` root + release routes are live via W3ID publication config; canonical term-path human dereferencing is defined in the pending W3ID follow-up draft under `docs/publishing/w3id-term-dereference-draft/`
 - Modeling rules and boundary decisions → `CONVENTIONS.md` + `docs/migrations/phase2-boundary-rules.md`
 - Migration/cutover status and evidence → `docs/migrations/README.md` + `docs/migrations/phase2-*.md` + `docs/migrations/evidence/`
 - Namespace/publication posture → `docs/publishing/namespace-decision.md` + `docs/publishing/w3id-request-payload.md`

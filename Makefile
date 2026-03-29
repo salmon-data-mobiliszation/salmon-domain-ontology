@@ -8,7 +8,7 @@ ONTOLOGY_TTL := ontology/salmon-domain-ontology.ttl
 FLAT_TTL := salmon-domain-ontology.ttl
 COMPOSE_FLAT_TTL := $(FLAT_TTL)
 
-.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl verify-flat-ttl docs-widoco docs-serializations docs-postprocess docs-refresh release-snapshot
+.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl verify-flat-ttl verify-doc-term-anchors docs-widoco docs-serializations docs-postprocess docs-refresh release-snapshot
 
 help:
 	@echo "🧭 Salmon Domain Ontology build targets"
@@ -17,6 +17,7 @@ help:
 	@echo "  compose-case-study-modules  Recompose split case-study profile modules"
 	@echo "  compose-flat-ttl  Build flattened read-only root TTL from source imports"
 	@echo "  verify-flat-ttl  Verify committed flat TTL is in sync with source"
+	@echo "  verify-doc-term-anchors  Verify WIDOCO HTML exposes stable #/Term anchors"
 	@echo "  docs-widoco      Regenerate WIDOCO HTML docs into docs/"
 	@echo "  docs-serializations Regenerate docs/smn.{ttl,owl,jsonld}"
 	@echo "  docs-postprocess Apply project-specific WIDOCO HTML cleanup"
@@ -78,6 +79,9 @@ verify-flat-ttl:
 	fi
 	@rm -f $$tmp
 	@echo "✅ Flat TTL is up-to-date."
+
+verify-doc-term-anchors:
+	@python3 scripts/verify_widoco_term_anchors.py
 
 check-widoco:
 	@if [ ! -f "$(WIDOCO_JAR)" ]; then \

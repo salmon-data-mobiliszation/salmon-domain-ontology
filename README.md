@@ -55,6 +55,7 @@ Core commands:
 - `make compose-case-study-modules`
 - `make compose-flat-ttl`
 - `make verify-flat-ttl`
+- `make verify-doc-term-anchors`
 - `make docs-refresh`
 - `make release-snapshot VERSION=X.Y.Z`
 
@@ -65,7 +66,7 @@ Generated publication targets:
 - `docs/smn.jsonld`
 - `docs/releases/<version>/`
 
-Note: Java is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus an immutable `docs/releases/0.0.0/` snapshot, but W3ID should not be upgraded to HTML/RDF/XML/JSON-LD/version redirects until those public targets are published on a stable host and verified.
+Note: Java is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus an immutable `docs/releases/0.0.0/` snapshot. Root + SemVer W3ID routing already use those published targets; the next pending resolver follow-up is term-path human dereferencing (`https://w3id.org/smn/<Term>` → `/#/<Term>` by default) as documented under `docs/publishing/`.
 
 ## New to ontologies?
 
