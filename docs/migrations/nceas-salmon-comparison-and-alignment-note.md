@@ -1,291 +1,297 @@
-# SMN and NCEAS/DataONE SALMON: working comparison note for group discussion
+# SMN and NCEAS/DataONE SALMON: working thoughts on overlap, differences, and direction
 
-_Status: working assessment note (2026-03-28)._  
-_Scope: shared-core Salmon Domain Ontology (`smn:`) compared against the NCEAS/DataONE Salmon Ontology (`SALMON`)._  
-_This note is meant to support discussion among working-group co-chairs and collaborators. It is deliberately written as an assessment, not as a finished crosswalk or implementation plan._
+_Status: working note (2026-03-28)._  
+_Scope: shared-core Salmon Domain Ontology (`smn:`) compared against the NCEAS/DataONE SALMON ontology (`SALMON`)._  
+_This is meant to read as a discussion note for the working group, not as a finished crosswalk or formal decision memo._
 
 ## Why this note exists
 
-We are now at the point where it is useful to compare the emerging **Salmon Domain Ontology (SMN)** with the **NCEAS/DataONE SALMON ontology** in a more deliberate way.
+At this point it feels worth stepping back and looking at the emerging **Salmon Domain Ontology (SMN)** alongside the **NCEAS/DataONE SALMON ontology** in a more deliberate way.
 
-At a high level, both ontologies are trying to help with similar problems:
+The broad problem is familiar enough:
 
-- making salmon datasets easier to describe and search
-- making terms more consistent across projects
-- making it easier to compare or combine datasets from different places
-- reducing the amount of meaning that stays trapped in local spreadsheets, codebooks, or team memory
+- salmon data are spread across organizations, projects, and reporting contexts
+- the same idea gets named in different ways
+- sometimes the same label means slightly different things
+- and a lot of important meaning still lives in local spreadsheets, methods docs, and people’s heads
 
-That said, they do **not** appear to be solving the problem in quite the same way. The overlap is real, but the modeling posture is different enough that we should be careful about assuming that same label = same meaning = same modeling move.
+Both ontologies are trying to help with that, but they do not seem to be built from quite the same instincts. There is definitely overlap, but there are also some pretty clear differences in how the problem is being carved up.
 
-## Short take
+This note is really just an attempt to say: **what seems similar, what seems different, and what direction makes the most sense for us right now?**
 
-Our current reading is this:
+## Short version
 
-- **SALMON** is stronger today as a **broad salmon-domain annotation vocabulary**.
-- **SMN** is stronger today as a **smaller, cleaner shared interoperability layer**.
+The short version is:
 
-In other words, SALMON currently looks more like a wide salmon-domain lexicon, while SMN is being shaped more like a shared coordination layer that can sit between multiple local or agency-specific ontologies.
+- **SALMON** currently looks stronger as a **broad salmon-domain annotation vocabulary**.
+- **SMN** currently looks stronger as a **smaller, more disciplined shared interoperability layer**.
 
-That difference matters. It suggests that our job is probably **not** to make SMN look exactly like SALMON, and also **not** to ignore SALMON just because it grew out of a different context.
+That feels like the key distinction.
 
-## The conventions we seem to be building in SMN so far
+SALMON gives us breadth.  
+SMN gives us architectural discipline.
 
-This section is written in plain language on purpose.
+Those are both useful. The trick is probably not to make one ontology imitate the other too quickly.
 
-The best way to describe the emerging SMN conventions is that we are trying to separate the salmon ontology stack into a few different layers instead of putting everything into one giant ontology.
+## What it feels like we are trying to do with SMN
 
-### 1) We are treating SMN as the shared layer
+Speaking a bit plainly, it seems like the basic idea behind SMN so far is **not** to build one giant salmon ontology that contains every useful term anybody might ever want.
 
-The current vision seems to be that `smn:` should hold terms that are:
+Instead, the direction seems to be more like this:
 
-- reusable across organizations
-- reasonably stable in meaning
-- not tightly tied to one agency’s policy wording or program workflow
+- keep a **shared layer** for terms that are genuinely reusable across groups
+- keep a **local or agency layer** for terms that are tied to one organization’s policy or workflow
+- use **bridge mappings** to connect the two when needed
 
-Examples include things like:
+That is a pretty sensible pattern.
 
-- broad biological entities (`Population`, `Deme`)
+For anyone coming at this more as a salmon biologist than an ontology specialist, the easiest way to think about it is:
+
+- **shared ontology** = the common language we want multiple groups to be able to use
+- **local ontology/profile** = the terms a specific group needs for its own program logic
+- **bridge layer** = the translation sheet between them
+
+That seems to be the heart of the current SMN conventions.
+
+## The conventions SMN seems to be settling into
+
+### 1) Shared `smn:` should stay relatively small and reusable
+
+The terms that seem most at home in shared `smn:` are things like:
+
+- broad biological entities
 - reusable observation and measurement patterns
 - policy-neutral stock-assessment concepts
-- a small number of shared controlled vocabularies
+- a small number of controlled vocabularies that multiple groups might genuinely share
 
-This makes SMN feel less like “one organization’s full ontology” and more like a **shared middle layer** that others can build around.
+So far, this looks less like “put all salmon semantics here” and more like “put the durable shared middle layer here.”
 
-### 2) We are trying to keep DFO-specific semantics in the DFO ontology
+That feels right.
 
-The current boundary with the **DFO salmon ontology** seems to be:
+### 2) Not every useful term belongs in shared `smn:`
 
-- **SMN** = shared salmon-domain concepts that could reasonably be reused beyond DFO
-- **DFO salmon ontology (`gcdfo:`)** = DFO-specific policy, program, status, method, and governance semantics
+This may be the most important convention of the lot.
 
-This is an important convention because it gives us a way to say:
+A term can be:
 
-> not every useful term belongs in the shared ontology
+- useful
+- well-defined
+- operationally important
+- heavily used by one team
 
-That is a healthy rule.
+…and still **not** belong in the shared ontology.
 
-A term can be important, well-defined, and operationally necessary **without** belonging in shared `smn:`.
+If a term is really tied to one agency’s policy language, program workflow, or local method scheme, it probably belongs in a local/profile ontology first.
 
-### 3) We are using a layered modeling pattern rather than one undifferentiated term pool
+That is not a demotion. It is just good boundary discipline.
 
-The emerging stack looks something like this:
+### 3) SMN is trying to separate durable concepts from controlled vocabularies
 
-1. **Shared OWL core** for durable shared concepts
-2. **Small shared SKOS layer** for shared controlled vocabularies
-3. **Local or agency/profile ontologies** for organization-specific semantics
-4. **Bridge mappings** that connect local terms to shared terms
-
-For a salmon biologist, the easiest way to think about this is:
-
-- the **shared layer** is our common scientific/operational language
-- the **local layer** is each program’s own wording and practical categories
-- the **bridge layer** is the translation sheet between them
-
-That seems to be one of the most important design choices in SMN.
-
-### 4) We are being conservative about promotion into shared `smn:`
-
-The working rule seems to be:
-
-- if we are unsure, keep the term local first
-- only promote it into shared `smn:` if reuse is clear and the meaning is stable
-
-That is a useful safeguard because it prevents the shared ontology from becoming an uncurated pile of one-off project language.
-
-### 5) We are distinguishing between durable concepts and controlled vocabularies
-
-Another important convention is the difference between:
+Another convention that seems important is the distinction between:
 
 - **OWL classes/properties** for durable conceptual structure
-- **SKOS concepts/schemes** for controlled vocabularies, status bins, method categories, and similar codelist-like material
+- **SKOS concepts/schemes** for controlled vocabularies, codelists, and categories
 
-A plain-language version of that distinction is:
+In less ontology-ish language:
 
-- use **OWL** when we mean “this is a real kind of thing or relation in the model”
-- use **SKOS** when we mean “this is a value in a controlled vocabulary”
+- use **OWL** when we are saying “this is a kind of thing” or “this is a real relation in the model”
+- use **SKOS** when we are saying “this is a value in a vocabulary or scheme”
 
-That distinction is subtle at first, but it becomes very important once we start comparing ontologies built by different teams.
+That distinction is easy to blur when we are just trying to get useful terms into the system, but it does seem to matter if we want the model to stay clean.
 
-### 6) We are trying not to invent meaning during migration cleanup
+### 4) Shared-term promotion is supposed to be conservative
 
-Another emerging convention is that when terms move into shared space, we should:
+The working rule seems to be something like:
 
-- reuse existing definitions when authoritative wording already exists
-- reuse provenance where we have it
-- avoid inventing new definitions or sources just to make the docs look complete
+> if we are not sure a term is really shared, keep it local first
 
-That is less glamorous than minting new terms, but it is the sort of discipline that keeps an ontology from drifting away from the source material it claims to represent.
+That means promotion into shared `smn:` should depend on things like:
 
-## How SMN currently seems to relate to the DFO salmon ontology
+- expected reuse across organizations
+- reasonably stable meaning
+- not being too tangled up in one agency’s policy language
+- clear integration value
 
-This relationship matters just as much as the comparison to SALMON.
+Again: boring rule, good rule.
 
-At the moment, the cleanest way to explain the relationship is:
+### 5) We are trying not to invent meaning during cleanup and migration
 
-- **DFO salmon ontology** is still the right home for DFO-owned policy and operational semantics
-- **SMN** is the place where we put the terms that look shared enough to be useful beyond DFO
+Another good convention is that when terms move into shared space, we should reuse existing definitions and provenance where we can, rather than making up new wording just to make the docs look neat.
 
-That means the relationship is **complementary**, not competitive.
+That may not sound exciting, but it is probably how we keep ontology work honest.
 
-We do not need one ontology to “win.” We need the layers to stay understandable.
+## How SMN seems to relate to the DFO salmon ontology
 
-### What this means in practice
+This part feels especially important, because the SMN/DFO boundary is doing a lot of practical work.
 
-Our current conventions seem to imply the following:
+The cleanest current reading seems to be:
 
-#### Better candidates for shared `smn:`
+- **SMN** is the shared salmon-domain layer
+- **DFO salmon ontology (`gcdfo:`)** is where DFO-specific policy/program semantics should live
+
+So this is not really a contest between the two ontologies. They are playing different roles.
+
+### In practice, that seems to mean:
+
+#### Better fits for shared `smn:`
 
 - broad biological units
-- reusable measurement patterns
-- generic stock-assessment concepts
-- terms that are understandable and useful across agencies or projects
+- reusable observation/measurement patterns
+- general stock-assessment concepts
+- terms that would still make sense outside DFO
 
-#### Better candidates to remain in `gcdfo:` or another local/profile layer
+#### Better fits for `gcdfo:` or another local/profile layer
 
-- DFO policy status schemes
+- DFO-specific policy status schemes
 - DFO-specific benchmark categories
 - DFO-specific method schemes
-- estimate-type schemes and downgrade criteria
-- other terms whose meaning depends strongly on one program’s governance context
+- estimate type / downgrade criteria / governance interpretation layers
+- other terms whose meaning is strongly tied to one agency context
 
-This is consistent with recent boundary decisions where some terms that looked useful at first were judged to be **DFO-specific rather than truly shared**.
+That boundary matters because otherwise the shared ontology starts soaking up local semantics just because they happen to be useful to the first group doing the work.
 
-The practical lesson is simple:
-
-> “useful to DFO” is not the same thing as “belongs in SMN.”
+And that is exactly how shared ontologies get messy.
 
 ## What SALMON seems to be doing differently
 
-The NCEAS/DataONE SALMON ontology appears to come from a different starting point.
+SALMON appears to come from a somewhat different place.
 
-Its strongest pattern is not “small shared core plus profile layers.” Instead, it looks more like a broad ontology for annotating salmon-related datasets in one large domain space.
+It reads more like a broad ontology for annotating salmon-related datasets in one large space, rather than a deliberately layered shared-core-plus-profile architecture.
 
-That brings some strengths:
+That gives it some real strengths:
 
-- wide topical coverage
-- lots of concrete salmon terms already present
-- useful annotation vocabulary for datasets and portals
-- practical value as a source ontology when we want to see how someone else handled a problem
+- broad topical coverage
+- lots of concrete salmon terms already there
+- practical annotation value
+- good comparison value when we want to see how another group handled a topic
 
-But it also means SALMON seems more willing to keep the following in one place:
+But it also means SALMON seems more willing to keep a wider mix of things in one ontology, including:
 
 - biological concepts
 - measurement types
 - fishery and gear categories
 - tags and identifiers
-- place/habitat terms
-- some fairly local or operational concepts
+- habitat/place terms
+- local or operationally specific concepts
 
-That is not “wrong.” It is simply a different design choice.
+That is not necessarily a flaw. It is just a different modeling choice.
 
-## Main synergies between SMN and SALMON
+## Where the two ontologies clearly line up
 
-There is real common ground.
+There is real common ground here.
 
 Both ontologies are trying to support:
 
 - semantic annotation of salmon datasets
-- interoperability across data holdings
-- reuse of existing standards where possible
-- better search, discovery, and interpretation
+- better discovery and comparison across datasets
+- more consistent reuse of terms
+- less ambiguity in how data are described
 
-We should not overstate the overlap, but we also should not miss it.
+That means SALMON is useful to us even if we do not adopt its modeling posture wholesale.
 
-SALMON is useful to us because it gives us:
+It gives us:
 
-- a broad comparison source
-- evidence that certain salmon concepts really do recur
-- examples of how another group chose to partition the space
+- a comparison ontology
+- evidence for recurring salmon concepts
+- another example of how to organize the space
 
 ## Main differences in modeling posture
 
 | Topic | SMN (current direction) | NCEAS/DataONE SALMON | Why it matters |
 | --- | --- | --- | --- |
-| Overall shape | modular shared core + local/profile bridges | one large salmon-domain ontology | similar labels may still play different roles |
-| Main upper-level framing | SOSA + I-ADOPT + Darwin Core bridge posture | OBOE-centered measurement/annotation posture plus external links | measurement terms may look similar but still model different things |
-| Scope discipline | conservative shared-core admission | broader in-core topical coverage | SALMON terms are not automatically candidates for shared `smn:` |
-| Controlled vocabularies | small curated shared SKOS layer | many operational categories represented as OWL classes | some SALMON areas may align better to SMN profile vocabularies than to shared core |
-| Naming/IRI style | readable semantic IRIs | opaque numeric IRIs | label comparisons are easier than structural comparisons |
-| Governance posture | explicit boundary between shared and local | broader annotation-first posture | we should resist collapsing distinct local meanings into shared terms too early |
+| Overall shape | modular shared core + local/profile bridges | one large salmon-domain ontology | same label may still play a different role in the model |
+| Main framing | SOSA + I-ADOPT + Darwin Core bridge posture | OBOE-centered measurement/annotation posture plus other external links | some measurement terms may be neighbors rather than exact equivalents |
+| Scope discipline | tries to keep shared core fairly tight | broader in-core topical coverage | SALMON breadth should not automatically be imported into `smn:` |
+| Controlled vocabularies | small curated shared SKOS layer | more operational categories represented as OWL classes | some SALMON content may fit better as profile vocabularies in SMN |
+| Naming style | readable semantic IRIs | opaque numeric IRIs | label comparison is easy, semantic comparison still takes work |
+| Governance posture | strong shared/local boundary | broader annotation-first coverage | easy to over-map if we are not careful |
 
-## Obvious areas of overlap worth reviewing first
+## Some obvious places where the overlap looks promising
 
-A few terms stand out as relatively obvious early review candidates because they are concrete and easier to reason about than policy-heavy concepts.
+A few terms jump out as relatively straightforward starting points for comparison because they are concrete and biologically intuitive.
 
-| SMN term | SALMON term | First-pass assessment |
+| SMN term | SALMON term | First-pass read |
 | --- | --- | --- |
-| `smn:alevin` | `SALMON` Alevin | looks like a strong candidate for close review |
-| `smn:forkLength` | `SALMON` Fork length | looks promising once hierarchy is correct |
-| `smn:standardLength` | `SALMON` Standard length | likely a good early comparison candidate |
-| `smn:totalLength` | `SALMON` Total length | likely a good early comparison candidate |
-| `smn:ForkLengthMeasurementMethod` | `SALMON` Fork length measurement method | likely in the same neighborhood, but still needs modeling review |
-| `smn:FishLengthMeasurementMethod` | `SALMON` Fish length determination method | clearly related, but probably not safe to treat as automatically identical |
+| `smn:alevin` | `SALMON` Alevin | looks like a pretty natural comparison point |
+| `smn:forkLength` | `SALMON` Fork length | looks promising once hierarchy is right |
+| `smn:standardLength` | `SALMON` Standard length | likely a useful early comparison term |
+| `smn:totalLength` | `SALMON` Total length | likely a useful early comparison term |
+| `smn:ForkLengthMeasurementMethod` | `SALMON` Fork length measurement method | probably in the same neighborhood, though still worth checking carefully |
+| `smn:FishLengthMeasurementMethod` | `SALMON` Fish length determination method | clearly related, but not obviously identical |
 
-These are useful starting points because they are biologically intuitive and narrow enough that the modeling questions are visible.
+These seem like good early terms to talk about because they are specific enough that the modeling issues are visible.
 
-## Areas where similarity in label may hide a real modeling difference
+## Where we need to be careful
 
-This is where we need to be careful.
+This is probably the most important part of the note.
 
-### 1) Fish length vs fork length
+### 1) Fish length is not the same thing as fork length
 
-This is the clearest example.
+A useful example here is the fish-length area.
 
-If we say **fish length** and **fork length** are the same thing, we flatten a general characteristic into one particular subtype.
+If we collapse **fish length** and **fork length** into the same thing, we lose the distinction between:
 
-That is not just a wording problem. It changes the logic of the ontology.
+- a general characteristic
+- one specific subtype of that characteristic
 
-A safer pattern is:
+That matters.
+
+The cleaner pattern seems to be:
 
 - `FishLength` = the general characteristic
-- `forkLength`, `standardLength`, `totalLength`, `orbitalLength` = different kinds of fish length
+- `forkLength`, `standardLength`, `totalLength`, `orbitalLength` = kinds of fish length
 - measurement classes then point to the specific subtype they measure
 
-We have already seen how easy it is for this distinction to blur when ontology work starts to feel abstract. In practice, this is exactly the kind of modeling detail that matters.
+That is one of those spots where ontology modeling suddenly stops being abstract and becomes very concrete. A salmon biologist immediately knows fork length is not the same thing as fish length in general.
 
-### 2) Escapement
+We already caught one case where the hierarchy was too strong there, which is probably a good reminder that the biologically obvious structure should not get lost in the formalism.
 
-SALMON includes classes such as:
+### 2) Escapement may overlap in subject matter but not in modeling pattern
+
+SALMON includes classes like:
 
 - salmon escapement count
 - annual escapement count
 - daily escapement count
 
-SMN seems to be moving toward a more compositional pattern where we treat escapement through combinations of:
+SMN seems to be leaning more toward a compositional pattern where escapement is understood through combinations of:
 
 - measurement
 - survey/event
 - time or context
 
-So even when the subject matter overlaps, the modeling move may not.
+So even when both ontologies are clearly about escapement, they may not be expressing it in the same way.
 
-### 3) Stock semantics
+### 3) Stock semantics are similar, but not cleanly identical
 
-SMN `Stock` is currently being treated as a **reporting or management stratum**.
+SMN `Stock` is currently treated as a **reporting or management stratum**.
 
 SALMON’s `Fish stock type` reads more broadly and mixes together management-unit and breeding-population language.
 
-That does not make it useless. It just means we should not rush into exact-match claims.
+That does not make SALMON wrong. It just means we should probably avoid acting like these are automatically one-to-one.
 
-### 4) Origin semantics
+### 4) Origin semantics do not line up neatly
 
-SALMON terms such as `Wild stock` and `Hatchery` do not line up neatly with SMN terms such as `NaturalOrigin` and `HatcheryOrigin`.
+Terms like `Wild stock` and `Hatchery` in SALMON do not map neatly onto SMN terms like `NaturalOrigin` and `HatcheryOrigin`.
 
-Here the problem is not that one ontology is right and the other is wrong. The problem is that they are talking about meaning at different levels.
+That seems to be partly because the ontologies are talking at different levels:
 
-### 5) Habitat and place terms
+- stock/facility/category semantics on one side
+- individual-origin controlled vocabulary semantics on the other
 
-In this area, bilateral SMN ↔ SALMON mapping may not even be the best first move.
+### 5) Habitat and place terms may be better anchored externally
 
-If both ontologies are drawing on broader geographic or environmental standards, then the better anchor may often be:
+For habitat/place terms, it may be a mistake to think first in terms of bilateral SMN ↔ SALMON mapping.
+
+In a lot of those cases, the better common anchor may actually be:
 
 - ENVO
 - GeoSPARQL
 - another external geography/environment vocabulary
 
-## Candidate terms that SALMON highlights, but that we should still treat cautiously
+## Some SALMON terms that are interesting, but still not automatic shared-core candidates
 
-SALMON suggests some concepts that may become good candidates for future shared-core discussion **if** we start seeing repeated use across datasets and organizations:
+SALMON highlights a few concepts that may be worth talking about further if they keep recurring across datasets and organizations:
 
 - brood year
 - run size
@@ -294,68 +300,72 @@ SALMON suggests some concepts that may become good candidates for future shared-
 - migratory pattern
 - reproductive strategy
 
-At this stage, the important point is not whether these are “good” terms. The important point is whether they meet the shared-core test.
+The key point is not whether these are useful. They clearly are.
 
-That test still seems to be:
+The key point is whether they belong in shared `smn:` yet.
 
-- would multiple groups reuse them?
-- is the meaning stable enough?
+That still seems to depend on questions like:
+
+- would multiple groups actually reuse them?
+- is the meaning stable enough across contexts?
 - are they policy-neutral enough?
-- would promoting them into shared `smn:` actually improve interoperability?
+- would promotion improve interoperability, or just move clutter into shared space?
 
-If the answer is not clearly yes, the safer move is still to keep them local or profile-scoped for now.
+If the answer is not clearly yes, local/profile space still seems like the safer home.
 
-## What probably should **not** be pulled into shared SMN just because SALMON has it
+## What probably should not be pulled into shared `smn:` just because SALMON has it
 
 Examples include:
 
 - ADF&G-specific codes
 - local stock-name or stock-code administration terms
 - many local fishery/gear/tag categories
-- other operational helper vocabularies that are useful in one program but not clearly shared across programs
+- operational helper vocabularies that are useful in one setting but not clearly shared across settings
 
-These may be perfectly legitimate ontology terms. They just do not obviously belong in the shared salmon-domain layer.
+Those may still be perfectly good ontology terms. They just do not obviously belong in the shared layer.
 
-## Where this leaves us
+## So where does that leave us?
 
-At the moment, the comparison suggests a fairly clear working position.
+At the moment, the comparison seems to point in a fairly clear direction.
 
-### What seems true
+### What seems true right now
 
-1. **SALMON is worth taking seriously as a comparison ontology.**  
-   It covers a lot of useful salmon-domain ground.
+1. **SALMON is useful as a comparison ontology.**  
+   It gives us breadth, examples, and a way to spot recurring salmon concepts.
 
 2. **SMN should probably stay disciplined as a shared-core ontology.**  
-   Its value comes partly from not trying to absorb every useful local concept.
+   Its value partly comes from not trying to absorb every local or operational term.
 
-3. **The DFO salmon ontology still has an important role.**  
-   It remains the right place for DFO-owned policy/program semantics that are not yet truly shared.
+3. **The DFO salmon ontology still has a very real job to do.**  
+   It remains the right place for DFO-owned semantics that are important but not yet truly shared.
 
-4. **The shared/local boundary is doing real work.**  
-   It is not just technical fussiness. It is how we avoid turning shared ontology work into a dumping ground.
+4. **The shared/local boundary is not just technical fussiness.**  
+   It is what keeps the architecture understandable.
 
-5. **A label-level overlap is not enough.**  
-   We need to compare meaning, scope, and modeling role, not just names.
+5. **Same label does not mean same concept.**  
+   We still need to compare meaning, scope, and modeling role, not just names.
 
-### What we should take away as a group
+### What seems like the sensible group posture for now
 
-If we accept the current SMN conventions, then the right direction seems to be:
+For now, the most sensible posture seems to be:
 
-- use SALMON as a source of comparison, ideas, and possible gap signals
-- keep SMN small enough to remain genuinely shared
+- use SALMON as a source of comparison and learning
+- keep SMN fairly tight as the shared layer
 - keep DFO-specific semantics where they belong
-- be cautious about strong equivalence claims
-- treat this stage as assessment and boundary-setting, not as a race to make one giant alignment artifact
+- be conservative about strong equivalence claims
+- keep talking in terms of boundaries and direction, not rush into pretending the alignment questions are already settled
 
 ## Bottom line
 
-Our current read is that **SALMON and SMN are complementary, not competing ontologies**.
+The current read is that **SALMON and SMN are complementary, not competing**.
 
-SALMON helps us see breadth.
-SMN helps us enforce discipline.
-The DFO salmon ontology helps us keep agency-specific meaning in the right place.
+SALMON helps show us breadth.  
+SMN helps us keep the shared architecture clean.  
+The DFO salmon ontology helps keep agency-specific meaning where it belongs.
 
-If we keep those roles clear, we should be able to learn from SALMON without losing the architectural logic we have been trying to build in SMN.
+If those roles stay clear, then there is probably a very good path here: learn from SALMON, keep the SMN conventions disciplined, and avoid stuffing the shared layer full of useful-but-local semantics just because they happen to be available.
+
+That feels like the right direction at this stage.
 
 ## Reference points
 
