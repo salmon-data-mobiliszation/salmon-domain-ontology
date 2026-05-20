@@ -3,4 +3,5 @@
 .local-backup/
 __pycache__/
 release/
+outputs/
 tools/*.jar
