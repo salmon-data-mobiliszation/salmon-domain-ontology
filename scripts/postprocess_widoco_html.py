@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Post-process WIDOCO HTML output for project-specific UX defaults.
+"""Post-process WIDOCO output for project-specific publication defaults.
 
 Current policy for this repo:
 - normalize the displayed ontology title to "Salmon Domain Ontology"
 - remove "Draft" wording from the default WIDOCO subtitle
+- normalize generated schema.org run timestamps to committed ontology metadata
 - stabilize WIDOCO changelog list ordering across regenerations
 - restore stable `#/Term` anchors for `smn:` terms
 - inject the version IRI into the rendered metadata block
+- strip trailing whitespace from generated publication artifacts
 """
 
 from __future__ import annotations
@@ -15,7 +17,7 @@ import re
 from pathlib import Path
 
 from rdflib import Graph
-from rdflib.namespace import OWL, RDF
+from rdflib.namespace import DCTERMS, OWL, RDF
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,14 +28,25 @@ SMN_ENTITY_PATTERN = re.compile(
 SMN_LINK_PATTERN = re.compile(r'href="#https://w3id\.org/smn/([A-Za-z0-9._-]+)"')
 
 
-def _load_version_iri() -> str | None:
+GENERATED_ARTIFACTS = (
+    "docs/index.html",
+    "docs/index-en.html",
+    "docs/smn.owl",
+)
+
+
+def _load_ontology_metadata() -> tuple[str | None, str | None]:
     graph = Graph()
     graph.parse(SOURCE, format="turtle")
     ontology = next(graph.subjects(RDF.type, OWL.Ontology), None)
     if ontology is None:
-        return None
+        return None, None
     version_iri = graph.value(ontology, OWL.versionIRI)
-    return str(version_iri) if version_iri is not None else None
+    modified = graph.value(ontology, DCTERMS.modified)
+    return (
+        str(version_iri) if version_iri is not None else None,
+        str(modified) if modified is not None else None,
+    )
 
 
 def _canonicalize_change_lists(content: str) -> str:
@@ -81,13 +94,30 @@ def _inject_version_iri(content: str, version_iri: str | None) -> str:
     return content.replace("<dt>Previous version:</dt>", injection, 1)
 
 
+def _normalize_schema_org_dates(content: str, modified: str | None) -> str:
+    if not modified:
+        return content
+    return re.sub(r'"dateReleased":"[^"]+"', f'"dateReleased":"{modified}"', content, count=1)
+
+
+def _strip_trailing_whitespace(path: Path) -> None:
+    content = path.read_text(encoding="utf-8")
+    stripped = "\n".join(line.rstrip() for line in content.splitlines())
+    if content.endswith("\n"):
+        stripped += "\n"
+    if stripped != content:
+        path.write_text(stripped, encoding="utf-8")
+        print(f"Stripped trailing whitespace from {path}")
+
+
 def patch_html(path: Path) -> None:
     content = path.read_text(encoding="utf-8")
     original = content
-    version_iri = _load_version_iri()
+    version_iri, modified = _load_ontology_metadata()
 
     content = content.replace("Salmon Domain Ontology (modular build)", "Salmon Domain Ontology")
     content = content.replace("Ontology Specification Draft", "Ontology Specification")
+    content = _normalize_schema_org_dates(content, modified)
     content = _canonicalize_change_lists(content)
     content = _restore_smn_term_anchors(content)
     content = _inject_version_iri(content, version_iri)
@@ -104,6 +134,10 @@ def main() -> None:
         path = ROOT / rel
         if path.exists():
             patch_html(path)
+    for rel in GENERATED_ARTIFACTS:
+        path = ROOT / rel
+        if path.exists():
+            _strip_trailing_whitespace(path)
 
 
 if __name__ == "__main__":
