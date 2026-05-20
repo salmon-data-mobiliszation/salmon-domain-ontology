@@ -121,7 +121,9 @@ smn:EnumerationMethod a owl:Class ;
   rdfs:label "Enumeration method"@en ;
   rdfs:subClassOf sosa:Procedure ;
   iao:0000115 "A method used to enumerate or count salmon in the field"@en ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
 
 smn:Measurement a owl:Class ;
   rdfs:label "Measurement"@en ;
@@ -233,13 +235,17 @@ smn:EscapementSurveyEvent a owl:Class ;
   rdfs:label "Escapement survey event"@en ;
   iao:0000115 "A survey event specifically for estimating escapement."@en ;
   rdfs:subClassOf smn:SurveyEvent ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
 
 smn:EscapementMeasurement a owl:Class ;
   rdfs:label "Escapement measurement"@en ;
   iao:0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
   rdfs:subClassOf iao:0000109 ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
 
 #################################################################
 # Properties used by observations and event models

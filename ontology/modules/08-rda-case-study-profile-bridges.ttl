@@ -21,11 +21,13 @@
 
 @prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 rda:HakaiJSPMeasurementTermScheme a skos:ConceptScheme ;
   skos:prefLabel "Hakai JSP measurement term scheme (RDA case-study bridge)"@en ;
   skos:definition "Bridge scheme for mapping Hakai source measurement terms to shared salmon ontology terms in the RDA juvenile-condition case-study."@en ;
-  skos:hasTopConcept <https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method> .
+  skos:hasTopConcept <https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method> ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
 
 # --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
 # Added to enforce required term metadata parity with DFO conventions.
@@ -45,24 +47,28 @@ rda:HakaiJSPMeasurementTermScheme a skos:ConceptScheme ;
 @prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 hakai:Fork_Length_Measurement_Method a skos:Concept ;
   skos:prefLabel "Fork Length Measurement Method"@en ;
   skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
   skos:definition "Hakai source term representing fork-length measurement method in case-study mapping."@en ;
   skos:closeMatch smn:FishForkLengthMeasurementMethod ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> ;
   prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
 
 hakai:fork_length_measurement_field_method a skos:Concept ;
   skos:prefLabel "fork_length_measurement_field_method"@en ;
   skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
   skos:closeMatch smn:ForkLengthMeasurementFieldMethod ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> ;
   prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
 
 hakai:fork_length_measurement_lab_method a skos:Concept ;
   skos:prefLabel "fork_length_measurement_lab_method"@en ;
   skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
   skos:closeMatch smn:ForkLengthMeasurementLabMethod ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> ;
   prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
 
 hakai:Fork_Length_Field_Measurement a skos:Concept ;
@@ -70,6 +76,8 @@ hakai:Fork_Length_Field_Measurement a skos:Concept ;
   skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
   skos:closeMatch smn:ForkLengthMeasurement ;
   skos:note "Graph label appears as hakai:Fork_Length_Field_Measurement in yEd export."@en ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> ;
   prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
 
 hakai:Fork_Length_Lab_Measurement a skos:Concept ;
@@ -77,6 +85,8 @@ hakai:Fork_Length_Lab_Measurement a skos:Concept ;
   skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
   skos:closeMatch smn:ForkLengthMeasurement ;
   skos:note "Graph label appears as hakai:Fork_Length_Lab_Measurement in yEd export."@en ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> ;
   prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
 
 # --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---

@@ -16,7 +16,9 @@ smn:ObservedRateOrAbundance a owl:Class ;
   rdfs:label "Observed rate or abundance"@en ;
   iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ;
   rdfs:subClassOf iao:0000109 ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ObservedRateOrAbundance."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
 
 smn:CatchAbundance a owl:Class ;
   rdfs:label "Catch abundance"@en ;
@@ -36,9 +38,11 @@ smn:RecruitAbundance a owl:Class ;
 
 smn:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
-  iao:0000115 "A value specification representing a policy- or model-defined target or limit."@en ;
+  iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ;
   rdfs:subClassOf iao:0000109 ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TargetOrLimitRateOrAbundance."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
 
 smn:StockAssessment a owl:Class ;
   rdfs:label "Stock assessment"@en ;
@@ -90,6 +94,8 @@ smn:ExploitationRate a owl:Class ;
 
 smn:TotalExploitationRate a owl:Class ;
   rdfs:label "Total exploitation rate"@en ;
-  iao:0000115 "The overall proportion of returning adult salmon removed by all fisheries over a defined period."@en ;
+  iao:0000115 "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en ;
   rdfs:subClassOf smn:ExploitationRate ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TotalExploitationRate."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .

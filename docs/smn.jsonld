@@ -406,6 +406,17 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:CatchContext."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -492,7 +503,18 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit."
+        "@value": "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:Deme."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -546,6 +568,17 @@
       {
         "@language": "en",
         "@value": "A method used to enumerate or count salmon in the field"
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -615,6 +648,17 @@
         "@value": "A measurement or estimate of escapement tied to a stock and a survey event."
       }
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -646,6 +690,17 @@
       {
         "@language": "en",
         "@value": "A survey event specifically for estimating escapement."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1062,6 +1117,17 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:InRiverPhase."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -1183,6 +1249,17 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:LifePhase."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -1210,6 +1287,17 @@
     "@id": "https://w3id.org/smn/LifePhaseScheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:LifePhaseScheme."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -1277,6 +1365,17 @@
     "@id": "https://w3id.org/smn/MainstemPhase",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:MainstemPhase."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -1351,6 +1450,17 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContext."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -1359,7 +1469,7 @@
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "A context qualifier used to disambiguate interpretation of a measurement."
+        "@value": "A context qualifier used to disambiguate the interpretation of a measurement column."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -1378,6 +1488,17 @@
     "@id": "https://w3id.org/smn/MeasurementContextScheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContextScheme."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -1612,6 +1733,17 @@
         "@value": "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."
       }
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ObservedRateOrAbundance."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -1633,6 +1765,17 @@
     "@id": "https://w3id.org/smn/OceanPhase",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:OceanPhase."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -1676,7 +1819,18 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool."
+        "@value": "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:Population."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1787,7 +1941,18 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes across salmon programs."
+        "@value": "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1838,6 +2003,17 @@
     "@id": "https://w3id.org/smn/RunContext",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:RunContext."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -1938,6 +2114,17 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:SalmonOrigin."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -1965,6 +2152,17 @@
     "@id": "https://w3id.org/smn/SalmonOriginScheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:SalmonOriginScheme."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -2080,6 +2278,17 @@
     "@id": "https://w3id.org/smn/SpawnerStageContext",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:SpawnerStageContext."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -2269,6 +2478,17 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:SurvivalOrMortalityContext."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -2305,7 +2525,18 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "A value specification representing a policy- or model-defined target or limit."
+        "@value": "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TargetOrLimitRateOrAbundance."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2329,6 +2560,17 @@
     "@id": "https://w3id.org/smn/TerminalPhase",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:TerminalPhase."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -2366,7 +2608,18 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "The overall proportion of returning adult salmon removed by all fisheries over a defined period."
+        "@value": "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TotalExploitationRate."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2495,6 +2748,17 @@
         "@value": "Relates a deme to the population it belongs to."
       }
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:demeOf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
         "@id": "https://w3id.org/smn/Deme"
@@ -2575,6 +2839,17 @@
       {
         "@language": "en",
         "@value": "Relates a population to one of its constituent demes."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "GC DFO Salmon Ontology release 0.0.8, term smn:hasDeme."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [

@@ -2,11 +2,13 @@
 
 @prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 rda:HakaiJSPMeasurementTermScheme a skos:ConceptScheme ;
   skos:prefLabel "Hakai JSP measurement term scheme (RDA case-study bridge)"@en ;
   skos:definition "Bridge scheme for mapping Hakai source measurement terms to shared salmon ontology terms in the RDA juvenile-condition case-study."@en ;
-  skos:hasTopConcept <https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method> .
+  skos:hasTopConcept <https://w3id.org/smn/profile/hakai/Fork_Length_Measurement_Method> ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
 
 # --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
 # Added to enforce required term metadata parity with DFO conventions.

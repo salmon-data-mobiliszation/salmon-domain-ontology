@@ -5,12 +5,14 @@
 @prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 neville:Length_mm a skos:Concept ;
   skos:prefLabel "Length (mm)"@en ;
   skos:definition "Fork length measurement in millimetres."@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:forkLength ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> ;
   prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:Weight_g a skos:Concept ;
@@ -18,6 +20,7 @@ neville:Weight_g a skos:Concept ;
   skos:definition "Body mass measurement in grams."@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:FishWeight ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> ;
   prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:AverageConditionFactor a skos:Concept ;
@@ -27,31 +30,36 @@ neville:AverageConditionFactor a skos:Concept ;
   skos:relatedMatch smn:AggregatedMeasurement ;
   skos:relatedMatch smn:FishWeight ;
   skos:relatedMatch smn:forkLength ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> ;
   prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:ADCWT a skos:Concept ;
   skos:prefLabel "ADCWT"@en ;
   skos:definition "Coded-wire-tag related value in the Neville decomposition context."@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:relatedMatch smn:Observation .
+  skos:relatedMatch smn:Observation ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:WoundsParasitesOther a skos:Concept ;
   skos:prefLabel "Wounds, Parasites, Other"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:relatedMatch smn:Observation .
+  skos:relatedMatch smn:Observation ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:AverageLength_mm a skos:Concept ;
   skos:prefLabel "Average Length (mm)"@en ;
   skos:definition "Average fork length for a juvenile salmon subset in a defined spatial-temporal extent."@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:AggregatedMeasurement ;
-  skos:relatedMatch smn:forkLength .
+  skos:relatedMatch smn:forkLength ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:AverageWeight_g a skos:Concept ;
   skos:prefLabel "Average Weight (g)"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch smn:AggregatedMeasurement ;
-  skos:relatedMatch smn:FishWeight .
+  skos:relatedMatch smn:FishWeight ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 # --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
 # Added to enforce required term metadata parity with DFO conventions.

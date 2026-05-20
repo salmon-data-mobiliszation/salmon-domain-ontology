@@ -61,9 +61,11 @@ smn:GeographicFeature a owl:Class ;
 
 smn:ReportingOrManagementStratum a owl:Class ;
   rdfs:label "Reporting or management stratum"@en ;
-  iao:0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes across salmon programs."@en ;
+  iao:0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en ;
   rdfs:subClassOf iao:0000030 ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
 
 smn:Stock a owl:Class ;
   rdfs:label "Stock"@en ;
@@ -76,15 +78,19 @@ smn:Stock a owl:Class ;
 
 smn:Deme a owl:Class ;
   rdfs:label "Deme"@en ;
-  iao:0000115 "A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit."@en ;
+  iao:0000115 "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."@en ;
   rdfs:subClassOf dwc:Organism ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:Deme."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
 
 smn:Population a owl:Class ;
   rdfs:label "Population"@en ;
-  iao:0000115 "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool."@en ;
+  iao:0000115 "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."@en ;
   rdfs:subClassOf dwc:Organism ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:Population."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
 
 
 smn:IndicatorRiver a owl:Class ;
@@ -104,7 +110,9 @@ smn:hasDeme a owl:ObjectProperty ;
   iao:0000115 "Relates a population to one of its constituent demes."@en ;
   rdfs:domain smn:Population ;
   rdfs:range smn:Deme ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:hasDeme."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
 
 smn:demeOf a owl:ObjectProperty ;
   rdfs:label "deme of"@en ;
@@ -112,7 +120,9 @@ smn:demeOf a owl:ObjectProperty ;
   owl:inverseOf smn:hasDeme ;
   rdfs:domain smn:Deme ;
   rdfs:range smn:Population ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:demeOf."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
 
 smn:hasPopulation a owl:ObjectProperty ;
   rdfs:label "has population"@en ;

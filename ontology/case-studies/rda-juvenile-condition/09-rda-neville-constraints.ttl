@@ -5,29 +5,34 @@
 @prefix rda: <https://w3id.org/smn/profile/rda-case-study/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 neville:StandardDeviationWeight_g a skos:Concept ;
   skos:prefLabel "Standard Deviation (g) [of weight]"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch iadopt:StatisticalModifier ;
-  skos:relatedMatch smn:FishWeight .
+  skos:relatedMatch smn:FishWeight ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:StandardDeviationLength_mm a skos:Concept ;
   skos:prefLabel "Standard Deviation (mm) [of length]"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:closeMatch iadopt:StatisticalModifier ;
-  skos:relatedMatch smn:forkLength .
+  skos:relatedMatch smn:forkLength ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:SpatialAndTemporalExtent a skos:Concept ;
   skos:prefLabel "Spatial and Temporal Extent"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
   skos:relatedMatch smn:GeographicFeature ;
-  skos:relatedMatch <http://www.w3.org/2006/time#Instant> .
+  skos:relatedMatch <http://www.w3.org/2006/time#Instant> ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 neville:NumberSampled a skos:Concept ;
   skos:prefLabel "Number Sampled"@en ;
   skos:inScheme rda:NevilleDecompositionTermScheme ;
-  skos:relatedMatch smn:AggregatedMeasurement .
+  skos:relatedMatch smn:AggregatedMeasurement ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
 # --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
 # Added to enforce required term metadata parity with DFO conventions.

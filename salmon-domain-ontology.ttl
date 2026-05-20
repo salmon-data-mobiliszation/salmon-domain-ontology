@@ -32,6 +32,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:subClassOf <https://w3id.org/smn/ObservedRateOrAbundance> .
 
 <https://w3id.org/smn/CatchContext> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:CatchContext."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/MeasurementContext> ;
     skos:definition "Measurement context indicating values refer to fishery catch."@en ;
@@ -55,6 +57,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/smn/EscapementMeasurement> a owl:Class ;
     rdfs:label "Escapement measurement"@en ;
     ns1:IAO_0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:IAO_0000109 ;
     skos:closeMatch sosa:Result .
@@ -62,6 +66,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/smn/EscapementSurveyEvent> a owl:Class ;
     rdfs:label "Escapement survey event"@en ;
     ns1:IAO_0000115 "A survey event specifically for estimating escapement."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/SurveyEvent> ;
     skos:closeMatch sosa:Sampling .
@@ -106,6 +112,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     skos:prefLabel "Hatchery-origin"@en .
 
 <https://w3id.org/smn/InRiverPhase> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:InRiverPhase."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/LifePhase> ;
     skos:definition "Freshwater in-river phase (migration and/or residence) outside the marine environment."@en ;
@@ -135,6 +143,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:subClassOf <https://w3id.org/smn/ReferencePoint> .
 
 <https://w3id.org/smn/MainstemPhase> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:MainstemPhase."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/LifePhase> ;
     skos:definition "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."@en ;
@@ -175,6 +185,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     skos:prefLabel "Natural-origin"@en .
 
 <https://w3id.org/smn/OceanPhase> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:OceanPhase."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:altLabel "Marine phase"@en ;
     skos:broader <https://w3id.org/smn/LifePhase> ;
@@ -196,6 +208,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:subClassOf <https://w3id.org/smn/Life-HistoryCharacteristic> .
 
 <https://w3id.org/smn/RunContext> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:RunContext."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/MeasurementContext> ;
     skos:definition "Measurement context indicating values refer to run size or returning run composition."@en ;
@@ -218,6 +232,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:subClassOf <https://w3id.org/smn/SalmonGroup> .
 
 <https://w3id.org/smn/SpawnerStageContext> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:SpawnerStageContext."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/MeasurementContext> ;
     skos:definition "Measurement context indicating values refer to spawners or spawning-stage fish."@en ;
@@ -248,6 +264,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:subClassOf ns1:BFO_0000015 .
 
 <https://w3id.org/smn/SurvivalOrMortalityContext> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:SurvivalOrMortalityContext."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/MeasurementContext> ;
     skos:definition "Measurement context indicating values represent survival, mortality, or related rates."@en ;
@@ -255,6 +273,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     skos:prefLabel "Survival or mortality context"@en .
 
 <https://w3id.org/smn/TerminalPhase> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:TerminalPhase."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/LifePhase> ;
     skos:definition "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."@en ;
@@ -263,7 +283,9 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/smn/TotalExploitationRate> a owl:Class ;
     rdfs:label "Total exploitation rate"@en ;
-    ns1:IAO_0000115 "The overall proportion of returning adult salmon removed by all fisheries over a defined period."@en ;
+    ns1:IAO_0000115 "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TotalExploitationRate."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/ExploitationRate> .
 
@@ -286,6 +308,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/smn/demeOf> a owl:ObjectProperty ;
     rdfs:label "deme of"@en ;
     ns1:IAO_0000115 "Relates a deme to the population it belongs to."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:demeOf."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:domain <https://w3id.org/smn/Deme> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:range <https://w3id.org/smn/Population> ;
@@ -469,7 +493,9 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/smn/TargetOrLimitRateOrAbundance> a owl:Class ;
     rdfs:label "Target or limit rate or abundance"@en ;
-    ns1:IAO_0000115 "A value specification representing a policy- or model-defined target or limit."@en ;
+    ns1:IAO_0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TargetOrLimitRateOrAbundance."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:IAO_0000109 .
 
@@ -487,6 +513,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 <https://w3id.org/smn/hasDeme> a owl:ObjectProperty ;
     rdfs:label "has deme"@en ;
     ns1:IAO_0000115 "Relates a population to one of its constituent demes."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:hasDeme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:domain <https://w3id.org/smn/Population> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:range <https://w3id.org/smn/Deme> ;
@@ -515,13 +543,17 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
 
 <https://w3id.org/smn/Deme> a owl:Class ;
     rdfs:label "Deme"@en ;
-    ns1:IAO_0000115 "A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit."@en ;
+    ns1:IAO_0000115 "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:Deme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <http://rs.tdwg.org/dwc/terms/Organism> .
 
 <https://w3id.org/smn/EnumerationMethod> a owl:Class ;
     rdfs:label "Enumeration method"@en ;
     ns1:IAO_0000115 "A method used to enumerate or count salmon in the field"@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf sosa:Procedure .
 
@@ -548,6 +580,8 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
 <https://w3id.org/smn/ObservedRateOrAbundance> a owl:Class ;
     rdfs:label "Observed rate or abundance"@en ;
     ns1:IAO_0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ObservedRateOrAbundance."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:IAO_0000109 .
 
@@ -572,18 +606,24 @@ sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
 
 <https://w3id.org/smn/ReportingOrManagementStratum> a owl:Class ;
     rdfs:label "Reporting or management stratum"@en ;
-    ns1:IAO_0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes across salmon programs."@en ;
+    ns1:IAO_0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:IAO_0000030 ;
     skos:closeMatch sosa:FeatureOfInterest .
 
 <https://w3id.org/smn/SalmonOrigin> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:SalmonOrigin."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:definition "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."@en ;
     skos:inScheme <https://w3id.org/smn/SalmonOriginScheme> ;
     skos:prefLabel "Salmon origin"@en .
 
 <https://w3id.org/smn/SalmonOriginScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:SalmonOriginScheme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:definition "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."@en ;
     skos:hasTopConcept <https://w3id.org/smn/SalmonOrigin> ;
@@ -600,7 +640,9 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
 
 <https://w3id.org/smn/Population> a owl:Class ;
     rdfs:label "Population"@en ;
-    ns1:IAO_0000115 "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool."@en ;
+    ns1:IAO_0000115 "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."@en ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:Population."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <http://rs.tdwg.org/dwc/terms/Organism> .
 
@@ -615,12 +657,16 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
     rdfs:subClassOf <https://w3id.org/smn/MorphologicalCharacteristic> .
 
 <https://w3id.org/smn/LifePhase> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:LifePhase."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:definition "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."@en ;
     skos:inScheme <https://w3id.org/smn/LifePhaseScheme> ;
     skos:prefLabel "Life phase"@en .
 
 <https://w3id.org/smn/LifePhaseScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:LifePhaseScheme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:definition "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem)."@en ;
     skos:hasTopConcept <https://w3id.org/smn/LifePhase> ;
@@ -640,12 +686,16 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
         <https://w3id.org/smn/Observation> .
 
 <https://w3id.org/smn/MeasurementContext> a skos:Concept ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContext."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    skos:definition "A context qualifier used to disambiguate interpretation of a measurement."@en ;
+    skos:definition "A context qualifier used to disambiguate the interpretation of a measurement column."@en ;
     skos:inScheme <https://w3id.org/smn/MeasurementContextScheme> ;
     skos:prefLabel "Measurement context"@en .
 
 <https://w3id.org/smn/MeasurementContextScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContextScheme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:definition "Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context)."@en ;
     skos:hasTopConcept <https://w3id.org/smn/MeasurementContext> ;
