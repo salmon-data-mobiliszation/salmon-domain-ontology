@@ -71,7 +71,7 @@ Generated publication targets:
 - `docs/smn.jsonld`
 - `docs/releases/<version>/`
 
-Note: Java 17+ is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus immutable release snapshots under `docs/releases/<version>/`. `make release VERSION=X.Y.Z` is the canonical release path: it updates ontology version metadata, refreshes the WIDOCO publication surface, runs validation, and writes the immutable snapshot. Root + SemVer W3ID routing already use those published targets; the next pending resolver follow-up is term-path human dereferencing (`https://w3id.org/smn/<Term>` to `/#/<Term>` by default) as documented under `docs/publishing/`.
+Note: Java 17+ is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus immutable release snapshots under `docs/releases/<version>/`. `make release VERSION=X.Y.Z` is the canonical release path: it updates ontology version metadata, refreshes the WIDOCO publication surface, runs validation, and writes the immutable snapshot. Root, SemVer, and canonical term-path W3ID routing use those published targets; term paths such as `https://w3id.org/smn/Escapement` dereference to WIDOCO anchors by default and remain content-negotiable for Turtle, RDF/XML, and JSON-LD.
 
 ## New to ontologies?
 

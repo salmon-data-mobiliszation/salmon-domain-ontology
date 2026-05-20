@@ -78,7 +78,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
     - `docs/publishing/namespace-decision.md`
     - `docs/publishing/w3id-request-payload.md`
     - `docs/publishing/w3id-smn-draft/.htaccess` (current live root + SemVer contract mirror)
-    - `docs/publishing/w3id-term-dereference-draft/.htaccess` (pending term-path human-dereferencing follow-up)
+    - `docs/publishing/w3id-term-dereference-draft/.htaccess` (term-path human-dereferencing contract now live upstream)
 - Background jobs (if any): none.
 
 ## UI Styling
@@ -99,7 +99,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 
 - Optional metamodel view surface -> `ontology/views/salmon-data-metamodel.ttl` + supporting files under `ontology/views/` (kept out of the shared-core import spine by default)
 
-- `https://w3id.org/smn` root + release routes are live via W3ID publication config; canonical term-path human dereferencing is defined in the pending W3ID follow-up draft under `docs/publishing/w3id-term-dereference-draft/`
+- `https://w3id.org/smn` root, release, and canonical term-path routes are live via W3ID publication config; the term-dereferencing contract is mirrored under `docs/publishing/w3id-term-dereference-draft/`
 - Modeling rules and boundary decisions -> `CONVENTIONS.md` + `docs/migrations/phase2-boundary-rules.md`
 - Migration/cutover status and evidence -> `docs/migrations/README.md` + `docs/migrations/phase2-*.md` + `docs/migrations/evidence/`
 - Namespace/publication posture -> `docs/publishing/namespace-decision.md` + `docs/publishing/w3id-request-payload.md`

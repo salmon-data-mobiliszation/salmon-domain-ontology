@@ -87,11 +87,11 @@ artifacts plus migration and publishing documentation.
 
 Current posture:
 - canonical shared namespace is `smn:` at `https://w3id.org/smn`
-- `0.0.0` is the pre-alpha namespace-stabilization tag
+- `0.0.1` is the latest pre-alpha release; `0.0.0` is the namespace-stabilization tag
 - phase-2 migration/cutover is closed
 - a generated latest publication surface now exists in-repo under `docs/` (`index.html`, `smn.ttl`, `smn.owl`, `smn.jsonld`)
 - immutable release snapshots now exist in-repo under `docs/releases/<version>/` (`0.0.0/`, `0.0.1/`)
-- live W3ID routing now serves the root + SemVer publication surface from GitHub Pages; canonical term-path human dereferencing is the remaining pending resolver follow-up
+- live W3ID routing now serves the root, SemVer publication surface, and canonical term-path human dereferencing from GitHub Pages
 
 ### Agent Context (agent-maintained)
 
@@ -99,7 +99,7 @@ Keep this small and current; agents should update it when behavior/wiring change
 
 ```yaml
 repo: salmon-data-mobilization/salmon-domain-ontology
-phase: post-0.0.0 namespace-stabilized modular ontology; phase-2 migration closed; root + SemVer publication surface live; term-path human dereferencing pending resolver follow-up
+phase: post-0.0.1 namespace-stabilized modular ontology; phase-2 migration closed; root + SemVer publication surface live; term-path human dereferencing live
 stack:
   - RDF/Turtle
   - OWL
@@ -129,7 +129,7 @@ autonomy:
     - changing canonical IRIs or W3ID/publication contract without explicit instruction
     - removing compatibility wrappers or migration docs that downstream users may still rely on
     - destructive docs sync that can wipe hand-maintained docs alongside generated output
-last_updated: 2026-03-29
+last_updated: 2026-05-13
 ```
 
 ### Before changing docs / ontology / builds

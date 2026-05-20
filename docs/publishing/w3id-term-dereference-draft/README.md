@@ -1,19 +1,18 @@
-# /smn/ term-dereference follow-up draft
+# /smn/ term-dereference contract
 
-This folder captures the **next proposed W3ID update** for `https://w3id.org/smn/`.
-It is **not live yet**.
+This folder captures the live W3ID term-dereferencing update for `https://w3id.org/smn/`.
+It was merged upstream in `perma-id/w3id.org` PR #5881 and verified live on 2026-05-13.
 
-## Why this draft exists
+## Why this contract exists
 
-Today, canonical shared-term IRIs such as `https://w3id.org/smn/Escapement` still resolve to the raw Turtle artifact.
-That is acceptable for machines, but annoying for humans who click a term IRI and expect to land on the term documentation.
+Canonical shared-term IRIs such as `https://w3id.org/smn/Escapement` should land humans on the term documentation while still giving machines serialization-specific redirects through content negotiation.
 
 The WIDOCO publication surface already exposes stable term anchors such as:
 
 - `https://salmon-data-mobilization.github.io/salmon-domain-ontology/#/Escapement`
 - `https://salmon-data-mobilization.github.io/salmon-domain-ontology/#/Stock`
 
-This draft upgrades only the **term-path dereferencing contract**:
+This contract covers only the **term-path dereferencing contract**:
 
 - **default / browser request** for `/Term` → HTML docs at `/#/Term`
 - `Accept: text/turtle` for `/Term` → latest Turtle serialization
@@ -22,13 +21,13 @@ This draft upgrades only the **term-path dereferencing contract**:
 
 Root `/`, SemVer release paths `/X.Y.Z`, and current Turtle-first module / profile / research / case-study surfaces keep their existing behavior.
 
-## Local verification before resolver rollout
+## Local verification
 
 - Anchor-presence check: `make verify-doc-term-anchors`
 - Browser check: open `https://salmon-data-mobilization.github.io/salmon-domain-ontology/#/Escapement`
 - Resolver contract reference: `.htaccess` in this folder
 
-## Expected post-rollout behavior
+## Live behavior
 
 ```bash
 curl -I https://w3id.org/smn/Escapement
@@ -37,13 +36,13 @@ curl -I -H 'Accept: application/rdf+xml' https://w3id.org/smn/Escapement
 curl -I -H 'Accept: application/ld+json' https://w3id.org/smn/Escapement
 ```
 
-Expected:
+Expected and observed:
 
 - default → `303` to `https://salmon-data-mobilization.github.io/salmon-domain-ontology/#/Escapement`
 - Turtle → `303` to `https://salmon-data-mobilization.github.io/salmon-domain-ontology/smn.ttl`
 - RDF/XML → `303` to `https://salmon-data-mobilization.github.io/salmon-domain-ontology/smn.owl`
 - JSON-LD → `303` to `https://salmon-data-mobilization.github.io/salmon-domain-ontology/smn.jsonld`
 
-## External action required
+## Upstream status
 
-Apply this `.htaccess` update to `perma-id/w3id.org/smn/.htaccess` and merge the corresponding W3ID PR.
+The external W3ID update has been applied to `perma-id/w3id.org/smn/.htaccess` and merged in PR #5881.

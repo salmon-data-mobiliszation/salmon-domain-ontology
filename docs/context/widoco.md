@@ -50,7 +50,7 @@ Immutable version snapshots:
 
 - Java 17+ is required for both WIDOCO and ROBOT.
 - W3ID now points the shared ontology root and SemVer release paths at the generated GitHub Pages publication surface using content negotiation.
-- The WIDOCO HTML already exposes stable term anchors such as `#/Escapement`; that makes human-friendly canonical-term dereferencing possible once the pending resolver update in `docs/publishing/w3id-term-dereference-draft/` is deployed.
+- The WIDOCO HTML exposes stable term anchors such as `#/Escapement`, and live W3ID term paths now dereference to those anchors by default while preserving RDF serialization redirects through content negotiation.
 - Module / research / case-study / profile secondary surfaces remain Turtle-first.
 - Ontology header metadata now carries `owl:versionInfo`, `owl:versionIRI`, `owl:priorVersion`, and `dcterms:modified` so WIDOCO can render release metadata directly from the canonical source ontology.
 

@@ -27,7 +27,7 @@ Salmon Domain Ontology shared namespace (`smn:`).
 
 This folder records the **merged routing update** for `smn`, not just the original conservative registration.
 
-For the next pending term-IRI human-dereferencing follow-up, see `../w3id-term-dereference-draft/`.
+For the live term-IRI human-dereferencing contract, see `../w3id-term-dereference-draft/`.
 
 Current publication posture:
 

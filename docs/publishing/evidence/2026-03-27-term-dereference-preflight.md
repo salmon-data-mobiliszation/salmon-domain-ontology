@@ -2,6 +2,8 @@
 
 Run timestamp (UTC): `2026-03-27T18:06:33Z` live resolver check, plus local/browser verification during repo fix work
 
+Status: superseded by the live W3ID term-dereference rollout merged in `perma-id/w3id.org` PR #5881 and rechecked on 2026-05-13. See `2026-05-13-w3id-term-dereference-live-check.md` for current behavior.
+
 Purpose: confirm that the remaining gap is at the resolver layer, not in the generated WIDOCO site, and record the expected post-rollout contract for canonical shared-term IRIs.
 
 ## Findings
@@ -52,7 +54,7 @@ OK docs/index.html: 88 documented smn terms expose stable #/Term anchors
 OK docs/index-en.html: 88 documented smn terms expose stable #/Term anchors
 ```
 
-## Expected contract after the pending W3ID follow-up
+## Previously expected contract after the W3ID follow-up
 
 For a representative canonical term IRI such as `https://w3id.org/smn/Escapement`:
 
