@@ -12,12 +12,12 @@ That guide explains (in plain language) how modules, local program ontologies, a
 These files are the shared Salmon-layer baseline by default:
 
 1. `01-entity-systematics.ttl` — core entities, strata classes, and biological unit composition relations.
-2. `02-observation-measurement.ttl` — SOSA-aligned observations, measurements, survey events, and escapement measurement semantics.
+2. `02-observation-measurement.ttl` — SOSA-aligned observations, measurements, shared abundance, typed year coordinates, survey events, and escapement measurement semantics.
 3. `03-assessment-benchmarks.ttl` — stock-assessment abstractions, reference points, benchmark classes, and exploitation-rate terms.
 4. `04-management-governance.ttl` — conservative shared event taxonomy (policy schemes remain profile-scoped).
 5. `05-provenance-quality.ttl` — shared provenance/quality artifact classes (program confidence vocabularies profile-scoped).
-6. `06-data-interoperability.ttl` — I-ADOPT/SOSA/Darwin Core interoperability bridge axioms.
-7. `07-controlled-vocabularies.ttl` — small curated shared SKOS schemes/concepts for context, life phase, and origin only.
+6. `06-data-interoperability.ttl` — I-ADOPT/SOSA/Darwin Core interoperability bridge axioms plus conservative Data Cube and OWL-Time year-coordinate bridges.
+7. `07-controlled-vocabularies.ttl` — curated shared SKOS schemes/concepts for year basis, salmon age, context, life phase, and origin.
 
 ## Profile/case-study modules (08, 09)
 

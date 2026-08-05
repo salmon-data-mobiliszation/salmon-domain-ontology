@@ -3,12 +3,14 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix dwcdp: <https://rs.tdwg.org/dwc/dp/terms/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <https://w3id.org/smn/modules/06-data-interoperability> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 06: Data interoperability"@en ;
-  rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, and Darwin Core interoperability."@en .
+  rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, Darwin Core, RDF Data Cube, and OWL-Time interoperability."@en .
 
 #################################################################
 # Upper-level crosswalk bridges (existing salmon-domain work)
@@ -29,3 +31,27 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 iadopt:Variable a owl:Class .
 iadopt:Constraint a owl:Class .
 iadopt:StatisticalModifier a owl:Class .
+
+#################################################################
+# Data Cube and qualifier bridges
+#################################################################
+
+smn:broodYear a qb:DimensionProperty ;
+  qb:concept smn:BroodYearBasis ;
+  rdfs:seeAlso time:inXSDgYear .
+
+smn:returnYear a qb:DimensionProperty ;
+  qb:concept smn:ReturnYearBasis ;
+  rdfs:seeAlso time:inXSDgYear .
+
+smn:catchYear a qb:DimensionProperty ;
+  qb:concept smn:CatchYearBasis ;
+  rdfs:seeAlso time:inXSDgYear .
+
+smn:YearBasis rdfs:seeAlso iadopt:Constraint ;
+  rdfs:comment "A fixed year basis may qualify a standalone I-ADOPT variable, while row-varying year coordinates remain Data Cube dimensions."@en .
+
+smn:AgeNotation rdfs:seeAlso iadopt:Constraint .
+smn:AgeBasis rdfs:seeAlso iadopt:Constraint .
+smn:AgeDimension rdfs:seeAlso iadopt:Constraint .
+smn:AgeClassValue rdfs:seeAlso iadopt:Constraint .

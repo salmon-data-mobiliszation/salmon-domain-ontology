@@ -8,10 +8,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/smn/modules/02-observation-measurement> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 02: Observation and measurement"@en ;
-  rdfs:comment "Observation and measurement model (SOSA-aligned) with reusable escapement and survey terms migrated from DFO Salmon Ontology."@en .
+  rdfs:comment "Observation and measurement model (SOSA-aligned) with reusable abundance, typed year-coordinate properties, escapement, and survey terms."@en .
 
 #################################################################
 # Observation and measurement classes (existing salmon-domain terms)
@@ -26,6 +27,14 @@ smn:Characteristic a owl:Class ;
   rdfs:label "Characteristic"@en ;
   rdfs:subClassOf sosa:Property ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:Abundance a owl:Class ;
+  rdfs:label "Abundance"@en ;
+  iao:0000115 "A characteristic representing the quantity of salmon or other organisms associated with a defined entity, place, and time."@en ;
+  rdfs:comment "Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class."@en ;
+  rdfs:subClassOf smn:Characteristic ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  dcterms:source <http://qudt.org/vocab/quantitykind/Population> .
 
 smn:MorphologicalCharacteristic a owl:Class ;
   rdfs:label "Morphological characteristic"@en ;
@@ -286,3 +295,34 @@ smn:characteristicFor a owl:ObjectProperty ;
   rdfs:domain sosa:Property ;
   rdfs:range sosa:FeatureOfInterest ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
+
+#################################################################
+# Typed temporal coordinate properties
+#################################################################
+
+smn:broodYear a owl:DatatypeProperty ;
+  rdfs:label "brood year"@en ;
+  iao:0000115 "Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents."@en ;
+  rdfs:range xsd:gYear ;
+  rdfs:seeAlso smn:BroodYearBasis ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year."@en ;
+  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> .
+
+smn:returnYear a owl:DatatypeProperty ;
+  rdfs:label "return year"@en ;
+  iao:0000115 "Relates a data record or observation to the calendar year in which members of a salmon cohort make the adult return relevant to the dataset's declared location or event."@en ;
+  rdfs:range xsd:gYear ;
+  rdfs:seeAlso smn:ReturnYearBasis ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data."@en ;
+  dcterms:source <https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/> .
+
+smn:catchYear a owl:DatatypeProperty ;
+  rdfs:label "catch year"@en ;
+  iao:0000115 "Relates a data record or observation to the calendar year in which the represented fishery catch occurred."@en ;
+  rdfs:range xsd:gYear ;
+  rdfs:seeAlso smn:CatchYearBasis ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:CatchYear."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> .

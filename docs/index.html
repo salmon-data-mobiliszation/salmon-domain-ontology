@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/smn","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/smn","name":"https://w3id.org/smn", "headline":"Document describing the ontology https://w3id.org/smn", "dateReleased":"2026-03-29", "dateModified":"2026-03-29", "version":"0.0.1"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/smn","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/smn","name":"https://w3id.org/smn", "headline":"Document describing the ontology https://w3id.org/smn", "dateReleased":"2026-08-04", "dateModified":"2026-08-04", "version":"0.0.2"}</script>
 
 <script src="resources/jquery.js"></script>
 <script src="resources/marked.min.js"></script>
@@ -68,16 +68,16 @@ $(function(){
 
 
 <dl>
-<dt>Modified on: 2026-03-29</dt>
+<dt>Modified on: 2026-08-04</dt>
 <dt>This version:</dt>
-<dd><a href="https://w3id.org/smn/0.0.1">https://w3id.org/smn/0.0.1</a></dd>
+<dd><a href="https://w3id.org/smn/0.0.2">https://w3id.org/smn/0.0.2</a></dd>
 <dt>Previous version:</dt>
-<dd><a href="https://w3id.org/smn/0.0.0">https://w3id.org/smn/0.0.0</a></dd>
+<dd><a href="https://w3id.org/smn/0.0.1">https://w3id.org/smn/0.0.1</a></dd>
 <dt>Revision:</dt>
-<dd>0.0.1</dd>
+<dd>0.0.2</dd>
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
 </dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd> Revision: 0.0.1. Retrieved from: https://w3id.org/smn/0.0.1</dd>
+<dd> Revision: 0.0.2. Retrieved from: https://w3id.org/smn/0.0.2</dd>
 </dl>
 
 <a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
@@ -96,6 +96,9 @@ This ontology has the following classes and properties.</span>
 <ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
+   <li>
+      <a href="#/Abundance" title="https://w3id.org/smn/Abundance">Abundance</a>
+   </li>
    <li>
       <a href="#/AggregatedMeasurement" title="https://w3id.org/smn/AggregatedMeasurement">Aggregated measurement</a>
    </li>
@@ -376,11 +379,108 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#/populationOf" title="https://w3id.org/smn/populationOf">population of</a>
    </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/broodYear" title="https://w3id.org/smn/broodYear">
+         <span>brood year</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/catchYear" title="https://w3id.org/smn/catchYear">
+         <span>catch year</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/returnYear" title="https://w3id.org/smn/returnYear">
+         <span>return year</span>
+      </a>
+   </li>
 </ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
+      <a href="#/AgeBasis" title="https://w3id.org/smn/AgeBasis">Age basis</a>
+   </li>
+   <li>
+      <a href="#/AgeBasisScheme" title="https://w3id.org/smn/AgeBasisScheme">Age basis scheme</a>
+   </li>
+   <li>
+      <a href="#/AgeDimension" title="https://w3id.org/smn/AgeDimension">Age dimension</a>
+   </li>
+   <li>
+      <a href="#/AgeDimensionScheme" title="https://w3id.org/smn/AgeDimensionScheme">Age dimension scheme</a>
+   </li>
+   <li>
+      <a href="#/AgeNotation" title="https://w3id.org/smn/AgeNotation">Age notation</a>
+   </li>
+   <li>
+      <a href="#/AgeNotationScheme" title="https://w3id.org/smn/AgeNotationScheme">Age notation scheme</a>
+   </li>
+   <li>
+      <a href="#/AgeAtMaturityBasis" title="https://w3id.org/smn/AgeAtMaturityBasis">Age-at-maturity basis</a>
+   </li>
+   <li>
+      <a href="#/AgeAtReturnBasis" title="https://w3id.org/smn/AgeAtReturnBasis">Age-at-return basis</a>
+   </li>
+   <li>
+      <a href="#/AgeAtSamplingBasis" title="https://w3id.org/smn/AgeAtSamplingBasis">Age-at-sampling basis</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue1" title="https://w3id.org/smn/AgeClassValue1">Age-class value 1 year</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue2" title="https://w3id.org/smn/AgeClassValue2">Age-class value 2 years</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue3" title="https://w3id.org/smn/AgeClassValue3">Age-class value 3 years</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue4" title="https://w3id.org/smn/AgeClassValue4">Age-class value 4 years</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue5" title="https://w3id.org/smn/AgeClassValue5">Age-class value 5 years</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue6" title="https://w3id.org/smn/AgeClassValue6">Age-class value 6 years</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValue7" title="https://w3id.org/smn/AgeClassValue7">Age-class value 7 years</a>
+   </li>
+   <li>
+      <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a>
+   </li>
+   <li>
+      <a href="#/broodYear" title="https://w3id.org/smn/broodYear">
+         <span>brood year</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/BroodYearBasis" title="https://w3id.org/smn/BroodYearBasis">Brood-year basis</a>
+   </li>
+   <li>
       <a href="#/CatchContext" title="https://w3id.org/smn/CatchContext">Catch context</a>
+   </li>
+   <li>
+      <a href="#/catchYear" title="https://w3id.org/smn/catchYear">
+         <span>catch year</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/CatchYearBasis" title="https://w3id.org/smn/CatchYearBasis">Catch-year basis</a>
+   </li>
+   <li>
+      <a href="#/EuropeanAgeNotation" title="https://w3id.org/smn/EuropeanAgeNotation">European age notation</a>
+   </li>
+   <li>
+      <a href="#/FreshwaterAgeDimension" title="https://w3id.org/smn/FreshwaterAgeDimension">Freshwater-age dimension</a>
+   </li>
+   <li>
+      <a href="#/GilbertRichAgeNotation" title="https://w3id.org/smn/GilbertRichAgeNotation">Gilbert-Rich age notation</a>
    </li>
    <li>
       <a href="#/HatcheryOrigin" title="https://w3id.org/smn/HatcheryOrigin">Hatchery-origin</a>
@@ -410,6 +510,17 @@ This ontology has the following classes and properties.</span>
       <a href="#/OceanPhase" title="https://w3id.org/smn/OceanPhase">Ocean phase</a>
    </li>
    <li>
+      <a href="#/OceanAgeDimension" title="https://w3id.org/smn/OceanAgeDimension">Ocean-age dimension</a>
+   </li>
+   <li>
+      <a href="#/returnYear" title="https://w3id.org/smn/returnYear">
+         <span>return year</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/ReturnYearBasis" title="https://w3id.org/smn/ReturnYearBasis">Return-year basis</a>
+   </li>
+   <li>
       <a href="#/RunContext" title="https://w3id.org/smn/RunContext">Run context</a>
    </li>
    <li>
@@ -427,6 +538,15 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#/TerminalPhase" title="https://w3id.org/smn/TerminalPhase">Terminal phase</a>
    </li>
+   <li>
+      <a href="#/TotalAgeDimension" title="https://w3id.org/smn/TotalAgeDimension">Total-age dimension</a>
+   </li>
+   <li>
+      <a href="#/YearBasis" title="https://w3id.org/smn/YearBasis">Year basis</a>
+   </li>
+   <li>
+      <a href="#/YearBasisScheme" title="https://w3id.org/smn/YearBasisScheme">Year basis scheme</a>
+   </li>
 </ul>
 </div>
 
@@ -443,6 +563,7 @@ This section provides details for each class and property defined by Salmon Doma
 <div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
+  <li><a href="#/Abundance" title="https://w3id.org/smn/Abundance">Abundance</a></li>
   <li><a href="#/AggregatedMeasurement" title="https://w3id.org/smn/AggregatedMeasurement">Aggregated measurement</a></li>
   <li><a href="#/alevin" title="https://w3id.org/smn/alevin">Alevin</a></li>
   <li><a href="#/BodyShape" title="https://w3id.org/smn/BodyShape">Body shape</a></li>
@@ -517,6 +638,40 @@ This section provides details for each class and property defined by Salmon Doma
   <li><a href="#/totalLength" title="https://w3id.org/smn/totalLength">Total length</a></li>
   <li><a href="#/TotalLengthMeasurement" title="https://w3id.org/smn/TotalLengthMeasurement">Total length measurement</a></li>
  </ul>
+ <div class="entity" id="/Abundance">
+  <h3>Abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/Abundance</p>
+  <div class="comment">
+   <span class="markdown">A characteristic representing the quantity of salmon or other organisms associated with a defined entity, place, and time.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    <a href="http://qudt.org/vocab/quantitykind/Population">http://qudt.org/vocab/quantitykind/Population</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#/Characteristic" title="https://w3id.org/smn/Characteristic">Characteristic</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="/AggregatedMeasurement">
   <h3>Aggregated measurement<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/smn/AggregatedMeasurement</p>
@@ -645,7 +800,7 @@ This section provides details for each class and property defined by Salmon Doma
     has sub-classes
    </dt>
    <dd>
-    <a href="#/BodyShape" title="https://w3id.org/smn/BodyShape">Body shape</a> <sup class="type-c" title="class">c</sup>, <a href="#/Life-HistoryCharacteristic" title="https://w3id.org/smn/Life-HistoryCharacteristic">Life-history characteristic</a> <sup class="type-c" title="class">c</sup>, <a href="#/MorphologicalCharacteristic" title="https://w3id.org/smn/MorphologicalCharacteristic">Morphological characteristic</a> <sup class="type-c" title="class">c</sup>, <a href="#/SalmonLifeStage" title="https://w3id.org/smn/SalmonLifeStage">Salmon life stage</a> <sup class="type-c" title="class">c</sup>
+    <a href="#/Abundance" title="https://w3id.org/smn/Abundance">Abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#/BodyShape" title="https://w3id.org/smn/BodyShape">Body shape</a> <sup class="type-c" title="class">c</sup>, <a href="#/Life-HistoryCharacteristic" title="https://w3id.org/smn/Life-HistoryCharacteristic">Life-history characteristic</a> <sup class="type-c" title="class">c</sup>, <a href="#/MorphologicalCharacteristic" title="https://w3id.org/smn/MorphologicalCharacteristic">Morphological characteristic</a> <sup class="type-c" title="class">c</sup>, <a href="#/SalmonLifeStage" title="https://w3id.org/smn/SalmonLifeStage">Salmon life stage</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1853,7 +2008,10 @@ This section provides details for each class and property defined by Salmon Doma
   <h3>Recruit abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/smn/RecruitAbundance</p>
   <div class="comment">
-   <span class="markdown">A measurement datum recording the number of recruits contributing to a salmon stock, population, or indicator return series for a defined year basis and assessment context.</span>
+   <span class="markdown">A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">Represent the measured characteristic with smn:Abundance. Use smn:broodYear and smn:returnYear for row-varying xsd:gYear coordinates, and use the separate SKOS basis concepts when a standalone variable description needs the corresponding fixed semantic qualifier.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2805,10 +2963,102 @@ This section provides details for each class and property defined by Salmon Doma
    </dl>
   </div>
  </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#/broodYear" title="https://w3id.org/smn/broodYear"> <span>brood year</span> </a></li>
+  <li><a href="#/catchYear" title="https://w3id.org/smn/catchYear"> <span>catch year</span> </a></li>
+  <li><a href="#/returnYear" title="https://w3id.org/smn/returnYear"> <span>return year</span> </a></li>
+ </ul>
+ <div class="entity" id="/broodYear">
+  <h3>brood year<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/broodYear</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#gYear" target="_blank" title="http://www.w3.org/2001/XMLSchema#gYear">g Year</a>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#/broodYear">named individual</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/catchYear">
+  <h3>catch year<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/catchYear</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#gYear" target="_blank" title="http://www.w3.org/2001/XMLSchema#gYear">g Year</a>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#/catchYear">named individual</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="/returnYear">
+  <h3>return year<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/returnYear</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#gYear" target="_blank" title="http://www.w3.org/2001/XMLSchema#gYear">g Year</a>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#/returnYear">named individual</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
  <h3 id="namedindividuals" class="list">Named Individuals</h3>
  <ul class="hlist">
+  <li><a href="#/AgeBasis" title="https://w3id.org/smn/AgeBasis">Age basis</a></li>
+  <li><a href="#/AgeBasisScheme" title="https://w3id.org/smn/AgeBasisScheme">Age basis scheme</a></li>
+  <li><a href="#/AgeDimension" title="https://w3id.org/smn/AgeDimension">Age dimension</a></li>
+  <li><a href="#/AgeDimensionScheme" title="https://w3id.org/smn/AgeDimensionScheme">Age dimension scheme</a></li>
+  <li><a href="#/AgeNotation" title="https://w3id.org/smn/AgeNotation">Age notation</a></li>
+  <li><a href="#/AgeNotationScheme" title="https://w3id.org/smn/AgeNotationScheme">Age notation scheme</a></li>
+  <li><a href="#/AgeAtMaturityBasis" title="https://w3id.org/smn/AgeAtMaturityBasis">Age-at-maturity basis</a></li>
+  <li><a href="#/AgeAtReturnBasis" title="https://w3id.org/smn/AgeAtReturnBasis">Age-at-return basis</a></li>
+  <li><a href="#/AgeAtSamplingBasis" title="https://w3id.org/smn/AgeAtSamplingBasis">Age-at-sampling basis</a></li>
+  <li><a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a></li>
+  <li><a href="#/AgeClassValue1" title="https://w3id.org/smn/AgeClassValue1">Age-class value 1 year</a></li>
+  <li><a href="#/AgeClassValue2" title="https://w3id.org/smn/AgeClassValue2">Age-class value 2 years</a></li>
+  <li><a href="#/AgeClassValue3" title="https://w3id.org/smn/AgeClassValue3">Age-class value 3 years</a></li>
+  <li><a href="#/AgeClassValue4" title="https://w3id.org/smn/AgeClassValue4">Age-class value 4 years</a></li>
+  <li><a href="#/AgeClassValue5" title="https://w3id.org/smn/AgeClassValue5">Age-class value 5 years</a></li>
+  <li><a href="#/AgeClassValue6" title="https://w3id.org/smn/AgeClassValue6">Age-class value 6 years</a></li>
+  <li><a href="#/AgeClassValue7" title="https://w3id.org/smn/AgeClassValue7">Age-class value 7 years</a></li>
+  <li><a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a></li>
+  <li><a href="#/broodYear" title="https://w3id.org/smn/broodYear"> <span>brood year</span> </a></li>
+  <li><a href="#/BroodYearBasis" title="https://w3id.org/smn/BroodYearBasis">Brood-year basis</a></li>
   <li><a href="#/CatchContext" title="https://w3id.org/smn/CatchContext">Catch context</a></li>
+  <li><a href="#/catchYear" title="https://w3id.org/smn/catchYear"> <span>catch year</span> </a></li>
+  <li><a href="#/CatchYearBasis" title="https://w3id.org/smn/CatchYearBasis">Catch-year basis</a></li>
+  <li><a href="#/EuropeanAgeNotation" title="https://w3id.org/smn/EuropeanAgeNotation">European age notation</a></li>
+  <li><a href="#/FreshwaterAgeDimension" title="https://w3id.org/smn/FreshwaterAgeDimension">Freshwater-age dimension</a></li>
+  <li><a href="#/GilbertRichAgeNotation" title="https://w3id.org/smn/GilbertRichAgeNotation">Gilbert-Rich age notation</a></li>
   <li><a href="#/HatcheryOrigin" title="https://w3id.org/smn/HatcheryOrigin">Hatchery-origin</a></li>
   <li><a href="#/InRiverPhase" title="https://w3id.org/smn/InRiverPhase">In-river phase</a></li>
   <li><a href="#/LifePhase" title="https://w3id.org/smn/LifePhase">Life phase</a></li>
@@ -2818,13 +3068,1139 @@ This section provides details for each class and property defined by Salmon Doma
   <li><a href="#/MeasurementContextScheme" title="https://w3id.org/smn/MeasurementContextScheme">Measurement context scheme</a></li>
   <li><a href="#/NaturalOrigin" title="https://w3id.org/smn/NaturalOrigin">Natural-origin</a></li>
   <li><a href="#/OceanPhase" title="https://w3id.org/smn/OceanPhase">Ocean phase</a></li>
+  <li><a href="#/OceanAgeDimension" title="https://w3id.org/smn/OceanAgeDimension">Ocean-age dimension</a></li>
+  <li><a href="#/returnYear" title="https://w3id.org/smn/returnYear"> <span>return year</span> </a></li>
+  <li><a href="#/ReturnYearBasis" title="https://w3id.org/smn/ReturnYearBasis">Return-year basis</a></li>
   <li><a href="#/RunContext" title="https://w3id.org/smn/RunContext">Run context</a></li>
   <li><a href="#/SalmonOrigin" title="https://w3id.org/smn/SalmonOrigin">Salmon origin</a></li>
   <li><a href="#/SalmonOriginScheme" title="https://w3id.org/smn/SalmonOriginScheme">Salmon origin scheme</a></li>
   <li><a href="#/SpawnerStageContext" title="https://w3id.org/smn/SpawnerStageContext">Spawner stage context</a></li>
   <li><a href="#/SurvivalOrMortalityContext" title="https://w3id.org/smn/SurvivalOrMortalityContext">Survival or mortality context</a></li>
   <li><a href="#/TerminalPhase" title="https://w3id.org/smn/TerminalPhase">Terminal phase</a></li>
+  <li><a href="#/TotalAgeDimension" title="https://w3id.org/smn/TotalAgeDimension">Total-age dimension</a></li>
+  <li><a href="#/YearBasis" title="https://w3id.org/smn/YearBasis">Year basis</a></li>
+  <li><a href="#/YearBasisScheme" title="https://w3id.org/smn/YearBasisScheme">Year basis scheme</a></li>
  </ul>
+ <div class="entity" id="/AgeBasis">
+  <h3>Age basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeBasis</p>
+  <div class="comment">
+   <span class="markdown">The reference event or life-history point at which a salmon age value applies.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#AgeBasis" target="_blank" title="https://w3id.org/gcdfo/salmon#AgeBasis">Age Basis</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"The reference event or life-history point at which a salmon age value applies."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasisScheme" title="https://w3id.org/smn/AgeBasisScheme">Age basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age basis"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeBasisScheme">
+  <h3>Age basis scheme<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeBasisScheme</p>
+  <div class="comment">
+   <span class="markdown">Controlled vocabulary for the reference event or life-history point at which a salmon age applies.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasisScheme.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasisScheme."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Controlled vocabulary for the reference event or life-history point at which a salmon age applies."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#hasTopConcept" target="_blank" title="http://www.w3.org/2004/02/skos/core#hasTopConcept">has Top Concept</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasis" title="https://w3id.org/smn/AgeBasis">Age basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age basis scheme"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeDimension">
+  <h3>Age dimension<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeDimension</p>
+  <div class="comment">
+   <span class="markdown">The component of salmon age represented by a value.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimension.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimension."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#AgeDimension" target="_blank" title="https://w3id.org/gcdfo/salmon#AgeDimension">Age Dimension</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"The component of salmon age represented by a value."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimensionScheme" title="https://w3id.org/smn/AgeDimensionScheme">Age dimension scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age dimension"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeDimensionScheme">
+  <h3>Age dimension scheme<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeDimensionScheme</p>
+  <div class="comment">
+   <span class="markdown">Controlled vocabulary for the component of salmon age represented by a value.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimensionScheme.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimensionScheme."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Controlled vocabulary for the component of salmon age represented by a value."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#hasTopConcept" target="_blank" title="http://www.w3.org/2004/02/skos/core#hasTopConcept">has Top Concept</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimension" title="https://w3id.org/smn/AgeDimension">Age dimension</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age dimension scheme"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeNotation">
+  <h3>Age notation<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeNotation</p>
+  <div class="comment">
+   <span class="markdown">A notation system used to encode salmon age values in stock-assessment data.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#AgeNotation" target="_blank" title="https://w3id.org/gcdfo/salmon#AgeNotation">Age Notation</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"A notation system used to encode salmon age values in stock-assessment data."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeNotationScheme" title="https://w3id.org/smn/AgeNotationScheme">Age notation scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age notation"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeNotationScheme">
+  <h3>Age notation scheme<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeNotationScheme</p>
+  <div class="comment">
+   <span class="markdown">Controlled vocabulary for notation systems used to encode salmon age values.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotationScheme.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotationScheme."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Controlled vocabulary for notation systems used to encode salmon age values."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#hasTopConcept" target="_blank" title="http://www.w3.org/2004/02/skos/core#hasTopConcept">has Top Concept</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeNotation" title="https://w3id.org/smn/AgeNotation">Age notation</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age notation scheme"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeAtMaturityBasis">
+  <h3>Age-at-maturity basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeAtMaturityBasis</p>
+  <div class="comment">
+   <span class="markdown">Age evaluated at biological maturity.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasis" title="https://w3id.org/smn/AgeBasis">Age basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis" target="_blank" title="https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis">Age At Maturity Basis</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age evaluated at biological maturity."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasisScheme" title="https://w3id.org/smn/AgeBasisScheme">Age basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-at-maturity basis"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeAtReturnBasis">
+  <h3>Age-at-return basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeAtReturnBasis</p>
+  <div class="comment">
+   <span class="markdown">Age evaluated at the adult return event relevant to the dataset.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtReturnBasis.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtReturnBasis."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasis" title="https://w3id.org/smn/AgeBasis">Age basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#AgeAtReturnBasis" target="_blank" title="https://w3id.org/gcdfo/salmon#AgeAtReturnBasis">Age At Return Basis</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age evaluated at the adult return event relevant to the dataset."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasisScheme" title="https://w3id.org/smn/AgeBasisScheme">Age basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-at-return basis"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Document the return location or event separately when it affects interpretation."@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeAtSamplingBasis">
+  <h3>Age-at-sampling basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeAtSamplingBasis</p>
+  <div class="comment">
+   <span class="markdown">Age evaluated at the time of sampling or observation.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtSamplingBasis.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtSamplingBasis."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasis" title="https://w3id.org/smn/AgeBasis">Age basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis" target="_blank" title="https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis">Age At Sampling Basis</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age evaluated at the time of sampling or observation."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeBasisScheme" title="https://w3id.org/smn/AgeBasisScheme">Age basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-at-sampling basis"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue">
+  <h3>Age-class value<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue</p>
+  <div class="comment">
+   <span class="markdown">An integer-like coordinate used to represent one declared component of salmon age.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#AgeClassValue" target="_blank" title="https://w3id.org/gcdfo/salmon#AgeClassValue">Age Class Value</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"An integer-like coordinate used to represent one declared component of salmon age."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"This concept and its narrower values do not identify a brood cohort or year class."@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue1">
+  <h3>Age-class value 1 year<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue1</p>
+  <div class="comment">
+   <span class="markdown">Age-component value of 1 year.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age1YearClass.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age1YearClass."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#Age1YearClass" target="_blank" title="https://w3id.org/gcdfo/salmon#Age1YearClass">Age1 Year Class</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-component value of 1 year."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"1"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value 1 year"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue2">
+  <h3>Age-class value 2 years<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue2</p>
+  <div class="comment">
+   <span class="markdown">Age-component value of 2 years.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age2YearClass.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age2YearClass."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#Age2YearClass" target="_blank" title="https://w3id.org/gcdfo/salmon#Age2YearClass">Age2 Year Class</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-component value of 2 years."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"2"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value 2 years"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue3">
+  <h3>Age-class value 3 years<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue3</p>
+  <div class="comment">
+   <span class="markdown">Age-component value of 3 years.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age3YearClass.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age3YearClass."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#Age3YearClass" target="_blank" title="https://w3id.org/gcdfo/salmon#Age3YearClass">Age3 Year Class</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-component value of 3 years."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"3"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value 3 years"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue4">
+  <h3>Age-class value 4 years<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue4</p>
+  <div class="comment">
+   <span class="markdown">Age-component value of 4 years.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age4YearClass.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age4YearClass."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#Age4YearClass" target="_blank" title="https://w3id.org/gcdfo/salmon#Age4YearClass">Age4 Year Class</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-component value of 4 years."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"4"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value 4 years"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue5">
+  <h3>Age-class value 5 years<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue5</p>
+  <div class="comment">
+   <span class="markdown">Age-component value of 5 years.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age5YearClass.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age5YearClass."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#Age5YearClass" target="_blank" title="https://w3id.org/gcdfo/salmon#Age5YearClass">Age5 Year Class</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-component value of 5 years."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"5"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value 5 years"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue6">
+  <h3>Age-class value 6 years<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue6</p>
+  <div class="comment">
+   <span class="markdown">Age-component value of 6 years.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age6YearClass.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age6YearClass."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#Age6YearClass" target="_blank" title="https://w3id.org/gcdfo/salmon#Age6YearClass">Age6 Year Class</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-component value of 6 years."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"6"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value 6 years"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValue7">
+  <h3>Age-class value 7 years<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValue7</p>
+  <div class="comment">
+   <span class="markdown">Age-component value of 7 years.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age7YearClass.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age7YearClass."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#Age7YearClass" target="_blank" title="https://w3id.org/gcdfo/salmon#Age7YearClass">Age7 Year Class</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-component value of 7 years."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValueScheme" title="https://w3id.org/smn/AgeClassValueScheme">Age-class value scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"7"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value 7 years"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/AgeClassValueScheme">
+  <h3>Age-class value scheme<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/AgeClassValueScheme</p>
+  <div class="comment">
+   <span class="markdown">Open controlled vocabulary for evidenced integer-like salmon age-component values.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValueScheme.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValueScheme."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Open controlled vocabulary for evidenced integer-like salmon age-component values."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#hasTopConcept" target="_blank" title="http://www.w3.org/2004/02/skos/core#hasTopConcept">has Top Concept</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeClassValue" title="https://w3id.org/smn/AgeClassValue">Age-class value</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age-class value scheme"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"An age-class value is an age coordinate, not a cohort or year class. Mint additional values only when supported by a use case."@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/broodYear">
+  <h3>brood year<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/broodYear</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/linked-data/cube#DimensionProperty" target="_blank" title="http://purl.org/linked-data/cube#DimensionProperty">Dimension Property</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#/broodYear">data property</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/BroodYearBasis">
+  <h3>Brood-year basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/BroodYearBasis</p>
+  <div class="comment">
+   <span class="markdown">A year-reference basis in which a calendar year identifies a salmon cohort by the spawning year of its parents.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html" target="_blank" title="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">gloss eng.html</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasis" title="https://w3id.org/smn/YearBasis">Year basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="http://purl.dataone.org/odo/SALMON_00000520" target="_blank" title="http://purl.dataone.org/odo/SALMON_00000520">S A L M O N 00000520</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#BroodYear" target="_blank" title="https://w3id.org/gcdfo/salmon#BroodYear">Brood Year</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"A year-reference basis in which a calendar year identifies a salmon cohort by the spawning year of its parents."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasisScheme" title="https://w3id.org/smn/YearBasisScheme">Year basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Brood-year basis"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Use smn:broodYear for the xsd:gYear coordinate. The basis concept is not the coordinate value."@en</span>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="/CatchContext">
   <h3>Catch context<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/smn/CatchContext</p>
@@ -2877,6 +4253,274 @@ This section provides details for each class and property defined by Salmon Doma
    </dd>
    <dd>
     <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Catch context"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/catchYear">
+  <h3>catch year<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/catchYear</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/linked-data/cube#DimensionProperty" target="_blank" title="http://purl.org/linked-data/cube#DimensionProperty">Dimension Property</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#/catchYear">data property</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/CatchYearBasis">
+  <h3>Catch-year basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/CatchYearBasis</p>
+  <div class="comment">
+   <span class="markdown">A year-reference basis in which a calendar year identifies when the represented fishery catch occurred.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:CatchYear, modeled there as a SKOS concept.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:CatchYear, modeled there as a SKOS concept."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl">gcdfo.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasis" title="https://w3id.org/smn/YearBasis">Year basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#CatchYear" target="_blank" title="https://w3id.org/gcdfo/salmon#CatchYear">Catch Year</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"A year-reference basis in which a calendar year identifies when the represented fishery catch occurred."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasisScheme" title="https://w3id.org/smn/YearBasisScheme">Year basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Catch-year basis"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Use smn:catchYear for the xsd:gYear coordinate. A catch year is not interchangeable with the return year of the fish."@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/EuropeanAgeNotation">
+  <h3>European age notation<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/EuropeanAgeNotation</p>
+  <div class="comment">
+   <span class="markdown">Salmon age notation that records the freshwater-age component followed by the ocean-age component, commonly separated by a period.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:EuropeanAgeNotation.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm">https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:EuropeanAgeNotation."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm" target="_blank" title="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm">2010 Fras Rvr Chk Inform Doc.htm</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeNotation" title="https://w3id.org/smn/AgeNotation">Age notation</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#EuropeanAgeNotation" target="_blank" title="https://w3id.org/gcdfo/salmon#EuropeanAgeNotation">European Age Notation</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Salmon age notation that records the freshwater-age component followed by the ocean-age component, commonly separated by a period."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeNotationScheme" title="https://w3id.org/smn/AgeNotationScheme">Age notation scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"European"</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"European age notation"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"For example, 1.2 represents freshwater-age value 1 and ocean-age value 2 when the source declares European notation."@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/FreshwaterAgeDimension">
+  <h3>Freshwater-age dimension<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/FreshwaterAgeDimension</p>
+  <div class="comment">
+   <span class="markdown">Age dimension whose value represents the freshwater component of salmon age under the declared age convention.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:FreshwaterAgeDimension.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:FreshwaterAgeDimension."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimension" title="https://w3id.org/smn/AgeDimension">Age dimension</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension" target="_blank" title="https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension">Freshwater Age Dimension</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age dimension whose value represents the freshwater component of salmon age under the declared age convention."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimensionScheme" title="https://w3id.org/smn/AgeDimensionScheme">Age dimension scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Freshwater-age dimension"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/GilbertRichAgeNotation">
+  <h3>Gilbert-Rich age notation<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/GilbertRichAgeNotation</p>
+  <div class="comment">
+   <span class="markdown">Salmon age notation in which total age is annotated with the freshwater-age component as a subscript-like suffix.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:GilbertRichAgeNotation.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm">https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:GilbertRichAgeNotation."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm" target="_blank" title="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm">2010 Fras Rvr Chk Inform Doc.htm</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#altLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#altLabel">alt Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"GR age notation"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeNotation" title="https://w3id.org/smn/AgeNotation">Age notation</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation" target="_blank" title="https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation">Gilbert Rich Age Notation</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Salmon age notation in which total age is annotated with the freshwater-age component as a subscript-like suffix."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeNotationScheme" title="https://w3id.org/smn/AgeNotationScheme">Age notation scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank" title="http://www.w3.org/2004/02/skos/core#notation">notation</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Gilbert-Rich"</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Gilbert-Rich age notation"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"For example, an encoded value 42 may decompose to total-age value 4 and freshwater-age value 2 only when the source declares Gilbert-Rich notation. Do not infer that decomposition from a two-digit string alone."@en</span>
    </dd>
   </dl>
  </div>
@@ -3366,6 +5010,146 @@ This section provides details for each class and property defined by Salmon Doma
    </dd>
   </dl>
  </div>
+ <div class="entity" id="/OceanAgeDimension">
+  <h3>Ocean-age dimension<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/OceanAgeDimension</p>
+  <div class="comment">
+   <span class="markdown">Age dimension whose value represents the marine component of salmon age under the declared age convention.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:OceanAgeDimension.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:OceanAgeDimension."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#altLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#altLabel">alt Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Marine-age dimension"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimension" title="https://w3id.org/smn/AgeDimension">Age dimension</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#OceanAgeDimension" target="_blank" title="https://w3id.org/gcdfo/salmon#OceanAgeDimension">Ocean Age Dimension</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age dimension whose value represents the marine component of salmon age under the declared age convention."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimensionScheme" title="https://w3id.org/smn/AgeDimensionScheme">Age dimension scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Ocean-age dimension"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/returnYear">
+  <h3>return year<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/returnYear</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/linked-data/cube#DimensionProperty" target="_blank" title="http://purl.org/linked-data/cube#DimensionProperty">Dimension Property</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#/returnYear">data property</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/ReturnYearBasis">
+  <h3>Return-year basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/ReturnYearBasis</p>
+  <div class="comment">
+   <span class="markdown">A year-reference basis in which a calendar year identifies when members of a salmon cohort make the adult return relevant to the dataset's declared location or event.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data.
+   </dd>
+   <dd>
+    <a href="https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/">https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/" target="_blank" title="https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/">https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasis" title="https://w3id.org/smn/YearBasis">Year basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#ReturnYear" target="_blank" title="https://w3id.org/gcdfo/salmon#ReturnYear">Return Year</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"A year-reference basis in which a calendar year identifies when members of a salmon cohort make the adult return relevant to the dataset's declared location or event."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasisScheme" title="https://w3id.org/smn/YearBasisScheme">Year basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Return-year basis"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Return year and catch year are distinct. Document the location or event at which return is defined separately; use smn:returnYear for the xsd:gYear coordinate."@en</span>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="/RunContext">
   <h3>Run context<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/smn/RunContext</p>
@@ -3690,11 +5474,183 @@ This section provides details for each class and property defined by Salmon Doma
    </dd>
   </dl>
  </div>
+ <div class="entity" id="/TotalAgeDimension">
+  <h3>Total-age dimension<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/TotalAgeDimension</p>
+  <div class="comment">
+   <span class="markdown">Age dimension whose value represents total salmon age under the declared age convention.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology term gcdfo:TotalAgeDimension.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology term gcdfo:TotalAgeDimension."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl">dfo salmon.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#broader" target="_blank" title="http://www.w3.org/2004/02/skos/core#broader">broader</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimension" title="https://w3id.org/smn/AgeDimension">Age dimension</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#TotalAgeDimension" target="_blank" title="https://w3id.org/gcdfo/salmon#TotalAgeDimension">Total Age Dimension</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Age dimension whose value represents total salmon age under the declared age convention."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/AgeDimensionScheme" title="https://w3id.org/smn/AgeDimensionScheme">Age dimension scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Total-age dimension"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/YearBasis">
+  <h3>Year basis<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/YearBasis</p>
+  <div class="comment">
+   <span class="markdown">A fixed year basis may qualify a standalone I-ADOPT variable, while row-varying year coordinates remain Data Cube dimensions.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">The biological, assessment, or fishery reference role used to interpret a calendar-year coordinate.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:YearBasis, modeled there as a SKOS concept.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:YearBasis, modeled there as a SKOS concept."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl">gcdfo.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank" title="http://www.w3.org/2004/02/skos/core#closeMatch">close Match</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://w3id.org/gcdfo/salmon#YearBasis" target="_blank" title="https://w3id.org/gcdfo/salmon#YearBasis">Year Basis</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"The biological, assessment, or fishery reference role used to interpret a calendar-year coordinate."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#inScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#inScheme">in Scheme</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasisScheme" title="https://w3id.org/smn/YearBasisScheme">Year basis scheme</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Year basis"@en</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="/YearBasisScheme">
+  <h3>Year basis scheme<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/YearBasisScheme</p>
+  <div class="comment">
+   <span class="markdown">Controlled vocabulary for the biological, assessment, or fishery role that gives meaning to a calendar-year coordinate.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from the GC DFO Salmon Ontology release 0.0.8 SKOS year-basis vocabulary.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl">https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" target="_blank" title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000119" target="_blank" title="http://purl.obolibrary.org/obo/IAO_0000119">I A O 0000119</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Adapted from the GC DFO Salmon Ontology release 0.0.8 SKOS year-basis vocabulary."@en</span>
+   </dd>
+   <dd>
+    <a href="http://purl.org/dc/terms/source" target="_blank" title="http://purl.org/dc/terms/source">source</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl" target="_blank" title="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl">gcdfo.ttl</a> <sup class="type-ep" title="external property">ep</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank" title="http://www.w3.org/2004/02/skos/core#definition">definition</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Controlled vocabulary for the biological, assessment, or fishery role that gives meaning to a calendar-year coordinate."@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#hasTopConcept" target="_blank" title="http://www.w3.org/2004/02/skos/core#hasTopConcept">has Top Concept</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#/YearBasis" title="https://w3id.org/smn/YearBasis">Year basis</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank" title="http://www.w3.org/2004/02/skos/core#prefLabel">pref Label</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Year basis scheme"@en</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#scopeNote" target="_blank" title="http://www.w3.org/2004/02/skos/core#scopeNote">scope Note</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Calendar representation is not itself a year basis. Use a separate datatype property with an xsd:gYear value for the coordinate."@en</span>
+   </dd>
+  </dl>
+ </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <div   class="entity">
 <sup class="type-c" title="Classes">c</sup>: Classes <br/>
 <sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
 <sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
 <sup class="type-ep" title="External Properties">ep</sup>: External Properties
 </div>
@@ -3706,477 +5662,139 @@ This section provides details for each class and property defined by Salmon Doma
    <div id="changelog"><div id="changelog">
 <h2 id="changes" class="list">Changes from last version</h2>
 <h3 id="changeClass" class="list">Classes</h3>
-<details><summary><u>Added classes</u></summary>
-<ul><li><a href="#http://purl.obolibrary.org/obo/BFO_0000015">http://purl.obolibrary.org/obo/BFO_0000015</a>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/IAO_0000030">http://purl.obolibrary.org/obo/IAO_0000030</a>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/IAO_0000109">http://purl.obolibrary.org/obo/IAO_0000109</a>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/NCBITaxon_8015">http://purl.obolibrary.org/obo/NCBITaxon_8015</a>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/NCBITaxon_8018">http://purl.obolibrary.org/obo/NCBITaxon_8018</a>
+<details><summary><u>Modified classes</u></summary>
+<ul><li><a href="#/CatchAbundance">https://w3id.org/smn/CatchAbundance</a>
 <ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/NCBITaxon_8015</li>
-</ul>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/Event">http://rs.tdwg.org/dwc/terms/Event</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/MaterialSample">http://rs.tdwg.org/dwc/terms/MaterialSample</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/MaterialSample&gt; &lt;http://www.w3.org/ns/sosa/Sample&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/Occurrence">http://rs.tdwg.org/dwc/terms/Occurrence</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Occurrence&gt; &lt;http://www.w3.org/ns/sosa/Observation&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/Organism">http://rs.tdwg.org/dwc/terms/Organism</a>
-</li>
-<li><a href="#http://www.opengis.net/ont/geosparql#Feature">http://www.opengis.net/ont/geosparql#Feature</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a>
-</li>
-<li><a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a>
-</li>
-<li><a href="#http://www.w3.org/2006/time#Instant">http://www.w3.org/2006/time#Instant</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/FeatureOfInterest">http://www.w3.org/ns/sosa/FeatureOfInterest</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Observation">http://www.w3.org/ns/sosa/Observation</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Occurrence&gt; &lt;http://www.w3.org/ns/sosa/Observation&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Procedure">http://www.w3.org/ns/sosa/Procedure</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Property">http://www.w3.org/ns/sosa/Property</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/Property&gt; &lt;https://w3id.org/iadopt/ont/Property&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sample">http://www.w3.org/ns/sosa/Sample</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/MaterialSample&gt; &lt;http://www.w3.org/ns/sosa/Sample&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Constraint">https://w3id.org/iadopt/ont/Constraint</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Entity">https://w3id.org/iadopt/ont/Entity</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Property">https://w3id.org/iadopt/ont/Property</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/Property&gt; &lt;https://w3id.org/iadopt/ont/Property&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/StatisticalModifier">https://w3id.org/iadopt/ont/StatisticalModifier</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Variable">https://w3id.org/iadopt/ont/Variable</a>
-</li>
-<li><a href="#/AggregatedMeasurement">https://w3id.org/smn/AggregatedMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-<li></ul>
-</li>
-<li><a href="#/BodyShape">https://w3id.org/smn/BodyShape</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#/CatchAbundance">https://w3id.org/smn/CatchAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#/Characteristic">https://w3id.org/smn/Characteristic</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Property</li>
-</ul>
-</li>
-<li><a href="#/DataQualityAssessment">https://w3id.org/smn/DataQualityAssessment</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/Abundance</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/CatchYearBasis</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/catchYear</li>
 </ul>
 </li>
 <li><a href="#/Deme">https://w3id.org/smn/Deme</a>
 <ul>
-<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."@en</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:Deme."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
 </ul>
-</li>
-<li><a href="#/Entity">https://w3id.org/smn/Entity</a>
 <ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-<li>Added: SubClass of https://w3id.org/iadopt/ont/Entity</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit."@en</li>
 </ul>
 </li>
 <li><a href="#/EnumerationMethod">https://w3id.org/smn/EnumerationMethod</a>
 <ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Procedure</li>
-</ul>
-</li>
-<li><a href="#/Escapement">https://w3id.org/smn/Escapement</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/BFO_0000015</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
 </ul>
 </li>
 <li><a href="#/EscapementMeasurement">https://w3id.org/smn/EscapementMeasurement</a>
 <ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
 </ul>
 </li>
 <li><a href="#/EscapementSurveyEvent">https://w3id.org/smn/EscapementSurveyEvent</a>
 <ul>
-<li>Added: SubClass of https://w3id.org/smn/SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#/EventType">https://w3id.org/smn/EventType</a>
-</li>
-<li><a href="#/ExploitationRate">https://w3id.org/smn/ExploitationRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/TargetOrLimitRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#/FishForkLengthMeasurementMethod">https://w3id.org/smn/FishForkLengthMeasurementMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#/FishLength">https://w3id.org/smn/FishLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/MorphologicalCharacteristic</li>
-</ul>
-</li>
-<li><a href="#/FishLengthMeasurementMethod">https://w3id.org/smn/FishLengthMeasurementMethod</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Procedure</li>
-</ul>
-</li>
-<li><a href="#/FishLengthMeasurementType">https://w3id.org/smn/FishLengthMeasurementType</a>
-<ul>
-<li><li><li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-</ul>
-</li>
-<li><a href="#/FishWeight">https://w3id.org/smn/FishWeight</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/MorphologicalCharacteristic</li>
-</ul>
-</li>
-<li><a href="#/FishingType">https://w3id.org/smn/FishingType</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/EventType</li>
-</ul>
-</li>
-<li><a href="#/ForkLengthMeasurement">https://w3id.org/smn/ForkLengthMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementType</li>
-<li></ul>
-</li>
-<li><a href="#/ForkLengthMeasurementFieldMethod">https://w3id.org/smn/ForkLengthMeasurementFieldMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ForkLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#/ForkLengthMeasurementLabMethod">https://w3id.org/smn/ForkLengthMeasurementLabMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ForkLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#/ForkLengthMeasurementMethod">https://w3id.org/smn/ForkLengthMeasurementMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishForkLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#/GeographicFeature">https://w3id.org/smn/GeographicFeature</a>
-<ul>
-<li>Added: SubClass of http://www.opengis.net/ont/geosparql#Feature</li>
-</ul>
-</li>
-<li><a href="#/HabitatUnit">https://w3id.org/smn/HabitatUnit</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Entity</li>
-</ul>
-</li>
-<li><a href="#/IndicatorRiver">https://w3id.org/smn/IndicatorRiver</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/GeographicFeature</li>
-</ul>
-</li>
-<li><a href="#/IndividualMeasurement">https://w3id.org/smn/IndividualMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-</ul>
-</li>
-<li><a href="#/Life-HistoryCharacteristic">https://w3id.org/smn/Life-HistoryCharacteristic</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#/LimitReferencePoint">https://w3id.org/smn/LimitReferencePoint</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ReferencePoint</li>
-</ul>
-</li>
-<li><a href="#/Measurement">https://w3id.org/smn/Measurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Observation</li>
-<li><li></ul>
-</li>
-<li><a href="#/MethodDocumentation">https://w3id.org/smn/MethodDocumentation</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#/MetricBenchmark">https://w3id.org/smn/MetricBenchmark</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#/ModelMeasurement">https://w3id.org/smn/ModelMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-</ul>
-</li>
-<li><a href="#/MorphologicalCharacteristic">https://w3id.org/smn/MorphologicalCharacteristic</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#/NCBITaxon_8018">https://w3id.org/smn/NCBITaxon_8018</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/NCBITaxon_8018</li>
-</ul>
-</li>
-<li><a href="#/Observation">https://w3id.org/smn/Observation</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Observation</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
 </ul>
 </li>
 <li><a href="#/ObservedRateOrAbundance">https://w3id.org/smn/ObservedRateOrAbundance</a>
 <ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ObservedRateOrAbundance."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
 </ul>
 </li>
 <li><a href="#/Population">https://w3id.org/smn/Population</a>
 <ul>
-<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."@en</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:Population."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool."@en</li>
 </ul>
 </li>
 <li><a href="#/RecruitAbundance">https://w3id.org/smn/RecruitAbundance</a>
 <ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series."@en</li>
+<li>Added: rdfs:comment "Represent the measured characteristic with smn:Abundance. Use smn:broodYear and smn:returnYear for row-varying xsd:gYear coordinates, and use the separate SKOS basis concepts when a standalone variable description needs the corresponding fixed semantic qualifier."@en</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/Abundance</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/BroodYearBasis</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/ReturnYearBasis</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/broodYear</li>
+<li>Added: rdfs:seeAlso https://w3id.org/smn/returnYear</li>
 </ul>
-</li>
-<li><a href="#/ReferencePoint">https://w3id.org/smn/ReferencePoint</a>
 <ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A measurement datum recording the number of recruits contributing to a salmon stock, population, or indicator return series for a defined year basis and assessment context."@en</li>
 </ul>
 </li>
 <li><a href="#/ReportingOrManagementStratum">https://w3id.org/smn/ReportingOrManagementStratum</a>
 <ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
 </ul>
-</li>
-<li><a href="#/Run">https://w3id.org/smn/Run</a>
 <ul>
-<li>Added: SubClass of https://w3id.org/smn/Life-HistoryCharacteristic</li>
-</ul>
-</li>
-<li><a href="#/SalmonGroup">https://w3id.org/smn/SalmonGroup</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Entity</li>
-</ul>
-</li>
-<li><a href="#/SalmonIndividual">https://w3id.org/smn/SalmonIndividual</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Entity</li>
-</ul>
-</li>
-<li><a href="#/SalmonLifeStage">https://w3id.org/smn/SalmonLifeStage</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#/SalmonPopulationGroup">https://w3id.org/smn/SalmonPopulationGroup</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/SalmonGroup</li>
-</ul>
-</li>
-<li><a href="#/SalmonStockUnit">https://w3id.org/smn/SalmonStockUnit</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/SalmonGroup</li>
-</ul>
-</li>
-<li><a href="#/SamplingEvent">https://w3id.org/smn/SamplingEvent</a>
-<ul>
-<li><li><li><li>Added: SubClass of http://www.w3.org/ns/sosa/Sampling</li>
-</ul>
-</li>
-<li><a href="#/StandardLengthMeasurement">https://w3id.org/smn/StandardLengthMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementType</li>
-</ul>
-</li>
-<li><a href="#/Stock">https://w3id.org/smn/Stock</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#/StockAssessment">https://w3id.org/smn/StockAssessment</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/BFO_0000015</li>
-</ul>
-</li>
-<li><a href="#/SurveyEvent">https://w3id.org/smn/SurveyEvent</a>
-<ul>
-<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Event</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes across salmon programs."@en</li>
 </ul>
 </li>
 <li><a href="#/TargetOrLimitRateOrAbundance">https://w3id.org/smn/TargetOrLimitRateOrAbundance</a>
 <ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TargetOrLimitRateOrAbundance."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit."@en</li>
 </ul>
 </li>
 <li><a href="#/TotalExploitationRate">https://w3id.org/smn/TotalExploitationRate</a>
 <ul>
-<li>Added: SubClass of https://w3id.org/smn/ExploitationRate</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TotalExploitationRate."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "The overall proportion of returning adult salmon removed by all fisheries over a defined period."@en</li>
 </ul>
 </li>
-<li><a href="#/TotalLengthMeasurement">https://w3id.org/smn/TotalLengthMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementType</li>
-</ul>
+</ul></details><details><summary><u>Added classes</u></summary>
+<ul><li><a href="#http://purl.org/linked-data/cube#DimensionProperty">http://purl.org/linked-data/cube#DimensionProperty</a>
 </li>
-<li><a href="#/alevin">https://w3id.org/smn/alevin</a>
+<li><a href="#/Abundance">https://w3id.org/smn/Abundance</a>
 <ul>
-<li>Added: SubClass of https://w3id.org/smn/SalmonLifeStage</li>
-</ul>
-</li>
-<li><a href="#/forkLength">https://w3id.org/smn/forkLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLength</li>
-</ul>
-</li>
-<li><a href="#/fusiform">https://w3id.org/smn/fusiform</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/BodyShape</li>
-</ul>
-</li>
-<li><a href="#/orbitalLength">https://w3id.org/smn/orbitalLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLength</li>
-</ul>
-</li>
-<li><a href="#/seiningEvent">https://w3id.org/smn/seiningEvent</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishingType</li>
-</ul>
-</li>
-<li><a href="#/standardLength">https://w3id.org/smn/standardLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLength</li>
-</ul>
-</li>
-<li><a href="#/totalLength">https://w3id.org/smn/totalLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLength</li>
+<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
 </ul>
 </li>
 </ul></details><h3 id="changeProp" class="list">Object Properties</h3>
-<details><summary><u>Added object properties</u></summary>
-<ul><li><a href="#http://purl.obolibrary.org/obo/RO_0002351">http://purl.obolibrary.org/obo/RO_0002351</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/hasFeatureOfInterest">http://www.w3.org/ns/sosa/hasFeatureOfInterest</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/hasResult">http://www.w3.org/ns/sosa/hasResult</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/observedProperty">http://www.w3.org/ns/sosa/observedProperty</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/resultTime">http://www.w3.org/ns/sosa/resultTime</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/usedProcedure">http://www.w3.org/ns/sosa/usedProcedure</a>
-</li>
-<li><a href="#/basedOn">https://w3id.org/smn/basedOn</a>
+<details><summary><u>Modified object properties</u></summary>
+<ul><li><a href="#/demeOf">https://w3id.org/smn/demeOf</a>
 <ul>
-<li>Added: domain https://w3id.org/smn/AggregatedMeasurement</li>
-<li>Added: Range https://w3id.org/smn/EnumerationMethod</li>
-</ul>
-</li>
-<li><a href="#/characteristicFor">https://w3id.org/smn/characteristicFor</a>
-<ul>
-<li>Added: Range http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-<li>Added: domain http://www.w3.org/ns/sosa/Property</li>
-</ul>
-</li>
-<li><a href="#/demeOf">https://w3id.org/smn/demeOf</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/demeOf&gt; &lt;https://w3id.org/smn/hasDeme&gt;)</li>
-<li>Added: Range https://w3id.org/smn/Population</li>
-<li>Added: domain https://w3id.org/smn/Deme</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:demeOf."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
 </ul>
 </li>
 <li><a href="#/hasDeme">https://w3id.org/smn/hasDeme</a>
 <ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/demeOf&gt; &lt;https://w3id.org/smn/hasDeme&gt;)</li>
-<li>Added: Range https://w3id.org/smn/Deme</li>
-<li>Added: SubProperty of http://purl.obolibrary.org/obo/RO_0002351</li>
-<li>Added: domain https://w3id.org/smn/Population</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:hasDeme."@en</li>
+<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
 </ul>
 </li>
-<li><a href="#/hasEventType">https://w3id.org/smn/hasEventType</a>
+</ul></details><h3 id="changeDataProp" class="list">Data Properties</h3>
+<details><summary><u>Added data properties</u></summary>
+<ul><li><a href="#/broodYear">https://w3id.org/smn/broodYear</a>
 <ul>
-<li>Added: Range https://w3id.org/smn/EventType</li>
-<li>Added: domain https://w3id.org/smn/SamplingEvent</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#gYear</li>
 </ul>
 </li>
-<li><a href="#/hasMeasurement">https://w3id.org/smn/hasMeasurement</a>
+<li><a href="#/catchYear">https://w3id.org/smn/catchYear</a>
 <ul>
-<li>Added: Range https://w3id.org/smn/Measurement</li>
-<li>Added: domain http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#gYear</li>
 </ul>
 </li>
-<li><a href="#/hasPopulation">https://w3id.org/smn/hasPopulation</a>
+<li><a href="#/returnYear">https://w3id.org/smn/returnYear</a>
 <ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/populationOf&gt; &lt;https://w3id.org/smn/hasPopulation&gt;)</li>
-<li>Added: Range https://w3id.org/smn/Population</li>
-<li>Added: SubProperty of http://purl.obolibrary.org/obo/RO_0002351</li>
-<li>Added: domain https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#/observedTaxonFamily">https://w3id.org/smn/observedTaxonFamily</a>
-<ul>
-<li>Added: Range http://purl.obolibrary.org/obo/NCBITaxon_8015</li>
-<li>Added: domain http://www.w3.org/ns/sosa/Observation</li>
-</ul>
-</li>
-<li><a href="#/observedTaxonSpecies">https://w3id.org/smn/observedTaxonSpecies</a>
-<ul>
-<li>Added: Range http://purl.obolibrary.org/obo/NCBITaxon_8018</li>
-<li>Added: domain http://www.w3.org/ns/sosa/Observation</li>
-</ul>
-</li>
-<li><a href="#/populationOf">https://w3id.org/smn/populationOf</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/populationOf&gt; &lt;https://w3id.org/smn/hasPopulation&gt;)</li>
-<li>Added: Range https://w3id.org/smn/ReportingOrManagementStratum</li>
-<li>Added: domain https://w3id.org/smn/Population</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#gYear</li>
 </ul>
 </li>
 </ul></details></div>
