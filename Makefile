@@ -9,7 +9,7 @@ FLAT_TTL := salmon-domain-ontology.ttl
 COMPOSE_FLAT_TTL := $(FLAT_TTL)
 WIDOCO_INPUT := release/tmp/widoco-input.ttl
 
-.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl docs-widoco-input verify-ontology-parse verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata test ci verify-generated-artifacts docs-widoco docs-serializations docs-postprocess docs-refresh snapshot-release release-snapshot release
+.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl docs-widoco-input verify-ontology-parse verify-year-age-semantic-contract verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata test ci verify-generated-artifacts docs-widoco docs-serializations docs-postprocess docs-refresh snapshot-release release-snapshot release
 
 help:
 	@echo "Salmon Domain Ontology build targets"
@@ -19,6 +19,7 @@ help:
 	@echo "  compose-flat-ttl  Build flattened read-only root TTL from source imports"
 	@echo "  docs-widoco-input Build the root-ontology-only input used by WIDOCO"
 	@echo "  verify-ontology-parse  Parse all ontology Turtle files with rdflib"
+	@echo "  verify-year-age-semantic-contract  Verify year, age, abundance, and example semantics"
 	@echo "  verify-flat-ttl  Verify committed flat TTL is in sync with source"
 	@echo "  verify-doc-term-anchors  Verify WIDOCO HTML exposes stable #/Term anchors"
 	@echo "  verify-doc-version-metadata  Verify WIDOCO HTML exposes ontology version metadata"
@@ -94,6 +95,9 @@ docs-widoco-input: compose-flat-ttl
 verify-ontology-parse:
 	@python3 scripts/verify_ontology_parse.py
 
+verify-year-age-semantic-contract:
+	@python3 scripts/verify_year_age_semantic_contract.py
+
 verify-flat-ttl:
 	@python3 scripts/build_rda_case_study_modules.py >/dev/null
 	@tmp=$$(mktemp); \
@@ -112,7 +116,7 @@ verify-doc-term-anchors:
 verify-doc-version-metadata:
 	@python3 scripts/verify_widoco_version_metadata.py
 
-test: verify-ontology-parse verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata
+test: verify-ontology-parse verify-year-age-semantic-contract verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata
 	@echo "Validation bundle completed."
 
 ci: docs-refresh test

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://w3id.org/smn/modules/01-entity-systematics#"
      xml:base="https://w3id.org/smn/modules/01-entity-systematics"
+     xmlns:qb="http://purl.org/linked-data/cube#"
      xmlns:geo="http://www.opengis.net/ont/geosparql#"
      xmlns:ns1="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -18,11 +19,11 @@
         <rdfs:comment xml:lang="en">Conservative shared stock-assessment and benchmark semantics. Policy-program-specific reference classes remain profile-scoped.</rdfs:comment>
         <rdfs:comment xml:lang="en">Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research).</rdfs:comment>
         <rdfs:comment xml:lang="en">Core salmon entities, reporting strata, and composition relationships for cross-agency reuse. Includes migrated reusable structure terms from DFO Salmon Ontology (no removals from DFO source).</rdfs:comment>
-        <rdfs:comment xml:lang="en">Cross-ontology bridge statements for SOSA, I-ADOPT, and Darwin Core interoperability.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Observation and measurement model (SOSA-aligned) with reusable escapement and survey terms migrated from DFO Salmon Ontology.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Cross-ontology bridge statements for SOSA, I-ADOPT, Darwin Core, RDF Data Cube, and OWL-Time interoperability.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Curated shared SKOS layer for reusable year basis, age, context, life-phase, and origin concepts. Policy/program-specific schemes remain profile-scoped by default.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Observation and measurement model (SOSA-aligned) with reusable abundance, typed year-coordinate properties, escapement, and survey terms.</rdfs:comment>
         <rdfs:comment xml:lang="en">Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline.</rdfs:comment>
         <rdfs:comment xml:lang="en">Shared provenance and quality artifact classes. Program-specific confidence vocabularies remain profile-scoped.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Small curated shared SKOS layer. Policy/program-specific schemes are profile-scoped by default.</rdfs:comment>
         <rdfs:label xml:lang="en">Salmon Domain Ontology (modular build)</rdfs:label>
         <rdfs:label xml:lang="en">Salmon Domain Ontology Alignment Module (main-candidate)</rdfs:label>
         <rdfs:label xml:lang="en">Salmon Domain Ontology Module 01: Entity and systematics</rdfs:label>
@@ -73,9 +74,21 @@
 
 
 
+    <!-- http://purl.org/linked-data/cube#concept -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/linked-data/cube#concept"/>
+
+
+
     <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broadMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broadMatch"/>
 
 
 
@@ -109,9 +122,27 @@
 
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation"/>
+
+
+
     <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#relatedMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
 
 
 
@@ -141,6 +172,12 @@
     <!-- http://www.w3.org/2001/XMLSchema#date -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
 
 
 
@@ -316,6 +353,41 @@
     <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- https://w3id.org/smn/broodYear -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smn/broodYear">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- https://w3id.org/smn/catchYear -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smn/catchYear">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- https://w3id.org/smn/returnYear -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/smn/returnYear">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -353,6 +425,12 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_8018">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8015"/>
     </owl:Class>
+
+
+
+    <!-- http://purl.org/linked-data/cube#DimensionProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linked-data/cube#DimensionProperty"/>
 
 
 
@@ -493,6 +571,22 @@
 
 
 
+    <!-- https://w3id.org/smn/Abundance -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Abundance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
+        <ns1:IAO_0000115 xml:lang="en">A characteristic representing the quantity of salmon or other organisms associated with a defined entity, place, and time.</ns1:IAO_0000115>
+        <dcterms:source rdf:resource="http://qudt.org/vocab/quantitykind/Population"/>
+        <rdfs:comment xml:lang="en">Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Abundance</rdfs:label>
+        <skos:broadMatch rdf:resource="http://qudt.org/vocab/quantitykind/Count"/>
+        <skos:closeMatch rdf:resource="http://qudt.org/vocab/quantitykind/Population"/>
+        <skos:relatedMatch rdf:resource="http://rs.tdwg.org/dwc/terms/individualCount"/>
+    </owl:Class>
+
+
+
     <!-- https://w3id.org/smn/AggregatedMeasurement -->
 
     <owl:Class rdf:about="https://w3id.org/smn/AggregatedMeasurement">
@@ -528,6 +622,9 @@
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Catch abundance</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/Abundance"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/CatchYearBasis"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/catchYear"/>
     </owl:Class>
 
 
@@ -957,11 +1054,17 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/RecruitAbundance">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
-        <ns1:IAO_0000115 xml:lang="en">A measurement datum recording the number of recruits contributing to a salmon stock, population, or indicator return series for a defined year basis and assessment context.</ns1:IAO_0000115>
+        <ns1:IAO_0000115 xml:lang="en">A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series.</ns1:IAO_0000115>
         <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</ns1:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
+        <rdfs:comment xml:lang="en">Represent the measured characteristic with smn:Abundance. Use smn:broodYear and smn:returnYear for row-varying xsd:gYear coordinates, and use the separate SKOS basis concepts when a standalone variable description needs the corresponding fixed semantic qualifier.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Recruit abundance</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/Abundance"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/BroodYearBasis"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/ReturnYearBasis"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/broodYear"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/returnYear"/>
     </owl:Class>
 
 
@@ -1253,6 +1356,318 @@
 
 
 
+    <!-- https://w3id.org/smn/AgeAtMaturityBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeAtMaturityBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeBasis"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis"/>
+        <skos:definition xml:lang="en">Age evaluated at biological maturity.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age-at-maturity basis</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeAtReturnBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeAtReturnBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtReturnBasis.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeBasis"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#AgeAtReturnBasis"/>
+        <skos:definition xml:lang="en">Age evaluated at the adult return event relevant to the dataset.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age-at-return basis</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Document the return location or event separately when it affects interpretation.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeAtSamplingBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeAtSamplingBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtSamplingBasis.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeBasis"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis"/>
+        <skos:definition xml:lang="en">Age evaluated at the time of sampling or observation.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age-at-sampling basis</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
+        <skos:definition xml:lang="en">The reference event or life-history point at which a salmon age value applies.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age basis</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeBasisScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeBasisScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasisScheme.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for the reference event or life-history point at which a salmon age applies.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/AgeBasis"/>
+        <skos:prefLabel xml:lang="en">Age basis scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">An integer-like coordinate used to represent one declared component of salmon age.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:prefLabel xml:lang="en">Age-class value</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">This concept and its narrower values do not identify a brood cohort or year class.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue1 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue1">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age1YearClass.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#Age1YearClass"/>
+        <skos:definition xml:lang="en">Age-component value of 1 year.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:notation>
+        <skos:prefLabel xml:lang="en">Age-class value 1 year</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue2 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue2">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age2YearClass.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#Age2YearClass"/>
+        <skos:definition xml:lang="en">Age-component value of 2 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:notation>
+        <skos:prefLabel xml:lang="en">Age-class value 2 years</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue3 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue3">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age3YearClass.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#Age3YearClass"/>
+        <skos:definition xml:lang="en">Age-component value of 3 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:notation>
+        <skos:prefLabel xml:lang="en">Age-class value 3 years</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue4 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue4">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age4YearClass.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#Age4YearClass"/>
+        <skos:definition xml:lang="en">Age-component value of 4 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:notation>
+        <skos:prefLabel xml:lang="en">Age-class value 4 years</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue5 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue5">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age5YearClass.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#Age5YearClass"/>
+        <skos:definition xml:lang="en">Age-component value of 5 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</skos:notation>
+        <skos:prefLabel xml:lang="en">Age-class value 5 years</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue6 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue6">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age6YearClass.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#Age6YearClass"/>
+        <skos:definition xml:lang="en">Age-component value of 6 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</skos:notation>
+        <skos:prefLabel xml:lang="en">Age-class value 6 years</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValue7 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue7">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age7YearClass.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#Age7YearClass"/>
+        <skos:definition xml:lang="en">Age-component value of 7 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</skos:notation>
+        <skos:prefLabel xml:lang="en">Age-class value 7 years</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeClassValueScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValueScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValueScheme.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:definition xml:lang="en">Open controlled vocabulary for evidenced integer-like salmon age-component values.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/AgeClassValue"/>
+        <skos:prefLabel xml:lang="en">Age-class value scheme</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">An age-class value is an age coordinate, not a cohort or year class. Mint additional values only when supported by a use case.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimension.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
+        <skos:definition xml:lang="en">The component of salmon age represented by a value.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Age dimension</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeDimensionScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeDimensionScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimensionScheme.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for the component of salmon age represented by a value.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/AgeDimension"/>
+        <skos:prefLabel xml:lang="en">Age dimension scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeNotation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeNotation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotation"/>
+        <skos:definition xml:lang="en">A notation system used to encode salmon age values in stock-assessment data.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeNotationScheme"/>
+        <skos:prefLabel xml:lang="en">Age notation</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/AgeNotationScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeNotationScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotationScheme.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotationScheme"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for notation systems used to encode salmon age values.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/AgeNotation"/>
+        <skos:prefLabel xml:lang="en">Age notation scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/BroodYearBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/BroodYearBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/YearBasis"/>
+        <skos:closeMatch rdf:resource="http://purl.dataone.org/odo/SALMON_00000520"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#BroodYear"/>
+        <skos:definition xml:lang="en">A year-reference basis in which a calendar year identifies a salmon cohort by the spawning year of its parents.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/YearBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Brood-year basis</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Use smn:broodYear for the xsd:gYear coordinate. The basis concept is not the coordinate value.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/CatchContext -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/CatchContext">
@@ -1264,6 +1679,76 @@
         <skos:definition xml:lang="en">Measurement context indicating values refer to fishery catch.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Catch context</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/CatchYearBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/CatchYearBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted and retyped from GC DFO Salmon Ontology term gcdfo:CatchYear.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/YearBasis"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#CatchYear"/>
+        <skos:definition xml:lang="en">A year-reference basis in which a calendar year identifies when the represented fishery catch occurred.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/YearBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Catch-year basis</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Use smn:catchYear for the xsd:gYear coordinate. A catch year is not interchangeable with the return year of the fish.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/EuropeanAgeNotation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/EuropeanAgeNotation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:EuropeanAgeNotation.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeNotation"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#EuropeanAgeNotation"/>
+        <skos:definition xml:lang="en">Salmon age notation that records the freshwater-age component followed by the ocean-age component, commonly separated by a period.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeNotationScheme"/>
+        <skos:notation>European</skos:notation>
+        <skos:prefLabel xml:lang="en">European age notation</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">For example, 1.2 represents freshwater-age value 1 and ocean-age value 2 when the source declares European notation.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/FreshwaterAgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/FreshwaterAgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:FreshwaterAgeDimension.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeDimension"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension"/>
+        <skos:definition xml:lang="en">Age dimension whose value represents the freshwater component of salmon age under the declared age convention.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Freshwater-age dimension</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/GilbertRichAgeNotation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/GilbertRichAgeNotation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:GilbertRichAgeNotation.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">GR age notation</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeNotation"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation"/>
+        <skos:definition xml:lang="en">Salmon age notation in which total age is annotated with the freshwater-age component as a subscript-like suffix.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeNotationScheme"/>
+        <skos:notation>Gilbert-Rich</skos:notation>
+        <skos:prefLabel xml:lang="en">Gilbert-Rich age notation</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">For example, an encoded value 42 may decompose to total-age value 4 and freshwater-age value 2 only when the source declares Gilbert-Rich notation. Do not infer that decomposition from a two-digit string alone.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1384,6 +1869,23 @@
 
 
 
+    <!-- https://w3id.org/smn/OceanAgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/OceanAgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:OceanAgeDimension.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">Marine-age dimension</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeDimension"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#OceanAgeDimension"/>
+        <skos:definition xml:lang="en">Age dimension whose value represents the marine component of salmon age under the declared age convention.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Ocean-age dimension</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/OceanPhase -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/OceanPhase">
@@ -1396,6 +1898,22 @@
         <skos:definition xml:lang="en">Phase of the salmon life cycle or assessment period occurring in the marine environment.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">Ocean phase</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/ReturnYearBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ReturnYearBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/YearBasis"/>
+        <skos:definition xml:lang="en">A year-reference basis in which a calendar year identifies when members of a salmon cohort make the adult return relevant to the dataset&apos;s declared location or event.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/YearBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Return-year basis</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Return year and catch year are distinct. Document the location or event at which return is defined separately; use smn:returnYear for the xsd:gYear coordinate.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1488,6 +2006,78 @@
 
 
 
+    <!-- https://w3id.org/smn/TotalAgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/TotalAgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:TotalAgeDimension.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/AgeDimension"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#TotalAgeDimension"/>
+        <skos:definition xml:lang="en">Age dimension whose value represents total salmon age under the declared age convention.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Total-age dimension</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/YearBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/YearBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted and retyped from GC DFO Salmon Ontology term gcdfo:YearBasis.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:comment xml:lang="en">A fixed year basis may qualify a standalone I-ADOPT variable, while row-varying year coordinates remain Data Cube dimensions.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/gcdfo/salmon#YearBasis"/>
+        <skos:definition xml:lang="en">The biological, assessment, or fishery reference role used to interpret a calendar-year coordinate.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/YearBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Year basis</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/YearBasisScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/YearBasisScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Adapted and retyped from GC DFO Salmon Ontology year-basis classes.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for the biological, assessment, or fishery role that gives meaning to a calendar-year coordinate.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/YearBasis"/>
+        <skos:prefLabel xml:lang="en">Year basis scheme</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Calendar representation is not itself a year basis. Use a separate datatype property with an xsd:gYear value for the coordinate.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/broodYear -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/broodYear">
+        <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/catchYear -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/catchYear">
+        <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/returnYear -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/returnYear">
+        <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+    </owl:NamedIndividual>
+
+
+
     <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1503,6 +2093,36 @@
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/smn/FisheriesReferencePointLower">
         <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/smn/broodYear">
+        <ns1:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents.</ns1:IAO_0000115>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
+        <qb:concept rdf:resource="https://w3id.org/smn/BroodYearBasis"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">brood year</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#inXSDgYear"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/BroodYearBasis"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/smn/catchYear">
+        <ns1:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year in which the represented fishery catch occurred.</ns1:IAO_0000115>
+        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:CatchYear.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
+        <qb:concept rdf:resource="https://w3id.org/smn/CatchYearBasis"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">catch year</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#inXSDgYear"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/CatchYearBasis"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/smn/returnYear">
+        <ns1:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year in which members of a salmon cohort make the adult return relevant to the dataset&apos;s declared location or event.</ns1:IAO_0000115>
+        <ns1:IAO_0000119 xml:lang="en">Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/"/>
+        <qb:concept rdf:resource="https://w3id.org/smn/ReturnYearBasis"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">return year</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/2006/time#inXSDgYear"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/ReturnYearBasis"/>
     </rdf:Description>
 </rdf:RDF>
 

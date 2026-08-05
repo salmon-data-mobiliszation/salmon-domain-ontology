@@ -1,0 +1,194 @@
+@prefix ex: <https://w3id.org/smn/example/fraser-stock-recruit#> .
+@prefix smn: <https://w3id.org/smn/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/smn/example/fraser-stock-recruit> a owl:Ontology ;
+  rdfs:label "Fraser Sockeye stock-recruit year and age example"@en ;
+  rdfs:comment "Non-normative example showing separate year bases, year coordinates, age axes, mixed measurement grain, and SOSA procedures. Illustrative values are not a publication of the source dataset."@en ;
+  dcterms:source <https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/> ;
+  owl:imports <https://w3id.org/smn> .
+
+#################################################################
+# Example component properties
+#################################################################
+
+ex:stock a qb:DimensionProperty ;
+  rdfs:label "stock"@en ;
+  rdfs:range smn:Stock .
+
+ex:totalAge a qb:CodedProperty, qb:DimensionProperty ;
+  rdfs:label "total age"@en ;
+  qb:codeList smn:AgeClassValueScheme ;
+  qb:concept smn:TotalAgeDimension .
+
+ex:freshwaterAge a qb:CodedProperty, qb:DimensionProperty ;
+  rdfs:label "freshwater age"@en ;
+  qb:codeList smn:AgeClassValueScheme ;
+  qb:concept smn:FreshwaterAgeDimension .
+
+ex:ageNotation a qb:AttributeProperty, qb:CodedProperty ;
+  rdfs:label "age notation"@en ;
+  qb:codeList smn:AgeNotationScheme .
+
+ex:ageBasis a qb:AttributeProperty, qb:CodedProperty ;
+  rdfs:label "age basis"@en ;
+  qb:codeList smn:AgeBasisScheme .
+
+ex:abundanceEstimate a qb:MeasureProperty ;
+  rdfs:label "abundance estimate"@en ;
+  rdfs:comment "Example Data Cube measure whose observed characteristic is an instance of smn:Abundance."@en ;
+  rdfs:range xsd:decimal ;
+  rdfs:seeAlso smn:Abundance .
+
+#################################################################
+# Data structures make the two measurement grains explicit
+#################################################################
+
+ex:stockComponent a qb:ComponentSpecification ;
+  qb:dimension ex:stock ;
+  qb:order 1 .
+
+ex:spawnerBroodYearComponent a qb:ComponentSpecification ;
+  qb:dimension smn:broodYear ;
+  qb:order 2 .
+
+ex:spawnerAbundanceComponent a qb:ComponentSpecification ;
+  qb:measure ex:abundanceEstimate .
+
+ex:spawnerEstimateDSD a qb:DataStructureDefinition ;
+  rdfs:label "Stock-by-brood-year spawner estimate structure"@en ;
+  qb:component ex:stockComponent,
+    ex:spawnerBroodYearComponent,
+    ex:spawnerAbundanceComponent .
+
+ex:recruitStockComponent a qb:ComponentSpecification ;
+  qb:dimension ex:stock ;
+  qb:order 1 .
+
+ex:recruitBroodYearComponent a qb:ComponentSpecification ;
+  qb:dimension smn:broodYear ;
+  qb:order 2 .
+
+ex:recruitReturnYearComponent a qb:ComponentSpecification ;
+  qb:dimension smn:returnYear ;
+  qb:order 3 .
+
+ex:recruitTotalAgeComponent a qb:ComponentSpecification ;
+  qb:dimension ex:totalAge ;
+  qb:order 4 .
+
+ex:recruitFreshwaterAgeComponent a qb:ComponentSpecification ;
+  qb:dimension ex:freshwaterAge ;
+  qb:order 5 .
+
+ex:recruitAbundanceComponent a qb:ComponentSpecification ;
+  qb:measure ex:abundanceEstimate .
+
+ex:recruitAgeNotationComponent a qb:ComponentSpecification ;
+  qb:attribute ex:ageNotation ;
+  qb:componentAttachment qb:DataSet ;
+  qb:componentRequired true .
+
+ex:recruitAgeBasisComponent a qb:ComponentSpecification ;
+  qb:attribute ex:ageBasis ;
+  qb:componentAttachment qb:DataSet ;
+  qb:componentRequired true .
+
+ex:recruitEstimateDSD a qb:DataStructureDefinition ;
+  rdfs:label "Stock-by-brood-year-by-return-year-by-age recruit estimate structure"@en ;
+  qb:component ex:recruitStockComponent,
+    ex:recruitBroodYearComponent,
+    ex:recruitReturnYearComponent,
+    ex:recruitTotalAgeComponent,
+    ex:recruitFreshwaterAgeComponent,
+    ex:recruitAbundanceComponent,
+    ex:recruitAgeNotationComponent,
+    ex:recruitAgeBasisComponent .
+
+#################################################################
+# Local compound variable concepts stay in profile/example SKOS
+#################################################################
+
+ex:BroodYearSpawnerAbundanceVariable a skos:Concept, iadopt:Variable ;
+  skos:prefLabel "Brood-year spawner abundance variable"@en ;
+  skos:definition "Local variable concept for spawner abundance indexed by brood year."@en ;
+  iadopt:hasProperty ex:salmonAbundanceProperty ;
+  iadopt:hasObjectOfInterest ex:FraserSockeyeStock ;
+  iadopt:hasConstraint smn:BroodYearBasis, smn:SpawnerStageContext .
+
+ex:BroodReturnYearAgeRecruitAbundanceVariable a skos:Concept, iadopt:Variable ;
+  skos:prefLabel "Brood-year, return-year, age-at-return recruit abundance variable"@en ;
+  skos:definition "Local standalone variable concept whose row-varying coordinates are bound canonically by the recruit Data Cube structure."@en ;
+  iadopt:hasProperty ex:salmonAbundanceProperty ;
+  iadopt:hasObjectOfInterest ex:FraserSockeyeStock ;
+  iadopt:hasConstraint smn:BroodYearBasis,
+    smn:ReturnYearBasis,
+    smn:AgeAtReturnBasis,
+    smn:GilbertRichAgeNotation .
+
+#################################################################
+# Illustrative data and explicit procedures
+#################################################################
+
+ex:FraserSockeyeStock a smn:Stock ;
+  rdfs:label "Illustrative Fraser Sockeye stock"@en .
+
+ex:salmonAbundanceProperty a smn:Abundance ;
+  rdfs:label "abundance of salmon in the defined reporting unit"@en .
+
+ex:spawnerEstimationProcedure a sosa:Procedure ;
+  rdfs:label "illustrative spawner estimation procedure"@en .
+
+ex:scaleAgeDeterminationProcedure a sosa:Procedure ;
+  rdfs:label "illustrative scale age-determination procedure"@en ;
+  rdfs:comment "The procedure that produced the age determination is separate from Gilbert-Rich notation, age-at-return basis, and the represented age components."@en .
+
+ex:fraserSpawnerEstimates a qb:DataSet ;
+  rdfs:label "Illustrative stock-by-brood-year spawner estimates"@en ;
+  qb:structure ex:spawnerEstimateDSD .
+
+ex:spawners2000 a qb:Observation, sosa:Observation ;
+  qb:dataSet ex:fraserSpawnerEstimates ;
+  ex:stock ex:FraserSockeyeStock ;
+  smn:broodYear "2000"^^xsd:gYear ;
+  ex:abundanceEstimate 1000 ;
+  sosa:observedProperty ex:salmonAbundanceProperty ;
+  sosa:hasSimpleResult 1000 ;
+  sosa:usedProcedure ex:spawnerEstimationProcedure .
+
+ex:fraserRecruitEstimates a qb:DataSet ;
+  rdfs:label "Illustrative age-specific recruit estimates"@en ;
+  qb:structure ex:recruitEstimateDSD ;
+  ex:ageNotation smn:GilbertRichAgeNotation ;
+  ex:ageBasis smn:AgeAtReturnBasis .
+
+ex:recruits2000_2004_age42 a qb:Observation, sosa:Observation ;
+  qb:dataSet ex:fraserRecruitEstimates ;
+  ex:stock ex:FraserSockeyeStock ;
+  smn:broodYear "2000"^^xsd:gYear ;
+  smn:returnYear "2004"^^xsd:gYear ;
+  ex:totalAge smn:AgeClassValue4 ;
+  ex:freshwaterAge smn:AgeClassValue2 ;
+  ex:abundanceEstimate 300 ;
+  sosa:observedProperty ex:salmonAbundanceProperty ;
+  sosa:hasSimpleResult 300 ;
+  sosa:usedProcedure ex:scaleAgeDeterminationProcedure .
+
+ex:recruits2000_2005_age52 a qb:Observation, sosa:Observation ;
+  qb:dataSet ex:fraserRecruitEstimates ;
+  ex:stock ex:FraserSockeyeStock ;
+  smn:broodYear "2000"^^xsd:gYear ;
+  smn:returnYear "2005"^^xsd:gYear ;
+  ex:totalAge smn:AgeClassValue5 ;
+  ex:freshwaterAge smn:AgeClassValue2 ;
+  ex:abundanceEstimate 450 ;
+  sosa:observedProperty ex:salmonAbundanceProperty ;
+  sosa:hasSimpleResult 450 ;
+  sosa:usedProcedure ex:scaleAgeDeterminationProcedure .

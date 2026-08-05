@@ -4,6 +4,9 @@
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix dwc:     <http://rs.tdwg.org/dwc/terms/> .
 @prefix ro:      <http://purl.obolibrary.org/obo/RO_> .
+@prefix gcdfo:   <https://w3id.org/gcdfo/salmon#> .
+@prefix odo:     <http://purl.dataone.org/odo/> .
+@prefix qk:      <http://qudt.org/vocab/quantitykind/> .
 
 <https://w3id.org/smn/modules/alignment-main> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Alignment Module (main-candidate)"@en ;
@@ -24,6 +27,42 @@ smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>
 
 smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 smn:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+
+smn:Abundance skos:closeMatch qk:Population ;
+  skos:broadMatch qk:Count ;
+  skos:relatedMatch dwc:individualCount .
+
+smn:YearBasis skos:closeMatch gcdfo:YearBasis .
+smn:BroodYearBasis skos:closeMatch gcdfo:BroodYear, odo:SALMON_00000520 .
+smn:CatchYearBasis skos:closeMatch gcdfo:CatchYear .
+
+smn:AgeNotation skos:closeMatch gcdfo:AgeNotation .
+smn:GilbertRichAgeNotation skos:closeMatch gcdfo:GilbertRichAgeNotation .
+smn:EuropeanAgeNotation skos:closeMatch gcdfo:EuropeanAgeNotation .
+
+smn:AgeBasis skos:closeMatch gcdfo:AgeBasis .
+smn:AgeAtReturnBasis skos:closeMatch gcdfo:AgeAtReturnBasis .
+smn:AgeAtMaturityBasis skos:closeMatch gcdfo:AgeAtMaturityBasis .
+smn:AgeAtSamplingBasis skos:closeMatch gcdfo:AgeAtSamplingBasis .
+
+smn:AgeDimension skos:closeMatch gcdfo:AgeDimension .
+smn:TotalAgeDimension skos:closeMatch gcdfo:TotalAgeDimension .
+smn:FreshwaterAgeDimension skos:closeMatch gcdfo:FreshwaterAgeDimension .
+smn:OceanAgeDimension skos:closeMatch gcdfo:OceanAgeDimension .
+
+smn:AgeClassValue skos:closeMatch gcdfo:AgeClassValue .
+smn:AgeClassValue1 skos:closeMatch gcdfo:Age1YearClass .
+smn:AgeClassValue2 skos:closeMatch gcdfo:Age2YearClass .
+smn:AgeClassValue3 skos:closeMatch gcdfo:Age3YearClass .
+smn:AgeClassValue4 skos:closeMatch gcdfo:Age4YearClass .
+smn:AgeClassValue5 skos:closeMatch gcdfo:Age5YearClass .
+smn:AgeClassValue6 skos:closeMatch gcdfo:Age6YearClass .
+smn:AgeClassValue7 skos:closeMatch gcdfo:Age7YearClass .
+
+smn:AgeNotationScheme rdfs:seeAlso gcdfo:AgeNotationScheme .
+smn:AgeBasisScheme rdfs:seeAlso gcdfo:AgeBasisScheme .
+smn:AgeDimensionScheme rdfs:seeAlso gcdfo:AgeDimensionScheme .
+smn:AgeClassValueScheme rdfs:seeAlso gcdfo:AgeClassValueScheme .
 
 #################################################################
 # Safe property reuse links

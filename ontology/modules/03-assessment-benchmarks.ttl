@@ -23,6 +23,7 @@ smn:ObservedRateOrAbundance a owl:Class ;
 smn:CatchAbundance a owl:Class ;
   rdfs:label "Catch abundance"@en ;
   iao:0000115 "A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context."@en ;
+  rdfs:seeAlso smn:Abundance, smn:catchYear, smn:CatchYearBasis ;
   rdfs:subClassOf smn:ObservedRateOrAbundance ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
@@ -30,7 +31,9 @@ smn:CatchAbundance a owl:Class ;
 
 smn:RecruitAbundance a owl:Class ;
   rdfs:label "Recruit abundance"@en ;
-  iao:0000115 "A measurement datum recording the number of recruits contributing to a salmon stock, population, or indicator return series for a defined year basis and assessment context."@en ;
+  iao:0000115 "A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series."@en ;
+  rdfs:comment "Represent the measured characteristic with smn:Abundance. Use smn:broodYear and smn:returnYear for row-varying xsd:gYear coordinates, and use the separate SKOS basis concepts when a standalone variable description needs the corresponding fixed semantic qualifier."@en ;
+  rdfs:seeAlso smn:Abundance, smn:broodYear, smn:returnYear, smn:BroodYearBasis, smn:ReturnYearBasis ;
   rdfs:subClassOf smn:ObservedRateOrAbundance ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;

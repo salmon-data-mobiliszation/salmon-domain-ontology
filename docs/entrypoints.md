@@ -17,6 +17,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 - Build the root-ontology-only WIDOCO input: `make docs-widoco-input`
 - Verify flat TTL is up-to-date: `make verify-flat-ttl`
 - Verify ontology Turtle parses cleanly: `make verify-ontology-parse`
+- Verify year/age/abundance semantic contracts and the mixed-grain example: `make verify-year-age-semantic-contract`
 - Verify WIDOCO term anchors stay stable: `make verify-doc-term-anchors`
 - Verify WIDOCO version metadata renders from source: `make verify-doc-version-metadata`
 - Run the fast validation bundle: `make test`
@@ -35,6 +36,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - `docs/smn.ttl` / `docs/smn.owl` / `docs/smn.jsonld` - latest downloadable serializations
   - `docs/releases/<version>/` - immutable release snapshot surface
   - `ontology/views/salmon-data-metamodel.ttl` - optional non-normative metamodel view (not part of default imports)
+  - `ontology/examples/fraser-stock-recruit-year-age.ttl` - non-normative Data Cube/SOSA competency example (not part of default imports)
 
 ## Test
 
@@ -46,6 +48,10 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - Rebuild and verify the flat master artifact does not drift:
     ```bash
     make verify-flat-ttl
+    ```
+  - Verify year-basis, age-axis, abundance, mapping, and worked-example contracts:
+    ```bash
+    make verify-year-age-semantic-contract
     ```
   - Verify documented `smn:` terms still expose stable WIDOCO `#/Term` anchors:
     ```bash
@@ -98,6 +104,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - `08` and `09` are assembled from split files under `ontology/case-studies/rda-juvenile-condition/`.
 
 - Optional metamodel view surface -> `ontology/views/salmon-data-metamodel.ttl` + supporting files under `ontology/views/` (kept out of the shared-core import spine by default)
+- Year/age competency example -> `ontology/examples/fraser-stock-recruit-year-age.ttl` (non-normative and deliberately not imported)
 
 - `https://w3id.org/smn` root, release, and canonical term-path routes are live via W3ID publication config; the term-dereferencing contract is mirrored under `docs/publishing/w3id-term-dereference-draft/`
 - Modeling rules and boundary decisions -> `CONVENTIONS.md` + `docs/migrations/phase2-boundary-rules.md`

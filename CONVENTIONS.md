@@ -211,3 +211,25 @@ If you care how WIDOCO/docs render, put the definition on the term itself using 
 6. Estimate type and downgrade-criteria schemes/concepts
 
 These decisions are revisited only with explicit governance review and evidence.
+
+## 12) Year, age, abundance, and method composition
+
+Keep these roles separate:
+
+1. **Basis concept:** a SKOS value describing why a coordinate has its biological or assessment meaning, such as `BroodYearBasis` or `AgeAtReturnBasis`.
+2. **Dimension property:** an RDF/table property carrying a row-varying coordinate, such as `smn:broodYear` with an `xsd:gYear` value.
+3. **Coordinate value:** the literal or code at one observation, such as `"2020"^^xsd:gYear` or `smn:AgeClassValue4`.
+4. **Notation:** the declared encoding convention needed to parse a source value, such as Gilbert–Rich notation.
+5. **Procedure:** the method used to determine or estimate a result, represented with `sosa:Procedure` and linked from an observation with `sosa:usedProcedure`.
+
+Operational rules:
+
+- Never reuse one IRI as both a basis concept and a dimension property.
+- Calendar representation is not a biological year basis.
+- A row-varying year or age coordinate is a data dimension, not a fixed constraint on the entire measure column.
+- A fixed basis, notation, or age component may qualify a standalone I-ADOPT variable description when useful, but the canonical data-shape binding remains explicit.
+- Use `smn:Abundance` for the reusable measured characteristic. State absolute/relative status, estimate semantics, units, statistical modifiers, contexts, and procedures separately.
+- Keep compound dataset variables in profile/project SKOS, optionally typed as I-ADOPT variables. Promote only atomic, demonstrably reusable semantics to shared OWL.
+- Mixed-grain tables must bind each measure to the dimensions that actually vary for it; row membership alone is insufficient.
+
+See `docs/adr/0002-year-age-basis-dimensions-and-abundance.md` and `ontology/examples/fraser-stock-recruit-year-age.ttl` for the normative decision and a non-normative example.

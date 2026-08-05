@@ -32,8 +32,8 @@ This folder is the canonical ontology source for the Salmon Domain Ontology. Eve
   - Use case: anchoring `entity_iri` and high-level relationships.
 
 2. **`modules/02-observation-measurement.ttl`**
-  - Observations and measurements, SOSA-aligned patterns, measurement-event primitives.
-  - Use case: anchoring `property_iri`, `unit`-adjacent modeling, and base measurement semantics.
+  - Observations and measurements, SOSA-aligned patterns, shared abundance, typed year-coordinate properties, and measurement-event primitives.
+  - Use case: anchoring `property_iri`, row-varying year coordinates, `unit`-adjacent modeling, and base measurement semantics.
 
 3. **`modules/03-assessment-benchmarks.ttl`**
   - Assessment and benchmark classes: reference points, benchmark framing, exploitation semantics.
@@ -48,11 +48,11 @@ This folder is the canonical ontology source for the Salmon Domain Ontology. Eve
   - Use case: provenance pipelines and quality reporting.
 
 6. **`modules/06-data-interoperability.ttl`**
-  - Crosswalk axioms for SOSA/I-ADOPT/Darwin Core interoperability.
+  - Crosswalk axioms for SOSA/I-ADOPT/Darwin Core interoperability, with conservative RDF Data Cube and OWL-Time bridges.
   - Use case: interoperability-focused profiles and mappings, not required for bare-minimum domain mapping.
 
 7. **`modules/07-controlled-vocabularies.ttl`**
-  - Shared SKOS control layers for context/facet concepts (life phase, origin, measurement context, etc.).
+  - Shared SKOS control layers for year basis, salmon age axes, life phase, origin, measurement context, and related facets.
   - Use case: statistical modifiers and constrained categorical terms.
 
 ### Bridge/profile modules
@@ -85,6 +85,12 @@ This folder is the canonical ontology source for the Salmon Domain Ontology. Eve
 - **`views/*.ttl`**
   - Focused slices for entity, property, variable, method/protocol, event/observation, result/datum, and provenance.
   - These files are the right home for optional upper-level framing that should stay out of `01`–`07` by default.
+
+### Non-normative examples
+
+- **`examples/fraser-stock-recruit-year-age.ttl`**
+  - Worked RDF Data Cube/SOSA example separating year bases, typed coordinates, Gilbert–Rich age components, mixed measurement grain, and procedures.
+  - Not imported by the canonical ontology and not a publication of the PSC source data.
 
 ### How case-study modules map to the onboarding workflow
 

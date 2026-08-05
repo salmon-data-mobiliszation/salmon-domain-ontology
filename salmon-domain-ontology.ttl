@@ -7,6 +7,7 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix ns1: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
@@ -23,12 +24,123 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/iadopt/ont/Variable> a owl:Class .
 
+<https://w3id.org/smn/AgeAtMaturityBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeBasis> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis> ;
+    skos:definition "Age evaluated at biological maturity."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeBasisScheme> ;
+    skos:prefLabel "Age-at-maturity basis"@en .
+
+<https://w3id.org/smn/AgeAtReturnBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtReturnBasis."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeBasis> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#AgeAtReturnBasis> ;
+    skos:definition "Age evaluated at the adult return event relevant to the dataset."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeBasisScheme> ;
+    skos:prefLabel "Age-at-return basis"@en ;
+    skos:scopeNote "Document the return location or event separately when it affects interpretation."@en .
+
+<https://w3id.org/smn/AgeAtSamplingBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtSamplingBasis."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeBasis> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis> ;
+    skos:definition "Age evaluated at the time of sampling or observation."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeBasisScheme> ;
+    skos:prefLabel "Age-at-sampling basis"@en .
+
+<https://w3id.org/smn/AgeClassValue1> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age1YearClass."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeClassValue> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#Age1YearClass> ;
+    skos:definition "Age-component value of 1 year."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:notation 1 ;
+    skos:prefLabel "Age-class value 1 year"@en .
+
+<https://w3id.org/smn/AgeClassValue2> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age2YearClass."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeClassValue> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#Age2YearClass> ;
+    skos:definition "Age-component value of 2 years."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:notation 2 ;
+    skos:prefLabel "Age-class value 2 years"@en .
+
+<https://w3id.org/smn/AgeClassValue3> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age3YearClass."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeClassValue> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#Age3YearClass> ;
+    skos:definition "Age-component value of 3 years."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:notation 3 ;
+    skos:prefLabel "Age-class value 3 years"@en .
+
+<https://w3id.org/smn/AgeClassValue4> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age4YearClass."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeClassValue> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#Age4YearClass> ;
+    skos:definition "Age-component value of 4 years."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:notation 4 ;
+    skos:prefLabel "Age-class value 4 years"@en .
+
+<https://w3id.org/smn/AgeClassValue5> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age5YearClass."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeClassValue> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#Age5YearClass> ;
+    skos:definition "Age-component value of 5 years."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:notation 5 ;
+    skos:prefLabel "Age-class value 5 years"@en .
+
+<https://w3id.org/smn/AgeClassValue6> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age6YearClass."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeClassValue> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#Age6YearClass> ;
+    skos:definition "Age-component value of 6 years."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:notation 6 ;
+    skos:prefLabel "Age-class value 6 years"@en .
+
+<https://w3id.org/smn/AgeClassValue7> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age7YearClass."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeClassValue> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#Age7YearClass> ;
+    skos:definition "Age-component value of 7 years."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:notation 7 ;
+    skos:prefLabel "Age-class value 7 years"@en .
+
 <https://w3id.org/smn/CatchAbundance> a owl:Class ;
     rdfs:label "Catch abundance"@en ;
     ns1:IAO_0000115 "A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context."@en ;
     ns1:IAO_0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
     dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/smn/Abundance>,
+        <https://w3id.org/smn/CatchYearBasis>,
+        <https://w3id.org/smn/catchYear> ;
     rdfs:subClassOf <https://w3id.org/smn/ObservedRateOrAbundance> .
 
 <https://w3id.org/smn/CatchContext> a skos:Concept ;
@@ -72,6 +184,18 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:subClassOf <https://w3id.org/smn/SurveyEvent> ;
     skos:closeMatch sosa:Sampling .
 
+<https://w3id.org/smn/EuropeanAgeNotation> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:EuropeanAgeNotation."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeNotation> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#EuropeanAgeNotation> ;
+    skos:definition "Salmon age notation that records the freshwater-age component followed by the ocean-age component, commonly separated by a period."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeNotationScheme> ;
+    skos:notation "European"^^xsd:string ;
+    skos:prefLabel "European age notation"@en ;
+    skos:scopeNote "For example, 1.2 represents freshwater-age value 1 and ocean-age value 2 when the source declares European notation."@en .
+
 <https://w3id.org/smn/FishWeight> a owl:Class ;
     rdfs:label "Fish weight"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
@@ -96,6 +220,29 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:label "Fork-length lab method"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/ForkLengthMeasurementMethod> .
+
+<https://w3id.org/smn/FreshwaterAgeDimension> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:FreshwaterAgeDimension."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeDimension> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension> ;
+    skos:definition "Age dimension whose value represents the freshwater component of salmon age under the declared age convention."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeDimensionScheme> ;
+    skos:prefLabel "Freshwater-age dimension"@en .
+
+<https://w3id.org/smn/GilbertRichAgeNotation> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:GilbertRichAgeNotation."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:altLabel "GR age notation"@en ;
+    skos:broader <https://w3id.org/smn/AgeNotation> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation> ;
+    skos:definition "Salmon age notation in which total age is annotated with the freshwater-age component as a subscript-like suffix."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeNotationScheme> ;
+    skos:notation "Gilbert-Rich"^^xsd:string ;
+    skos:prefLabel "Gilbert-Rich age notation"@en ;
+    skos:scopeNote "For example, an encoded value 42 may decompose to total-age value 4 and freshwater-age value 2 only when the source declares Gilbert-Rich notation. Do not infer that decomposition from a two-digit string alone."@en .
 
 <https://w3id.org/smn/HabitatUnit> a owl:Class ;
     rdfs:label "Habitat unit"@en ;
@@ -184,6 +331,17 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     skos:inScheme <https://w3id.org/smn/SalmonOriginScheme> ;
     skos:prefLabel "Natural-origin"@en .
 
+<https://w3id.org/smn/OceanAgeDimension> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:OceanAgeDimension."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:altLabel "Marine-age dimension"@en ;
+    skos:broader <https://w3id.org/smn/AgeDimension> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#OceanAgeDimension> ;
+    skos:definition "Age dimension whose value represents the marine component of salmon age under the declared age convention."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeDimensionScheme> ;
+    skos:prefLabel "Ocean-age dimension"@en .
+
 <https://w3id.org/smn/OceanPhase> a skos:Concept ;
     ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:OceanPhase."@en ;
     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
@@ -196,10 +354,16 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/smn/RecruitAbundance> a owl:Class ;
     rdfs:label "Recruit abundance"@en ;
-    ns1:IAO_0000115 "A measurement datum recording the number of recruits contributing to a salmon stock, population, or indicator return series for a defined year basis and assessment context."@en ;
+    ns1:IAO_0000115 "A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series."@en ;
     ns1:IAO_0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
     dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+    rdfs:comment "Represent the measured characteristic with smn:Abundance. Use smn:broodYear and smn:returnYear for row-varying xsd:gYear coordinates, and use the separate SKOS basis concepts when a standalone variable description needs the corresponding fixed semantic qualifier."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/smn/Abundance>,
+        <https://w3id.org/smn/BroodYearBasis>,
+        <https://w3id.org/smn/ReturnYearBasis>,
+        <https://w3id.org/smn/broodYear>,
+        <https://w3id.org/smn/returnYear> ;
     rdfs:subClassOf <https://w3id.org/smn/ObservedRateOrAbundance> .
 
 <https://w3id.org/smn/Run> a owl:Class ;
@@ -281,6 +445,16 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     skos:inScheme <https://w3id.org/smn/LifePhaseScheme> ;
     skos:prefLabel "Terminal phase"@en .
 
+<https://w3id.org/smn/TotalAgeDimension> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:TotalAgeDimension."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/AgeDimension> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#TotalAgeDimension> ;
+    skos:definition "Age dimension whose value represents total salmon age under the declared age convention."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeDimensionScheme> ;
+    skos:prefLabel "Total-age dimension"@en .
+
 <https://w3id.org/smn/TotalExploitationRate> a owl:Class ;
     rdfs:label "Total exploitation rate"@en ;
     ns1:IAO_0000115 "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en ;
@@ -338,7 +512,7 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/smn/modules/02-observation-measurement> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology Module 02: Observation and measurement"@en ;
-    rdfs:comment "Observation and measurement model (SOSA-aligned) with reusable escapement and survey terms migrated from DFO Salmon Ontology."@en .
+    rdfs:comment "Observation and measurement model (SOSA-aligned) with reusable abundance, typed year-coordinate properties, escapement, and survey terms."@en .
 
 <https://w3id.org/smn/modules/03-assessment-benchmarks> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology Module 03: Assessment and benchmarks"@en ;
@@ -354,11 +528,11 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/smn/modules/06-data-interoperability> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology Module 06: Data interoperability"@en ;
-    rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, and Darwin Core interoperability."@en .
+    rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, Darwin Core, RDF Data Cube, and OWL-Time interoperability."@en .
 
 <https://w3id.org/smn/modules/07-controlled-vocabularies> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
-    rdfs:comment "Small curated shared SKOS layer. Policy/program-specific schemes are profile-scoped by default."@en .
+    rdfs:comment "Curated shared SKOS layer for reusable year basis, age, context, life-phase, and origin concepts. Policy/program-specific schemes remain profile-scoped by default."@en .
 
 <https://w3id.org/smn/modules/alignment-main> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology Alignment Module (main-candidate)"@en ;
@@ -505,6 +679,30 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:range <https://w3id.org/smn/EnumerationMethod> .
 
+<https://w3id.org/smn/broodYear> a qb:DimensionProperty,
+        owl:DatatypeProperty ;
+    rdfs:label "brood year"@en ;
+    ns1:IAO_0000115 "Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents."@en ;
+    ns1:IAO_0000119 "Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+    qb:concept <https://w3id.org/smn/BroodYearBasis> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:range xsd:gYear ;
+    rdfs:seeAlso time:inXSDgYear,
+        <https://w3id.org/smn/BroodYearBasis> .
+
+<https://w3id.org/smn/catchYear> a qb:DimensionProperty,
+        owl:DatatypeProperty ;
+    rdfs:label "catch year"@en ;
+    ns1:IAO_0000115 "Relates a data record or observation to the calendar year in which the represented fishery catch occurred."@en ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:CatchYear."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    qb:concept <https://w3id.org/smn/CatchYearBasis> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:range xsd:gYear ;
+    rdfs:seeAlso time:inXSDgYear,
+        <https://w3id.org/smn/CatchYearBasis> .
+
 <https://w3id.org/smn/forkLength> a owl:Class ;
     rdfs:label "Fork length"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
@@ -528,6 +726,18 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:range <https://w3id.org/smn/Population> ;
     rdfs:subPropertyOf ns1:RO_0002351 .
 
+<https://w3id.org/smn/returnYear> a qb:DimensionProperty,
+        owl:DatatypeProperty ;
+    rdfs:label "return year"@en ;
+    ns1:IAO_0000115 "Relates a data record or observation to the calendar year in which members of a salmon cohort make the adult return relevant to the dataset's declared location or event."@en ;
+    ns1:IAO_0000119 "Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data."@en ;
+    dcterms:source <https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/> ;
+    qb:concept <https://w3id.org/smn/ReturnYearBasis> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:range xsd:gYear ;
+    rdfs:seeAlso time:inXSDgYear,
+        <https://w3id.org/smn/ReturnYearBasis> .
+
 ns1:NCBITaxon_8018 rdfs:subClassOf ns1:NCBITaxon_8015 .
 
 geo:Feature rdfs:subClassOf sosa:FeatureOfInterest .
@@ -539,7 +749,16 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
     skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity> ;
     sosa:isResultOf sosa:Sampling .
 
-<https://w3id.org/iadopt/ont/Constraint> a owl:Class .
+<https://w3id.org/smn/Abundance> a owl:Class ;
+    rdfs:label "Abundance"@en ;
+    ns1:IAO_0000115 "A characteristic representing the quantity of salmon or other organisms associated with a defined entity, place, and time."@en ;
+    dcterms:source <http://qudt.org/vocab/quantitykind/Population> ;
+    rdfs:comment "Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class."@en ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:subClassOf <https://w3id.org/smn/Characteristic> ;
+    skos:broadMatch <http://qudt.org/vocab/quantitykind/Count> ;
+    skos:closeMatch <http://qudt.org/vocab/quantitykind/Population> ;
+    skos:relatedMatch <http://rs.tdwg.org/dwc/terms/individualCount> .
 
 <https://w3id.org/smn/Deme> a owl:Class ;
     rdfs:label "Deme"@en ;
@@ -593,6 +812,48 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
 sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
     skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
 
+<https://w3id.org/smn/AgeNotation> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#AgeNotation> ;
+    skos:definition "A notation system used to encode salmon age values in stock-assessment data."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeNotationScheme> ;
+    skos:prefLabel "Age notation"@en .
+
+<https://w3id.org/smn/AgeNotationScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotationScheme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/gcdfo/salmon#AgeNotationScheme> ;
+    skos:definition "Controlled vocabulary for notation systems used to encode salmon age values."@en ;
+    skos:hasTopConcept <https://w3id.org/smn/AgeNotation> ;
+    skos:prefLabel "Age notation scheme"@en .
+
+<https://w3id.org/smn/BroodYearBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year."@en ;
+    dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/YearBasis> ;
+    skos:closeMatch <http://purl.dataone.org/odo/SALMON_00000520>,
+        <https://w3id.org/gcdfo/salmon#BroodYear> ;
+    skos:definition "A year-reference basis in which a calendar year identifies a salmon cohort by the spawning year of its parents."@en ;
+    skos:inScheme <https://w3id.org/smn/YearBasisScheme> ;
+    skos:prefLabel "Brood-year basis"@en ;
+    skos:scopeNote "Use smn:broodYear for the xsd:gYear coordinate. The basis concept is not the coordinate value."@en .
+
+<https://w3id.org/smn/CatchYearBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted and retyped from GC DFO Salmon Ontology term gcdfo:CatchYear."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/YearBasis> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#CatchYear> ;
+    skos:definition "A year-reference basis in which a calendar year identifies when the represented fishery catch occurred."@en ;
+    skos:inScheme <https://w3id.org/smn/YearBasisScheme> ;
+    skos:prefLabel "Catch-year basis"@en ;
+    skos:scopeNote "Use smn:catchYear for the xsd:gYear coordinate. A catch year is not interchangeable with the return year of the fish."@en .
+
 <https://w3id.org/smn/FishLengthMeasurementType> a owl:Class ;
     rdfs:label "Fish length measurement type"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
@@ -613,6 +874,16 @@ sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
     rdfs:subClassOf ns1:IAO_0000030 ;
     skos:closeMatch sosa:FeatureOfInterest .
 
+<https://w3id.org/smn/ReturnYearBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data."@en ;
+    dcterms:source <https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:broader <https://w3id.org/smn/YearBasis> ;
+    skos:definition "A year-reference basis in which a calendar year identifies when members of a salmon cohort make the adult return relevant to the dataset's declared location or event."@en ;
+    skos:inScheme <https://w3id.org/smn/YearBasisScheme> ;
+    skos:prefLabel "Return-year basis"@en ;
+    skos:scopeNote "Return year and catch year are distinct. Document the location or event at which return is defined separately; use smn:returnYear for the xsd:gYear coordinate."@en .
+
 <https://w3id.org/smn/SalmonOrigin> a skos:Concept ;
     ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.8, term smn:SalmonOrigin."@en ;
     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
@@ -632,6 +903,44 @@ sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
 sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
     skos:closeMatch <http://rs.tdwg.org/dwc/terms/Event> .
 
+<https://w3id.org/smn/AgeBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#AgeBasis> ;
+    skos:definition "The reference event or life-history point at which a salmon age value applies."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeBasisScheme> ;
+    skos:prefLabel "Age basis"@en .
+
+<https://w3id.org/smn/AgeBasisScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasisScheme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/gcdfo/salmon#AgeBasisScheme> ;
+    skos:definition "Controlled vocabulary for the reference event or life-history point at which a salmon age applies."@en ;
+    skos:hasTopConcept <https://w3id.org/smn/AgeBasis> ;
+    skos:prefLabel "Age basis scheme"@en .
+
+<https://w3id.org/smn/AgeDimension> a skos:Concept ;
+    ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimension."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#AgeDimension> ;
+    skos:definition "The component of salmon age represented by a value."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeDimensionScheme> ;
+    skos:prefLabel "Age dimension"@en .
+
+<https://w3id.org/smn/AgeDimensionScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimensionScheme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/gcdfo/salmon#AgeDimensionScheme> ;
+    skos:definition "Controlled vocabulary for the component of salmon age represented by a value."@en ;
+    skos:hasTopConcept <https://w3id.org/smn/AgeDimension> ;
+    skos:prefLabel "Age dimension scheme"@en .
+
 <https://w3id.org/smn/Entity> a owl:Class ;
     rdfs:label "Entity"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
@@ -646,10 +955,25 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <http://rs.tdwg.org/dwc/terms/Organism> .
 
-<https://w3id.org/smn/Characteristic> a owl:Class ;
-    rdfs:label "Characteristic"@en ;
+<https://w3id.org/smn/YearBasis> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted and retyped from GC DFO Salmon Ontology term gcdfo:YearBasis."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:comment "A fixed year basis may qualify a standalone I-ADOPT variable, while row-varying year coordinates remain Data Cube dimensions."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf sosa:Property .
+    rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#YearBasis> ;
+    skos:definition "The biological, assessment, or fishery reference role used to interpret a calendar-year coordinate."@en ;
+    skos:inScheme <https://w3id.org/smn/YearBasisScheme> ;
+    skos:prefLabel "Year basis"@en .
+
+<https://w3id.org/smn/YearBasisScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "Adapted and retyped from GC DFO Salmon Ontology year-basis classes."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:definition "Controlled vocabulary for the biological, assessment, or fishery role that gives meaning to a calendar-year coordinate."@en ;
+    skos:hasTopConcept <https://w3id.org/smn/YearBasis> ;
+    skos:prefLabel "Year basis scheme"@en ;
+    skos:scopeNote "Calendar representation is not itself a year basis. Use a separate datatype property with an xsd:gYear value for the coordinate."@en .
 
 <https://w3id.org/smn/FishLength> a owl:Class ;
     rdfs:label "Fish length"@en ;
@@ -701,7 +1025,35 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
     skos:hasTopConcept <https://w3id.org/smn/MeasurementContext> ;
     skos:prefLabel "Measurement context scheme"@en .
 
+<https://w3id.org/smn/Characteristic> a owl:Class ;
+    rdfs:label "Characteristic"@en ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:subClassOf sosa:Property .
+
+<https://w3id.org/iadopt/ont/Constraint> a owl:Class .
+
 sosa:FeatureOfInterest sosa:hasSample sosa:Sample .
+
+<https://w3id.org/smn/AgeClassValue> a skos:Concept ;
+    ns1:IAO_0000119 "Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#AgeClassValue> ;
+    skos:definition "An integer-like coordinate used to represent one declared component of salmon age."@en ;
+    skos:inScheme <https://w3id.org/smn/AgeClassValueScheme> ;
+    skos:prefLabel "Age-class value"@en ;
+    skos:scopeNote "This concept and its narrower values do not identify a brood cohort or year class."@en .
+
+<https://w3id.org/smn/AgeClassValueScheme> a skos:ConceptScheme ;
+    ns1:IAO_0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValueScheme."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <https://w3id.org/gcdfo/salmon#AgeClassValueScheme> ;
+    skos:definition "Open controlled vocabulary for evidenced integer-like salmon age-component values."@en ;
+    skos:hasTopConcept <https://w3id.org/smn/AgeClassValue> ;
+    skos:prefLabel "Age-class value scheme"@en ;
+    skos:scopeNote "An age-class value is an age coordinate, not a cohort or year class. Mint additional values only when supported by a use case."@en .
 
 <https://w3id.org/smn> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology (modular build)"@en ;
