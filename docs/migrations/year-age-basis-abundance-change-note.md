@@ -1,6 +1,6 @@
-# Unreleased change note: year basis, salmon age, and abundance
+# 0.0.2 change note: year basis, salmon age, and abundance
 
-This change resolves the shared-model gap tracked in [issue #18](https://github.com/salmon-data-mobilization/salmon-domain-ontology/issues/18). It is an unreleased source change until a maintainer runs the repository's versioned release workflow.
+This change resolves the shared-model gap tracked in [issue #18](https://github.com/salmon-data-mobilization/salmon-domain-ontology/issues/18) and is prepared for the repository's `0.0.2` release snapshot. Publication and tagging remain maintainer actions.
 
 ## Added
 
@@ -15,7 +15,9 @@ This change resolves the shared-model gap tracked in [issue #18](https://github.
 
 - `smn:RecruitAbundance` now points to the explicit abundance characteristic and year model instead of an unresolved “defined year basis.”
 - Numeric age-value labels no longer use “year class,” avoiding confusion with a brood cohort.
-- DFO year-basis OWL classes receive conservative Tier-3 mappings to distinct shared SKOS basis concepts rather than being copied silently.
+- Current DFO year-basis SKOS concepts receive conservative Tier-3 mappings to distinct shared basis concepts; the DFO `0.0.2` OWL-class representation is historical.
+- Darwin Core `individualCount` is retained as an `rdfs:seeAlso` cross-reference rather than a SKOS concept mapping.
+- The Fraser example separates recruit-abundance estimation from scale-based age determination using distinct SOSA observations, results, and procedures.
 
 ## Migration guidance
 
@@ -23,12 +25,12 @@ Use `docs/migrations/gcdfo-to-salmon-year-age.csv` for old-to-new IRIs. Importan
 
 | Previous DFO role | Shared SDO target | Coordinate property |
 | --- | --- | --- |
-| `gcdfo:BroodYear` OWL class | `smn:BroodYearBasis` SKOS concept | `smn:broodYear` with `xsd:gYear` |
-| `gcdfo:CatchYear` OWL class | `smn:CatchYearBasis` SKOS concept | `smn:catchYear` with `xsd:gYear` |
-| no shared DFO return-year basis | `smn:ReturnYearBasis` SKOS concept | `smn:returnYear` with `xsd:gYear` |
+| `gcdfo:BroodYear` SKOS concept | `smn:BroodYearBasis` SKOS concept | `smn:broodYear` with `xsd:gYear` |
+| `gcdfo:ReturnYear` SKOS concept | `smn:ReturnYearBasis` SKOS concept | `smn:returnYear` with `xsd:gYear` |
+| `gcdfo:CatchYear` SKOS concept | `smn:CatchYearBasis` SKOS concept | `smn:catchYear` with `xsd:gYear` |
 | `gcdfo:AgeNYearClass` | `smn:AgeClassValueN` | use with a separately declared age dimension, basis, and notation |
 
-The `skos:closeMatch` links are advisory and must not drive automatic canonicalization without review. NCEAS/DataONE `SALMON_00000520` is also a conservative close match to `smn:BroodYearBasis`; it remains an OWL class in its source ontology.
+The DFO type statements above reflect [`c7a54251`](https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/ontology/dfo-salmon.ttl) and release `0.0.8`. The `skos:closeMatch` links are advisory and must not drive automatic canonicalization without review. NCEAS/DataONE `SALMON_00000520` is also a conservative close match to `smn:BroodYearBasis`; it remains an OWL class in its source ontology.
 
 ## Modeling boundaries
 

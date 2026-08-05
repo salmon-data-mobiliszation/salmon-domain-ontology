@@ -50,7 +50,10 @@ def _load_ontology_metadata() -> tuple[str | None, str | None]:
 
 
 def _canonicalize_change_lists(content: str) -> str:
-    ul_pattern = re.compile(r"<ul>\s*(?:<li>.*?</li>\s*)+</ul>", flags=re.S)
+    # Match innermost lists only. WIDOCO nests per-term change lists inside
+    # class/property lists, so a broad ``.*?`` pattern can consume across a
+    # nested ``<ul>`` and leave the actual change items nondeterministic.
+    ul_pattern = re.compile(r"<ul>(?:(?!<ul>|</ul>).)*</ul>", flags=re.S)
 
     def _normalize_ul(match: re.Match[str]) -> str:
         block = match.group(0)
@@ -102,9 +105,7 @@ def _normalize_schema_org_dates(content: str, modified: str | None) -> str:
 
 def _strip_trailing_whitespace(path: Path) -> None:
     content = path.read_text(encoding="utf-8")
-    stripped = "\n".join(line.rstrip() for line in content.splitlines())
-    if content.endswith("\n"):
-        stripped += "\n"
+    stripped = "\n".join(line.rstrip() for line in content.splitlines()).rstrip("\n") + "\n"
     if stripped != content:
         path.write_text(stripped, encoding="utf-8")
         print(f"Stripped trailing whitespace from {path}")

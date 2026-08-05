@@ -1,7 +1,8 @@
 old_iri,new_iri,module,status,notes
-https://w3id.org/gcdfo/salmon#YearBasis,https://w3id.org/smn/YearBasis,07-controlled-vocabularies.ttl,migrated,retyped from OWL class to shared SKOS concept; advisory closeMatch only
-https://w3id.org/gcdfo/salmon#BroodYear,https://w3id.org/smn/BroodYearBasis,07-controlled-vocabularies.ttl,migrated,retyped and renamed so the basis concept remains distinct from smn:broodYear
-https://w3id.org/gcdfo/salmon#CatchYear,https://w3id.org/smn/CatchYearBasis,07-controlled-vocabularies.ttl,migrated,retyped and renamed so the basis concept remains distinct from smn:catchYear
+https://w3id.org/gcdfo/salmon#YearBasis,https://w3id.org/smn/YearBasis,07-controlled-vocabularies.ttl,migrated,mapped from the current DFO SKOS concept at c7a54251; advisory closeMatch only
+https://w3id.org/gcdfo/salmon#BroodYear,https://w3id.org/smn/BroodYearBasis,07-controlled-vocabularies.ttl,migrated,renamed from the current DFO SKOS concept so the basis remains distinct from smn:broodYear
+https://w3id.org/gcdfo/salmon#ReturnYear,https://w3id.org/smn/ReturnYearBasis,07-controlled-vocabularies.ttl,migrated,renamed from the current DFO SKOS concept so the basis remains distinct from smn:returnYear; advisory closeMatch only
+https://w3id.org/gcdfo/salmon#CatchYear,https://w3id.org/smn/CatchYearBasis,07-controlled-vocabularies.ttl,migrated,renamed from the current DFO SKOS concept so the basis remains distinct from smn:catchYear
 https://w3id.org/gcdfo/salmon#AgeNotationScheme,https://w3id.org/smn/AgeNotationScheme,07-controlled-vocabularies.ttl,migrated,shared SKOS scheme
 https://w3id.org/gcdfo/salmon#AgeNotation,https://w3id.org/smn/AgeNotation,07-controlled-vocabularies.ttl,migrated,shared SKOS top concept
 https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation,https://w3id.org/smn/GilbertRichAgeNotation,07-controlled-vocabularies.ttl,migrated,definition refined with explicit decomposition scope note

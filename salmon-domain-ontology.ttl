@@ -755,10 +755,10 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
     dcterms:source <http://qudt.org/vocab/quantitykind/Population> ;
     rdfs:comment "Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/individualCount> ;
     rdfs:subClassOf <https://w3id.org/smn/Characteristic> ;
     skos:broadMatch <http://qudt.org/vocab/quantitykind/Count> ;
-    skos:closeMatch <http://qudt.org/vocab/quantitykind/Population> ;
-    skos:relatedMatch <http://rs.tdwg.org/dwc/terms/individualCount> .
+    skos:closeMatch <http://qudt.org/vocab/quantitykind/Population> .
 
 <https://w3id.org/smn/Deme> a owl:Class ;
     rdfs:label "Deme"@en ;
@@ -844,8 +844,8 @@ sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
     skos:scopeNote "Use smn:broodYear for the xsd:gYear coordinate. The basis concept is not the coordinate value."@en .
 
 <https://w3id.org/smn/CatchYearBasis> a skos:Concept ;
-    ns1:IAO_0000119 "Adapted and retyped from GC DFO Salmon Ontology term gcdfo:CatchYear."@en ;
-    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:CatchYear, modeled there as a SKOS concept."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/YearBasis> ;
     skos:closeMatch <https://w3id.org/gcdfo/salmon#CatchYear> ;
@@ -879,6 +879,7 @@ sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
     dcterms:source <https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:broader <https://w3id.org/smn/YearBasis> ;
+    skos:closeMatch <https://w3id.org/gcdfo/salmon#ReturnYear> ;
     skos:definition "A year-reference basis in which a calendar year identifies when members of a salmon cohort make the adult return relevant to the dataset's declared location or event."@en ;
     skos:inScheme <https://w3id.org/smn/YearBasisScheme> ;
     skos:prefLabel "Return-year basis"@en ;
@@ -956,8 +957,8 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
     rdfs:subClassOf <http://rs.tdwg.org/dwc/terms/Organism> .
 
 <https://w3id.org/smn/YearBasis> a skos:Concept ;
-    ns1:IAO_0000119 "Adapted and retyped from GC DFO Salmon Ontology term gcdfo:YearBasis."@en ;
-    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:YearBasis, modeled there as a SKOS concept."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:comment "A fixed year basis may qualify a standalone I-ADOPT variable, while row-varying year coordinates remain Data Cube dimensions."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> ;
@@ -967,8 +968,8 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
     skos:prefLabel "Year basis"@en .
 
 <https://w3id.org/smn/YearBasisScheme> a skos:ConceptScheme ;
-    ns1:IAO_0000119 "Adapted and retyped from GC DFO Salmon Ontology year-basis classes."@en ;
-    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
+    ns1:IAO_0000119 "Adapted from the GC DFO Salmon Ontology release 0.0.8 SKOS year-basis vocabulary."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     skos:definition "Controlled vocabulary for the biological, assessment, or fishery role that gives meaning to a calendar-year coordinate."@en ;
     skos:hasTopConcept <https://w3id.org/smn/YearBasis> ;
@@ -1057,9 +1058,9 @@ sosa:FeatureOfInterest sosa:hasSample sosa:Sample .
 
 <https://w3id.org/smn> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology (modular build)"@en ;
-    dcterms:modified "2026-03-29"^^xsd:date ;
+    dcterms:modified "2026-08-04"^^xsd:date ;
     rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ;
-    owl:priorVersion <https://w3id.org/smn/0.0.0> ;
-    owl:versionIRI <https://w3id.org/smn/0.0.1> ;
-    owl:versionInfo "0.0.1" .
+    owl:priorVersion <https://w3id.org/smn/0.0.1> ;
+    owl:versionIRI <https://w3id.org/smn/0.0.2> ;
+    owl:versionInfo "0.0.2" .
 

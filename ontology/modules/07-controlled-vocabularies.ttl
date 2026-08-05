@@ -167,16 +167,16 @@ smn:YearBasisScheme a skos:ConceptScheme ;
   skos:definition "Controlled vocabulary for the biological, assessment, or fishery role that gives meaning to a calendar-year coordinate."@en ;
   skos:scopeNote "Calendar representation is not itself a year basis. Use a separate datatype property with an xsd:gYear value for the coordinate."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Adapted and retyped from GC DFO Salmon Ontology year-basis classes."@en ;
-  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> .
+  iao:0000119 "Adapted from the GC DFO Salmon Ontology release 0.0.8 SKOS year-basis vocabulary."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
 
 smn:YearBasis a skos:Concept ;
   skos:prefLabel "Year basis"@en ;
   skos:inScheme smn:YearBasisScheme ;
   skos:definition "The biological, assessment, or fishery reference role used to interpret a calendar-year coordinate."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Adapted and retyped from GC DFO Salmon Ontology term gcdfo:YearBasis."@en ;
-  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> .
+  iao:0000119 "Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:YearBasis, modeled there as a SKOS concept."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
 
 smn:BroodYearBasis a skos:Concept ;
   skos:prefLabel "Brood-year basis"@en ;
@@ -205,8 +205,8 @@ smn:CatchYearBasis a skos:Concept ;
   skos:definition "A year-reference basis in which a calendar year identifies when the represented fishery catch occurred."@en ;
   skos:scopeNote "Use smn:catchYear for the xsd:gYear coordinate. A catch year is not interchangeable with the return year of the fish."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Adapted and retyped from GC DFO Salmon Ontology term gcdfo:CatchYear."@en ;
-  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> .
+  iao:0000119 "Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:CatchYear, modeled there as a SKOS concept."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
 
 #################################################################
 # Shared salmon age vocabularies

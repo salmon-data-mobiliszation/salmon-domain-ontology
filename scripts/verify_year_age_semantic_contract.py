@@ -73,9 +73,18 @@ def main() -> int:
     )
     require(
         graph,
-        (SMN.Abundance, SKOS.relatedMatch, DWC.individualCount),
-        "smn:Abundance must retain the advisory Darwin Core individualCount mapping",
+        (SMN.Abundance, RDFS.seeAlso, DWC.individualCount),
+        "smn:Abundance must cross-reference Darwin Core individualCount without a SKOS concept mapping",
     )
+    for mapping_predicate in (
+        SKOS.exactMatch,
+        SKOS.closeMatch,
+        SKOS.broadMatch,
+        SKOS.narrowMatch,
+        SKOS.relatedMatch,
+    ):
+        if (SMN.Abundance, mapping_predicate, DWC.individualCount) in graph:
+            raise AssertionError("smn:Abundance must not concept-map to the Darwin Core individualCount property")
 
     # Basis concepts, coordinate properties, and literal values deliberately use
     # different RDF resources and types.
@@ -99,7 +108,7 @@ def main() -> int:
         require(graph, (basis, SKOS.broader, SMN.YearBasis), f"{basis} is not under smn:YearBasis")
         require_term_annotations(graph, basis, skos_term=True)
         if (basis, RDF.type, OWL.Class) in graph:
-            raise AssertionError(f"{basis} must not reuse the DFO OWL-class representation")
+            raise AssertionError(f"{basis} must remain a SKOS concept rather than also becoming an OWL class")
         require(graph, (dimension, RDF.type, OWL.DatatypeProperty), f"{dimension} must be a datatype property")
         require(graph, (dimension, RDF.type, QB.DimensionProperty), f"{dimension} must be a Data Cube dimension")
         require(graph, (dimension, RDFS.range, XSD.gYear), f"{dimension} must carry xsd:gYear values")
@@ -114,7 +123,12 @@ def main() -> int:
     require(
         graph,
         (SMN.BroodYearBasis, SKOS.closeMatch, GCDFO.BroodYear),
-        "brood-year basis must map conservatively to the DFO class",
+        "brood-year basis must map conservatively to the DFO concept",
+    )
+    require(
+        graph,
+        (SMN.ReturnYearBasis, SKOS.closeMatch, GCDFO.ReturnYear),
+        "return-year basis must map conservatively to the DFO concept",
     )
     require(
         graph,
@@ -149,7 +163,8 @@ def main() -> int:
             raise AssertionError(f"{concept} uses the ambiguous cohort phrase 'year class'")
 
     # The worked example demonstrates mixed grain, explicit Gilbert-Rich
-    # decomposition, and a procedure that is separate from notation and basis.
+    # decomposition, and separate result-producing procedures for abundance
+    # estimation and age determination.
     require(graph, (EX.spawnerEstimateDSD, QB.component, EX.spawnerBroodYearComponent), "spawner DSD lacks brood year")
     if (EX.spawnerEstimateDSD, QB.component, EX.spawnerReturnYearComponent) in graph:
         raise AssertionError("stock-by-brood-year spawner estimates must not inherit a return-year dimension")
@@ -170,11 +185,63 @@ def main() -> int:
         (EX.fraserRecruitEstimates, EX.ageBasis, SMN.AgeAtReturnBasis),
         "example must declare age-at-return basis",
     )
-    require(
-        graph,
-        (EX.recruits2000_2004_age42, SOSA.usedProcedure, EX.scaleAgeDeterminationProcedure),
-        "example must keep the age-determination procedure explicit",
-    )
+    for recruit_observation in (
+        EX.recruits2000_2004_age42,
+        EX.recruits2000_2005_age52,
+    ):
+        if (recruit_observation, SOSA.usedProcedure, EX.scaleAgeDeterminationProcedure) in graph:
+            raise AssertionError(
+                "an age-determination procedure must not be the result-producing procedure "
+                "of a recruit-abundance observation"
+            )
+        require(
+            graph,
+            (recruit_observation, SOSA.usedProcedure, EX.recruitAbundanceEstimationProcedure),
+            "each recruit-abundance observation must identify its abundance-estimation procedure",
+        )
+
+    age_determinations = {
+        EX.ageDetermination2000_2004_age42: (
+            EX.ageResult2000_2004_age42,
+            SMN.AgeClassValue4,
+            SMN.AgeClassValue2,
+        ),
+        EX.ageDetermination2000_2005_age52: (
+            EX.ageResult2000_2005_age52,
+            SMN.AgeClassValue5,
+            SMN.AgeClassValue2,
+        ),
+    }
+    for age_observation, (age_result, total_age, freshwater_age) in age_determinations.items():
+        require(
+            graph,
+            (age_observation, RDF.type, SOSA.Observation),
+            "age determination must be an observation",
+        )
+        require(
+            graph,
+            (age_observation, SOSA.observedProperty, EX.salmonAgeProperty),
+            "age determination must observe salmon age rather than abundance",
+        )
+        if (age_observation, SOSA.observedProperty, EX.salmonAbundanceProperty) in graph:
+            raise AssertionError("the separate age observation must not also observe abundance")
+        require(
+            graph,
+            (age_observation, SOSA.usedProcedure, EX.scaleAgeDeterminationProcedure),
+            "the scale procedure must be attached to the separate age observation",
+        )
+        require(
+            graph,
+            (age_observation, SOSA.hasResult, age_result),
+            "age determination must expose an age result",
+        )
+        require(graph, (age_result, RDF.type, SOSA.Result), "age result must be a SOSA result")
+        require(graph, (age_result, EX.totalAge, total_age), "age result must expose the determined total age")
+        require(
+            graph,
+            (age_result, EX.freshwaterAge, freshwater_age),
+            "age result must expose the determined freshwater age",
+        )
 
     migration_path = root / "docs/migrations/gcdfo-to-salmon-year-age.csv"
     with migration_path.open(newline="", encoding="utf-8") as handle:
@@ -182,6 +249,7 @@ def main() -> int:
     for old, new in (
         (str(GCDFO.YearBasis), str(SMN.YearBasis)),
         (str(GCDFO.BroodYear), str(SMN.BroodYearBasis)),
+        (str(GCDFO.ReturnYear), str(SMN.ReturnYearBasis)),
         (str(GCDFO.CatchYear), str(SMN.CatchYearBasis)),
         (str(GCDFO.GilbertRichAgeNotation), str(SMN.GilbertRichAgeNotation)),
         (str(GCDFO.AgeAtReturnBasis), str(SMN.AgeAtReturnBasis)),

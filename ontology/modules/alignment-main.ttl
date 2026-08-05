@@ -30,10 +30,11 @@ smn:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Co
 
 smn:Abundance skos:closeMatch qk:Population ;
   skos:broadMatch qk:Count ;
-  skos:relatedMatch dwc:individualCount .
+  rdfs:seeAlso dwc:individualCount .
 
 smn:YearBasis skos:closeMatch gcdfo:YearBasis .
 smn:BroodYearBasis skos:closeMatch gcdfo:BroodYear, odo:SALMON_00000520 .
+smn:ReturnYearBasis skos:closeMatch gcdfo:ReturnYear .
 smn:CatchYearBasis skos:closeMatch gcdfo:CatchYear .
 
 smn:AgeNotation skos:closeMatch gcdfo:AgeNotation .

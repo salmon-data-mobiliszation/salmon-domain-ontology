@@ -3,8 +3,8 @@
 ## Core migration artifacts
 
 - `gcdfo-to-salmon-wave1.csv` — machine-readable old->new IRI map with migration status
-- `gcdfo-to-salmon-year-age.csv` — machine-readable DFO->SMN migration map for retyped year bases and promoted age vocabularies
-- `year-age-basis-abundance-change-note.md` — unreleased change note, modeling boundaries, and downstream migration guidance
+- `gcdfo-to-salmon-year-age.csv` — machine-readable DFO->SMN migration map for year-basis concepts and promoted age vocabularies
+- `year-age-basis-abundance-change-note.md` — `0.0.2` change note, modeling boundaries, and downstream migration guidance
 - `wave1-term-inventory.md` — migrated vs deferred scope summary
 - `rda-graph-concept-coverage.md` — RDA juvenile-condition graph coverage and bridge additions
 - `nceas-salmon-comparison-and-alignment-note.md` — practical compare/contrast note and first-pass alignment posture for SMN vs NCEAS/DataONE SALMON

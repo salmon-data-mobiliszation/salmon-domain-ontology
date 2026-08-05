@@ -143,12 +143,45 @@ ex:FraserSockeyeStock a smn:Stock ;
 ex:salmonAbundanceProperty a smn:Abundance ;
   rdfs:label "abundance of salmon in the defined reporting unit"@en .
 
+ex:salmonAgeProperty a sosa:Property ;
+  rdfs:label "age of salmon in the scale sample"@en .
+
 ex:spawnerEstimationProcedure a sosa:Procedure ;
   rdfs:label "illustrative spawner estimation procedure"@en .
+
+ex:recruitAbundanceEstimationProcedure a sosa:Procedure ;
+  rdfs:label "illustrative recruit-abundance estimation procedure"@en ;
+  rdfs:comment "The procedure producing the recruit-abundance result is distinct from the scale procedure producing an age determination."@en .
 
 ex:scaleAgeDeterminationProcedure a sosa:Procedure ;
   rdfs:label "illustrative scale age-determination procedure"@en ;
   rdfs:comment "The procedure that produced the age determination is separate from Gilbert-Rich notation, age-at-return basis, and the represented age components."@en .
+
+ex:ageResult2000_2004_age42 a sosa:Result ;
+  ex:totalAge smn:AgeClassValue4 ;
+  ex:freshwaterAge smn:AgeClassValue2 ;
+  ex:ageNotation smn:GilbertRichAgeNotation ;
+  ex:ageBasis smn:AgeAtReturnBasis .
+
+ex:ageDetermination2000_2004_age42 a sosa:Observation ;
+  sosa:hasFeatureOfInterest ex:FraserSockeyeStock ;
+  sosa:observedProperty ex:salmonAgeProperty ;
+  sosa:hasResult ex:ageResult2000_2004_age42 ;
+  sosa:usedProcedure ex:scaleAgeDeterminationProcedure ;
+  dcterms:relation ex:recruits2000_2004_age42 .
+
+ex:ageResult2000_2005_age52 a sosa:Result ;
+  ex:totalAge smn:AgeClassValue5 ;
+  ex:freshwaterAge smn:AgeClassValue2 ;
+  ex:ageNotation smn:GilbertRichAgeNotation ;
+  ex:ageBasis smn:AgeAtReturnBasis .
+
+ex:ageDetermination2000_2005_age52 a sosa:Observation ;
+  sosa:hasFeatureOfInterest ex:FraserSockeyeStock ;
+  sosa:observedProperty ex:salmonAgeProperty ;
+  sosa:hasResult ex:ageResult2000_2005_age52 ;
+  sosa:usedProcedure ex:scaleAgeDeterminationProcedure ;
+  dcterms:relation ex:recruits2000_2005_age52 .
 
 ex:fraserSpawnerEstimates a qb:DataSet ;
   rdfs:label "Illustrative stock-by-brood-year spawner estimates"@en ;
@@ -179,7 +212,7 @@ ex:recruits2000_2004_age42 a qb:Observation, sosa:Observation ;
   ex:abundanceEstimate 300 ;
   sosa:observedProperty ex:salmonAbundanceProperty ;
   sosa:hasSimpleResult 300 ;
-  sosa:usedProcedure ex:scaleAgeDeterminationProcedure .
+  sosa:usedProcedure ex:recruitAbundanceEstimationProcedure .
 
 ex:recruits2000_2005_age52 a qb:Observation, sosa:Observation ;
   qb:dataSet ex:fraserRecruitEstimates ;
@@ -191,4 +224,4 @@ ex:recruits2000_2005_age52 a qb:Observation, sosa:Observation ;
   ex:abundanceEstimate 450 ;
   sosa:observedProperty ex:salmonAbundanceProperty ;
   sosa:hasSimpleResult 450 ;
-  sosa:usedProcedure ex:scaleAgeDeterminationProcedure .
+  sosa:usedProcedure ex:recruitAbundanceEstimationProcedure .
