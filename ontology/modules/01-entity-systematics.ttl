@@ -48,7 +48,11 @@ smn:HabitatUnit a owl:Class ;
   rdfs:subClassOf smn:Entity ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
-geosparql:Feature rdfs:subClassOf sosa:FeatureOfInterest .
+# The foreign-subject axiom that sat here (geosparql:Feature
+# rdfs:subClassOf sosa:FeatureOfInterest) moved to alignment-main.ttl on
+# 2026-08-13: core modules never assert axioms on terms smn does not own.
+# sosa:hasFeatureOfInterest's upstream range already entails
+# FeatureOfInterest-ness for geosparql fillers where it matters.
 
 smn:GeographicFeature a owl:Class ;
   rdfs:label "Geographic feature"@en ;

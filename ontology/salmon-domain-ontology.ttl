@@ -18,4 +18,5 @@
     <https://w3id.org/smn/modules/05-provenance-quality>,
     <https://w3id.org/smn/modules/06-data-interoperability>,
     <https://w3id.org/smn/modules/07-controlled-vocabularies>,
-    <https://w3id.org/smn/modules/alignment-main> .
+    <https://w3id.org/smn/modules/alignment-main>,
+    <https://w3id.org/smn/modules/alignment-upper> .

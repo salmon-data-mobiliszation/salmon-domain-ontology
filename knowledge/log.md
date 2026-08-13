@@ -14,3 +14,5 @@
   hub rule); validation command is now relative to a sibling psc-data-systems
   checkout. Cross-repo references updated for metasalmon's notes/ -> knowledge/
   migration.
+- 2026-08-13 — S9 step 1 (alignment semantics): F1-F7 fixed, F8 property-side
+  fixed; conventions cards updated to reflect the landed state.

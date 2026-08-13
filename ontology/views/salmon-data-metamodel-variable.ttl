@@ -9,10 +9,7 @@
 
 <https://w3id.org/smn/views/salmon-data-metamodel/variable> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — variable slice"@en ;
-  rdfs:comment "Simple variable slice: the practical thing salmon teams often call a variable."@en .
-
-iadopt:Variable rdfs:subClassOf iao:0000030, sosa:Property .
-iadopt:Constraint rdfs:subClassOf iao:0000030 .
+  rdfs:comment "Simple variable slice: the practical thing salmon teams often call a variable. Since 2026-08-13 every smnv decomposition property is declared rdfs:subPropertyOf its native I-ADOPT counterpart (F3), so data described with the plain-language properties stays visible to I-ADOPT-aware consumers; the former foreign-subject axioms on iadopt terms were removed (F1/F5), and the iadopt:Variable bridge to SOSA lives in alignment-main as closeMatch to sosa:ObservableProperty."@en .
 
 smn:MeasurementContext skos:relatedMatch iadopt:Constraint .
 smn:CatchContext skos:relatedMatch iadopt:Constraint .
@@ -25,78 +22,61 @@ smn:ReferencePoint skos:closeMatch iadopt:Constraint .
 
 smnv:SalmonDataVariable a owl:Class ;
   rdfs:label "salmon data variable"@en ;
+  iao:0000115 "A metamodel variable representing an observed property of an entity with optional constraints and statistical modifiers."@en ;
   rdfs:comment "A simple helper class for the common salmon-data pattern where a variable bundles an entity, a property, and any important context."@en ;
   rdfs:subClassOf iadopt:Variable ,
     [ a owl:Restriction ; owl:onProperty smnv:variableRepresentsEntity ; owl:someValuesFrom iadopt:Entity ] ,
-    [ a owl:Restriction ; owl:onProperty smnv:variableRepresentsProperty ; owl:someValuesFrom iadopt:Property ] .
+    [ a owl:Restriction ; owl:onProperty smnv:variableRepresentsProperty ; owl:someValuesFrom iadopt:Property ] ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
 
 smnv:variableRepresentsEntity a owl:ObjectProperty ;
   rdfs:label "variable represents entity"@en ;
-  rdfs:comment "Links a variable to the entity or feature it is about."@en ;
+  iao:0000115 "Relates a variable to the entity that is the object of interest for the variable."@en ;
+  rdfs:comment "Links a variable to the entity or feature it is about. Declared under iadopt:hasObjectOfInterest as the intended default of I-ADOPT's three entity roles (object of interest, context object, matrix); use the native iadopt properties directly when the finer role matters."@en ;
+  rdfs:subPropertyOf iadopt:hasObjectOfInterest ;
   rdfs:domain iadopt:Variable ;
-  rdfs:range iadopt:Entity .
+  rdfs:range iadopt:Entity ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
 
 smnv:variableRepresentsProperty a owl:ObjectProperty ;
   rdfs:label "variable represents property"@en ;
+  iao:0000115 "Relates a variable to the property or characteristic it represents."@en ;
   rdfs:comment "Links a variable to the property or characteristic being described."@en ;
+  rdfs:subPropertyOf iadopt:hasProperty ;
   rdfs:domain iadopt:Variable ;
-  rdfs:range iadopt:Property .
+  rdfs:range iadopt:Property ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
 
 smnv:variableUsesConstraint a owl:ObjectProperty ;
   rdfs:label "variable uses constraint"@en ;
+  iao:0000115 "Relates a variable to a constraint that narrows its interpretation or scope."@en ;
   rdfs:comment "Adds context such as brood year, location, life stage, or benchmark framing when it changes the meaning of the variable."@en ;
+  rdfs:subPropertyOf iadopt:hasConstraint ;
   rdfs:domain iadopt:Variable ;
-  rdfs:range iadopt:Constraint .
+  rdfs:range iadopt:Constraint ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
 
 smnv:variableUsesStatisticalModifier a owl:ObjectProperty ;
   rdfs:label "variable uses statistical modifier"@en ;
-  rdfs:comment "Captures choices such as average, count, proportion, or confidence framing."@en ;
+  iao:0000115 "Relates a variable to a statistical modifier that qualifies how the variable is summarized or expressed."@en ;
+  rdfs:comment "Captures choices such as average, count, proportion, or peak. Range tightened from owl:Thing to iadopt:StatisticalModifier on 2026-08-13 (F8): I-ADOPT 1.1.0 provides the class natively."@en ;
+  rdfs:subPropertyOf iadopt:hasStatisticalModifier ;
   rdfs:domain iadopt:Variable ;
-  rdfs:range owl:Thing .
+  rdfs:range iadopt:StatisticalModifier ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
 
 smnv:hasVariable a owl:ObjectProperty ;
   rdfs:label "has variable"@en ;
+  iao:0000115 "Relates an observation or sampling activity to the variable it applies."@en ;
   rdfs:comment "Links an observation to the variable framing used in the workflow."@en ;
   rdfs:domain sosa:Observation ;
-  rdfs:range iadopt:Variable .
+  rdfs:range iadopt:Variable ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
 
 smnv:constraintConstrains a owl:ObjectProperty ;
   rdfs:label "constraint constrains"@en ;
+  iao:0000115 "Relates a variable constraint to the variable it qualifies."@en ;
   rdfs:subPropertyOf iadopt:constrains ;
   rdfs:domain iadopt:Constraint ;
-  rdfs:range owl:Thing .
-
-iadopt:Variable skos:closeMatch sosa:Property .
-
-# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
-# Added to enforce required term metadata parity with DFO conventions.
-
-<https://w3id.org/smn/views/salmon-data-metamodel#SalmonDataVariable>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "A metamodel variable representing an observed property of an entity with optional constraints and statistical modifiers."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-<https://w3id.org/smn/views/salmon-data-metamodel#constraintConstrains>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable constraint to the variable it qualifies."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-<https://w3id.org/smn/views/salmon-data-metamodel#hasVariable>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates an observation or sampling activity to the variable it applies."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-<https://w3id.org/smn/views/salmon-data-metamodel#variableRepresentsEntity>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to the entity that is the object of interest for the variable."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-<https://w3id.org/smn/views/salmon-data-metamodel#variableRepresentsProperty>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to the property or characteristic it represents."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-<https://w3id.org/smn/views/salmon-data-metamodel#variableUsesConstraint>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to a constraint that narrows its interpretation or scope."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-<https://w3id.org/smn/views/salmon-data-metamodel#variableUsesStatisticalModifier>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a variable to a statistical modifier that qualifies how the variable is summarized or expressed."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-# --- END REQUIRED ANNOTATION BACKFILL ---
+  rdfs:range owl:Thing ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .

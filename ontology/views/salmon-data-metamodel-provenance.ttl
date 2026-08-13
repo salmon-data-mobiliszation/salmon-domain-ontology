@@ -2,18 +2,11 @@
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix prov:  <http://www.w3.org/ns/prov#> .
-@prefix sosa:  <http://www.w3.org/ns/sosa/> .
 
 <https://w3id.org/smn/views/salmon-data-metamodel/provenance> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — provenance slice"@en ;
-  rdfs:comment "Provenance slice: lightweight lineage links showing how salmon observations use inputs, generate outputs, and derive samples."@en .
+  rdfs:comment "Provenance slice: lightweight lineage links for salmon observations. The sosa-to-prov property subsumptions formerly re-asserted here (hasFeatureOfInterest under prov:used, hasResult under prov:generated, isSampleOf under prov:wasDerivedFrom) are exactly the W3C-published alignment's axioms, imported since 2026-08-13 via module alignment-upper rather than restated. Only smn-owned subjects remain below."@en ;
+  rdfs:seeAlso <https://w3id.org/smn/modules/alignment-upper> .
 
 smn:MethodDocumentation rdfs:subClassOf prov:Entity .
 smn:DataQualityAssessment rdfs:subClassOf prov:Entity .
-
-sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
-sosa:hasResult rdfs:subPropertyOf prov:generated .
-sosa:isSampleOf rdfs:subPropertyOf prov:wasDerivedFrom .
-
-# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
-# --- END REQUIRED ANNOTATION BACKFILL ---

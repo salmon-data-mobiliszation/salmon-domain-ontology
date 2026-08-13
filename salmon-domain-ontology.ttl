@@ -4,25 +4,50 @@
 # DO NOT edit manually. Rebuild with `make compose-flat-ttl`.
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix ns1: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+sosa:Actuator rdfs:subClassOf prov:Agent,
+        prov:Entity .
+
 sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class."@en ;
     rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/protocol>,
         <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
-<https://w3id.org/iadopt/ont/Property> owl:equivalentClass sosa:Property .
+sosa:Platform rdfs:subClassOf prov:Entity .
+
+sosa:Sampler rdfs:subClassOf prov:Agent,
+        prov:Entity .
+
+sosa:Sensor rdfs:subClassOf prov:Agent,
+        prov:Entity .
+
+sosa:isResultOf rdfs:subPropertyOf prov:wasGeneratedBy .
+
+sosa:isSampleOf rdfs:subPropertyOf prov:wasDerivedFrom .
+
+sosa:madeByActuator rdfs:subPropertyOf prov:wasAssociatedWith .
+
+sosa:madeBySampler rdfs:subPropertyOf prov:wasAssociatedWith .
+
+sosa:madeBySensor rdfs:subPropertyOf prov:wasAssociatedWith .
+
+<https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
 
 <https://w3id.org/iadopt/ont/StatisticalModifier> a owl:Class .
 
-<https://w3id.org/iadopt/ont/Variable> a owl:Class .
+<https://w3id.org/iadopt/ont/Variable> a owl:Class ;
+    skos:closeMatch sosa:ObservableProperty .
 
 <https://w3id.org/smn/AgeAtMaturityBasis> a skos:Concept ;
     ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis."@en ;
@@ -166,11 +191,12 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:BFO_0000015 .
 
-<https://w3id.org/smn/EscapementMeasurement> a owl:Class ;
-    rdfs:label "Escapement measurement"@en ;
+<https://w3id.org/smn/EscapementEstimate> a owl:Class ;
+    rdfs:label "Escapement estimate"@en ;
     ns1:IAO_0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
     ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."@en ;
     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
+    rdfs:comment "A datum (IAO measurement datum), not an activity: the corresponding survey activity is smn:EscapementSurveyEvent. Renamed from smn:EscapementMeasurement on 2026-08-13 (alignment pass, finding F6) because every other *Measurement class in this module is a subclass of the activity smn:Measurement, and this one is not — the name was the defect, inherited verbatim from gcdfo:EscapementMeasurement, whose hyponym family should be coordinated in the boundary pass."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:IAO_0000109 ;
     skos:closeMatch sosa:Result .
@@ -536,7 +562,13 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/smn/modules/alignment-main> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology Alignment Module (main-candidate)"@en ;
-    rdfs:comment "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research)."@en .
+    rdfs:comment "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). This is the only module in the default build permitted to carry mapping statements whose subjects are foreign-namespace terms (CONVENTIONS section 5b): each such statement is a reviewed editorial commitment, held at Tier 3 (advisory) unless an upstream body publishes the stronger form — in which case smn imports the upstream alignment (see alignment-upper) instead of restating it."@en .
+
+<https://w3id.org/smn/modules/alignment-upper> a owl:Ontology ;
+    rdfs:label "Salmon Domain Ontology upper alignment (imported W3C alignments)"@en ;
+    dcterms:source sosa:prov ;
+    rdfs:comment "Normative-core upper alignment. Imports the W3C-published SOSA-to-PROV-O alignment instead of re-asserting its axioms on foreign-namespace terms — the convention this module exists to enforce: smn never states axioms whose subjects it does not own outside a reviewed alignment module, and where an upstream body already publishes the alignment, smn imports it. The SOSA-PROV alignment is non-normative in the SSN Recommendation (2017, section 6.5); smn adopts it as the provenance backbone for the deterministic-reasoning consumption target. Offline and CI loading resolves the import to the vendored snapshot ontology/imports/sosa-prov.ttl via catalog-v001.xml; the snapshot is a byte copy of the W3C file and must not be hand-edited."@en ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn/#PROV> .
 
 <https://w3id.org/smn/observedTaxonFamily> a owl:ObjectProperty ;
     rdfs:label "observed taxon family"@en ;
@@ -578,7 +610,44 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/FishLength> .
 
-<https://w3id.org/iadopt/ont/Entity> owl:equivalentClass sosa:FeatureOfInterest .
+sosa:Actuation rdfs:subClassOf prov:Activity .
+
+sosa:ObservableProperty rdfs:subClassOf prov:Entity .
+
+sosa:Result rdfs:subClassOf prov:Entity .
+
+sosa:Sample rdfs:subClassOf prov:Entity ;
+    skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
+        <http://rs.tdwg.org/dwc/terms/MaterialSample> .
+
+sosa:hasResult rdfs:subPropertyOf prov:generated .
+
+sosa:prov a owl:Ontology ;
+    rdfs:label "Alignment of SOSA with PROV-O"@en ;
+    dcterms:created "2016-12-14"^^xsd:date ;
+    dcterms:creator [ a foaf:Agent ;
+            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ],
+        "Simon J D Cox" ;
+    dcterms:license <http://www.opengeospatial.org/ogc/Software>,
+        <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
+    dcterms:modified "2017-04-13"^^xsd:date ;
+    dcterms:rights "Copyright 2017 W3C/OGC." ;
+    rdfs:comment "Alignment of the the W3C/OGC SOSA Ontology with the W3C PROV-O Ontology"@en .
+
+<http://www.w3.org/ns/sosa/prov/eventAssociation> a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( sosa:Observation sosa:Actuation sosa:Sampling ) ] ;
+    rdfs:subPropertyOf prov:qualifiedAssociation .
+
+<http://www.w3.org/ns/sosa/prov/hadProcedure> a owl:ObjectProperty ;
+    rdfs:range sosa:Procedure ;
+    rdfs:subPropertyOf prov:hadPlan .
+
+sosa:resultTime rdfs:subPropertyOf prov:endedAtTime .
+
+sosa:usedProcedure owl:propertyChainAxiom ( <http://www.w3.org/ns/sosa/prov/eventAssociation> <http://www.w3.org/ns/sosa/prov/hadProcedure> ) .
+
+<https://w3id.org/iadopt/ont/Entity> skos:closeMatch sosa:FeatureOfInterest .
 
 <https://w3id.org/smn/AggregatedMeasurement> a owl:Class ;
     rdfs:label "Aggregated measurement"@en ;
@@ -742,12 +811,7 @@ ns1:NCBITaxon_8018 rdfs:subClassOf ns1:NCBITaxon_8015 .
 
 geo:Feature rdfs:subClassOf sosa:FeatureOfInterest .
 
-sosa:Procedure skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
-
-sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows."@en ;
-    owl:equivalentClass <http://rs.tdwg.org/dwc/terms/MaterialSample> ;
-    skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity> ;
-    sosa:isResultOf sosa:Sampling .
+sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
 
 <https://w3id.org/smn/Abundance> a owl:Class ;
     rdfs:label "Abundance"@en ;
@@ -809,8 +873,8 @@ sosa:Sample rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin 
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/Entity> .
 
-sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
-    skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
+sosa:Procedure rdfs:subClassOf prov:Plan ;
+    skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 <https://w3id.org/smn/AgeNotation> a skos:Concept ;
     ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation."@en ;
@@ -901,8 +965,11 @@ sosa:Observation owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Occurrence> ;
     skos:hasTopConcept <https://w3id.org/smn/SalmonOrigin> ;
     skos:prefLabel "Salmon origin scheme"@en .
 
-sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
-    skos:closeMatch <http://rs.tdwg.org/dwc/terms/Event> .
+sosa:Observation rdfs:subClassOf prov:Activity ;
+    skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
+
+sosa:Sampling rdfs:subClassOf prov:Activity ;
+    skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
 
 <https://w3id.org/smn/AgeBasis> a skos:Concept ;
     ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis."@en ;
@@ -1033,7 +1100,7 @@ sosa:Sampling owl:equivalentClass <http://rs.tdwg.org/dwc/terms/Event> ;
 
 <https://w3id.org/iadopt/ont/Constraint> a owl:Class .
 
-sosa:FeatureOfInterest sosa:hasSample sosa:Sample .
+sosa:FeatureOfInterest rdfs:subClassOf prov:Entity .
 
 <https://w3id.org/smn/AgeClassValue> a skos:Concept ;
     ns1:IAO_0000119 "Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue."@en ;

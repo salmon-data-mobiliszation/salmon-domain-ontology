@@ -7,14 +7,9 @@
 
 <https://w3id.org/smn/views/salmon-data-metamodel/entity> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — entity slice"@en ;
-  rdfs:comment "Simple entity slice: what the data is about."@en .
+  rdfs:comment "Simple entity slice: what the data is about. Statements here have smn-owned subjects only; the iadopt/sosa bridge (iadopt:Entity closeMatch sosa:FeatureOfInterest) lives in alignment-main."@en .
 
 smn:Entity rdfs:comment "Plain-language anchor for the thing a salmon dataset is about: a fish, group, habitat unit, stock, river, or similar feature."@en ;
   skos:closeMatch sosa:FeatureOfInterest, iadopt:Entity .
 
 smn:GeographicFeature skos:closeMatch sosa:FeatureOfInterest .
-
-sosa:FeatureOfInterest skos:closeMatch iadopt:Entity .
-
-# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
-# --- END REQUIRED ANNOTATION BACKFILL ---
