@@ -22,3 +22,8 @@
   enumeration-method value constraint, SKOS-native via skos:broader*,
   behaviourally tested with pyshacl) and refreshed the conventions card's
   module-07 inventory (10 schemes / 49 concepts).
+- 2026-08-13 — S9 step 1b (tooling): verify targets are read-only, generated
+  modules 08/09 gain a drift gate, CONVENTIONS 5b checks + method-shapes
+  behavioural check wired into make test and CI, new ELK reasoner-gate CI job
+  (passes: consistent, zero unsatisfiable classes), views documented as
+  non-dereferenceable identifiers.

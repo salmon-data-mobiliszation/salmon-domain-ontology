@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Compose the case-study profile modules from split fragments."""
 
+import sys
 from pathlib import Path
 from textwrap import dedent
 
@@ -75,22 +76,43 @@ MODULE_SPECS = [
 ]
 
 
+def compose(spec) -> str:
+    lines = [spec["header"].rstrip()]
+    for fragment in spec["fragments"]:
+        fragment_text = fragment.read_text().strip()
+        if not fragment_text:
+            continue
+        relative_fragment = fragment.relative_to(ROOT).as_posix()
+        lines.append(f"# --- begin {relative_fragment} ---")
+        lines.append(fragment_text)
+        lines.append(f"# --- end {relative_fragment} ---")
+        lines.append("")
+    return "\n".join(lines).strip() + "\n"
+
+
 def main() -> None:
+    # --check: verification must not mutate the working tree. Compare the
+    # composed output against the committed module and fail on drift —
+    # this is also the drift gate for hand-edits to generated modules
+    # 08/09, which CI previously could not detect.
+    check = "--check" in sys.argv[1:]
+    drift = []
     for spec in MODULE_SPECS:
         output_path = spec["output"]
-        lines = [spec["header"].rstrip()]
-
-        for fragment in spec["fragments"]:
-            fragment_text = fragment.read_text().strip()
-            if not fragment_text:
-                continue
-            relative_fragment = fragment.relative_to(ROOT).as_posix()
-            lines.append(f"# --- begin {relative_fragment} ---")
-            lines.append(fragment_text)
-            lines.append(f"# --- end {relative_fragment} ---")
-            lines.append("")
-
-        output_path.write_text("\n".join(lines).strip() + "\n")
+        composed = compose(spec)
+        if check:
+            existing = output_path.read_text() if output_path.exists() else ""
+            if existing != composed:
+                drift.append(output_path.relative_to(ROOT).as_posix())
+        else:
+            output_path.write_text(composed)
+    if check and drift:
+        for path in drift:
+            print(f"Generated module out of sync with its fragments: {path}")
+        print("Run 'make compose-case-study-modules' and commit the result.")
+        raise SystemExit(1)
+    if check:
+        print("Generated case-study modules match their fragments.")
 
 
 if __name__ == "__main__":

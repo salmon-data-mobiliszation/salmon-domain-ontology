@@ -45,16 +45,18 @@ header comment distinguishes them, which invites wrong-file edits.
 ## Generated vs hand-authored mixing
 
 - Bridge modules `08`/`09` under `ontology/modules/` are **generated**
-  (concatenated from `ontology/case-studies/` fragments) but sit beside
-  hand-authored modules; CI's drift gate (`make verify-generated-artifacts`,
-  Makefile:126) covers only `docs/` and the root flat TTL — a hand-edit to
-  08/09 passes CI and is silently clobbered by the next `make test`.
-- `make verify-flat-ttl` (and hence `make test` / `make ci`) **mutates the
-  working tree** (rewrites modules 08/09) — a verify target with write
-  side-effects (Makefile:102).
-- Every `REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit)`
-  block has **no generator**: `git log -S` shows they entered in authored
-  commit `2549f74` and no script writes or refreshes them.
+  (concatenated from `ontology/case-studies/` fragments) beside
+  hand-authored modules. ~~Drift-gate gap and verify-mutates-source~~
+  **Fixed 2026-08-13 (step 1b):** `make test` runs
+  `build_rda_case_study_modules.py --check` (compose in memory, diff, fail
+  on drift) — verification is read-only and hand-edits to 08/09 now fail CI.
+- ~~Phantom "auto-generated" markers~~ **Fixed 2026-08-13:** the markers
+  (which never had a generator — authored in `2549f74`) are replaced with
+  honest hand-authored markers in the fragments.
+- **CI gates since step 1b:** `verify_mapping_policy.py` (CONVENTIONS §5b:
+  foreign-subject statements, tier-mixing per-file and across the spine,
+  dual typing), `verify_method_shapes.py` (pyshacl behavioural fixture),
+  and an ELK reasoner-gate job over the catalog-resolved closure.
 
 ## w3id dereference gaps (live-checked 2026-08-12)
 

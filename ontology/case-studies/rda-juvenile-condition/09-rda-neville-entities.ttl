@@ -75,8 +75,8 @@ neville:SurveyArea a skos:Concept ;
   skos:closeMatch smn:GeographicFeature ;
   dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
 
-# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
-# Added to enforce required term metadata parity with DFO conventions.
+# --- Required annotation backfill (hand-authored 2026-05; markers kept for provenance) ---
+# Added to meet the shared annotation-completeness convention (CONVENTIONS section 10).
 
 <https://w3id.org/smn/profile/neville/Age>
   <http://www.w3.org/2000/01/rdf-schema#label> "Age"@en ;
@@ -117,4 +117,4 @@ neville:SurveyArea a skos:Concept ;
   <http://www.w3.org/2000/01/rdf-schema#label> "Neville decomposition term scheme (RDA case-study bridge)"@en ;
   <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/profile/rda-case-study> .
 
-# --- END REQUIRED ANNOTATION BACKFILL ---
+# --- end annotation backfill ---
