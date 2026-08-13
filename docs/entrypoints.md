@@ -74,6 +74,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 ## App Entry Points / Wiring
 
 - Main entry file(s):
+  - `knowledge/index.md` (OKF knowledge bundle: verified repo knowledge for agents/maintainers)
   - `ontology/salmon-domain-ontology.ttl`
   - `ontology/salmon-domain-ontology-research.ttl`
   - `ontology/salmon-domain-ontology-rda-case-study.ttl`
@@ -108,12 +109,14 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 
 - `https://w3id.org/smn` root, release, and canonical term-path routes are live via W3ID publication config; the term-dereferencing contract is mirrored under `docs/publishing/w3id-term-dereference-draft/`
 - Modeling rules and boundary decisions -> `CONVENTIONS.md` + `docs/migrations/phase2-boundary-rules.md`
+- Verified repo knowledge (import graph, conventions state, cross-vocabulary alignment) -> `knowledge/` OKF bundle; validate from `psc-data-systems` with `uv run psc-okf check <abs-path>/knowledge --tier capture`
 - Migration/cutover status and evidence -> `docs/migrations/README.md` + `docs/migrations/phase2-*.md` + `docs/migrations/evidence/`
 - Namespace/publication posture -> `docs/publishing/namespace-decision.md` + `docs/publishing/w3id-request-payload.md`
 
 ## What to read before editing
 
 - Changing ontology terms/modules/build imports:
+  - `knowledge/index.md` (verified findings that constrain conventions work)
   - `CONVENTIONS.md`
   - `ontology/modules/README.md`
   - `ontology/views/README.md` (if you are touching the optional metamodel view layer)
