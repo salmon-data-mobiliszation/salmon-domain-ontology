@@ -3,15 +3,12 @@
 
 <https://w3id.org/smn/views/salmon-data-metamodel> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view"@en ;
-  rdfs:comment "Optional, non-normative mental model for the shared salmon ontology. It gives a simple reading of how entity, property, variable, context, method, observation, result, and provenance fit together. This view is intentionally not imported by the shared-core 01-07 build."@en ;
+  rdfs:comment "Optional, non-normative mental model for the shared salmon ontology. It gives a simple reading of how entity, property, variable, context, method, observation, result, and provenance fit together. This view is intentionally not imported by the shared-core 01-07 build. Since 2026-08-13 the views are axiom-light: they state nothing about foreign-namespace terms — the load-bearing upper alignments live in the normative modules alignment-upper (imported W3C SOSA-PROV alignment) and alignment-main (reviewed Tier-3 bridges). Imports use the sub-views' ontology IRIs, resolved locally via catalog-v001.xml."@en ;
   owl:imports
-    <salmon-data-metamodel-entity.ttl> ,
-    <salmon-data-metamodel-property.ttl> ,
-    <salmon-data-metamodel-variable.ttl> ,
-    <salmon-data-metamodel-method-protocol.ttl> ,
-    <salmon-data-metamodel-event-observation.ttl> ,
-    <salmon-data-metamodel-result-datum.ttl> ,
-    <salmon-data-metamodel-provenance.ttl> .
-
-# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
-# --- END REQUIRED ANNOTATION BACKFILL ---
+    <https://w3id.org/smn/views/salmon-data-metamodel/entity> ,
+    <https://w3id.org/smn/views/salmon-data-metamodel/property> ,
+    <https://w3id.org/smn/views/salmon-data-metamodel/variable> ,
+    <https://w3id.org/smn/views/salmon-data-metamodel/method-protocol> ,
+    <https://w3id.org/smn/views/salmon-data-metamodel/event-observation> ,
+    <https://w3id.org/smn/views/salmon-data-metamodel/result-datum> ,
+    <https://w3id.org/smn/views/salmon-data-metamodel/provenance> .

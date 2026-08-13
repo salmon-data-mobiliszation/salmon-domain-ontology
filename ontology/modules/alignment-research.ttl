@@ -37,10 +37,11 @@
 smn:SurveyEvent rdfs:subClassOf prov:Activity ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
 
-smn:EscapementSurveyEvent rdfs:subClassOf prov:Activity, <http://www.w3.org/ns/sosa/Sampling> ;
-  skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+# closeMatch dropped 2026-08-13 (F2): one strongest mapping per pair —
+# the Tier-1 subClassOf below already carries the claim.
+smn:EscapementSurveyEvent rdfs:subClassOf prov:Activity, <http://www.w3.org/ns/sosa/Sampling> .
 
-smn:EscapementMeasurement rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
+smn:EscapementEstimate rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Observation>, <https://w3id.org/iadopt/ont/Variable> .
 
 smn:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>, <https://w3id.org/iadopt/ont/Entity> .
@@ -69,7 +70,7 @@ smn:hasObservationResult a owl:ObjectProperty ;
   iao:0000115 "Relates a survey event to a measurement datum/result it produces for salmon assessment workflows."@en ;
   rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasResult> ;
   rdfs:domain smn:SurveyEvent ;
-  rdfs:range smn:EscapementMeasurement ;
+  rdfs:range smn:EscapementEstimate ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "GC DFO Salmon Ontology release 0.0.8, term gcdfo:hasObservationResult."@en ;
   dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl> .
@@ -101,9 +102,10 @@ smn:isSampleOfStratum a owl:ObjectProperty ;
 smn:hasDeme rdfs:subPropertyOf ro:0002351 .
 smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 
-<http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
-<http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .
-<http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
-<http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+# The four representation-level bridges that were duplicated here were
+# removed 2026-08-13: the research build imports the root ontology, which
+# already carries alignment-main's versions (including the demoted
+# sosa:Sampling broadMatch dwc:Event), and duplicating them here published
+# a conflicting closeMatch for the same pair (CONVENTIONS 5b rule 1).
 <http://www.w3.org/ns/sosa/FeatureOfInterest> skos:closeMatch <https://w3id.org/iadopt/ont/Entity> .
 <http://www.w3.org/ns/sosa/ObservableProperty> skos:closeMatch <https://w3id.org/iadopt/ont/Property> .

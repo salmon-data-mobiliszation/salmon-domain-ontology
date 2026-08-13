@@ -13,21 +13,23 @@
   rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, Darwin Core, RDF Data Cube, and OWL-Time interoperability."@en .
 
 #################################################################
-# Upper-level crosswalk bridges (existing salmon-domain work)
+# Upper-level crosswalk notes
+#
+# The Tier-1 owl:equivalentClass bridges that used to live here were
+# demoted on 2026-08-13 (alignment pass, findings F2/F5/F7): neither
+# I-ADOPT nor TDWG publishes any of them, equating sosa:Observation with
+# dwc:Occurrence and sosa:Sampling with dwc:Event is wrong under any DwC
+# vintage, and iadopt:Property = sosa:Property collides with I-ADOPT's own
+# definition of Property as a characteristic. The advisory (Tier-3)
+# versions live in alignment-main.ttl, the only module permitted to carry
+# foreign-subject mapping statements.
 #################################################################
-
-iadopt:Entity owl:equivalentClass sosa:FeatureOfInterest .
-iadopt:Property owl:equivalentClass sosa:Property .
-
-sosa:Observation owl:equivalentClass dwc:Occurrence .
-sosa:Sampling owl:equivalentClass dwc:Event .
-
-sosa:Sample owl:equivalentClass dwc:MaterialSample ;
-  rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows."@en .
 
 sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class."@en ;
   rdfs:seeAlso dwc:protocol, dwcdp:Protocol .
 
+# Declaration stubs so I-ADOPT terms can be referenced without importing
+# the full I-ADOPT ontology; they add no axioms of smn's own.
 iadopt:Variable a owl:Class .
 iadopt:Constraint a owl:Class .
 iadopt:StatisticalModifier a owl:Class .

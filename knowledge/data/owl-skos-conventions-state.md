@@ -30,6 +30,18 @@ Verified 2026-08-12 (main at `3995a17`). Fix plan: step 1 of
 
 ## Verified divergences (adversarial verdicts, 2026-08-12)
 
+> **Status 2026-08-13 (S9 step 1, PR pending):** F1–F7 fixed and F8's
+> property-side fixed on branch `feat/s9-step1-alignment-semantics` — the
+> W3C SOSA–PROV alignment is now *imported* (new module `alignment-upper`,
+> vendored snapshot + `catalog-v001.xml`), module 06's equivalences are
+> demoted to reviewed Tier-3 bridges in `alignment-main`, the views are
+> axiom-light with `smnv:` properties bridged to native `iop:` properties,
+> `smn:EscapementMeasurement` is renamed `smn:EscapementEstimate`, module
+> 02's class-level property assertions are gone, and CONVENTIONS §5b now
+> states the one-strongest-mapping and foreign-subject rules (verified by
+> one-off rdflib checks: 0 violations; CI wiring is the follow-up PR).
+> F8's scheme (`smn:StatisticalModifierScheme`) is S9 step 5.
+
 - **F1 (nuanced)** — the views assert OWL axioms on foreign subjects
   (`iadopt:Variable rdfs:subClassOf iao:0000030, sosa:Property`
   `views/salmon-data-metamodel-variable.ttl:14-15`; `sosa:Observation ⊑

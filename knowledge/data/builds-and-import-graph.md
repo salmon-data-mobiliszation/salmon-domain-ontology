@@ -34,10 +34,13 @@ header comment distinguishes them, which invites wrong-file edits.
   view `ontology/views/salmon-data-metamodel.ttl:7-14` is the **only** file
   using relative (filename) `owl:imports` — resolvable solely from a local
   checkout with siblings intact.
-- **No catalog file exists** (`catalog-v001.xml` or equivalent). The only
-  IRI→file resolution is `discover_local_ontology_index()` inside
-  `build_flat_smn_ttl.py`, keyed on *declared ontology IRIs* — so the views'
-  relative imports are invisible to it.
+- ~~No catalog file exists~~ **Fixed 2026-08-13:** `ontology/catalog-v001.xml`
+  and `ontology/views/catalog-v001.xml` now map every module, view, and the
+  vendored W3C SOSA–PROV snapshot (`ontology/imports/sosa-prov.ttl`) to local
+  files; the composite view imports by ontology IRI. The main build now also
+  imports `modules/alignment-upper` (which imports the W3C alignment — the
+  first remote import in the graph; offline loading resolves it via the
+  catalog).
 
 ## Generated vs hand-authored mixing
 

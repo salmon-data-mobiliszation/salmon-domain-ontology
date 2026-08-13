@@ -16,7 +16,7 @@ Use for cross-agency concepts with stable semantics and reusable logical structu
 
 Examples:
 - biological entities (`Population`, `Deme`)
-- reusable monitoring/measurement semantics (`SurveyEvent`, `EscapementMeasurement`)
+- reusable monitoring/measurement semantics (`SurveyEvent`, `EscapementEstimate`)
 - reusable quantitative semantics (`ExploitationRate`)
 
 ### Layer B — Shared SKOS interoperability layer (`smn:`)
@@ -71,6 +71,16 @@ Use these to support ingestion, search, and migration without collapsing distinc
 
 A concept may exist as both OWL and SKOS **only with separate IRIs** and explicit mapping.
 
+### Instance-typing rule (2026-08-13)
+
+A SKOS concept MAY additionally be asserted an **instance** of a thin OWL
+class — for example a method concept typed `sosa:Procedure` so that
+`sosa:usedProcedure` remains type-correct. This is instance typing, not the
+class/concept punning the dual-representation rule forbids: the IRI is never
+both an `owl:Class` and a `skos:Concept`. This is the mechanism behind the
+methods-as-SKOS migration and the statistical-modifier scheme (concepts
+instance-typed `iadopt:StatisticalModifier`).
+
 ## 4) IRI strategy
 
 1. Shared terms use `smn:` IRIs.
@@ -107,6 +117,36 @@ Treat mapping predicates as different evidence strengths:
 
 Operational rule: Tier 3 links should not auto-canonicalize data into the production graph without review/promotion.
 
+## 5b) Mapping placement and coherence rules (2026-08-13)
+
+These close the policy gaps the alignment pass found (findings F1/F2/F5/F7).
+
+1. **One strongest mapping per pair.** A subject–object pair carries mapping
+   predicates from exactly one tier. The single documented exception is the
+   promotion-staging pattern: `alignment-main` may hold the Tier-3 form while
+   `alignment-research` holds the Tier-1 candidate for the same pair; nothing
+   else may duplicate a pair across tiers, and never within one module.
+2. **Foreign-subject axioms live only in alignment modules.** Logical axioms
+   (`rdfs:subClassOf`, `rdfs:subPropertyOf`, `owl:equivalent*`, instance-level
+   property assertions) whose **subject** is a term smn does not own are
+   permitted only in `alignment-upper`, `alignment-main`, and
+   `alignment-research`, each as a reviewed editorial commitment with a
+   rationale comment. Core modules (01–07) and views never state them.
+   Bare declaration stubs (`ex:Term a owl:Class .`) and documentation
+   annotations (`rdfs:comment`, `rdfs:seeAlso`) are allowed anywhere.
+3. **Import upstream alignments; do not restate them.** Where an upstream
+   body publishes the alignment (e.g. the W3C SOSA–PROV alignment),
+   `alignment-upper` imports it. Restating upstream axioms locally is how
+   mirrors drift.
+4. **Views are axiom-light.** The metamodel views are teaching surfaces:
+   smn-/smnv-owned subjects only, Tier-3 links at most, plus `subPropertyOf`
+   bridges from `smnv:` properties to their native upstream counterparts.
+5. **Reasoner-clean invariant.** The merged closure (smn + its imports +
+   gcdfo) must stay OWL-consistent with zero unsatisfiable classes, and no
+   IRI may be typed both `owl:Class` and `skos:Concept` anywhere in it.
+   A DL-profile gate does not catch class-as-individual modelling mistakes
+   (legal punning), so the CI check for those is a targeted SPARQL report.
+
 ## 6) Profile-to-domain bridge pattern
 
 When a profile concept corresponds to shared domain semantics:
@@ -118,7 +158,7 @@ When a profile concept corresponds to shared domain semantics:
 5. Attach provenance and reviewer metadata for each bridge.
 
 Example (conceptual):
-- `profile:SomeMethodConcept skos:closeMatch smn:EscapementMeasurement .`
+- `profile:SomeMethodConcept skos:closeMatch smn:EscapementEstimate .`
 - `profile:SomeMethodConcept prov:wasDerivedFrom <source-doc> .`
 
 ## 7) LLM-assisted integration policy

@@ -210,9 +210,15 @@ smn:SamplingEvent a owl:Class ;
   iao:0000115 "A sampling activity that targets a geographic feature, yields a sample, and records a time."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
-sosa:FeatureOfInterest sosa:hasSample sosa:Sample .
-sosa:Sample sosa:isResultOf sosa:Sampling .
+# The two class-level property assertions that used to sit here
+# (sosa:FeatureOfInterest sosa:hasSample sosa:Sample; sosa:Sample
+# sosa:isResultOf sosa:Sampling) were removed 2026-08-13: legal OWL 2 DL
+# punning, but they related the class-individuals and said nothing about
+# instances. The intended instance-level semantics already live in the
+# smn:SamplingEvent restrictions above.
 
+# MIREOT-style mirror of the upstream NCBITaxon hierarchy (Oncorhynchus
+# keta under Salmonidae); byte-faithful to the source, not an smn claim.
 obo:NCBITaxon_8018 rdfs:subClassOf obo:NCBITaxon_8015 .
 
 smn:NCBITaxon_8018 a owl:Class ;
@@ -248,9 +254,10 @@ smn:EscapementSurveyEvent a owl:Class ;
   iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent."@en ;
   dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
 
-smn:EscapementMeasurement a owl:Class ;
-  rdfs:label "Escapement measurement"@en ;
+smn:EscapementEstimate a owl:Class ;
+  rdfs:label "Escapement estimate"@en ;
   iao:0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
+  rdfs:comment "A datum (IAO measurement datum), not an activity: the corresponding survey activity is smn:EscapementSurveyEvent. Renamed from smn:EscapementMeasurement on 2026-08-13 (alignment pass, finding F6) because every other *Measurement class in this module is a subclass of the activity smn:Measurement, and this one is not — the name was the defect, inherited verbatim from gcdfo:EscapementMeasurement, whose hyponym family should be coordinated in the boundary pass."@en ;
   rdfs:subClassOf iao:0000109 ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."@en ;

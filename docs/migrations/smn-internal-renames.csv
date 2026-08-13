@@ -1,0 +1,2 @@
+old_iri,new_iri,module,status,notes
+https://w3id.org/smn/EscapementMeasurement,https://w3id.org/smn/EscapementEstimate,02-observation-measurement.ttl,renamed 2026-08-13,"F6: the class is an IAO measurement datum, and every other *Measurement class is an activity; direct replacement per CONVENTIONS section 9 alpha posture"

@@ -23,9 +23,18 @@ FLAT_DEFAULT = Path("salmon-domain-ontology.ttl")
 
 
 def discover_local_ontology_index() -> Dict[str, Path]:
-    """Build mapping of ontology IRI -> local file path for local module imports."""
+    """Build mapping of ontology IRI -> local file path for local module imports.
+
+    ontology/imports/ is deliberately excluded: it holds vendored snapshots of
+    upstream ontologies (the W3C SOSA-PROV alignment and its transitive
+    prov-o/sosa imports) that exist for offline catalog resolution only. The
+    flattened one-file artifact stays smn-authored content: inlining upstream
+    ontologies would triple its size and change its licensing story.
+    """
     index: Dict[str, Path] = {}
     for path in sorted(ONTOLOGY_ROOT.rglob("*.ttl")):
+        if "imports" in path.parts:
+            continue
         graph = Graph()
         graph.parse(path, format="turtle")
         ontology_iri = graph.value(predicate=RDF.type, object=OWL.Ontology)

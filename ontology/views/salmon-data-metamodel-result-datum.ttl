@@ -5,42 +5,29 @@
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix sosa:   <http://www.w3.org/ns/sosa/> .
-@prefix dwc:    <http://rs.tdwg.org/dwc/terms/> .
+@prefix iao:    <http://purl.obolibrary.org/obo/IAO_> .
 
 <https://w3id.org/smn/views/salmon-data-metamodel/result-datum> a owl:Ontology ;
   rdfs:label "Salmon data metamodel view — result/datum slice"@en ;
-  rdfs:comment "Simple result slice: what comes out of an observation or sampling act."@en .
+  rdfs:comment "Simple result slice: what comes out of an observation or sampling act. The SOSA-to-PROV axioms formerly asserted here come, since 2026-08-13, from the imported W3C alignment (module alignment-upper; note sosa:Sample under prov:Entity is entailed there via sosa:FeatureOfInterest — the W3C file never states it directly, and neither does smn). The Sample-to-MaterialSample bridge lives in alignment-main."@en ;
+  rdfs:seeAlso <https://w3id.org/smn/modules/alignment-upper> .
 
-sosa:Sample rdfs:subClassOf prov:Entity .
-sosa:Result rdfs:subClassOf prov:Entity .
-
-smn:EscapementMeasurement skos:closeMatch sosa:Result .
+smn:EscapementEstimate skos:closeMatch sosa:Result .
 smn:ObservedRateOrAbundance skos:closeMatch sosa:Result .
 smn:TargetOrLimitRateOrAbundance skos:closeMatch sosa:Result .
 
 smnv:observationGeneratedResult a owl:ObjectProperty ;
   rdfs:label "observation generated result"@en ;
+  iao:0000115 "Relates an observation activity to the result datum it produces."@en ;
   rdfs:subPropertyOf sosa:hasResult, prov:generated ;
   rdfs:domain sosa:Observation ;
-  rdfs:range sosa:Result .
+  rdfs:range sosa:Result ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
 
 smnv:samplingGeneratedSample a owl:ObjectProperty ;
   rdfs:label "sampling generated sample"@en ;
+  iao:0000115 "Relates a sampling activity to the sample it generates."@en ;
   rdfs:subPropertyOf sosa:hasResult, prov:generated ;
   rdfs:domain sosa:Sampling ;
-  rdfs:range sosa:Sample .
-
-sosa:Sample skos:closeMatch dwc:MaterialSample .
-
-# --- REQUIRED ANNOTATION BACKFILL (auto-generated; do not hand-edit) ---
-# Added to enforce required term metadata parity with DFO conventions.
-
-<https://w3id.org/smn/views/salmon-data-metamodel#observationGeneratedResult>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates an observation activity to the result datum it produces."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-<https://w3id.org/smn/views/salmon-data-metamodel#samplingGeneratedSample>
-  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a sampling activity to the sample it generates."@en ;
-  <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/smn/views/salmon-data-metamodel> .
-
-# --- END REQUIRED ANNOTATION BACKFILL ---
+  rdfs:range sosa:Sample ;
+  rdfs:isDefinedBy <https://w3id.org/smn/views/salmon-data-metamodel> .
