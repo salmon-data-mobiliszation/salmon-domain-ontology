@@ -4,43 +4,19 @@
 # DO NOT edit manually. Rebuild with `make compose-flat-ttl`.
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix ns1: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-sosa:Actuator rdfs:subClassOf prov:Agent,
-        prov:Entity .
-
 sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class."@en ;
     rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/protocol>,
         <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
-
-sosa:Platform rdfs:subClassOf prov:Entity .
-
-sosa:Sampler rdfs:subClassOf prov:Agent,
-        prov:Entity .
-
-sosa:Sensor rdfs:subClassOf prov:Agent,
-        prov:Entity .
-
-sosa:isResultOf rdfs:subPropertyOf prov:wasGeneratedBy .
-
-sosa:isSampleOf rdfs:subPropertyOf prov:wasDerivedFrom .
-
-sosa:madeByActuator rdfs:subPropertyOf prov:wasAssociatedWith .
-
-sosa:madeBySampler rdfs:subPropertyOf prov:wasAssociatedWith .
-
-sosa:madeBySensor rdfs:subPropertyOf prov:wasAssociatedWith .
 
 <https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
 
@@ -610,42 +586,8 @@ sosa:madeBySensor rdfs:subPropertyOf prov:wasAssociatedWith .
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/FishLength> .
 
-sosa:Actuation rdfs:subClassOf prov:Activity .
-
-sosa:ObservableProperty rdfs:subClassOf prov:Entity .
-
-sosa:Result rdfs:subClassOf prov:Entity .
-
-sosa:Sample rdfs:subClassOf prov:Entity ;
-    skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
+sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
         <http://rs.tdwg.org/dwc/terms/MaterialSample> .
-
-sosa:hasResult rdfs:subPropertyOf prov:generated .
-
-sosa:prov a owl:Ontology ;
-    rdfs:label "Alignment of SOSA with PROV-O"@en ;
-    dcterms:created "2016-12-14"^^xsd:date ;
-    dcterms:creator [ a foaf:Agent ;
-            foaf:name "W3C/OGC Spatial Data on the Web Working Group"@en ],
-        "Simon J D Cox" ;
-    dcterms:license <http://www.opengeospatial.org/ogc/Software>,
-        <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
-    dcterms:modified "2017-04-13"^^xsd:date ;
-    dcterms:rights "Copyright 2017 W3C/OGC." ;
-    rdfs:comment "Alignment of the the W3C/OGC SOSA Ontology with the W3C PROV-O Ontology"@en .
-
-<http://www.w3.org/ns/sosa/prov/eventAssociation> a owl:ObjectProperty ;
-    rdfs:domain [ a owl:Class ;
-            owl:unionOf ( sosa:Observation sosa:Actuation sosa:Sampling ) ] ;
-    rdfs:subPropertyOf prov:qualifiedAssociation .
-
-<http://www.w3.org/ns/sosa/prov/hadProcedure> a owl:ObjectProperty ;
-    rdfs:range sosa:Procedure ;
-    rdfs:subPropertyOf prov:hadPlan .
-
-sosa:resultTime rdfs:subPropertyOf prov:endedAtTime .
-
-sosa:usedProcedure owl:propertyChainAxiom ( <http://www.w3.org/ns/sosa/prov/eventAssociation> <http://www.w3.org/ns/sosa/prov/hadProcedure> ) .
 
 <https://w3id.org/iadopt/ont/Entity> skos:closeMatch sosa:FeatureOfInterest .
 
@@ -811,7 +753,7 @@ ns1:NCBITaxon_8018 rdfs:subClassOf ns1:NCBITaxon_8015 .
 
 geo:Feature rdfs:subClassOf sosa:FeatureOfInterest .
 
-sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
+sosa:Procedure skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 <https://w3id.org/smn/Abundance> a owl:Class ;
     rdfs:label "Abundance"@en ;
@@ -873,8 +815,9 @@ sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/Entity> .
 
-sosa:Procedure rdfs:subClassOf prov:Plan ;
-    skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+sosa:Observation skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
+
+sosa:Sampling skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
 
 <https://w3id.org/smn/AgeNotation> a skos:Concept ;
     ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation."@en ;
@@ -964,12 +907,6 @@ sosa:Procedure rdfs:subClassOf prov:Plan ;
     skos:definition "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."@en ;
     skos:hasTopConcept <https://w3id.org/smn/SalmonOrigin> ;
     skos:prefLabel "Salmon origin scheme"@en .
-
-sosa:Observation rdfs:subClassOf prov:Activity ;
-    skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
-
-sosa:Sampling rdfs:subClassOf prov:Activity ;
-    skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
 
 <https://w3id.org/smn/AgeBasis> a skos:Concept ;
     ns1:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis."@en ;
@@ -1099,8 +1036,6 @@ sosa:Sampling rdfs:subClassOf prov:Activity ;
     rdfs:subClassOf sosa:Property .
 
 <https://w3id.org/iadopt/ont/Constraint> a owl:Class .
-
-sosa:FeatureOfInterest rdfs:subClassOf prov:Entity .
 
 <https://w3id.org/smn/AgeClassValue> a skos:Concept ;
     ns1:IAO_0000119 "Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue."@en ;

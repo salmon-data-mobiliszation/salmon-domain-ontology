@@ -160,20 +160,7 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest",
-    "http://www.w3.org/ns/sosa/hasSample": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/Sample"
-      }
-    ]
-  },
-  {
     "@id": "http://www.w3.org/ns/sosa/Observation",
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "http://rs.tdwg.org/dwc/terms/Occurrence"
-      }
-    ],
     "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/Occurrence"
@@ -207,36 +194,18 @@
   },
   {
     "@id": "http://www.w3.org/ns/sosa/Sample",
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows."
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "http://rs.tdwg.org/dwc/terms/MaterialSample"
-      }
-    ],
     "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/MaterialEntity"
-      }
-    ],
-    "http://www.w3.org/ns/sosa/isResultOf": [
+      },
       {
-        "@id": "http://www.w3.org/ns/sosa/Sampling"
+        "@id": "http://rs.tdwg.org/dwc/terms/MaterialSample"
       }
     ]
   },
   {
     "@id": "http://www.w3.org/ns/sosa/Sampling",
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "http://rs.tdwg.org/dwc/terms/Event"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2004/02/skos/core#broadMatch": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/Event"
       }
@@ -250,7 +219,7 @@
   },
   {
     "@id": "https://w3id.org/iadopt/ont/Entity",
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
       }
@@ -258,7 +227,7 @@
   },
   {
     "@id": "https://w3id.org/iadopt/ont/Property",
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "http://www.w3.org/ns/sosa/Property"
       }
@@ -274,6 +243,11 @@
     "@id": "https://w3id.org/iadopt/ont/Variable",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/ObservableProperty"
+      }
     ]
   },
   {
@@ -1738,7 +1712,7 @@
     ]
   },
   {
-    "@id": "https://w3id.org/smn/EscapementMeasurement",
+    "@id": "https://w3id.org/smn/EscapementEstimate",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -1759,6 +1733,12 @@
         "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A datum (IAO measurement datum), not an activity: the corresponding survey activity is smn:EscapementSurveyEvent. Renamed from smn:EscapementMeasurement on 2026-08-13 (alignment pass, finding F6) because every other *Measurement class in this module is a subclass of the activity smn:Measurement, and this one is not — the name was the defect, inherited verbatim from gcdfo:EscapementMeasurement, whose hyponym family should be coordinated in the boundary pass."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -1767,7 +1747,7 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Escapement measurement"
+        "@value": "Escapement estimate"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -4770,13 +4750,41 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research)."
+        "@value": "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). This is the only module in the default build permitted to carry mapping statements whose subjects are foreign-namespace terms (CONVENTIONS section 5b): each such statement is a reviewed editorial commitment, held at Tier 3 (advisory) unless an upstream body publishes the stronger form — in which case smn imports the upstream alignment (see alignment-upper) instead of restating it."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
         "@value": "Salmon Domain Ontology Alignment Module (main-candidate)"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/modules/alignment-upper",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/prov"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Normative-core upper alignment. Imports the W3C-published SOSA-to-PROV-O alignment instead of re-asserting its axioms on foreign-namespace terms — the convention this module exists to enforce: smn never states axioms whose subjects it does not own outside a reviewed alignment module, and where an upstream body already publishes the alignment, smn imports it. The SOSA-PROV alignment is non-normative in the SSN Recommendation (2017, section 6.5); smn adopts it as the provenance backbone for the deterministic-reasoning consumption target. Offline and CI loading resolves the import to the vendored snapshot ontology/imports/sosa-prov.ttl via catalog-v001.xml; the snapshot is a byte copy of the W3C file and must not be hand-edited."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Salmon Domain Ontology upper alignment (imported W3C alignments)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.w3.org/TR/vocab-ssn/#PROV"
       }
     ]
   },

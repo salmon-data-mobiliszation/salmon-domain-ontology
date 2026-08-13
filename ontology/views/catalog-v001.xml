@@ -17,6 +17,9 @@
   <uri name="https://w3id.org/smn/modules/08-rda-case-study-profile-bridges" uri="../modules/08-rda-case-study-profile-bridges.ttl"/>
   <uri name="https://w3id.org/smn/modules/09-rda-neville-decomposition-profile-bridges" uri="../modules/09-rda-neville-decomposition-profile-bridges.ttl"/>
   <uri name="http://www.w3.org/ns/sosa/prov" uri="../imports/sosa-prov.ttl"/>
+  <uri name="http://www.w3.org/ns/prov-o#" uri="../imports/prov-o.ttl"/>
+  <uri name="http://www.w3.org/ns/prov-o" uri="../imports/prov-o.ttl"/>
+  <uri name="http://www.w3.org/ns/sosa/" uri="../imports/sosa.ttl"/>
   <uri name="https://w3id.org/smn/views/salmon-data-metamodel" uri="salmon-data-metamodel.ttl"/>
   <uri name="https://w3id.org/smn/views/salmon-data-metamodel/entity" uri="salmon-data-metamodel-entity.ttl"/>
   <uri name="https://w3id.org/smn/views/salmon-data-metamodel/property" uri="salmon-data-metamodel-property.ttl"/>

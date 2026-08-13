@@ -15,12 +15,14 @@
 
 <https://w3id.org/smn/modules/01-entity-systematics> rdf:type owl:Ontology ;
                                                       dcterms:modified "2026-08-04"^^xsd:date ;
+                                                      dcterms:source sosa:prov ;
                                                       rdfs:comment "Conservative shared event taxonomy. Policy/program-specific schemes remain in profile ontologies."@en ,
                                                                    "Conservative shared stock-assessment and benchmark semantics. Policy-program-specific reference classes remain profile-scoped."@en ,
-                                                                   "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research)."@en ,
+                                                                   "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). This is the only module in the default build permitted to carry mapping statements whose subjects are foreign-namespace terms (CONVENTIONS section 5b): each such statement is a reviewed editorial commitment, held at Tier 3 (advisory) unless an upstream body publishes the stronger form — in which case smn imports the upstream alignment (see alignment-upper) instead of restating it."@en ,
                                                                    "Core salmon entities, reporting strata, and composition relationships for cross-agency reuse. Includes migrated reusable structure terms from DFO Salmon Ontology (no removals from DFO source)."@en ,
                                                                    "Cross-ontology bridge statements for SOSA, I-ADOPT, Darwin Core, RDF Data Cube, and OWL-Time interoperability."@en ,
                                                                    "Curated shared SKOS layer for reusable year basis, age, context, life-phase, and origin concepts. Policy/program-specific schemes remain profile-scoped by default."@en ,
+                                                                   "Normative-core upper alignment. Imports the W3C-published SOSA-to-PROV-O alignment instead of re-asserting its axioms on foreign-namespace terms — the convention this module exists to enforce: smn never states axioms whose subjects it does not own outside a reviewed alignment module, and where an upstream body already publishes the alignment, smn imports it. The SOSA-PROV alignment is non-normative in the SSN Recommendation (2017, section 6.5); smn adopts it as the provenance backbone for the deterministic-reasoning consumption target. Offline and CI loading resolves the import to the vendored snapshot ontology/imports/sosa-prov.ttl via catalog-v001.xml; the snapshot is a byte copy of the W3C file and must not be hand-edited."@en ,
                                                                    "Observation and measurement model (SOSA-aligned) with reusable abundance, typed year-coordinate properties, escapement, and survey terms."@en ,
                                                                    "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ,
                                                                    "Shared provenance and quality artifact classes. Program-specific confidence vocabularies remain profile-scoped."@en ;
@@ -32,7 +34,9 @@
                                                                  "Salmon Domain Ontology Module 04: Management and governance"@en ,
                                                                  "Salmon Domain Ontology Module 05: Provenance and quality"@en ,
                                                                  "Salmon Domain Ontology Module 06: Data interoperability"@en ,
-                                                                 "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
+                                                                 "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ,
+                                                                 "Salmon Domain Ontology upper alignment (imported W3C alignments)"@en ;
+                                                      rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn/#PROV> ;
                                                       owl:priorVersion <https://w3id.org/smn/0.0.1> ;
                                                       owl:versionInfo "0.0.2" .
 
@@ -98,14 +102,6 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/2004/02/skos/core#scopeNote
 skos:scopeNote rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/ns/sosa/hasSample
-sosa:hasSample rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/ns/sosa/isResultOf
-sosa:isResultOf rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -289,18 +285,7 @@ qb:DimensionProperty rdf:type owl:Class .
 
 
 ###  http://rs.tdwg.org/dwc/terms/Event
-<http://rs.tdwg.org/dwc/terms/Event> rdf:type owl:Class ;
-                                     owl:equivalentClass sosa:Sampling .
-
-
-###  http://rs.tdwg.org/dwc/terms/MaterialSample
-<http://rs.tdwg.org/dwc/terms/MaterialSample> rdf:type owl:Class ;
-                                              owl:equivalentClass sosa:Sample .
-
-
-###  http://rs.tdwg.org/dwc/terms/Occurrence
-<http://rs.tdwg.org/dwc/terms/Occurrence> rdf:type owl:Class ;
-                                          owl:equivalentClass sosa:Observation .
+<http://rs.tdwg.org/dwc/terms/Event> rdf:type owl:Class .
 
 
 ###  http://rs.tdwg.org/dwc/terms/Organism
@@ -325,9 +310,7 @@ time:Instant rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/sosa/FeatureOfInterest
-sosa:FeatureOfInterest rdf:type owl:Class ;
-                       owl:equivalentClass <https://w3id.org/iadopt/ont/Entity> ;
-                       sosa:hasSample sosa:Sample .
+sosa:FeatureOfInterest rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/sosa/Observation
@@ -341,20 +324,18 @@ sosa:Procedure rdf:type owl:Class ;
 
 
 ###  http://www.w3.org/ns/sosa/Property
-sosa:Property rdf:type owl:Class ;
-              owl:equivalentClass <https://w3id.org/iadopt/ont/Property> .
+sosa:Property rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/sosa/Sample
 sosa:Sample rdf:type owl:Class ;
-            rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows."@en ;
-            skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity> ;
-            sosa:isResultOf sosa:Sampling .
+            skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity> ,
+                            <http://rs.tdwg.org/dwc/terms/MaterialSample> .
 
 
 ###  http://www.w3.org/ns/sosa/Sampling
 sosa:Sampling rdf:type owl:Class ;
-              skos:closeMatch <http://rs.tdwg.org/dwc/terms/Event> .
+              skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
 
 
 ###  https://w3id.org/iadopt/ont/Constraint
@@ -362,11 +343,8 @@ sosa:Sampling rdf:type owl:Class ;
 
 
 ###  https://w3id.org/iadopt/ont/Entity
-<https://w3id.org/iadopt/ont/Entity> rdf:type owl:Class .
-
-
-###  https://w3id.org/iadopt/ont/Property
-<https://w3id.org/iadopt/ont/Property> rdf:type owl:Class .
+<https://w3id.org/iadopt/ont/Entity> rdf:type owl:Class ;
+                                     skos:closeMatch sosa:FeatureOfInterest .
 
 
 ###  https://w3id.org/iadopt/ont/StatisticalModifier
@@ -374,7 +352,8 @@ sosa:Sampling rdf:type owl:Class ;
 
 
 ###  https://w3id.org/iadopt/ont/Variable
-<https://w3id.org/iadopt/ont/Variable> rdf:type owl:Class .
+<https://w3id.org/iadopt/ont/Variable> rdf:type owl:Class ;
+                                       skos:closeMatch sosa:ObservableProperty .
 
 
 ###  https://w3id.org/smn/Abundance
@@ -474,15 +453,16 @@ sosa:Sampling rdf:type owl:Class ;
                                   rdfs:label "Escapement"@en .
 
 
-###  https://w3id.org/smn/EscapementMeasurement
-<https://w3id.org/smn/EscapementMeasurement> rdf:type owl:Class ;
-                                             rdfs:subClassOf ns1:IAO_0000109 ;
-                                             ns1:IAO_0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
-                                             ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."@en ;
-                                             dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
-                                             rdfs:isDefinedBy <https://w3id.org/smn> ;
-                                             rdfs:label "Escapement measurement"@en ;
-                                             skos:closeMatch sosa:Result .
+###  https://w3id.org/smn/EscapementEstimate
+<https://w3id.org/smn/EscapementEstimate> rdf:type owl:Class ;
+                                          rdfs:subClassOf ns1:IAO_0000109 ;
+                                          ns1:IAO_0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
+                                          ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement."@en ;
+                                          dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
+                                          rdfs:comment "A datum (IAO measurement datum), not an activity: the corresponding survey activity is smn:EscapementSurveyEvent. Renamed from smn:EscapementMeasurement on 2026-08-13 (alignment pass, finding F6) because every other *Measurement class in this module is a subclass of the activity smn:Measurement, and this one is not — the name was the defect, inherited verbatim from gcdfo:EscapementMeasurement, whose hyponym family should be coordinated in the boundary pass."@en ;
+                                          rdfs:isDefinedBy <https://w3id.org/smn> ;
+                                          rdfs:label "Escapement estimate"@en ;
+                                          skos:closeMatch sosa:Result .
 
 
 ###  https://w3id.org/smn/EscapementSurveyEvent
@@ -1537,6 +1517,9 @@ sosa:Sampling rdf:type owl:Class ;
 sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon data exchange this usually points to a Darwin Core protocol value or a DwC-DP Protocol record, not to an OWL-equivalent class."@en ;
                         rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/protocol> ,
                                      <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+
+
+<https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
 
 
 <https://w3id.org/smn/FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .

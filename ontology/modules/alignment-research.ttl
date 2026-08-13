@@ -102,9 +102,10 @@ smn:isSampleOfStratum a owl:ObjectProperty ;
 smn:hasDeme rdfs:subPropertyOf ro:0002351 .
 smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 
-<http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
-<http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .
-<http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
-<http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+# The four representation-level bridges that were duplicated here were
+# removed 2026-08-13: the research build imports the root ontology, which
+# already carries alignment-main's versions (including the demoted
+# sosa:Sampling broadMatch dwc:Event), and duplicating them here published
+# a conflicting closeMatch for the same pair (CONVENTIONS 5b rule 1).
 <http://www.w3.org/ns/sosa/FeatureOfInterest> skos:closeMatch <https://w3id.org/iadopt/ont/Entity> .
 <http://www.w3.org/ns/sosa/ObservableProperty> skos:closeMatch <https://w3id.org/iadopt/ont/Property> .

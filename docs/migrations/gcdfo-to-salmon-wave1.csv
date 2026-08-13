@@ -10,7 +10,7 @@ https://w3id.org/gcdfo/salmon#hasPopulation,https://w3id.org/smn/hasPopulation,0
 https://w3id.org/gcdfo/salmon#populationOf,https://w3id.org/smn/populationOf,01-entity-systematics.ttl,migrated,re-scoped inverse
 https://w3id.org/gcdfo/salmon#SurveyEvent,https://w3id.org/smn/SurveyEvent,02-observation-measurement.ttl,migrated,shared monitoring event
 https://w3id.org/gcdfo/salmon#EscapementSurveyEvent,https://w3id.org/smn/EscapementSurveyEvent,02-observation-measurement.ttl,migrated,shared event
-https://w3id.org/gcdfo/salmon#EscapementMeasurement,https://w3id.org/smn/EscapementMeasurement,02-observation-measurement.ttl,migrated,shared measurement class
+https://w3id.org/gcdfo/salmon#EscapementMeasurement,https://w3id.org/smn/EscapementMeasurement,02-observation-measurement.ttl,migrated,"shared measurement class; smn side renamed to EscapementEstimate 2026-08-13 — see smn-internal-renames.csv"
 https://w3id.org/gcdfo/salmon#Escapement,https://w3id.org/smn/Escapement,02-observation-measurement.ttl,migrated,shared concept
 https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance,https://w3id.org/smn/ObservedRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base metric
 https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance,https://w3id.org/smn/TargetOrLimitRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base target/limit metric
