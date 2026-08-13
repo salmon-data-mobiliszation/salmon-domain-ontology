@@ -22,10 +22,13 @@ Any earlier claim that the smn/gcdfo boundary is "prose-only" is stale.
 
 ## Defects in the merged closure
 
-- **Live pun:** `smn:EnumerationMethod` is `owl:Class ⊑ sosa:Procedure` in smn
-  (`modules/02:129`) and `skos:Concept` in gcdfo (`dfo-salmon.ttl:1024`).
-  Because gcdfo imports smn, every reasoner over the closure sees one IRI
-  typed both ways — which both repos' conventions forbid.
+- ~~Live pun~~ **Resolved 2026-08-13 (step 2):** smn migrated its six method
+  OWL classes to SKOS concepts in `smn:MethodScheme` (module 07), each
+  instance-typed `sosa:Procedure`, IRIs unchanged — so `smn:EnumerationMethod`
+  is now `skos:Concept` on both sides and the merged closure has zero
+  dual-typed IRIs (verified against the flat build). PSC's wrong-kind
+  objection (`sdo-alignment-gap.md`) no longer applies; updating their doc
+  and drafting psc→smn SSSOM rows is step 4.
 - **Minted foreign term:** `smn:FisheriesReferencePointLower` is declared
   only in `dfo-salmon.ttl` (~line 1920); smn never declares it.
 - **Unbridged duplication:** the 18-term age/year SKOS family exists twice —

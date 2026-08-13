@@ -27,7 +27,7 @@
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "http://www.w3.org/ns/sosa/Procedure"
       }
     ]
   },
@@ -107,7 +107,7 @@
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://w3id.org/smn/FishLengthMeasurementMethod"
+        "@id": "http://www.w3.org/ns/sosa/Procedure"
       }
     ]
   },
@@ -1270,6 +1270,12 @@
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -1542,6 +1548,40 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/CountStatisticalModifier",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/iadopt/ont/StatisticalModifier"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The reported value is the number of summarized observations or individuals, as counted rather than estimated."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Count"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/DataQualityAssessment",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -1636,13 +1676,8 @@
   {
     "@id": "https://w3id.org/smn/EnumerationMethod",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A method used to enumerate or count salmon in the field"
-      }
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
@@ -1660,15 +1695,26 @@
         "@id": "https://w3id.org/smn"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A method used to enumerate or count salmon in the field."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Enumeration method"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
       {
-        "@id": "http://www.w3.org/ns/sosa/Procedure"
+        "@id": "https://w3id.org/smn/MethodScheme"
       }
     ]
   },
@@ -1931,22 +1977,28 @@
   {
     "@id": "https://w3id.org/smn/FishForkLengthMeasurementMethod",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/FishLengthMeasurementMethod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Fish fork-length measurement method"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/smn/FishLengthMeasurementMethod"
       }
     ]
   },
@@ -1975,22 +2027,28 @@
   {
     "@id": "https://w3id.org/smn/FishLengthMeasurementMethod",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Fish length measurement method"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
       {
-        "@id": "http://www.w3.org/ns/sosa/Procedure"
+        "@id": "https://w3id.org/smn/MethodScheme"
       }
     ]
   },
@@ -1998,6 +2056,12 @@
     "@id": "https://w3id.org/smn/FishLengthMeasurementType",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The used-procedure restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration: the specific length-method concepts are individuals in module 07's smn:MethodScheme, and someValuesFrom needs a class."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -2102,66 +2166,84 @@
   {
     "@id": "https://w3id.org/smn/ForkLengthMeasurementFieldMethod",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/ForkLengthMeasurementMethod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Fork-length field method"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/smn/ForkLengthMeasurementMethod"
       }
     ]
   },
   {
     "@id": "https://w3id.org/smn/ForkLengthMeasurementLabMethod",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/ForkLengthMeasurementMethod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Fork-length lab method"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/smn/ForkLengthMeasurementMethod"
       }
     ]
   },
   {
     "@id": "https://w3id.org/smn/ForkLengthMeasurementMethod",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/FishForkLengthMeasurementMethod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Fork-length measurement method"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/smn/FishForkLengthMeasurementMethod"
       }
     ]
   },
@@ -2663,6 +2745,84 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/MaximumStatisticalModifier",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/iadopt/ont/StatisticalModifier"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://vocabulary.odm2.org/aggregationstatistic/maximum"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The reported value is the maximum of the summarized observations."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Maximum"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/MeanStatisticalModifier",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/iadopt/ont/StatisticalModifier"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://vocabulary.odm2.org/aggregationstatistic/average"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The reported value is the arithmetic mean of the summarized observations."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Mean"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/Measurement",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -2781,6 +2941,45 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/MedianStatisticalModifier",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/iadopt/ont/StatisticalModifier"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://vocabulary.odm2.org/aggregationstatistic/median"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The reported value is the median of the summarized observations."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Median"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/MethodDocumentation",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -2805,6 +3004,37 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/MethodScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary of shared, policy-neutral salmon observation and measurement methods. Organization- or program-specific method taxonomies remain profile-scoped (CONVENTIONS section 11)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/smn/EnumerationMethod"
+      },
+      {
+        "@id": "https://w3id.org/smn/FishLengthMeasurementMethod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Method scheme"
       }
     ]
   },
@@ -2844,6 +3074,45 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/MinimumStatisticalModifier",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/iadopt/ont/StatisticalModifier"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://vocabulary.odm2.org/aggregationstatistic/minimum"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The reported value is the minimum of the summarized observations."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Minimum"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
       }
     ]
   },
@@ -3120,6 +3389,40 @@
       {
         "@language": "en",
         "@value": "Ocean phase"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/PeakStatisticalModifier",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/iadopt/ont/StatisticalModifier"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The reported value is the peak (highest single observation event) across the summarized series, such as a peak live count in a spawner survey."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Peak"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
       }
     ]
   },
@@ -3731,6 +4034,52 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/StatisticalModifierScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary of statistical modifiers stating what a reported value represents across the observations it summarizes (mean, median, minimum, maximum, total, count, peak). A statistical modifier is part of variable identity — daily mean and daily maximum temperature are different variables — unlike a method, which describes the act of measuring."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/smn/CountStatisticalModifier"
+      },
+      {
+        "@id": "https://w3id.org/smn/MaximumStatisticalModifier"
+      },
+      {
+        "@id": "https://w3id.org/smn/MeanStatisticalModifier"
+      },
+      {
+        "@id": "https://w3id.org/smn/MedianStatisticalModifier"
+      },
+      {
+        "@id": "https://w3id.org/smn/MinimumStatisticalModifier"
+      },
+      {
+        "@id": "https://w3id.org/smn/PeakStatisticalModifier"
+      },
+      {
+        "@id": "https://w3id.org/smn/TotalStatisticalModifier"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Statistical modifier scheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/Stock",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -4101,6 +4450,45 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/TotalStatisticalModifier",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/iadopt/ont/StatisticalModifier"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://vocabulary.odm2.org/aggregationstatistic/cumulative"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The reported value is the sum or cumulative total of the summarized observations, such as an annual total catch or cumulative escapement."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Total"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/StatisticalModifierScheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/YearBasis",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -4245,7 +4633,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "http://www.w3.org/ns/sosa/Procedure"
       }
     ]
   },

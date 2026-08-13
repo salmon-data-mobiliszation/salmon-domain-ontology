@@ -1,0 +1,32 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix smn:  <https://w3id.org/smn/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+<https://w3id.org/smn/shapes/method-shapes> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology method shapes"@en ;
+  rdfs:comment "SHACL shapes carrying the value constraints that the 2026-08-13 methods-as-SKOS migration moved out of OWL. When method concepts became individuals, the module-02 restrictions could only target the generic sosa:Procedure class; the specific 'must be an enumeration method' semantics live here instead, expressed the SKOS-native way (a skos:broader* path into the concept hierarchy). Validation wiring into CI is part of the S9 tooling work; the shape is normative in intent from the moment it is merged."@en .
+
+smn:AggregatedMeasurementShape a sh:NodeShape ;
+  rdfs:label "Aggregated measurement based-on shape"@en ;
+  sh:targetClass smn:AggregatedMeasurement ;
+  sh:property [
+    sh:path smn:basedOn ;
+    sh:node smn:EnumerationMethodValueShape ;
+    sh:message "smn:basedOn values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme."@en ;
+  ] .
+
+smn:EnumerationMethodValueShape a sh:NodeShape ;
+  rdfs:label "Enumeration method value shape"@en ;
+  sh:property [
+    sh:path [ sh:zeroOrMorePath skos:broader ] ;
+    sh:qualifiedValueShape [ sh:hasValue smn:EnumerationMethod ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:message "The value must reach smn:EnumerationMethod via skos:broader (zero or more steps)."@en ;
+  ] ;
+  sh:property [
+    sh:path skos:inScheme ;
+    sh:hasValue smn:MethodScheme ;
+    sh:message "The value must be a concept in smn:MethodScheme."@en ;
+  ] .

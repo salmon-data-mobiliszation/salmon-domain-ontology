@@ -20,8 +20,6 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
 
 <https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
 
-<https://w3id.org/iadopt/ont/StatisticalModifier> a owl:Class .
-
 <https://w3id.org/iadopt/ont/Variable> a owl:Class ;
     skos:closeMatch sosa:ObservableProperty .
 
@@ -213,15 +211,19 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
             owl:someValuesFrom <https://w3id.org/smn/forkLength> ],
         <https://w3id.org/smn/FishLengthMeasurementType> .
 
-<https://w3id.org/smn/ForkLengthMeasurementFieldMethod> a owl:Class ;
-    rdfs:label "Fork-length field method"@en ;
+<https://w3id.org/smn/ForkLengthMeasurementFieldMethod> a skos:Concept,
+        sosa:Procedure ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf <https://w3id.org/smn/ForkLengthMeasurementMethod> .
+    skos:broader <https://w3id.org/smn/ForkLengthMeasurementMethod> ;
+    skos:inScheme <https://w3id.org/smn/MethodScheme> ;
+    skos:prefLabel "Fork-length field method"@en .
 
-<https://w3id.org/smn/ForkLengthMeasurementLabMethod> a owl:Class ;
-    rdfs:label "Fork-length lab method"@en ;
+<https://w3id.org/smn/ForkLengthMeasurementLabMethod> a skos:Concept,
+        sosa:Procedure ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf <https://w3id.org/smn/ForkLengthMeasurementMethod> .
+    skos:broader <https://w3id.org/smn/ForkLengthMeasurementMethod> ;
+    skos:inScheme <https://w3id.org/smn/MethodScheme> ;
+    skos:prefLabel "Fork-length lab method"@en .
 
 <https://w3id.org/smn/FreshwaterAgeDimension> a skos:Concept ;
     ns1:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:FreshwaterAgeDimension."@en ;
@@ -593,16 +595,35 @@ sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
 
 <https://w3id.org/smn/AggregatedMeasurement> a owl:Class ;
     rdfs:label "Aggregated measurement"@en ;
+    rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/smn/basedOn> ;
-            owl:someValuesFrom <https://w3id.org/smn/EnumerationMethod> ],
+            owl:someValuesFrom sosa:Procedure ],
         <https://w3id.org/smn/Measurement> .
 
 <https://w3id.org/smn/BodyShape> a owl:Class ;
     rdfs:label "Body shape"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/Characteristic> .
+
+<https://w3id.org/smn/CountStatisticalModifier> a skos:Concept,
+        <https://w3id.org/iadopt/ont/StatisticalModifier> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:definition "The reported value is the number of summarized observations or individuals, as counted rather than estimated."@en ;
+    skos:inScheme <https://w3id.org/smn/StatisticalModifierScheme> ;
+    skos:prefLabel "Count"@en ;
+    skos:topConceptOf <https://w3id.org/smn/StatisticalModifierScheme> .
+
+<https://w3id.org/smn/EnumerationMethod> a skos:Concept,
+        sosa:Procedure ;
+    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."@en ;
+    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:definition "A method used to enumerate or count salmon in the field."@en ;
+    skos:inScheme <https://w3id.org/smn/MethodScheme> ;
+    skos:prefLabel "Enumeration method"@en ;
+    skos:topConceptOf <https://w3id.org/smn/MethodScheme> .
 
 <https://w3id.org/smn/ExploitationRate> a owl:Class ;
     rdfs:label "Exploitation rate"@en ;
@@ -612,10 +633,12 @@ sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/TargetOrLimitRateOrAbundance> .
 
-<https://w3id.org/smn/FishForkLengthMeasurementMethod> a owl:Class ;
-    rdfs:label "Fish fork-length measurement method"@en ;
+<https://w3id.org/smn/FishForkLengthMeasurementMethod> a skos:Concept,
+        sosa:Procedure ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf <https://w3id.org/smn/FishLengthMeasurementMethod> .
+    skos:broader <https://w3id.org/smn/FishLengthMeasurementMethod> ;
+    skos:inScheme <https://w3id.org/smn/MethodScheme> ;
+    skos:prefLabel "Fish fork-length measurement method"@en .
 
 <https://w3id.org/smn/FishingType> a owl:Class ;
     rdfs:label "Fishing type"@en ;
@@ -632,10 +655,54 @@ sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/Characteristic> .
 
+<https://w3id.org/smn/MaximumStatisticalModifier> a skos:Concept,
+        <https://w3id.org/iadopt/ont/StatisticalModifier> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/maximum> ;
+    skos:definition "The reported value is the maximum of the summarized observations."@en ;
+    skos:inScheme <https://w3id.org/smn/StatisticalModifierScheme> ;
+    skos:prefLabel "Maximum"@en ;
+    skos:topConceptOf <https://w3id.org/smn/StatisticalModifierScheme> .
+
+<https://w3id.org/smn/MeanStatisticalModifier> a skos:Concept,
+        <https://w3id.org/iadopt/ont/StatisticalModifier> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/average> ;
+    skos:definition "The reported value is the arithmetic mean of the summarized observations."@en ;
+    skos:inScheme <https://w3id.org/smn/StatisticalModifierScheme> ;
+    skos:prefLabel "Mean"@en ;
+    skos:topConceptOf <https://w3id.org/smn/StatisticalModifierScheme> .
+
+<https://w3id.org/smn/MedianStatisticalModifier> a skos:Concept,
+        <https://w3id.org/iadopt/ont/StatisticalModifier> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/median> ;
+    skos:definition "The reported value is the median of the summarized observations."@en ;
+    skos:inScheme <https://w3id.org/smn/StatisticalModifierScheme> ;
+    skos:prefLabel "Median"@en ;
+    skos:topConceptOf <https://w3id.org/smn/StatisticalModifierScheme> .
+
+<https://w3id.org/smn/MinimumStatisticalModifier> a skos:Concept,
+        <https://w3id.org/iadopt/ont/StatisticalModifier> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/minimum> ;
+    skos:definition "The reported value is the minimum of the summarized observations."@en ;
+    skos:inScheme <https://w3id.org/smn/StatisticalModifierScheme> ;
+    skos:prefLabel "Minimum"@en ;
+    skos:topConceptOf <https://w3id.org/smn/StatisticalModifierScheme> .
+
 <https://w3id.org/smn/Observation> a owl:Class ;
     rdfs:label "Observation"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf sosa:Observation .
+
+<https://w3id.org/smn/PeakStatisticalModifier> a skos:Concept,
+        <https://w3id.org/iadopt/ont/StatisticalModifier> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:definition "The reported value is the peak (highest single observation event) across the summarized series, such as a peak live count in a spawner survey."@en ;
+    skos:inScheme <https://w3id.org/smn/StatisticalModifierScheme> ;
+    skos:prefLabel "Peak"@en ;
+    skos:topConceptOf <https://w3id.org/smn/StatisticalModifierScheme> .
 
 <https://w3id.org/smn/ReferencePoint> a owl:Class ;
     rdfs:label "Reference point"@en ;
@@ -684,11 +751,20 @@ sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf ns1:IAO_0000109 .
 
+<https://w3id.org/smn/TotalStatisticalModifier> a skos:Concept,
+        <https://w3id.org/iadopt/ont/StatisticalModifier> ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/cumulative> ;
+    skos:definition "The reported value is the sum or cumulative total of the summarized observations, such as an annual total catch or cumulative escapement."@en ;
+    skos:inScheme <https://w3id.org/smn/StatisticalModifierScheme> ;
+    skos:prefLabel "Total"@en ;
+    skos:topConceptOf <https://w3id.org/smn/StatisticalModifierScheme> .
+
 <https://w3id.org/smn/basedOn> a owl:ObjectProperty ;
     rdfs:label "based on"@en ;
     rdfs:domain <https://w3id.org/smn/AggregatedMeasurement> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:range <https://w3id.org/smn/EnumerationMethod> .
+    rdfs:range sosa:Procedure .
 
 <https://w3id.org/smn/broodYear> a qb:DimensionProperty,
         owl:DatatypeProperty ;
@@ -753,8 +829,6 @@ ns1:NCBITaxon_8018 rdfs:subClassOf ns1:NCBITaxon_8015 .
 
 geo:Feature rdfs:subClassOf sosa:FeatureOfInterest .
 
-sosa:Procedure skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
-
 <https://w3id.org/smn/Abundance> a owl:Class ;
     rdfs:label "Abundance"@en ;
     ns1:IAO_0000115 "A characteristic representing the quantity of salmon or other organisms associated with a defined entity, place, and time."@en ;
@@ -774,28 +848,24 @@ sosa:Procedure skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <http://rs.tdwg.org/dwc/terms/Organism> .
 
-<https://w3id.org/smn/EnumerationMethod> a owl:Class ;
-    rdfs:label "Enumeration method"@en ;
-    ns1:IAO_0000115 "A method used to enumerate or count salmon in the field"@en ;
-    ns1:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."@en ;
-    dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
-    rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf sosa:Procedure .
-
 <https://w3id.org/smn/EventType> a owl:Class ;
     rdfs:label "Event type"@en ;
     ns1:IAO_0000115 "A class used to categorize fisheries or survey event instances by operational type."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> .
 
-<https://w3id.org/smn/FishLengthMeasurementMethod> a owl:Class ;
-    rdfs:label "Fish length measurement method"@en ;
+<https://w3id.org/smn/FishLengthMeasurementMethod> a skos:Concept,
+        sosa:Procedure ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf sosa:Procedure .
+    skos:inScheme <https://w3id.org/smn/MethodScheme> ;
+    skos:prefLabel "Fish length measurement method"@en ;
+    skos:topConceptOf <https://w3id.org/smn/MethodScheme> .
 
-<https://w3id.org/smn/ForkLengthMeasurementMethod> a owl:Class ;
-    rdfs:label "Fork-length measurement method"@en ;
+<https://w3id.org/smn/ForkLengthMeasurementMethod> a skos:Concept,
+        sosa:Procedure ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf <https://w3id.org/smn/FishForkLengthMeasurementMethod> .
+    skos:broader <https://w3id.org/smn/FishForkLengthMeasurementMethod> ;
+    skos:inScheme <https://w3id.org/smn/MethodScheme> ;
+    skos:prefLabel "Fork-length measurement method"@en .
 
 <https://w3id.org/smn/MorphologicalCharacteristic> a owl:Class ;
     rdfs:label "Morphological characteristic"@en ;
@@ -863,13 +933,14 @@ sosa:Sampling skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
 
 <https://w3id.org/smn/FishLengthMeasurementType> a owl:Class ;
     rdfs:label "Fish length measurement type"@en ;
+    rdfs:comment "The used-procedure restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration: the specific length-method concepts are individuals in module 07's smn:MethodScheme, and someValuesFrom needs a class."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty sosa:observedProperty ;
             owl:someValuesFrom <https://w3id.org/smn/FishLength> ],
         [ a owl:Restriction ;
             owl:onProperty sosa:usedProcedure ;
-            owl:someValuesFrom <https://w3id.org/smn/FishLengthMeasurementMethod> ],
+            owl:someValuesFrom sosa:Procedure ],
         <https://w3id.org/smn/Measurement> .
 
 <https://w3id.org/smn/ReportingOrManagementStratum> a owl:Class ;
@@ -1037,6 +1108,8 @@ sosa:Sampling skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
 
 <https://w3id.org/iadopt/ont/Constraint> a owl:Class .
 
+<https://w3id.org/iadopt/ont/StatisticalModifier> a owl:Class .
+
 <https://w3id.org/smn/AgeClassValue> a skos:Concept ;
     ns1:IAO_0000119 "Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue."@en ;
     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> ;
@@ -1057,6 +1130,27 @@ sosa:Sampling skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
     skos:hasTopConcept <https://w3id.org/smn/AgeClassValue> ;
     skos:prefLabel "Age-class value scheme"@en ;
     skos:scopeNote "An age-class value is an age coordinate, not a cohort or year class. Mint additional values only when supported by a use case."@en .
+
+<https://w3id.org/smn/MethodScheme> a skos:ConceptScheme ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:definition "Controlled vocabulary of shared, policy-neutral salmon observation and measurement methods. Organization- or program-specific method taxonomies remain profile-scoped (CONVENTIONS section 11)."@en ;
+    skos:hasTopConcept <https://w3id.org/smn/EnumerationMethod>,
+        <https://w3id.org/smn/FishLengthMeasurementMethod> ;
+    skos:prefLabel "Method scheme"@en .
+
+sosa:Procedure skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+
+<https://w3id.org/smn/StatisticalModifierScheme> a skos:ConceptScheme ;
+    rdfs:isDefinedBy <https://w3id.org/smn> ;
+    skos:definition "Controlled vocabulary of statistical modifiers stating what a reported value represents across the observations it summarizes (mean, median, minimum, maximum, total, count, peak). A statistical modifier is part of variable identity — daily mean and daily maximum temperature are different variables — unlike a method, which describes the act of measuring."@en ;
+    skos:hasTopConcept <https://w3id.org/smn/CountStatisticalModifier>,
+        <https://w3id.org/smn/MaximumStatisticalModifier>,
+        <https://w3id.org/smn/MeanStatisticalModifier>,
+        <https://w3id.org/smn/MedianStatisticalModifier>,
+        <https://w3id.org/smn/MinimumStatisticalModifier>,
+        <https://w3id.org/smn/PeakStatisticalModifier>,
+        <https://w3id.org/smn/TotalStatisticalModifier> ;
+    skos:prefLabel "Statistical modifier scheme"@en .
 
 <https://w3id.org/smn> a owl:Ontology ;
     rdfs:label "Salmon Domain Ontology (modular build)"@en ;

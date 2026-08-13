@@ -1,4 +1,6 @@
 @prefix smn: <https://w3id.org/smn/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -426,3 +428,136 @@ smn:AgeClassValue7 a skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age7YearClass."@en ;
   dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> .
+
+
+#################################################################
+# Method scheme (migrated from module 02 OWL classes, 2026-08-13)
+#
+# Alignment-pass step 2, ordered by Brett: methods are pick-list
+# concepts, not class hierarchies. IRIs are unchanged from their
+# owl:Class era; each concept is additionally instance-typed
+# sosa:Procedure so sosa:usedProcedure stays type-correct
+# (CONVENTIONS section 3, instance-typing rule). Concepts that had no
+# definition as classes still have none: definitions are not invented
+# during migration (CONVENTIONS section 10).
+#################################################################
+
+smn:MethodScheme a skos:ConceptScheme ;
+  skos:prefLabel "Method scheme"@en ;
+  skos:hasTopConcept smn:EnumerationMethod, smn:FishLengthMeasurementMethod ;
+  skos:definition "Controlled vocabulary of shared, policy-neutral salmon observation and measurement methods. Organization- or program-specific method taxonomies remain profile-scoped (CONVENTIONS section 11)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:EnumerationMethod a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Enumeration method"@en ;
+  skos:inScheme smn:MethodScheme ;
+  skos:topConceptOf smn:MethodScheme ;
+  skos:definition "A method used to enumerate or count salmon in the field."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
+
+smn:FishLengthMeasurementMethod a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Fish length measurement method"@en ;
+  skos:inScheme smn:MethodScheme ;
+  skos:topConceptOf smn:MethodScheme ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:FishForkLengthMeasurementMethod a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Fish fork-length measurement method"@en ;
+  skos:inScheme smn:MethodScheme ;
+  skos:broader smn:FishLengthMeasurementMethod ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:ForkLengthMeasurementMethod a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Fork-length measurement method"@en ;
+  skos:inScheme smn:MethodScheme ;
+  skos:broader smn:FishForkLengthMeasurementMethod ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:ForkLengthMeasurementFieldMethod a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Fork-length field method"@en ;
+  skos:inScheme smn:MethodScheme ;
+  skos:broader smn:ForkLengthMeasurementMethod ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:ForkLengthMeasurementLabMethod a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Fork-length lab method"@en ;
+  skos:inScheme smn:MethodScheme ;
+  skos:broader smn:ForkLengthMeasurementMethod ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+#################################################################
+# Statistical modifier scheme (new, 2026-08-13)
+#
+# Alignment-pass step 5. Uses I-ADOPT's own language and class per
+# Brett's 2026-08-13 decision: each concept is instance-typed
+# iadopt:StatisticalModifier (I-ADOPT 1.1.0), and the SDP column
+# statistical_modifier_iri resolves here. ODM2 AggregationStatistic
+# links are advisory Tier-3 only: that vocabulary's hosting is
+# HTTP-only and intermittently unreachable, so it is referenced, not
+# depended on. New terms, so definitions are authored here.
+#################################################################
+
+smn:StatisticalModifierScheme a skos:ConceptScheme ;
+  skos:prefLabel "Statistical modifier scheme"@en ;
+  skos:hasTopConcept smn:MeanStatisticalModifier, smn:MedianStatisticalModifier,
+    smn:MinimumStatisticalModifier, smn:MaximumStatisticalModifier,
+    smn:TotalStatisticalModifier, smn:CountStatisticalModifier,
+    smn:PeakStatisticalModifier ;
+  skos:definition "Controlled vocabulary of statistical modifiers stating what a reported value represents across the observations it summarizes (mean, median, minimum, maximum, total, count, peak). A statistical modifier is part of variable identity — daily mean and daily maximum temperature are different variables — unlike a method, which describes the act of measuring."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:MeanStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
+  skos:prefLabel "Mean"@en ;
+  skos:inScheme smn:StatisticalModifierScheme ;
+  skos:topConceptOf smn:StatisticalModifierScheme ;
+  skos:definition "The reported value is the arithmetic mean of the summarized observations."@en ;
+  skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/average> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:MedianStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
+  skos:prefLabel "Median"@en ;
+  skos:inScheme smn:StatisticalModifierScheme ;
+  skos:topConceptOf smn:StatisticalModifierScheme ;
+  skos:definition "The reported value is the median of the summarized observations."@en ;
+  skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/median> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:MinimumStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
+  skos:prefLabel "Minimum"@en ;
+  skos:inScheme smn:StatisticalModifierScheme ;
+  skos:topConceptOf smn:StatisticalModifierScheme ;
+  skos:definition "The reported value is the minimum of the summarized observations."@en ;
+  skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/minimum> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:MaximumStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
+  skos:prefLabel "Maximum"@en ;
+  skos:inScheme smn:StatisticalModifierScheme ;
+  skos:topConceptOf smn:StatisticalModifierScheme ;
+  skos:definition "The reported value is the maximum of the summarized observations."@en ;
+  skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/maximum> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:TotalStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
+  skos:prefLabel "Total"@en ;
+  skos:inScheme smn:StatisticalModifierScheme ;
+  skos:topConceptOf smn:StatisticalModifierScheme ;
+  skos:definition "The reported value is the sum or cumulative total of the summarized observations, such as an annual total catch or cumulative escapement."@en ;
+  skos:closeMatch <http://vocabulary.odm2.org/aggregationstatistic/cumulative> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:CountStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
+  skos:prefLabel "Count"@en ;
+  skos:inScheme smn:StatisticalModifierScheme ;
+  skos:topConceptOf smn:StatisticalModifierScheme ;
+  skos:definition "The reported value is the number of summarized observations or individuals, as counted rather than estimated."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:PeakStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
+  skos:prefLabel "Peak"@en ;
+  skos:inScheme smn:StatisticalModifierScheme ;
+  skos:topConceptOf smn:StatisticalModifierScheme ;
+  skos:definition "The reported value is the peak (highest single observation event) across the summarized series, such as a peak live count in a spawner survey."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .

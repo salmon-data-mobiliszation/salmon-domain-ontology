@@ -144,6 +144,12 @@
 
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#topConceptOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
+
+
+
     <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -218,7 +224,7 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/smn/basedOn">
         <rdfs:domain rdf:resource="https://w3id.org/smn/AggregatedMeasurement"/>
-        <rdfs:range rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">based on</rdfs:label>
     </owl:ObjectProperty>
@@ -554,9 +560,10 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/smn/basedOn"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Aggregated measurement</rdfs:label>
     </owl:Class>
@@ -634,19 +641,6 @@
 
 
 
-    <!-- https://w3id.org/smn/EnumerationMethod -->
-
-    <owl:Class rdf:about="https://w3id.org/smn/EnumerationMethod">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
-        <ns1:IAO_0000115 xml:lang="en">A method used to enumerate or count salmon in the field</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:label xml:lang="en">Enumeration method</rdfs:label>
-    </owl:Class>
-
-
-
     <!-- https://w3id.org/smn/Escapement -->
 
     <owl:Class rdf:about="https://w3id.org/smn/Escapement">
@@ -712,32 +706,12 @@
 
 
 
-    <!-- https://w3id.org/smn/FishForkLengthMeasurementMethod -->
-
-    <owl:Class rdf:about="https://w3id.org/smn/FishForkLengthMeasurementMethod">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishLengthMeasurementMethod"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:label xml:lang="en">Fish fork-length measurement method</rdfs:label>
-    </owl:Class>
-
-
-
     <!-- https://w3id.org/smn/FishLength -->
 
     <owl:Class rdf:about="https://w3id.org/smn/FishLength">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MorphologicalCharacteristic"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Fish length</rdfs:label>
-    </owl:Class>
-
-
-
-    <!-- https://w3id.org/smn/FishLengthMeasurementMethod -->
-
-    <owl:Class rdf:about="https://w3id.org/smn/FishLengthMeasurementMethod">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:label xml:lang="en">Fish length measurement method</rdfs:label>
     </owl:Class>
 
 
@@ -755,9 +729,10 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/usedProcedure"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/smn/FishLengthMeasurementMethod"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The used-procedure restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration: the specific length-method concepts are individuals in module 07&apos;s smn:MethodScheme, and someValuesFrom needs a class.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Fish length measurement type</rdfs:label>
     </owl:Class>
@@ -796,36 +771,6 @@
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Fork-length measurement</rdfs:label>
-    </owl:Class>
-
-
-
-    <!-- https://w3id.org/smn/ForkLengthMeasurementFieldMethod -->
-
-    <owl:Class rdf:about="https://w3id.org/smn/ForkLengthMeasurementFieldMethod">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ForkLengthMeasurementMethod"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:label xml:lang="en">Fork-length field method</rdfs:label>
-    </owl:Class>
-
-
-
-    <!-- https://w3id.org/smn/ForkLengthMeasurementLabMethod -->
-
-    <owl:Class rdf:about="https://w3id.org/smn/ForkLengthMeasurementLabMethod">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ForkLengthMeasurementMethod"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:label xml:lang="en">Fork-length lab method</rdfs:label>
-    </owl:Class>
-
-
-
-    <!-- https://w3id.org/smn/ForkLengthMeasurementMethod -->
-
-    <owl:Class rdf:about="https://w3id.org/smn/ForkLengthMeasurementMethod">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/FishForkLengthMeasurementMethod"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:label xml:lang="en">Fork-length measurement method</rdfs:label>
     </owl:Class>
 
 
@@ -1661,6 +1606,36 @@
 
 
 
+    <!-- https://w3id.org/smn/CountStatisticalModifier -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/CountStatisticalModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">The reported value is the number of summarized observations or individuals, as counted rather than estimated.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+        <skos:prefLabel xml:lang="en">Count</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/EnumerationMethod -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/EnumerationMethod">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">A method used to enumerate or count salmon in the field.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MethodScheme"/>
+        <skos:prefLabel xml:lang="en">Enumeration method</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/MethodScheme"/>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/EuropeanAgeNotation -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/EuropeanAgeNotation">
@@ -1675,6 +1650,71 @@
         <skos:notation>European</skos:notation>
         <skos:prefLabel xml:lang="en">European age notation</skos:prefLabel>
         <skos:scopeNote xml:lang="en">For example, 1.2 represents freshwater-age value 1 and ocean-age value 2 when the source declares European notation.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/FishForkLengthMeasurementMethod -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/FishForkLengthMeasurementMethod">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/FishLengthMeasurementMethod"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MethodScheme"/>
+        <skos:prefLabel xml:lang="en">Fish fork-length measurement method</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/FishLengthMeasurementMethod -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/FishLengthMeasurementMethod">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MethodScheme"/>
+        <skos:prefLabel xml:lang="en">Fish length measurement method</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/MethodScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/ForkLengthMeasurementFieldMethod -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ForkLengthMeasurementFieldMethod">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/ForkLengthMeasurementMethod"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MethodScheme"/>
+        <skos:prefLabel xml:lang="en">Fork-length field method</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/ForkLengthMeasurementLabMethod -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ForkLengthMeasurementLabMethod">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/ForkLengthMeasurementMethod"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MethodScheme"/>
+        <skos:prefLabel xml:lang="en">Fork-length lab method</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/ForkLengthMeasurementMethod -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ForkLengthMeasurementMethod">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/FishForkLengthMeasurementMethod"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MethodScheme"/>
+        <skos:prefLabel xml:lang="en">Fork-length measurement method</skos:prefLabel>
     </owl:NamedIndividual>
 
 
@@ -1787,6 +1827,36 @@
 
 
 
+    <!-- https://w3id.org/smn/MaximumStatisticalModifier -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MaximumStatisticalModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:closeMatch rdf:resource="http://vocabulary.odm2.org/aggregationstatistic/maximum"/>
+        <skos:definition xml:lang="en">The reported value is the maximum of the summarized observations.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+        <skos:prefLabel xml:lang="en">Maximum</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/MeanStatisticalModifier -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MeanStatisticalModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:closeMatch rdf:resource="http://vocabulary.odm2.org/aggregationstatistic/average"/>
+        <skos:definition xml:lang="en">The reported value is the arithmetic mean of the summarized observations.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+        <skos:prefLabel xml:lang="en">Mean</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/MeasurementContext -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/MeasurementContext">
@@ -1811,6 +1881,49 @@
         <skos:definition xml:lang="en">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:prefLabel xml:lang="en">Measurement context scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/MedianStatisticalModifier -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MedianStatisticalModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:closeMatch rdf:resource="http://vocabulary.odm2.org/aggregationstatistic/median"/>
+        <skos:definition xml:lang="en">The reported value is the median of the summarized observations.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+        <skos:prefLabel xml:lang="en">Median</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/MethodScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MethodScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary of shared, policy-neutral salmon observation and measurement methods. Organization- or program-specific method taxonomies remain profile-scoped (CONVENTIONS section 11).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/FishLengthMeasurementMethod"/>
+        <skos:prefLabel xml:lang="en">Method scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/MinimumStatisticalModifier -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/MinimumStatisticalModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:closeMatch rdf:resource="http://vocabulary.odm2.org/aggregationstatistic/minimum"/>
+        <skos:definition xml:lang="en">The reported value is the minimum of the summarized observations.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+        <skos:prefLabel xml:lang="en">Minimum</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
     </owl:NamedIndividual>
 
 
@@ -1859,6 +1972,20 @@
         <skos:definition xml:lang="en">Phase of the salmon life cycle or assessment period occurring in the marine environment.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">Ocean phase</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/PeakStatisticalModifier -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/PeakStatisticalModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">The reported value is the peak (highest single observation event) across the summarized series, such as a peak live count in a spawner survey.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+        <skos:prefLabel xml:lang="en">Peak</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
     </owl:NamedIndividual>
 
 
@@ -1938,6 +2065,24 @@
 
 
 
+    <!-- https://w3id.org/smn/StatisticalModifierScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/StatisticalModifierScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary of statistical modifiers stating what a reported value represents across the observations it summarizes (mean, median, minimum, maximum, total, count, peak). A statistical modifier is part of variable identity — daily mean and daily maximum temperature are different variables — unlike a method, which describes the act of measuring.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/CountStatisticalModifier"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/MaximumStatisticalModifier"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/MeanStatisticalModifier"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/MedianStatisticalModifier"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/MinimumStatisticalModifier"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/PeakStatisticalModifier"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/TotalStatisticalModifier"/>
+        <skos:prefLabel xml:lang="en">Statistical modifier scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/SurvivalOrMortalityContext -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/SurvivalOrMortalityContext">
@@ -1980,6 +2125,21 @@
         <skos:definition xml:lang="en">Age dimension whose value represents total salmon age under the declared age convention.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/AgeDimensionScheme"/>
         <skos:prefLabel xml:lang="en">Total-age dimension</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/TotalStatisticalModifier -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/TotalStatisticalModifier">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:closeMatch rdf:resource="http://vocabulary.odm2.org/aggregationstatistic/cumulative"/>
+        <skos:definition xml:lang="en">The reported value is the sum or cumulative total of the summarized observations, such as an annual total catch or cumulative escapement.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+        <skos:prefLabel xml:lang="en">Total</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
     </owl:NamedIndividual>
 
 

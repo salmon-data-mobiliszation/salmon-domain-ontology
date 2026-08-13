@@ -1,2 +1,8 @@
 old_iri,new_iri,module,status,notes
 https://w3id.org/smn/EscapementMeasurement,https://w3id.org/smn/EscapementEstimate,02-observation-measurement.ttl,renamed 2026-08-13,"F6: the class is an IAO measurement datum, and every other *Measurement class is an activity; direct replacement per CONVENTIONS section 9 alpha posture"
+https://w3id.org/smn/EnumerationMethod,https://w3id.org/smn/EnumerationMethod,07-controlled-vocabularies.ttl,retyped 2026-08-13,"methods-as-SKOS: owl:Class subClassOf sosa:Procedure -> skos:Concept in smn:MethodScheme, instance-typed sosa:Procedure; IRI unchanged"
+https://w3id.org/smn/FishLengthMeasurementMethod,https://w3id.org/smn/FishLengthMeasurementMethod,07-controlled-vocabularies.ttl,retyped 2026-08-13,"methods-as-SKOS retype; IRI unchanged"
+https://w3id.org/smn/FishForkLengthMeasurementMethod,https://w3id.org/smn/FishForkLengthMeasurementMethod,07-controlled-vocabularies.ttl,retyped 2026-08-13,"methods-as-SKOS retype; IRI unchanged"
+https://w3id.org/smn/ForkLengthMeasurementMethod,https://w3id.org/smn/ForkLengthMeasurementMethod,07-controlled-vocabularies.ttl,retyped 2026-08-13,"methods-as-SKOS retype; IRI unchanged"
+https://w3id.org/smn/ForkLengthMeasurementFieldMethod,https://w3id.org/smn/ForkLengthMeasurementFieldMethod,07-controlled-vocabularies.ttl,retyped 2026-08-13,"methods-as-SKOS retype; IRI unchanged"
+https://w3id.org/smn/ForkLengthMeasurementLabMethod,https://w3id.org/smn/ForkLengthMeasurementLabMethod,07-controlled-vocabularies.ttl,retyped 2026-08-13,"methods-as-SKOS retype; IRI unchanged"
