@@ -40,7 +40,10 @@ Verified 2026-08-12 (main at `3995a17`). Fix plan: step 1 of
 > 02's class-level property assertions are gone, and CONVENTIONS §5b now
 > states the one-strongest-mapping and foreign-subject rules (verified by
 > one-off rdflib checks: 0 violations; CI wiring is the follow-up PR).
-> F8's scheme (`smn:StatisticalModifierScheme`) is S9 step 5.
+> F8's scheme landed 2026-08-13 with steps 2+5: `smn:MethodScheme` (six
+> migrated method concepts, instance-typed `sosa:Procedure`) and
+> `smn:StatisticalModifierScheme` (seven concepts, instance-typed
+> `iadopt:StatisticalModifier`, advisory ODM2 links) both live in module 07.
 
 - **F1 (nuanced)** — the views assert OWL axioms on foreign subjects
   (`iadopt:Variable rdfs:subClassOf iao:0000030, sosa:Property`

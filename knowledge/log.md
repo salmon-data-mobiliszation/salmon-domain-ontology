@@ -16,3 +16,5 @@
   migration.
 - 2026-08-13 — S9 step 1 (alignment semantics): F1-F7 fixed, F8 property-side
   fixed; conventions cards updated to reflect the landed state.
+- 2026-08-13 — S9 steps 2+5: methods-as-SKOS migration (smn:MethodScheme) and
+  smn:StatisticalModifierScheme landed; cross-repo pun resolved; cards updated.

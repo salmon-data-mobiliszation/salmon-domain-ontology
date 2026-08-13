@@ -101,38 +101,16 @@ smn:Run a owl:Class ;
   rdfs:subClassOf smn:Life-HistoryCharacteristic ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
-smn:FishLengthMeasurementMethod a owl:Class ;
-  rdfs:label "Fish length measurement method"@en ;
-  rdfs:subClassOf sosa:Procedure ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
-
-smn:FishForkLengthMeasurementMethod a owl:Class ;
-  rdfs:label "Fish fork-length measurement method"@en ;
-  rdfs:subClassOf smn:FishLengthMeasurementMethod ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
-
-smn:ForkLengthMeasurementMethod a owl:Class ;
-  rdfs:label "Fork-length measurement method"@en ;
-  rdfs:subClassOf smn:FishForkLengthMeasurementMethod ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
-
-smn:ForkLengthMeasurementFieldMethod a owl:Class ;
-  rdfs:label "Fork-length field method"@en ;
-  rdfs:subClassOf smn:ForkLengthMeasurementMethod ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
-
-smn:ForkLengthMeasurementLabMethod a owl:Class ;
-  rdfs:label "Fork-length lab method"@en ;
-  rdfs:subClassOf smn:ForkLengthMeasurementMethod ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
-
-smn:EnumerationMethod a owl:Class ;
-  rdfs:label "Enumeration method"@en ;
-  rdfs:subClassOf sosa:Procedure ;
-  iao:0000115 "A method used to enumerate or count salmon in the field"@en ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod."@en ;
-  dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> .
+# The six method OWL classes that lived here (smn:EnumerationMethod and
+# the fish-length measurement-method family) migrated to SKOS concepts in
+# module 07's smn:MethodScheme on 2026-08-13 (alignment pass step 2,
+# ordered by Brett: methods are pick-list concepts, not class hierarchies).
+# The IRIs are unchanged; each concept is instance-typed sosa:Procedure so
+# sosa:usedProcedure stays type-correct (CONVENTIONS section 3,
+# instance-typing rule). This also resolves the live cross-repo pun:
+# gcdfo already types smn:EnumerationMethod as a skos:Concept, and the
+# PSC vocabulary's stated blocker on mapping to smn was exactly that the
+# method anchor here was an owl:Class.
 
 smn:Measurement a owl:Class ;
   rdfs:label "Measurement"@en ;
@@ -149,13 +127,14 @@ smn:Measurement a owl:Class ;
 
 smn:FishLengthMeasurementType a owl:Class ;
   rdfs:label "Fish length measurement type"@en ;
+  rdfs:comment "The used-procedure restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration: the specific length-method concepts are individuals in module 07's smn:MethodScheme, and someValuesFrom needs a class."@en ;
   rdfs:subClassOf smn:Measurement ,
     [ a owl:Restriction ;
       owl:onProperty sosa:observedProperty ;
       owl:someValuesFrom smn:FishLength ],
     [ a owl:Restriction ;
       owl:onProperty sosa:usedProcedure ;
-      owl:someValuesFrom smn:FishLengthMeasurementMethod ] ;
+      owl:someValuesFrom sosa:Procedure ] ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:ForkLengthMeasurement a owl:Class ;
@@ -188,10 +167,11 @@ smn:ModelMeasurement a owl:Class ;
 
 smn:AggregatedMeasurement a owl:Class ;
   rdfs:label "Aggregated measurement"@en ;
+  rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration; the intended values are concepts from module 07's smn:MethodScheme (e.g. smn:EnumerationMethod)."@en ;
   rdfs:subClassOf smn:Measurement ,
     [ a owl:Restriction ;
       owl:onProperty smn:basedOn ;
-      owl:someValuesFrom smn:EnumerationMethod ] ;
+      owl:someValuesFrom sosa:Procedure ] ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:SamplingEvent a owl:Class ;
@@ -294,7 +274,7 @@ smn:hasEventType a owl:ObjectProperty ;
 smn:basedOn a owl:ObjectProperty ;
   rdfs:label "based on"@en ;
   rdfs:domain smn:AggregatedMeasurement ;
-  rdfs:range smn:EnumerationMethod ;
+  rdfs:range sosa:Procedure ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:characteristicFor a owl:ObjectProperty ;
