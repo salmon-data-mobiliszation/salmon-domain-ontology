@@ -67,7 +67,7 @@ jobs:
 
       - name: Install Python deps
         run: |
-          pip install rdflib
+          pip install rdflib pyshacl
 
       - name: Install docs build tools
         run: |

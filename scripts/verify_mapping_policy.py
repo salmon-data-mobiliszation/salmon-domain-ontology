@@ -3,19 +3,17 @@
 
 Three checks, all CI-fatal:
 
-1. Foreign-subject logical axioms (subClassOf / subPropertyOf /
-   equivalentClass / equivalentProperty / sameAs) are permitted only in the
-   alignment modules. Core modules (01-07) and views must never state them.
-   Bare declaration stubs (``ex:Term a owl:Class .``) and documentation
-   annotations are allowed anywhere; the annotated NCBITaxon MIREOT mirror
-   in module 02 is an explicit exception.
-2. One strongest mapping per subject-object pair across the default build
-   spine: a pair may carry predicates from exactly one tier
-   (Tier 1 = subClassOf/subPropertyOf/equivalent*/sameAs,
-   Tier 2 = exactMatch, Tier 3 = closeMatch/broadMatch/narrowMatch/
-   relatedMatch). The alignment-main/alignment-research promotion-staging
-   exception is cross-module by construction and therefore not visible to
-   this spine-level check.
+1. Foreign-subject statements outside alignment modules: a subject smn does
+   not own may carry only documentation annotations (label/comment/seeAlso/
+   isDefinedBy) and bare declaration stubs. Everything else — Tier-1 axioms
+   AND instance-level property assertions — is confined to the alignment
+   modules; the annotated NCBITaxon MIREOT mirror in module 02 is the one
+   explicit exception.
+2. One strongest mapping per subject-object pair, checked two ways: within
+   every single module/view file (covers 08/09, alignment-research, views —
+   the promotion-staging exception is cross-module by definition and can
+   never apply within one file), and across the default build spine (which
+   excludes alignment-research, the documented staging exception).
 3. Reasoner-clean typing invariant: no IRI in the flattened build may be
    typed both owl:Class and skos:Concept (the dual-representation rule).
 """
@@ -55,6 +53,27 @@ TIER2 = {SKOS.exactMatch}
 TIER3 = {SKOS.closeMatch, SKOS.broadMatch, SKOS.narrowMatch, SKOS.relatedMatch}
 
 
+# Predicates a foreign-namespace subject may carry outside alignment
+# modules: declaration stubs and documentation annotations only.
+# Everything else — Tier-1 axioms AND instance-level property assertions
+# (the old `sosa:FeatureOfInterest sosa:hasSample sosa:Sample` class of
+# mistake) — must live in an alignment module (CONVENTIONS 5b rule 2).
+FOREIGN_ALLOWED_PREDICATES = {
+    RDFS.comment,
+    RDFS.label,
+    RDFS.seeAlso,
+    RDFS.isDefinedBy,
+}
+FOREIGN_ALLOWED_TYPE_OBJECTS = {
+    OWL.Class,
+    OWL.ObjectProperty,
+    OWL.DatatypeProperty,
+    OWL.AnnotationProperty,
+    OWL.NamedIndividual,
+    OWL.Ontology,
+}
+
+
 def check_foreign_subjects() -> list:
     failures = []
     paths = sorted((ROOT / "ontology" / "modules").glob("*.ttl")) + sorted(
@@ -68,22 +87,22 @@ def check_foreign_subjects() -> list:
         for subject, predicate, obj in graph:
             if not isinstance(subject, URIRef) or str(subject).startswith(SMN):
                 continue
-            if predicate in TIER1:
-                if path.name == "02-observation-measurement.ttl" and "NCBITaxon" in str(subject):
-                    continue  # annotated MIREOT mirror of the upstream taxon hierarchy
-                failures.append(
-                    f"{path.relative_to(ROOT)}: foreign-subject axiom "
-                    f"{subject.n3(graph.namespace_manager)} "
-                    f"{predicate.n3(graph.namespace_manager)} "
-                    f"{obj.n3(graph.namespace_manager)}"
-                )
+            if predicate in FOREIGN_ALLOWED_PREDICATES:
+                continue
+            if predicate == RDF.type and obj in FOREIGN_ALLOWED_TYPE_OBJECTS:
+                continue  # bare declaration stub
+            if path.name == "02-observation-measurement.ttl" and "NCBITaxon" in str(subject):
+                continue  # annotated MIREOT mirror of the upstream taxon hierarchy
+            failures.append(
+                f"{path.relative_to(ROOT)}: foreign-subject statement "
+                f"{subject.n3(graph.namespace_manager)} "
+                f"{predicate.n3(graph.namespace_manager)} "
+                f"{obj.n3(graph.namespace_manager)}"
+            )
     return failures
 
 
-def check_tier_mixing() -> list:
-    graph = Graph()
-    for name in SPINE:
-        graph.parse(ROOT / "ontology" / "modules" / name, format="turtle")
+def _pair_tiers(graph: Graph) -> dict:
     tiers_by_pair = defaultdict(set)
     for subject, predicate, obj in graph:
         if not (isinstance(subject, URIRef) and isinstance(obj, URIRef)):
@@ -94,11 +113,39 @@ def check_tier_mixing() -> list:
             tiers_by_pair[(subject, obj)].add("2")
         elif predicate in TIER3:
             tiers_by_pair[(subject, obj)].add("3")
-    return [
-        f"tier-mixed pair (tiers {'/'.join(sorted(tiers))}): {s} -> {o}"
-        for (s, o), tiers in sorted(tiers_by_pair.items())
-        if len(tiers) > 1
-    ]
+    return tiers_by_pair
+
+
+def check_tier_mixing() -> list:
+    failures = []
+    # (a) No pair mixes tiers WITHIN any single module or view file — this
+    # covers 08/09, alignment-research, and the views, where the
+    # promotion-staging exception (a cross-module pattern by definition)
+    # can never apply.
+    all_paths = sorted((ROOT / "ontology" / "modules").glob("*.ttl")) + sorted(
+        (ROOT / "ontology" / "views").glob("*.ttl")
+    )
+    for path in all_paths:
+        graph = Graph()
+        graph.parse(path, format="turtle")
+        for (subject, obj), tiers in sorted(_pair_tiers(graph).items()):
+            if len(tiers) > 1:
+                failures.append(
+                    f"{path.relative_to(ROOT)}: tier-mixed pair within one "
+                    f"module (tiers {'/'.join(sorted(tiers))}): {subject} -> {obj}"
+                )
+    # (b) No pair mixes tiers across the default build spine (which excludes
+    # alignment-research — the documented promotion-staging exception).
+    graph = Graph()
+    for name in SPINE:
+        graph.parse(ROOT / "ontology" / "modules" / name, format="turtle")
+    for (subject, obj), tiers in sorted(_pair_tiers(graph).items()):
+        if len(tiers) > 1:
+            failures.append(
+                f"tier-mixed pair across the default spine "
+                f"(tiers {'/'.join(sorted(tiers))}): {subject} -> {obj}"
+            )
+    return failures
 
 
 def check_dual_typing() -> list:
