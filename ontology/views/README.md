@@ -47,3 +47,13 @@ Use the shared core (`ontology/modules/01-07...`) when you want the canonical re
 These views were moved here from the DFO repo so the shared salmon mental model lives with the shared ontology, while DFO keeps a cleaner **core ontology + optional overlays** posture.
 
 Detailed publication mappings stay in the shared interoperability module and profile/case-study layers, not in this simple view.
+
+## View IRIs are identifiers, not web pages
+
+The view ontology IRIs (`https://w3id.org/smn/views/...`) and the `smnv:`
+fragment namespace deliberately have **no w3id rewrite rules**: they do not
+dereference on the web. They are stable identifiers resolved locally via
+`ontology/catalog-v001.xml` (and `ontology/views/catalog-v001.xml` when a
+view file is opened directly in Protégé). If a public dereference route is
+ever wanted, it needs per-file w3id rules, because the IRI path segments do
+not pattern-map onto the filenames.

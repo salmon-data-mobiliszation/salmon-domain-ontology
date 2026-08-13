@@ -98,8 +98,23 @@ verify-ontology-parse:
 verify-year-age-semantic-contract:
 	@python3 scripts/verify_year_age_semantic_contract.py
 
+verify-case-study-modules:
+	@python3 scripts/build_rda_case_study_modules.py --check
+
+verify-mapping-policy:
+	@python3 scripts/verify_mapping_policy.py
+
+verify-method-shapes:
+	@python3 scripts/verify_method_shapes.py
+
+verify-reasoner: check-robot
+	@echo "Running ELK reasoner over the modular build (catalog-resolved imports)..."
+	@tmp=$$(mktemp -u).ttl; \
+	java -jar $(ROBOT_JAR) merge --catalog ontology/catalog-v001.xml --input $(ONTOLOGY_TTL) \
+	  reason --reasoner ELK --output $$tmp && rm -f $$tmp
+	@echo "Reasoner gate passed: consistent, no unsatisfiable classes."
+
 verify-flat-ttl:
-	@python3 scripts/build_rda_case_study_modules.py >/dev/null
 	@tmp=$$(mktemp); \
 	python3 scripts/build_flat_smn_ttl.py --source $(ONTOLOGY_TTL) --output $$tmp; \
 	if ! cmp -s $(COMPOSE_FLAT_TTL) $$tmp; then \
@@ -116,7 +131,7 @@ verify-doc-term-anchors:
 verify-doc-version-metadata:
 	@python3 scripts/verify_widoco_version_metadata.py
 
-test: verify-ontology-parse verify-year-age-semantic-contract verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata
+test: verify-ontology-parse verify-case-study-modules verify-year-age-semantic-contract verify-mapping-policy verify-method-shapes verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata
 	@echo "Validation bundle completed."
 
 ci: docs-refresh test
