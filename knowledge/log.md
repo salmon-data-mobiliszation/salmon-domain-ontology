@@ -18,3 +18,7 @@
   fixed; conventions cards updated to reflect the landed state.
 - 2026-08-13 — S9 steps 2+5: methods-as-SKOS migration (smn:MethodScheme) and
   smn:StatisticalModifierScheme landed; cross-repo pun resolved; cards updated.
+- 2026-08-13 — PR 22 review: added ontology/shapes/method-shapes.ttl (the
+  enumeration-method value constraint, SKOS-native via skos:broader*,
+  behaviourally tested with pyshacl) and refreshed the conventions card's
+  module-07 inventory (10 schemes / 49 concepts).

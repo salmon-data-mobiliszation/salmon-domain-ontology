@@ -1273,7 +1273,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration; the intended values are concepts from module 07's smn:MethodScheme (e.g. smn:EnumerationMethod)."
+        "@value": "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [

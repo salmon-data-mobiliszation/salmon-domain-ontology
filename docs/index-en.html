@@ -680,7 +680,7 @@ This section provides details for each class and property defined by Salmon Doma
   <h3>Aggregated measurement<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/smn/AggregatedMeasurement</p>
   <div class="comment">
-   <span class="markdown">The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration; the intended values are concepts from module 07's smn:MethodScheme (e.g. smn:EnumerationMethod).</span>
+   <span class="markdown">The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -6136,7 +6136,7 @@ This section provides details for each class and property defined by Salmon Doma
 </li>
 <li><a href="#/AggregatedMeasurement">https://w3id.org/smn/AggregatedMeasurement</a>
 <ul>
-<li>Added: rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration; the intended values are concepts from module 07's smn:MethodScheme (e.g. smn:EnumerationMethod)."@en</li>
+<li>Added: rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals."@en</li>
 </ul>
 <ul>
 <li></ul>

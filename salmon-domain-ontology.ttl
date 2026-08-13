@@ -595,7 +595,7 @@ sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
 
 <https://w3id.org/smn/AggregatedMeasurement> a owl:Class ;
     rdfs:label "Aggregated measurement"@en ;
-    rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration; the intended values are concepts from module 07's smn:MethodScheme (e.g. smn:EnumerationMethod)."@en ;
+    rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/smn/basedOn> ;

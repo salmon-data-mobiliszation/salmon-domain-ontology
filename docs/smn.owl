@@ -563,7 +563,7 @@
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration; the intended values are concepts from module 07&apos;s smn:MethodScheme (e.g. smn:EnumerationMethod).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Aggregated measurement</rdfs:label>
     </owl:Class>
