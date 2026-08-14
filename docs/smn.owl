@@ -2213,11 +2213,11 @@
         <rdfs:seeAlso rdf:resource="http://rs.tdwg.org/dwc/terms/protocol"/>
         <rdfs:seeAlso rdf:resource="https://rs.tdwg.org/dwc/dp/terms/Protocol"/>
     </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+    </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/iadopt/ont/Property">
         <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Property"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="https://w3id.org/smn/FisheriesReferencePointLower">
-        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/smn/broodYear">
         <ns1:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents.</ns1:IAO_0000115>

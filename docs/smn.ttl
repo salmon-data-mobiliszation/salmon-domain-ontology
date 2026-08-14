@@ -1650,10 +1650,10 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
                                      <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 
+<https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+
+
 <https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
-
-
-<https://w3id.org/smn/FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
 
 <https://w3id.org/smn/broodYear> ns1:IAO_0000115 "Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents."@en ;

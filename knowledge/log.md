@@ -27,3 +27,7 @@
   behavioural check wired into make test and CI, new ELK reasoner-gate CI job
   (passes: consistent, zero unsatisfiable classes), views documented as
   non-dereferenceable identifiers.
+- 2026-08-13 — S9 step 3 (smn side): the two alignment rows referencing the
+  never-declared smn:FisheriesReferencePointLower retarget the re-namespaced
+  gcdfo:FisheriesReferencePointLower (gcdfo PR 78 carries the rename and the
+  new gcdfo-to-smn SSSOM mapping set, 28 rows, pinned both sides).
