@@ -8,7 +8,7 @@
   rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ;
   dcterms:modified "2026-08-14"^^xsd:date ;
   owl:versionIRI <https://w3id.org/smn/0.0.3> ;
-  owl:priorVersion <https://w3id.org/smn/0.0.2> ;
+  owl:priorVersion <https://w3id.org/smn/0.0.3> ;
   owl:versionInfo "0.0.3" ;
   owl:imports
     <https://w3id.org/smn/modules/01-entity-systematics>,

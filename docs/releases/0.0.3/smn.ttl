@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/smn/modules/01-entity-systematics#> .
+@prefix : <https://w3id.org/smn#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix ns1: <http://purl.obolibrary.org/obo/> .
@@ -11,34 +11,15 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/smn/modules/01-entity-systematics> .
+@base <https://w3id.org/smn> .
 
-<https://w3id.org/smn/modules/01-entity-systematics> rdf:type owl:Ontology ;
-                                                      dcterms:modified "2026-08-14"^^xsd:date ;
-                                                      dcterms:source sosa:prov ;
-                                                      rdfs:comment "Conservative shared event taxonomy. Policy/program-specific schemes remain in profile ontologies."@en ,
-                                                                   "Conservative shared stock-assessment and benchmark semantics. Policy-program-specific reference classes remain profile-scoped."@en ,
-                                                                   "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). This is the only module in the default build permitted to carry mapping statements whose subjects are foreign-namespace terms (CONVENTIONS section 5b): each such statement is a reviewed editorial commitment, held at Tier 3 (advisory) unless an upstream body publishes the stronger form — in which case smn imports the upstream alignment (see alignment-upper) instead of restating it."@en ,
-                                                                   "Core salmon entities, reporting strata, and composition relationships for cross-agency reuse. Includes migrated reusable structure terms from DFO Salmon Ontology (no removals from DFO source)."@en ,
-                                                                   "Cross-ontology bridge statements for SOSA, I-ADOPT, Darwin Core, RDF Data Cube, and OWL-Time interoperability."@en ,
-                                                                   "Curated shared SKOS layer for reusable year basis, age, context, life-phase, and origin concepts. Policy/program-specific schemes remain profile-scoped by default."@en ,
-                                                                   "Normative-core upper alignment. Imports the W3C-published SOSA-to-PROV-O alignment instead of re-asserting its axioms on foreign-namespace terms — the convention this module exists to enforce: smn never states axioms whose subjects it does not own outside a reviewed alignment module, and where an upstream body already publishes the alignment, smn imports it. The SOSA-PROV alignment is non-normative in the SSN Recommendation (2017, section 6.5); smn adopts it as the provenance backbone for the deterministic-reasoning consumption target. Offline and CI loading resolves the import to the vendored snapshot ontology/imports/sosa-prov.ttl via catalog-v001.xml; the snapshot is a byte copy of the W3C file and must not be hand-edited."@en ,
-                                                                   "Observation and measurement model (SOSA-aligned) with reusable abundance, typed year-coordinate properties, escapement, and survey terms."@en ,
-                                                                   "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ,
-                                                                   "Shared provenance and quality artifact classes. Program-specific confidence vocabularies remain profile-scoped."@en ;
-                                                      rdfs:label "Salmon Domain Ontology (modular build)"@en ,
-                                                                 "Salmon Domain Ontology Alignment Module (main-candidate)"@en ,
-                                                                 "Salmon Domain Ontology Module 01: Entity and systematics"@en ,
-                                                                 "Salmon Domain Ontology Module 02: Observation and measurement"@en ,
-                                                                 "Salmon Domain Ontology Module 03: Assessment and benchmarks"@en ,
-                                                                 "Salmon Domain Ontology Module 04: Management and governance"@en ,
-                                                                 "Salmon Domain Ontology Module 05: Provenance and quality"@en ,
-                                                                 "Salmon Domain Ontology Module 06: Data interoperability"@en ,
-                                                                 "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ,
-                                                                 "Salmon Domain Ontology upper alignment (imported W3C alignments)"@en ;
-                                                      rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn/#PROV> ;
-                                                      owl:priorVersion <https://w3id.org/smn/0.0.2> ;
-                                                      owl:versionInfo "0.0.3" .
+<https://w3id.org/smn> rdf:type owl:Ontology ;
+                        owl:versionIRI <https://w3id.org/smn/0.0.3> ;
+                        dcterms:modified "2026-08-14"^^xsd:date ;
+                        rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ;
+                        rdfs:label "Salmon Domain Ontology (modular build)"@en ;
+                        owl:priorVersion <https://w3id.org/smn/0.0.3> ;
+                        owl:versionInfo "0.0.3" .
 
 #################################################################
 #    Annotation properties

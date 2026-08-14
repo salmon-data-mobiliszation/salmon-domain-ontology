@@ -72,7 +72,7 @@ $(function(){
 <dt>This version:</dt>
 <dd><a href="https://w3id.org/smn/0.0.3">https://w3id.org/smn/0.0.3</a></dd>
 <dt>Previous version:</dt>
-<dd><a href="https://w3id.org/smn/0.0.2">https://w3id.org/smn/0.0.2</a></dd>
+<dd><a href="https://w3id.org/smn/0.0.3">https://w3id.org/smn/0.0.3</a></dd>
 <dt>Revision:</dt>
 <dd>0.0.3</dd>
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
@@ -6077,117 +6077,7 @@ This section provides details for each class and property defined by Salmon Doma
 
 
 <!--CHANGELOG SECTION-->
-   <div id="changelog"><div id="changelog">
-<h2 id="changes" class="list">Changes from last version</h2>
-<h3 id="changeClass" class="list">Classes</h3>
-<details><summary><u>Modified classes</u></summary>
-<ul><li><a href="#http://rs.tdwg.org/dwc/terms/Event">http://rs.tdwg.org/dwc/terms/Event</a>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/FeatureOfInterest">http://www.w3.org/ns/sosa/FeatureOfInterest</a>
-<ul>
-<li>Deleted: <http://www.w3.org/ns/sosa/hasSample> http://www.w3.org/ns/sosa/Sample</li>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Observation">http://www.w3.org/ns/sosa/Observation</a>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Occurrence&gt; &lt;http://www.w3.org/ns/sosa/Observation&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Property">http://www.w3.org/ns/sosa/Property</a>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/Property&gt; &lt;https://w3id.org/iadopt/ont/Property&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sample">http://www.w3.org/ns/sosa/Sample</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://rs.tdwg.org/dwc/terms/MaterialSample</li>
-</ul>
-<ul>
-<li>Deleted: <http://www.w3.org/ns/sosa/isResultOf> http://www.w3.org/ns/sosa/Sampling</li>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/MaterialSample&gt; &lt;http://www.w3.org/ns/sosa/Sample&gt;)</li>
-<li>Deleted: rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows."@en</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#broadMatch> http://rs.tdwg.org/dwc/terms/Event</li>
-</ul>
-<ul>
-<li>Deleted: <http://www.w3.org/2004/02/skos/core#closeMatch> http://rs.tdwg.org/dwc/terms/Event</li>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Entity">https://w3id.org/iadopt/ont/Entity</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-</ul>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Variable">https://w3id.org/iadopt/ont/Variable</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/ObservableProperty</li>
-</ul>
-</li>
-<li><a href="#/AggregatedMeasurement">https://w3id.org/smn/AggregatedMeasurement</a>
-<ul>
-<li>Added: rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals."@en</li>
-</ul>
-<ul>
-<li></ul>
-</li>
-<li><a href="#/FishLengthMeasurementType">https://w3id.org/smn/FishLengthMeasurementType</a>
-<ul>
-<li><li>Added: rdfs:comment "The used-procedure restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration: the specific length-method concepts are individuals in module 07's smn:MethodScheme, and someValuesFrom needs a class."@en</li>
-</ul>
-<ul>
-<li></ul>
-</li>
-</ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#/EscapementEstimate">https://w3id.org/smn/EscapementEstimate</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
-</ul>
-</li>
-</ul></details><details><summary><u>Deleted classes</u></summary>
-<ul><li><a href="#http://rs.tdwg.org/dwc/terms/MaterialSample">http://rs.tdwg.org/dwc/terms/MaterialSample</a>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/Occurrence">http://rs.tdwg.org/dwc/terms/Occurrence</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Property">https://w3id.org/iadopt/ont/Property</a>
-</li>
-<li><a href="#/EnumerationMethod">https://w3id.org/smn/EnumerationMethod</a>
-</li>
-<li><a href="#/EscapementMeasurement">https://w3id.org/smn/EscapementMeasurement</a>
-</li>
-<li><a href="#/FishForkLengthMeasurementMethod">https://w3id.org/smn/FishForkLengthMeasurementMethod</a>
-</li>
-<li><a href="#/FishLengthMeasurementMethod">https://w3id.org/smn/FishLengthMeasurementMethod</a>
-</li>
-<li><a href="#/ForkLengthMeasurementFieldMethod">https://w3id.org/smn/ForkLengthMeasurementFieldMethod</a>
-</li>
-<li><a href="#/ForkLengthMeasurementLabMethod">https://w3id.org/smn/ForkLengthMeasurementLabMethod</a>
-</li>
-<li><a href="#/ForkLengthMeasurementMethod">https://w3id.org/smn/ForkLengthMeasurementMethod</a>
-</li>
-</ul></details><h3 id="changeProp" class="list">Object Properties</h3>
-<details><summary><u>Modified object properties</u></summary>
-<ul><li><a href="#/basedOn">https://w3id.org/smn/basedOn</a>
-<ul>
-<li>Added: Range http://www.w3.org/ns/sosa/Procedure</li>
-</ul>
-<ul>
-<li>Deleted: Range https://w3id.org/smn/EnumerationMethod</li>
-</ul>
-</li>
-</ul></details><h3 id="changeDataProp" class="list">Data Properties</h3>
-</div>
-</div>
+   <div id="changelog">null</div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>

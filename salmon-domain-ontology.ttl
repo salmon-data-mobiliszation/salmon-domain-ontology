@@ -510,44 +510,6 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:range <https://w3id.org/smn/Measurement> .
 
-<https://w3id.org/smn/modules/01-entity-systematics> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Module 01: Entity and systematics"@en ;
-    rdfs:comment "Core salmon entities, reporting strata, and composition relationships for cross-agency reuse. Includes migrated reusable structure terms from DFO Salmon Ontology (no removals from DFO source)."@en .
-
-<https://w3id.org/smn/modules/02-observation-measurement> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Module 02: Observation and measurement"@en ;
-    rdfs:comment "Observation and measurement model (SOSA-aligned) with reusable abundance, typed year-coordinate properties, escapement, and survey terms."@en .
-
-<https://w3id.org/smn/modules/03-assessment-benchmarks> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Module 03: Assessment and benchmarks"@en ;
-    rdfs:comment "Conservative shared stock-assessment and benchmark semantics. Policy-program-specific reference classes remain profile-scoped."@en .
-
-<https://w3id.org/smn/modules/04-management-governance> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Module 04: Management and governance"@en ;
-    rdfs:comment "Conservative shared event taxonomy. Policy/program-specific schemes remain in profile ontologies."@en .
-
-<https://w3id.org/smn/modules/05-provenance-quality> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Module 05: Provenance and quality"@en ;
-    rdfs:comment "Shared provenance and quality artifact classes. Program-specific confidence vocabularies remain profile-scoped."@en .
-
-<https://w3id.org/smn/modules/06-data-interoperability> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Module 06: Data interoperability"@en ;
-    rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, Darwin Core, RDF Data Cube, and OWL-Time interoperability."@en .
-
-<https://w3id.org/smn/modules/07-controlled-vocabularies> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
-    rdfs:comment "Curated shared SKOS layer for reusable year basis, age, context, life-phase, and origin concepts. Policy/program-specific schemes remain profile-scoped by default."@en .
-
-<https://w3id.org/smn/modules/alignment-main> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology Alignment Module (main-candidate)"@en ;
-    rdfs:comment "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). This is the only module in the default build permitted to carry mapping statements whose subjects are foreign-namespace terms (CONVENTIONS section 5b): each such statement is a reviewed editorial commitment, held at Tier 3 (advisory) unless an upstream body publishes the stronger form — in which case smn imports the upstream alignment (see alignment-upper) instead of restating it."@en .
-
-<https://w3id.org/smn/modules/alignment-upper> a owl:Ontology ;
-    rdfs:label "Salmon Domain Ontology upper alignment (imported W3C alignments)"@en ;
-    dcterms:source sosa:prov ;
-    rdfs:comment "Normative-core upper alignment. Imports the W3C-published SOSA-to-PROV-O alignment instead of re-asserting its axioms on foreign-namespace terms — the convention this module exists to enforce: smn never states axioms whose subjects it does not own outside a reviewed alignment module, and where an upstream body already publishes the alignment, smn imports it. The SOSA-PROV alignment is non-normative in the SSN Recommendation (2017, section 6.5); smn adopts it as the provenance backbone for the deterministic-reasoning consumption target. Offline and CI loading resolves the import to the vendored snapshot ontology/imports/sosa-prov.ttl via catalog-v001.xml; the snapshot is a byte copy of the W3C file and must not be hand-edited."@en ;
-    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn/#PROV> .
-
 <https://w3id.org/smn/observedTaxonFamily> a owl:ObjectProperty ;
     rdfs:label "observed taxon family"@en ;
     rdfs:domain sosa:Observation ;
@@ -1156,7 +1118,7 @@ sosa:Procedure skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
     rdfs:label "Salmon Domain Ontology (modular build)"@en ;
     dcterms:modified "2026-08-14"^^xsd:date ;
     rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ;
-    owl:priorVersion <https://w3id.org/smn/0.0.2> ;
+    owl:priorVersion <https://w3id.org/smn/0.0.3> ;
     owl:versionIRI <https://w3id.org/smn/0.0.3> ;
     owl:versionInfo "0.0.3" .
 
