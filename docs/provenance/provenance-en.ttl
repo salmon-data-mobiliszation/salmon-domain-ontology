@@ -2,7 +2,7 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <> .
-<https://w3id.org/smn/0.0.2> a prov:Entity;
+<https://w3id.org/smn/0.0.3> a prov:Entity;
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
-	 prov:wasRevisionOf <https://w3id.org/smn/0.0.1>;
+	 prov:wasRevisionOf <https://w3id.org/smn/0.0.3>;
 .

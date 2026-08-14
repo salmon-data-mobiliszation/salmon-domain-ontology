@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/smn","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/smn","name":"https://w3id.org/smn", "headline":"Document describing the ontology https://w3id.org/smn", "dateReleased":"2026-08-04", "dateModified":"2026-08-04", "version":"0.0.2"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/smn","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/smn","name":"https://w3id.org/smn", "headline":"Document describing the ontology https://w3id.org/smn", "dateReleased":"2026-08-14", "dateModified":"2026-08-14", "version":"0.0.3"}</script>
 
 <script src="resources/jquery.js"></script>
 <script src="resources/marked.min.js"></script>
@@ -68,16 +68,16 @@ $(function(){
 
 
 <dl>
-<dt>Modified on: 2026-08-04</dt>
+<dt>Modified on: 2026-08-14</dt>
 <dt>This version:</dt>
-<dd><a href="https://w3id.org/smn/0.0.2">https://w3id.org/smn/0.0.2</a></dd>
+<dd><a href="https://w3id.org/smn/0.0.3">https://w3id.org/smn/0.0.3</a></dd>
 <dt>Previous version:</dt>
-<dd><a href="https://w3id.org/smn/0.0.1">https://w3id.org/smn/0.0.1</a></dd>
+<dd><a href="https://w3id.org/smn/0.0.3">https://w3id.org/smn/0.0.3</a></dd>
 <dt>Revision:</dt>
-<dd>0.0.2</dd>
+<dd>0.0.3</dd>
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
 </dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd> Revision: 0.0.2. Retrieved from: https://w3id.org/smn/0.0.2</dd>
+<dd> Revision: 0.0.3. Retrieved from: https://w3id.org/smn/0.0.3</dd>
 </dl>
 
 <a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
@@ -6077,235 +6077,7 @@ This section provides details for each class and property defined by Salmon Doma
 
 
 <!--CHANGELOG SECTION-->
-   <div id="changelog"><div id="changelog">
-<h2 id="changes" class="list">Changes from last version</h2>
-<h3 id="changeClass" class="list">Classes</h3>
-<details><summary><u>Modified classes</u></summary>
-<ul><li><a href="#http://rs.tdwg.org/dwc/terms/Event">http://rs.tdwg.org/dwc/terms/Event</a>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/FeatureOfInterest">http://www.w3.org/ns/sosa/FeatureOfInterest</a>
-<ul>
-<li>Deleted: <http://www.w3.org/ns/sosa/hasSample> http://www.w3.org/ns/sosa/Sample</li>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Observation">http://www.w3.org/ns/sosa/Observation</a>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Occurrence&gt; &lt;http://www.w3.org/ns/sosa/Observation&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Property">http://www.w3.org/ns/sosa/Property</a>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/Property&gt; &lt;https://w3id.org/iadopt/ont/Property&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sample">http://www.w3.org/ns/sosa/Sample</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://rs.tdwg.org/dwc/terms/MaterialSample</li>
-</ul>
-<ul>
-<li>Deleted: <http://www.w3.org/ns/sosa/isResultOf> http://www.w3.org/ns/sosa/Sampling</li>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/MaterialSample&gt; &lt;http://www.w3.org/ns/sosa/Sample&gt;)</li>
-<li>Deleted: rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows."@en</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#broadMatch> http://rs.tdwg.org/dwc/terms/Event</li>
-</ul>
-<ul>
-<li>Deleted: <http://www.w3.org/2004/02/skos/core#closeMatch> http://rs.tdwg.org/dwc/terms/Event</li>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Entity">https://w3id.org/iadopt/ont/Entity</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-</ul>
-<ul>
-<li>Deleted: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Variable">https://w3id.org/iadopt/ont/Variable</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/ObservableProperty</li>
-</ul>
-</li>
-<li><a href="#/AggregatedMeasurement">https://w3id.org/smn/AggregatedMeasurement</a>
-<ul>
-<li>Added: rdfs:comment "The based-on restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration. The specific constraint — values must be method concepts at or below smn:EnumerationMethod in smn:MethodScheme — is normative and lives in ontology/shapes/method-shapes.ttl (smn:AggregatedMeasurementShape), expressed as a skos:broader* path, since someValuesFrom cannot range over concept individuals."@en</li>
-</ul>
-<ul>
-<li></ul>
-</li>
-<li><a href="#/CatchAbundance">https://w3id.org/smn/CatchAbundance</a>
-<ul>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/Abundance</li>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/CatchYearBasis</li>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/catchYear</li>
-</ul>
-</li>
-<li><a href="#/Deme">https://w3id.org/smn/Deme</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:Deme."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit."@en</li>
-</ul>
-</li>
-<li><a href="#/EscapementSurveyEvent">https://w3id.org/smn/EscapementSurveyEvent</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
-</ul>
-</li>
-<li><a href="#/FishLengthMeasurementType">https://w3id.org/smn/FishLengthMeasurementType</a>
-<ul>
-<li><li>Added: rdfs:comment "The used-procedure restriction targets sosa:Procedure since the 2026-08-13 methods-as-SKOS migration: the specific length-method concepts are individuals in module 07's smn:MethodScheme, and someValuesFrom needs a class."@en</li>
-</ul>
-<ul>
-<li></ul>
-</li>
-<li><a href="#/ObservedRateOrAbundance">https://w3id.org/smn/ObservedRateOrAbundance</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ObservedRateOrAbundance."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
-</ul>
-</li>
-<li><a href="#/Population">https://w3id.org/smn/Population</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:Population."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool."@en</li>
-</ul>
-</li>
-<li><a href="#/RecruitAbundance">https://w3id.org/smn/RecruitAbundance</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series."@en</li>
-<li>Added: rdfs:comment "Represent the measured characteristic with smn:Abundance. Use smn:broodYear and smn:returnYear for row-varying xsd:gYear coordinates, and use the separate SKOS basis concepts when a standalone variable description needs the corresponding fixed semantic qualifier."@en</li>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/Abundance</li>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/BroodYearBasis</li>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/ReturnYearBasis</li>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/broodYear</li>
-<li>Added: rdfs:seeAlso https://w3id.org/smn/returnYear</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A measurement datum recording the number of recruits contributing to a salmon stock, population, or indicator return series for a defined year basis and assessment context."@en</li>
-</ul>
-</li>
-<li><a href="#/ReportingOrManagementStratum">https://w3id.org/smn/ReportingOrManagementStratum</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes across salmon programs."@en</li>
-</ul>
-</li>
-<li><a href="#/TargetOrLimitRateOrAbundance">https://w3id.org/smn/TargetOrLimitRateOrAbundance</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TargetOrLimitRateOrAbundance."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit."@en</li>
-</ul>
-</li>
-<li><a href="#/TotalExploitationRate">https://w3id.org/smn/TotalExploitationRate</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.2, term gcdfo:TotalExploitationRate."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "The overall proportion of returning adult salmon removed by all fisheries over a defined period."@en</li>
-</ul>
-</li>
-</ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#http://purl.org/linked-data/cube#DimensionProperty">http://purl.org/linked-data/cube#DimensionProperty</a>
-</li>
-<li><a href="#/Abundance">https://w3id.org/smn/Abundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#/EscapementEstimate">https://w3id.org/smn/EscapementEstimate</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
-</ul>
-</li>
-</ul></details><details><summary><u>Deleted classes</u></summary>
-<ul><li><a href="#http://rs.tdwg.org/dwc/terms/MaterialSample">http://rs.tdwg.org/dwc/terms/MaterialSample</a>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/Occurrence">http://rs.tdwg.org/dwc/terms/Occurrence</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Property">https://w3id.org/iadopt/ont/Property</a>
-</li>
-<li><a href="#/EnumerationMethod">https://w3id.org/smn/EnumerationMethod</a>
-</li>
-<li><a href="#/EscapementMeasurement">https://w3id.org/smn/EscapementMeasurement</a>
-</li>
-<li><a href="#/FishForkLengthMeasurementMethod">https://w3id.org/smn/FishForkLengthMeasurementMethod</a>
-</li>
-<li><a href="#/FishLengthMeasurementMethod">https://w3id.org/smn/FishLengthMeasurementMethod</a>
-</li>
-<li><a href="#/ForkLengthMeasurementFieldMethod">https://w3id.org/smn/ForkLengthMeasurementFieldMethod</a>
-</li>
-<li><a href="#/ForkLengthMeasurementLabMethod">https://w3id.org/smn/ForkLengthMeasurementLabMethod</a>
-</li>
-<li><a href="#/ForkLengthMeasurementMethod">https://w3id.org/smn/ForkLengthMeasurementMethod</a>
-</li>
-</ul></details><h3 id="changeProp" class="list">Object Properties</h3>
-<details><summary><u>Modified object properties</u></summary>
-<ul><li><a href="#/basedOn">https://w3id.org/smn/basedOn</a>
-<ul>
-<li>Added: Range http://www.w3.org/ns/sosa/Procedure</li>
-</ul>
-<ul>
-<li>Deleted: Range https://w3id.org/smn/EnumerationMethod</li>
-</ul>
-</li>
-<li><a href="#/demeOf">https://w3id.org/smn/demeOf</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:demeOf."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
-</ul>
-</li>
-<li><a href="#/hasDeme">https://w3id.org/smn/hasDeme</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "GC DFO Salmon Ontology release 0.0.8, term smn:hasDeme."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl</li>
-</ul>
-</li>
-</ul></details><h3 id="changeDataProp" class="list">Data Properties</h3>
-<details><summary><u>Added data properties</u></summary>
-<ul><li><a href="#/broodYear">https://w3id.org/smn/broodYear</a>
-<ul>
-<li>Added: Range http://www.w3.org/2001/XMLSchema#gYear</li>
-</ul>
-</li>
-<li><a href="#/catchYear">https://w3id.org/smn/catchYear</a>
-<ul>
-<li>Added: Range http://www.w3.org/2001/XMLSchema#gYear</li>
-</ul>
-</li>
-<li><a href="#/returnYear">https://w3id.org/smn/returnYear</a>
-<ul>
-<li>Added: Range http://www.w3.org/2001/XMLSchema#gYear</li>
-</ul>
-</li>
-</ul></details></div>
-</div>
+   <div id="changelog">null</div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>

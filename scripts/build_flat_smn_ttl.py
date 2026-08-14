@@ -80,6 +80,20 @@ def collect_import_closure(source_path: Path, index: Dict[str, Path]) -> Graph:
     for s, _, o in list(graph.triples((None, OWL.imports, None))):
         graph.remove((s, OWL.imports, o))
 
+    # The flattened artifact must carry exactly ONE ontology identity: the
+    # root <https://w3id.org/smn>. Merging the modules used to leave every
+    # module's owl:Ontology header in the graph, and downstream ROBOT
+    # serialization then attached the release metadata to whichever ontology
+    # IRI sorted first (module 01) — the defect visible in the 0.0.0-0.0.2
+    # release snapshots, found in the 0.0.3 release review. Non-root ontology
+    # headers are dropped entirely; module identity remains recoverable from
+    # each term's rdfs:isDefinedBy and the modular source tree.
+    root = URIRef("https://w3id.org/smn")
+    for ontology in list(graph.subjects(RDF.type, OWL.Ontology)):
+        if ontology != root:
+            for s, p, o in list(graph.triples((ontology, None, None))):
+                graph.remove((s, p, o))
+
     return graph
 
 
