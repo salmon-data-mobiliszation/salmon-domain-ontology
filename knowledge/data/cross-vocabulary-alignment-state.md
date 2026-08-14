@@ -12,8 +12,8 @@ psc:
 Verified 2026-08-12: smn main `3995a17`, gcdfo main `c7a5425` (release
 0.0.8), psc-salmon-vocabularies branch `feature/fair-mapping-products-roadmap`
 (`8e50d81`). The step-3 resolutions below are verified against gcdfo
-PR #78 at commit `41f3c1b` (pending merge — re-pin to the merged
-main commit when it lands).
+main `48b5dbb` (PR #78 merged 2026-08-14 with Brett's approval via
+admin bypass of the review ruleset).
 
 ## The boundary is now structural, not prose
 
