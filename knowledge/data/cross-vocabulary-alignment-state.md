@@ -11,7 +11,9 @@ psc:
 
 Verified 2026-08-12: smn main `3995a17`, gcdfo main `c7a5425` (release
 0.0.8), psc-salmon-vocabularies branch `feature/fair-mapping-products-roadmap`
-(`8e50d81`).
+(`8e50d81`). The step-3 resolutions below are verified against gcdfo
+PR #78 at commit `41f3c1b` (pending merge — re-pin to the merged
+main commit when it lands).
 
 ## The boundary is now structural, not prose
 
@@ -29,11 +31,14 @@ Any earlier claim that the smn/gcdfo boundary is "prose-only" is stale.
   dual-typed IRIs (verified against the flat build). PSC's wrong-kind
   objection (`sdo-alignment-gap.md`) no longer applies; updating their doc
   and drafting psc→smn SSSOM rows is step 4.
-- **Minted foreign term:** `smn:FisheriesReferencePointLower` is declared
-  only in `dfo-salmon.ttl` (~line 1920); smn never declares it.
+- ~~Minted foreign term~~ **Resolved 2026-08-13 (step 3, gcdfo PR #78):**
+  `smn:FisheriesReferencePointLower` is re-namespaced to
+  `gcdfo:FisheriesReferencePointLower` (policy-scoped like its sibling
+  reference-point terms); smn's two alignment rows retargeted.
 - ~~Unbridged duplication~~ **Resolved 2026-08-13 (step 3, gcdfo PR #78):**
-  `mappings/gcdfo-to-smn.sssom.tsv` publishes the boundary as data — 28
-  reviewed rows covering the age/year family, the renamed age classes,
+  `mappings/gcdfo-to-smn.sssom.tsv` publishes the boundary as data — 32
+  reviewed rows (incl. four replacement rows for the removed duplicate
+  properties) covering the age/year family, the renamed age classes,
   CatchYear, and EscapementEstimate, with predicates graded by smn's own
   migration provenance (Migrated → exactMatch, Adapted → closeMatch) and
   both sides version-pinned. The 2026-08-13 recon found **zero**

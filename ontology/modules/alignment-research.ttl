@@ -50,6 +50,10 @@ smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
 smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+# Foreign-subject row (CONVENTIONS 5b rationale, stated here because this
+# module is reviewable independently of alignment-main): the term is
+# gcdfo-owned since its 2026-08-13 re-namespacing — it was minted as smn:
+# in the gcdfo file but never declared in smn, and it is DFO-policy-scoped.
 gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
 #################################################################
