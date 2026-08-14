@@ -31,3 +31,8 @@
   never-declared smn:FisheriesReferencePointLower retarget the re-namespaced
   gcdfo:FisheriesReferencePointLower (gcdfo PR 78 carries the rename and the
   new gcdfo-to-smn SSSOM mapping set, 28 rows, pinned both sides).
+- 2026-08-14 — Release 0.0.3 cut: first release carrying the alignment-pass
+  state (imported W3C SOSA-PROV alignment, CONVENTIONS 5b + CI gates,
+  methods-as-SKOS in smn:MethodScheme, smn:StatisticalModifierScheme,
+  EscapementEstimate rename, step-3 boundary updates). PSC anchoring (S9
+  step 4) pins against this release.
