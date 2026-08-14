@@ -31,14 +31,17 @@ Any earlier claim that the smn/gcdfo boundary is "prose-only" is stale.
   and drafting psc→smn SSSOM rows is step 4.
 - **Minted foreign term:** `smn:FisheriesReferencePointLower` is declared
   only in `dfo-salmon.ttl` (~line 1920); smn never declares it.
-- **Unbridged duplication:** the 18-term age/year SKOS family exists twice —
-  smn module 07 carries migrated copies ("Migrated from GC DFO…") while gcdfo
-  retains the `gcdfo:` originals with **zero** `skos:exactMatch` bridges in
-  either direction.
-- **Zero-delta duplicates:** four gcdfo object properties
-  (`hasFeatureOfInterest`, `hasObservationResult`, `isSampleOfStratum`,
-  `usesObservationProcedure`) duplicate their smn twins' labels, definitions,
-  domains, and ranges verbatim, differing only by a `subPropertyOf` link.
+- ~~Unbridged duplication~~ **Resolved 2026-08-13 (step 3, gcdfo PR #78):**
+  `mappings/gcdfo-to-smn.sssom.tsv` publishes the boundary as data — 28
+  reviewed rows covering the age/year family, the renamed age classes,
+  CatchYear, and EscapementEstimate, with predicates graded by smn's own
+  migration provenance (Migrated → exactMatch, Adapted → closeMatch) and
+  both sides version-pinned. The 2026-08-13 recon found **zero**
+  same-name-different-semantics collisions — the old "~55 collisions" figure
+  counted MIREOT mirrors and migrated-identical pairs.
+- ~~Zero-delta duplicates~~ **Resolved 2026-08-13 (step 3, gcdfo PR #78):**
+  the four duplicate object properties are removed; consumers use the smn
+  twins directly.
 
 ## Why PSC maps to gcdfo but refuses smn — the decisive field evidence
 

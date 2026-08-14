@@ -26,7 +26,10 @@ smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
 smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
-smn:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+# Foreign-subject row (permitted here per CONVENTIONS 5b): the term was
+# re-namespaced to gcdfo on 2026-08-13 — it was minted as smn: in the gcdfo
+# file but never declared in smn, and it is DFO-policy-scoped.
+gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
 smn:Abundance skos:closeMatch qk:Population ;
   skos:broadMatch qk:Count ;

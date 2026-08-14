@@ -18,6 +18,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/protocol>,
         <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
+<https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+
 <https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
 
 <https://w3id.org/iadopt/ont/Variable> a owl:Class ;
@@ -200,8 +202,6 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:label "Fish weight"@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/MorphologicalCharacteristic> .
-
-<https://w3id.org/smn/FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
 <https://w3id.org/smn/ForkLengthMeasurement> a owl:Class ;
     rdfs:label "Fork-length measurement"@en ;

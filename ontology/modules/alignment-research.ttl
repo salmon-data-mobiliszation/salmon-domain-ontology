@@ -1,3 +1,4 @@
+@prefix gcdfo:   <https://w3id.org/gcdfo/salmon#> .
 @prefix smn:  <https://w3id.org/smn/> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -49,7 +50,7 @@ smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
 smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
-smn:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
 #################################################################
 # Candidate bridge properties

@@ -212,6 +212,14 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower",
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "https://w3id.org/iadopt/ont/Constraint"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/iadopt/ont/Constraint",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -2105,14 +2113,6 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/smn/MorphologicalCharacteristic"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/smn/FisheriesReferencePointLower",
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Constraint"
       }
     ]
   },
