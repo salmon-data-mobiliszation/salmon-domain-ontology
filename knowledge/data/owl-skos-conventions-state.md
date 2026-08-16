@@ -90,6 +90,45 @@ Originally verified 2026-08-12 (main at `3995a17`); inventory refreshed
   `StatisticalModifier` + `iop:hasStatisticalModifier`**. No smn statistical
   scheme exists among module 07's eight schemes.
 
+## F9 — duplicate English labels in the research closure (2026-08-16, fixed)
+
+Found while checking a downstream report against this repo. The report said
+`smn:EscapementSurveyEvent` carried two English `rdfs:label`s plus a
+`skos:prefLabel`. **It does not, and never did here** — module 02 gives it one
+label, "Escapement survey event"@en, with no `skos:prefLabel` and no
+`skos:altLabel`, and that is what every published serialization carries. The
+second label is asserted *downstream*: `dfo-salmon-ontology` re-declares the
+smn-owned IRI in its own source with `rdfs:label`/`skos:prefLabel`
+"Escapement Survey Event"@en (title case, gcdfo's house style), and its docs
+pipeline merges that file with a pinned copy of smn. The duplicate exists only
+in that merged graph. Ownership, not casing, is the defect: gcdfo renames a
+term it does not own.
+
+The same defect class **was** live here, in the opposite direction.
+`modules/alignment-research.ttl` carried "external class stubs (readability)"
+labelling six SOSA IRIs — `sosa:Observation` as "SOSA Observation" and so on —
+inherited verbatim from the gcdfo alignment branch at the `46a4a51` bootstrap.
+That predates both `ontology/imports/` vendoring SOSA (`034cb1f`) and
+CONVENTIONS §5b rule 3. Once SOSA was vendored, merging the research build gave
+each of those six subjects two English labels, upstream's and ours. Confirmed
+with `robot merge --catalog` over both build roots: **6 duplicated subjects in
+the research closure, 0 in the default closure** — which is why no published
+artifact ever showed it and no gate caught it. Five parallel I-ADOPT stubs were
+latent rather than live only because I-ADOPT is not vendored.
+
+Fixed 2026-08-16 by dropping the labels and keeping the bare `owl:Class`
+declaration stubs. Because `alignment-research` is outside the default build,
+the flat TTL and all of `docs/smn.{ttl,owl,jsonld}` are **byte-identical**
+across the fix. Now enforced by `scripts/verify_mapping_policy.py` checks 4
+and 5, and stated as CONVENTIONS §5b rule 6.
+
+Unrelated pre-existing finding, verified the same day: `make
+verify-generated-artifacts` fails on a clean `main` in a local environment,
+because WIDOCO regenerates `<div id="changelog">` with a "Changes from last
+version" block where the committed HTML has `null`. It is environment- (likely
+network-) dependent, touches only `docs/index.html` and `docs/index-en.html`,
+and no RDF artifact drifts. Reproduced on `main` with zero source changes.
+
 ## Upstream facts these rest on (fetched 2026-08-12)
 
 - I-ADOPT current release **1.1.0** (2025-05-28): 9 classes (incl.
