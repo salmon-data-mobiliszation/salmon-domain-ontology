@@ -42,6 +42,18 @@
   what is released, and the proposal would make it 13/61 only on merge. If
   ADR-0003 is accepted, bump that count in the same PR that merges it; if it
   is rejected or reshaped, nothing needs undoing.
+- 2026-08-17 — Correction to a fact recorded on the open branch
+  `fix/label-ambiguity-at-source` (PR 26), not yet on main: that branch's F9
+  section calls the `make verify-generated-artifacts` changelog failure
+  "environment- (likely network-) dependent". It is not. GitHub Actions
+  produces the same populated `<div id="changelog">` block, byte-for-byte,
+  that a local run produces — the local and CI diffs on PR 27 carry identical
+  blob hashes (a4268f7..df5d5f4). The committed `null` on main is simply
+  **stale**: it was written when the comparison genuinely yielded nothing and
+  has not been refreshed since, so every branch that regenerates docs inherits
+  the failure until it commits the real block. PR 27 commits it. Whoever
+  merges PR 26 should amend that sentence; this entry is here rather than in
+  the card to avoid editing a paragraph that exists only on the other branch.
 - 2026-08-14 — Release 0.0.3 cut: first release carrying the alignment-pass
   state (imported W3C SOSA-PROV alignment, CONVENTIONS 5b + CI gates,
   methods-as-SKOS in smn:MethodScheme, smn:StatisticalModifierScheme,
