@@ -83,6 +83,7 @@ smn:SalmonLifeStage a owl:Class ;
 
 smn:Life-HistoryCharacteristic a owl:Class ;
   rdfs:label "Life-history characteristic"@en ;
+  rdfs:comment "A characteristic that can be observed, not a controlled value. Do not use this IRI as the vocabulary identifier for a coded life-history column: the values belong to module 07's smn:LifeHistoryTypeScheme, and a code list needs a skos:ConceptScheme, not an owl:Class (CONVENTIONS sections 3 and 4)."@en ;
   rdfs:subClassOf smn:Characteristic ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 

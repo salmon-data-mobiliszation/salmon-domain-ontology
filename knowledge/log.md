@@ -31,6 +31,17 @@
   never-declared smn:FisheriesReferencePointLower retarget the re-namespaced
   gcdfo:FisheriesReferencePointLower (gcdfo PR 78 carries the rename and the
   new gcdfo-to-smn SSSOM mapping set, 28 rows, pinned both sides).
+- 2026-08-17 — SPSR-derived term proposal (branch
+  `feat/spsr-shared-life-history-schemes`, ADR-0003, **not merged**): three
+  orthogonal SKOS schemes — life-history type, cycle line, salmon species —
+  proposed for module 07 in place of one composite CU species-code
+  vocabulary. Cross-vocabulary card gains the verified psc→smn anchoring
+  state (one released target, hard allow-list, wrong-kind and too-broad
+  rejections, four recorded gaps). The conventions card's module-07
+  inventory is deliberately **left at 10 schemes / 49 concepts**: it records
+  what is released, and the proposal would make it 13/61 only on merge. If
+  ADR-0003 is accepted, bump that count in the same PR that merges it; if it
+  is rejected or reshaped, nothing needs undoing.
 - 2026-08-14 — Release 0.0.3 cut: first release carrying the alignment-pass
   state (imported W3C SOSA-PROV alignment, CONVENTIONS 5b + CI gates,
   methods-as-SKOS in smn:MethodScheme, smn:StatisticalModifierScheme,

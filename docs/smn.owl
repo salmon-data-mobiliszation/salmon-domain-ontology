@@ -804,6 +804,7 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/Life-HistoryCharacteristic">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
+        <rdfs:comment xml:lang="en">A characteristic that can be observed, not a controlled value. Do not use this IRI as the vocabulary identifier for a coded life-history column: the values belong to module 07&apos;s smn:LifeHistoryTypeScheme, and a code list needs a skos:ConceptScheme, not an owl:Class (CONVENTIONS sections 3 and 4).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Life-history characteristic</rdfs:label>
     </owl:Class>
@@ -1587,6 +1588,57 @@
 
 
 
+    <!-- https://w3id.org/smn/ChinookSalmon -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ChinookSalmon">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, code CK.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_74940"/>
+        <skos:altLabel xml:lang="en">King Salmon</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
+        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus tshawytscha.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+        <skos:prefLabel xml:lang="en">Chinook Salmon</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/ChumSalmon -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ChumSalmon">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, code CM.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8018"/>
+        <skos:altLabel xml:lang="en">Dog Salmon</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
+        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus keta.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+        <skos:prefLabel xml:lang="en">Chum Salmon</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/CohoSalmon -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/CohoSalmon">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, code CO.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8019"/>
+        <skos:altLabel xml:lang="en">Silver Salmon</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
+        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus kisutch.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+        <skos:prefLabel xml:lang="en">Coho Salmon</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/CountStatisticalModifier -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/CountStatisticalModifier">
@@ -1597,6 +1649,38 @@
         <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
         <skos:prefLabel xml:lang="en">Count</skos:prefLabel>
         <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/CycleLine -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/CycleLine">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">Brood line</skos:altLabel>
+        <skos:definition xml:lang="en">One of the reproductive lines of a salmon population, comprising the years congruent to each other modulo the population&apos;s cycle period, whose returns are largely independent of the other lines.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
+        <skos:prefLabel xml:lang="en">Cycle line</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Cyclic dominance — whether a line is the dominant, subdominant, or off-cycle line of its system — is a status a line holds in a given population and period, not the identity of the line. It is a separate axis and is not modelled in this scheme.</skos:scopeNote>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/CycleLineScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/CycleLineScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for cycle lines: the largely independent reproductive lines that arise in a salmon population when its generation length divides its returns into separate year series.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/CycleLine"/>
+        <skos:prefLabel xml:lang="en">Cycle line scheme</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A cycle line is defined relative to a declared year basis from smn:YearBasisScheme. For Pink Salmon the fixed two-year life cycle makes brood-year and return-year parity identical, so the odd-year and even-year concepts here are unambiguous; a system with variable age at return, such as a four-year Fraser Sockeye cycle, must state the basis its lines are counted on.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1631,6 +1715,23 @@
         <skos:notation>European</skos:notation>
         <skos:prefLabel xml:lang="en">European age notation</skos:prefLabel>
         <skos:scopeNote xml:lang="en">For example, 1.2 represents freshwater-age value 1 and ocean-age value 2 when the source declares European notation.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/EvenYearCycleLine -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/EvenYearCycleLine">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">Even year</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/CycleLine"/>
+        <skos:definition xml:lang="en">The cycle line of a two-year-cycle population whose years, under the declared year basis, are even-numbered.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
+        <skos:prefLabel xml:lang="en">Even-year cycle line</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">One half of the composite DFO Conservation Unit species code PKE, Pink-Even. Minted from the source code list rather than from observed data: DFO maintains even-year Pink Conservation Units, and a dataset holding only odd-year rows is a property of that dataset, not of the vocabulary.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1761,6 +1862,54 @@
         <skos:definition xml:lang="en">Freshwater in-river phase (migration and/or residence) outside the marine environment.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">In-river phase</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/LakeTypeLifeHistory -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/LakeTypeLifeHistory">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">Lake type</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
+        <skos:definition xml:lang="en">Life-history type in which juveniles rear in a lake for one or more years before migrating to sea.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
+        <skos:prefLabel xml:lang="en">Lake-type life history</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Applied to Sockeye Salmon in the DFO Conservation Unit system, where it is one half of the composite species code SEL. The concept states the rearing pattern only; state the species with a concept from smn:SalmonSpeciesScheme.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/LifeHistoryType -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifeHistoryType">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">A recurring pattern of habitat use and life-cycle timing that distinguishes one group of salmon from another within the same species.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
+        <skos:prefLabel xml:lang="en">Life-history type</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">An open vocabulary. The narrower concepts minted so far cover the juvenile freshwater rearing axis; stream-type and ocean-type Chinook, and sea-type Sockeye, are the obvious next values and are deliberately not minted here because no source in scope names them. Run timing is modelled separately as the OWL class smn:Run.</skos:scopeNote>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/LifeHistoryTypeScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifeHistoryTypeScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for reusable life-history types: recurring, heritable patterns in how salmon use freshwater and marine habitat that are used to distinguish groups within a species.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
+        <skos:prefLabel xml:lang="en">Life-history type scheme</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">This scheme classifies a life-history strategy, not a species and not a reproductive line. Cycle line (odd-year, even-year) is a distinct axis with its own vocabulary, smn:CycleLineScheme; do not add cycle-line values here. That mixing is the defect this scheme was created to separate.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1957,6 +2106,23 @@
 
 
 
+    <!-- https://w3id.org/smn/OddYearCycleLine -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/OddYearCycleLine">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">Odd year</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/CycleLine"/>
+        <skos:definition xml:lang="en">The cycle line of a two-year-cycle population whose years, under the declared year basis, are odd-numbered.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
+        <skos:prefLabel xml:lang="en">Odd-year cycle line</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">One half of the composite DFO Conservation Unit species code PKO, Pink-Odd. The concept states the line only; state the species with a concept from smn:SalmonSpeciesScheme.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/PeakStatisticalModifier -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/PeakStatisticalModifier">
@@ -1967,6 +2133,24 @@
         <skos:inScheme rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
         <skos:prefLabel xml:lang="en">Peak</skos:prefLabel>
         <skos:topConceptOf rdf:resource="https://w3id.org/smn/StatisticalModifierScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/PinkSalmon -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/PinkSalmon">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, codes PKE and PKO.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8017"/>
+        <skos:altLabel xml:lang="en">Humpback Salmon</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
+        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus gorbuscha.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+        <skos:prefLabel xml:lang="en">Pink Salmon</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Pink Salmon have a fixed two-year life cycle, so their populations divide into an odd-year and an even-year line. State the line with a concept from smn:CycleLineScheme; the DFO codes PKO and PKE encode both facts at once.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1984,6 +2168,23 @@
         <skos:inScheme rdf:resource="https://w3id.org/smn/YearBasisScheme"/>
         <skos:prefLabel xml:lang="en">Return-year basis</skos:prefLabel>
         <skos:scopeNote xml:lang="en">Return year and catch year are distinct. Document the location or event at which return is defined separately; use smn:returnYear for the xsd:gYear coordinate.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/RiverTypeLifeHistory -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/RiverTypeLifeHistory">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">River type</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
+        <skos:definition xml:lang="en">Life-history type in which juveniles rear in flowing fresh water or an estuary rather than a lake before migrating to sea.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
+        <skos:prefLabel xml:lang="en">River-type life history</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Applied to Sockeye Salmon in the DFO Conservation Unit system, where it is one half of the composite species code SER. Sources that separate sea-type Sockeye, whose juveniles migrate to sea in their first months, from river-type Sockeye need a further concept that this scheme does not yet mint.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -2027,6 +2228,54 @@
         <skos:definition xml:lang="en">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
         <skos:prefLabel xml:lang="en">Salmon origin scheme</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/SalmonSpecies -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonSpecies">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list (CK, CM, CO, SEL, SER, PKE, PKO), documented in the Salmon Population Summary Repository data dictionary crosswalk for demo_cu.CU_ID.</ns1:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">A salmon species named as a controlled value.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+        <skos:prefLabel xml:lang="en">Salmon species</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">No concept in this scheme carries a skos:notation, because the DFO Conservation Unit species-code list has no code for a species alone: SEL and SER encode Sockeye with a life-history type, PKE and PKO encode Pink with a cycle line. Agency code lists that need those composite codes should hold them in the agency&apos;s own vocabulary and decompose each code onto this scheme, smn:LifeHistoryTypeScheme, and smn:CycleLineScheme.</skos:scopeNote>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/SalmonSpeciesScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonSpeciesScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list (CK, CM, CO, SEL, SER, PKE, PKO), documented in the Salmon Population Summary Repository data dictionary crosswalk for demo_cu.CU_ID.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary of salmon species, for use where a species must be named as a coded value in tabular exchange rather than asserted as a taxon.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
+        <skos:prefLabel xml:lang="en">Salmon species scheme</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The species concepts here are code-list handles, not taxa. The taxon itself is an OWL class in the NCBI Taxonomy, referenced from each concept with rdfs:seeAlso: a SKOS mapping predicate between a concept and an owl:Class is the type confusion this repository lints against, so no skos:*Match is asserted. An open vocabulary carrying the five species of the DFO Conservation Unit species-code list; Steelhead and other Oncorhynchus species are the obvious extension and are not minted here.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/SockeyeSalmon -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SockeyeSalmon">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, codes SEL and SER.</ns1:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8023"/>
+        <skos:altLabel xml:lang="en">Red Salmon</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
+        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus nerka.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+        <skos:prefLabel xml:lang="en">Sockeye Salmon</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">State a lake-type or river-type life history with a concept from smn:LifeHistoryTypeScheme; the DFO codes SEL and SER encode both facts at once.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
