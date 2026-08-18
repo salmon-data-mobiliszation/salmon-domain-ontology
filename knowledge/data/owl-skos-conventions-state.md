@@ -122,12 +122,35 @@ the flat TTL and all of `docs/smn.{ttl,owl,jsonld}` are **byte-identical**
 across the fix. Now enforced by `scripts/verify_mapping_policy.py` checks 4
 and 5, and stated as CONVENTIONS §5b rule 6.
 
-Unrelated pre-existing finding, verified the same day: `make
-verify-generated-artifacts` fails on a clean `main` in a local environment,
-because WIDOCO regenerates `<div id="changelog">` with a "Changes from last
-version" block where the committed HTML has `null`. It is environment- (likely
-network-) dependent, touches only `docs/index.html` and `docs/index-en.html`,
-and no RDF artifact drifts. Reproduced on `main` with zero source changes.
+Unrelated pre-existing finding, first seen the same day and **misdiagnosed**:
+`make verify-generated-artifacts` failed on a clean `main` because WIDOCO
+regenerates `<div id="changelog">` as a real "Changes from last version" block
+where the committed HTML has `null`. That was recorded here as "environment-
+(likely network-) dependent" drift. **It was not, and that reading is
+withdrawn (2026-08-17).** The regenerated block is deterministic: CI run
+`31959130307` and a local `make docs-refresh` produced *byte-identical*
+`docs/index.html` and `docs/index-en.html` — both blob `7e7c1fd`, both
+replacing the committed `6da2d3d`. Two independent environments agreeing to
+the byte is not environment dependence; the committed `null` is simply
+**stale**, and the gate was reporting a real, one-directional drift.
+
+Provenance of the stale byte: `null` entered at `5279971` (the 0.0.3
+re-cut on the release branch), replacing a populated changelog. WIDOCO builds
+the block by downloading the `owl:priorVersion` — `https://w3id.org/smn/0.0.3`
+— and at that commit the 0.0.3 snapshot had not yet reached GitHub Pages, so
+the fetch returned nothing and WIDOCO wrote `null`. Since #25 merged and Pages
+published 0.0.3, the fetch resolves, and because the root ontology declares
+`priorVersion` equal to its own `versionIRI` (0.0.3), the honest current block
+is the heading with an empty change list. Fixed 2026-08-17 by regenerating and
+committing the two HTML files; no RDF artifact drifts either way.
+
+Residual sensitivity, stated so it is not rediscovered as a mystery: the block
+is a function of a **network fetch**, so `make ci` on a machine that cannot
+reach `w3id.org` still writes `null` and will show drift in the opposite
+direction. Online — which is the gate's environment — the output is stable.
+This stops being a footnote when `priorVersion` is advanced to a genuinely
+earlier release, at which point the block gains real content and changes with
+every release rather than every network state.
 
 ## Upstream facts these rest on (fetched 2026-08-12)
 
