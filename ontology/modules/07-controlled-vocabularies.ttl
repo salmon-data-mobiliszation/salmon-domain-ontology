@@ -2,6 +2,7 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix iadopt: <https://w3id.org/iadopt/ont/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -10,7 +11,7 @@
 
 <https://w3id.org/smn/modules/07-controlled-vocabularies> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
-  rdfs:comment "Curated shared SKOS layer for reusable year basis, age, context, life-phase, origin, method, statistical-modifier, life-history-type, cycle-line, and salmon-species concepts. Policy/program-specific schemes, including agency code lists that compose several of these axes into one code, remain profile-scoped by default."@en .
+  rdfs:comment "Curated shared SKOS layer for reusable year basis, age, context, life-phase, origin, method, statistical-modifier, juvenile-freshwater-residence, juvenile-nursery-habitat, life-history-type, and cycle-line concepts. Named life-history types are species-scoped and defined as combinations of the axis schemes. Policy/program-specific schemes, including agency code lists that compose several of these axes into one code, remain profile-scoped by default."@en .
 
 #################################################################
 # Shared concept schemes
@@ -563,37 +564,112 @@ smn:PeakStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 #################################################################
-# Life-history type, cycle line, and salmon species
-# (proposed 2026-08-17 — see docs/adr/0003-three-axes-not-one-cu-species-code.md)
+# Life-history type and cycle line
+# (proposed 2026-08-17 — see
+#  docs/adr/0003-life-history-axes-cycle-lines-no-species.md)
 #
-# Three orthogonal schemes, deliberately not one. The DFO Conservation
-# Unit species-code list (SEL, SER, CM, CO, PKE, PKO, CK) is a
-# *composite* identifier: SEL is sockeye x lake-type, SER is sockeye x
-# river-type, PKE is pink x even-year line, PKO is pink x odd-year line,
-# and CK/CM/CO name a species alone. Minting that code list as one
-# shared vocabulary would publish the conflation; splitting it into the
-# three axes it composes gives terms each usable on its own. This is the
-# same move ADR-0002 made for year and age (four orthogonal schemes, not
-# one compound age vocabulary).
+# Two independent constructs, four schemes, and no species
+# vocabulary. The DFO Conservation Unit species code (SEL, SER, CM,
+# CO, PKE, PKO, CK) is a composite administrative identifier: SEL is
+# sockeye x lake-type, PKO is pink x odd-year line. Minting that list
+# as one shared vocabulary would publish the conflation into the
+# shared layer, so the code is decomposed instead. Its species axis is
+# deliberately *not* decomposed here — see decision 1 of the ADR.
 #
-# Concept membership is minted from the source code list, not from
-# observed data: smn:EvenYearCycleLine exists even though the extract
-# that motivated these terms contains no even-year rows, and the species
-# scheme covers all five species named in the code list rather than the
-# three that appear. The code list, not a snapshot of it, is the
-# vocabulary. See the ADR before narrowing this.
+# Life-history type is modelled in two levels, not one. The axis
+# schemes (juvenile freshwater residence, juvenile nursery habitat)
+# are species-neutral primitives; the named types in
+# smn:LifeHistoryTypeScheme are species-scoped and are defined as
+# combinations of axis values. A flat cross-species enum is the one
+# shape this design exists to prevent: "sea-type" names a chinook race
+# in Gilbert 1913 and a sockeye type today, and sockeye river-type is
+# not chinook stream-type despite the near-identical English.
 #
-# New terms, so definitions are authored here (CONVENTIONS section 10);
-# iao:0000119 cites where each *classification* comes from, not the
-# wording. The composite DFO code list itself is agency-specific and
-# stays out of the shared layer.
+# New terms, so definitions are authored here (CONVENTIONS section
+# 10); iao:0000119 cites where each *classification* comes from, not
+# the wording. The composite DFO code list itself is agency-specific
+# and stays out of the shared layer.
+#################################################################
+
+#################################################################
+# Life-history axis schemes (species-neutral primitives)
+#################################################################
+
+smn:JuvenileFreshwaterResidenceScheme a skos:ConceptScheme ;
+  skos:prefLabel "Juvenile freshwater residence scheme"@en ;
+  skos:hasTopConcept smn:JuvenileFreshwaterResidence ;
+  skos:definition "Controlled vocabulary for the duration axis of juvenile salmon life history: how long juveniles remain in fresh water before migrating to sea."@en ;
+  skos:scopeNote "Species-neutral by construction. This is an axis a named life-history type is defined from, not a life-history type itself: a value here carries no claim about where juveniles reared, how adults behave, or what genetic structure the group has. It is also not age at maturity, which Healey (1991) treats as tactical variation within a race rather than as race-defining."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+smn:JuvenileFreshwaterResidence a skos:Concept ;
+  skos:prefLabel "Juvenile freshwater residence"@en ;
+  skos:inScheme smn:JuvenileFreshwaterResidenceScheme ;
+  skos:topConceptOf smn:JuvenileFreshwaterResidenceScheme ;
+  skos:definition "The length of time juveniles of a salmon group remain in fresh water between emergence and seaward migration, expressed as a controlled value."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+smn:SubyearlingFreshwaterResidence a skos:Concept ;
+  skos:prefLabel "Subyearling freshwater residence"@en ;
+  skos:altLabel "Subyearling migrant"@en ;
+  skos:broader smn:JuvenileFreshwaterResidence ;
+  skos:inScheme smn:JuvenileFreshwaterResidenceScheme ;
+  skos:definition "Juvenile freshwater residence of less than one year: juveniles migrate seaward during their first year, without overwintering in fresh water."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+smn:YearlingFreshwaterResidence a skos:Concept ;
+  skos:prefLabel "Yearling or older freshwater residence"@en ;
+  skos:altLabel "Yearling migrant"@en ;
+  skos:broader smn:JuvenileFreshwaterResidence ;
+  skos:inScheme smn:JuvenileFreshwaterResidenceScheme ;
+  skos:definition "Juvenile freshwater residence of one year or more: juveniles overwinter at least once in fresh water before migrating seaward."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+smn:JuvenileNurseryHabitatScheme a skos:ConceptScheme ;
+  skos:prefLabel "Juvenile nursery habitat scheme"@en ;
+  skos:hasTopConcept smn:JuvenileNurseryHabitat ;
+  skos:definition "Controlled vocabulary for the nursery-habitat axis of juvenile salmon life history: the kind of fresh water in which juveniles rear before migrating to sea."@en ;
+  skos:scopeNote "Species-neutral by construction, and independent of the duration axis: a group that migrates seaward as a subyearling may have no freshwater nursery habitat worth asserting at all. Do not populate this scheme with the potamodromous vocabulary adfluvial / fluvial / lacustrine (Rieman and McIntyre 1993), despite lacustrine resembling lake and fluvial resembling river. That vocabulary classifies migration patterns completed within fresh water and treats anadromy as a separate category alongside them, so calling an anadromous Sockeye population adfluvial is a category error. Applying it to non-anadromous Oncorhynchus nerka (kokanee) is defensible and would be a different scheme."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+smn:JuvenileNurseryHabitat a skos:Concept ;
+  skos:prefLabel "Juvenile nursery habitat"@en ;
+  skos:inScheme smn:JuvenileNurseryHabitatScheme ;
+  skos:topConceptOf smn:JuvenileNurseryHabitatScheme ;
+  skos:definition "The kind of fresh water in which juveniles of a salmon group rear before migrating to sea, expressed as a controlled value."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+smn:LakeNurseryHabitat a skos:Concept ;
+  skos:prefLabel "Lake nursery habitat"@en ;
+  skos:broader smn:JuvenileNurseryHabitat ;
+  skos:inScheme smn:JuvenileNurseryHabitatScheme ;
+  skos:definition "Nursery habitat in which juveniles rear in a lake."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+smn:RiverineNurseryHabitat a skos:Concept ;
+  skos:prefLabel "Riverine nursery habitat"@en ;
+  skos:broader smn:JuvenileNurseryHabitat ;
+  skos:inScheme smn:JuvenileNurseryHabitatScheme ;
+  skos:definition "Nursery habitat in which juveniles rear in flowing fresh water, or in an associated slough or estuary, rather than in a lake."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press."@en .
+
+#################################################################
+# Named life-history types (species-scoped combinations)
 #################################################################
 
 smn:LifeHistoryTypeScheme a skos:ConceptScheme ;
   skos:prefLabel "Life-history type scheme"@en ;
   skos:hasTopConcept smn:LifeHistoryType ;
-  skos:definition "Controlled vocabulary for reusable life-history types: recurring, heritable patterns in how salmon use freshwater and marine habitat that are used to distinguish groups within a species."@en ;
-  skos:scopeNote "This scheme classifies a life-history strategy, not a species and not a reproductive line. Cycle line (odd-year, even-year) is a distinct axis with its own vocabulary, smn:CycleLineScheme; do not add cycle-line values here. That mixing is the defect this scheme was created to separate."@en ;
+  skos:definition "Controlled vocabulary of named salmon life-history types. Each concept is scoped to a single species and is defined as a combination of values from the life-history axis schemes rather than as a primitive."@en ;
+  skos:scopeNote "Every named type in this scheme is species-scoped, and a type from one species is never assumed to mean a type from another: sockeye river-type is not chinook stream-type, and sea-type is a homograph (Gilbert 1913 named the chinook ocean-type race sea-type; today the string denotes a sockeye type). A flat cross-species enumeration of these names is the failure mode this scheme is shaped to prevent, because the strings are similar enough to merge automatically and wrong to merge. Assertion is at Conservation Unit, population, or stock level, never for an individual fish (Brett Johnson, 2026-08-17), using smn:hasLifeHistoryType. Cycle line has its own vocabulary, smn:CycleLineScheme; do not add cycle-line values here."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
@@ -602,39 +678,61 @@ smn:LifeHistoryType a skos:Concept ;
   skos:prefLabel "Life-history type"@en ;
   skos:inScheme smn:LifeHistoryTypeScheme ;
   skos:topConceptOf smn:LifeHistoryTypeScheme ;
-  skos:definition "A recurring pattern of habitat use and life-cycle timing that distinguishes one group of salmon from another within the same species."@en ;
-  skos:scopeNote "An open vocabulary. The narrower concepts minted so far cover the juvenile freshwater rearing axis; stream-type and ocean-type Chinook, and sea-type Sockeye, are the obvious next values and are deliberately not minted here because no source in scope names them. Run timing is modelled separately as the OWL class smn:Run."@en ;
+  skos:definition "A named, recurring pattern of habitat use and life-cycle timing that distinguishes one group of salmon from another within a single species."@en ;
+  skos:scopeNote "An open vocabulary; the minted narrower concepts cover Sockeye Salmon only. Chinook ocean-type and stream-type are deliberately not minted: the bundle they name is not stable across the species range (Waples et al. 2004 report a deep interior-Columbia division alongside within-basin run-type divergence an order of magnitude smaller, and Moran et al. 2013 find the two-race model does not hold coast-wide), and Healey (1991) states he cannot classify the Sacramento winter run, which pairs stream-type adult behaviour with ocean-type juvenile behaviour. The axis schemes exist so that such a group can be described exactly, one axis at a time, without forcing a named type that does not fit. Run timing is modelled separately as the OWL class smn:Run."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
 
-smn:LakeTypeLifeHistory a skos:Concept ;
-  skos:prefLabel "Lake-type life history"@en ;
-  skos:altLabel "Lake type"@en ;
+smn:SockeyeLakeTypeLifeHistory a skos:Concept ;
+  skos:prefLabel "Lake-type Sockeye life history"@en ;
+  skos:altLabel "Lake Type"@en ;
   skos:broader smn:LifeHistoryType ;
   skos:inScheme smn:LifeHistoryTypeScheme ;
-  skos:definition "Life-history type in which juveniles rear in a lake for one or more years before migrating to sea."@en ;
-  skos:scopeNote "Applied to Sockeye Salmon in the DFO Conservation Unit system, where it is one half of the composite species code SEL. The concept states the rearing pattern only; state the species with a concept from smn:SalmonSpeciesScheme."@en ;
+  skos:definition "Life-history type of Sockeye Salmon in which juveniles rear in a lake for one or more years before migrating to sea: yearling-or-older freshwater residence combined with lake nursery habitat."@en ;
+  skos:scopeNote "One half of the composite DFO Conservation Unit species code SEL, whose other half is the species. The altLabel is the bare string used in source data; outside the SEL context that string does not name a species, which is why the concept does."@en ;
+  dwc:scientificName "Oncorhynchus nerka" ;
+  smn:hasJuvenileFreshwaterResidence smn:YearlingFreshwaterResidence ;
+  smn:hasJuvenileNurseryHabitat smn:LakeNurseryHabitat ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
+  iao:0000119 "Sockeye lake-type, river-type, and sea-type life histories. Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press. Used as a Conservation Unit delimiting axis by Holtby, L.B. and Ciruna, K.A. 2007. DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
 
-smn:RiverTypeLifeHistory a skos:Concept ;
-  skos:prefLabel "River-type life history"@en ;
-  skos:altLabel "River type"@en ;
+smn:SockeyeRiverTypeLifeHistory a skos:Concept ;
+  skos:prefLabel "River-type Sockeye life history"@en ;
+  skos:altLabel "River Type"@en ;
   skos:broader smn:LifeHistoryType ;
   skos:inScheme smn:LifeHistoryTypeScheme ;
-  skos:definition "Life-history type in which juveniles rear in flowing fresh water or an estuary rather than a lake before migrating to sea."@en ;
-  skos:scopeNote "Applied to Sockeye Salmon in the DFO Conservation Unit system, where it is one half of the composite species code SER. Sources that separate sea-type Sockeye, whose juveniles migrate to sea in their first months, from river-type Sockeye need a further concept that this scheme does not yet mint."@en ;
+  skos:definition "Life-history type of Sockeye Salmon in which juveniles rear for one or more years in flowing fresh water or an associated slough rather than a lake before migrating to sea: yearling-or-older freshwater residence combined with riverine nursery habitat."@en ;
+  skos:scopeNote "One half of the composite DFO Conservation Unit species code SER, whose other half is the species. This concept is not chinook stream-type: the English is near-identical, the species differs, and the chinook term additionally carries an adult behavioural syndrome that this concept does not assert."@en ;
+  dwc:scientificName "Oncorhynchus nerka" ;
+  smn:hasJuvenileFreshwaterResidence smn:YearlingFreshwaterResidence ;
+  smn:hasJuvenileNurseryHabitat smn:RiverineNurseryHabitat ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
+  iao:0000119 "Sockeye lake-type, river-type, and sea-type life histories. Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press. Used as a Conservation Unit delimiting axis by Holtby, L.B. and Ciruna, K.A. 2007. DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
+
+smn:SockeyeSeaTypeLifeHistory a skos:Concept ;
+  skos:prefLabel "Sea-type Sockeye life history"@en ;
+  skos:altLabel "Sea Type"@en ;
+  skos:broader smn:LifeHistoryType ;
+  skos:inScheme smn:LifeHistoryTypeScheme ;
+  skos:definition "Life-history type of Sockeye Salmon in which juveniles migrate to sea during their first year, without overwintering in fresh water: subyearling freshwater residence, with no freshwater nursery habitat asserted."@en ;
+  skos:scopeNote "Minted with the two yearling types because it is the third value of the same duration axis, and because the string it carries is dangerous: sea-type was Gilbert's 1913 name for what is now called ocean-type chinook, so the same altLabel denotes a chinook race in the older literature and a sockeye type in current use. Two species-scoped meanings, similar enough in sense to be merged automatically and wrong to merge. Any future chinook ocean-type concept must be a separate, species-scoped IRI."@en ;
+  dwc:scientificName "Oncorhynchus nerka" ;
+  smn:hasJuvenileFreshwaterResidence smn:SubyearlingFreshwaterResidence ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Sockeye sea-type life history: Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press. Prior chinook sense of the same name: Gilbert, C.H. 1913. Age at maturity of the Pacific coast salmon of the genus Oncorhynchus. Bulletin of the United States Bureau of Fisheries."@en .
+
+#################################################################
+# Cycle line
+#################################################################
 
 smn:CycleLineScheme a skos:ConceptScheme ;
   skos:prefLabel "Cycle line scheme"@en ;
   skos:hasTopConcept smn:CycleLine ;
-  skos:definition "Controlled vocabulary for cycle lines: the largely independent reproductive lines that arise in a salmon population when its generation length divides its returns into separate year series."@en ;
-  skos:scopeNote "A cycle line is defined relative to a declared year basis from smn:YearBasisScheme. For Pink Salmon the fixed two-year life cycle makes brood-year and return-year parity identical, so the odd-year and even-year concepts here are unambiguous; a system with variable age at return, such as a four-year Fraser Sockeye cycle, must state the basis its lines are counted on."@en ;
+  skos:definition "Controlled vocabulary for cycle lines: the year series a population's returns fall into when the years are partitioned modulo the population's cycle period, under a declared year basis."@en ;
+  skos:scopeNote "The construct is a year series, not a lineage. Reproductive independence is an additional claim that holds only where age at return is invariant, and it is asserted with smn:hasCycleLine rather than built into these definitions. Pink Salmon return at age 2 invariantly, so the brood-year and return-year partitions coincide and each line is closed under reproduction. Fraser Sockeye are the counter-case: roughly 89 to 92 percent return at age 4 but real age-3 and age-5 components exist, so a fish spawned on one line can return on another, the class is not closed, and the brood-year and return-year partitions of the same fish are not equivalent. Declaring a year basis from smn:YearBasisScheme therefore selects which assertion is being made; it does not reconcile the two."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
@@ -644,26 +742,26 @@ smn:CycleLine a skos:Concept ;
   skos:altLabel "Brood line"@en ;
   skos:inScheme smn:CycleLineScheme ;
   skos:topConceptOf smn:CycleLineScheme ;
-  skos:definition "One of the reproductive lines of a salmon population, comprising the years congruent to each other modulo the population's cycle period, whose returns are largely independent of the other lines."@en ;
-  skos:scopeNote "Cyclic dominance — whether a line is the dominant, subdominant, or off-cycle line of its system — is a status a line holds in a given population and period, not the identity of the line. It is a separate axis and is not modelled in this scheme."@en ;
+  skos:definition "One year series of a salmon population's returns, comprising the years congruent to one another modulo the population's cycle period under a declared year basis."@en ;
+  skos:scopeNote "Cyclic dominance is a separate, deferred model and is not represented here: whether a line is dominant, subdominant, or off-cycle is a time-scoped status a line holds in one system, not the identity of the line. Its successor is named rather than left open — DFO's three Conservation Unit fields Cyclic (a boolean of the CU), Cyc_Dom, and Cyc_Dom_Year (which line, for that CU, in that period), whose values are dominant, subdominant, and off-cycle. Modelling those retires this deferral. Note that the fields cut across this scheme rather than along it: DFO records Fraser Pink as Cyclic = FALSE while still assigning it a cycle line."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
 
 smn:OddYearCycleLine a skos:Concept ;
   skos:prefLabel "Odd-year cycle line"@en ;
-  skos:altLabel "Odd year"@en ;
+  skos:altLabel "Odd Year"@en ;
   skos:broader smn:CycleLine ;
   skos:inScheme smn:CycleLineScheme ;
   skos:definition "The cycle line of a two-year-cycle population whose years, under the declared year basis, are odd-numbered."@en ;
-  skos:scopeNote "One half of the composite DFO Conservation Unit species code PKO, Pink-Odd. The concept states the line only; state the species with a concept from smn:SalmonSpeciesScheme."@en ;
+  skos:scopeNote "One half of the composite DFO Conservation Unit species code PKO, Pink-Odd, whose other half is the species. Scoped to two-year-cycle populations because that is the case in which the odd-year series is also closed under reproduction; for a longer or variable cycle period the parity of a year is not a lineage."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
 
 smn:EvenYearCycleLine a skos:Concept ;
   skos:prefLabel "Even-year cycle line"@en ;
-  skos:altLabel "Even year"@en ;
+  skos:altLabel "Even Year"@en ;
   skos:broader smn:CycleLine ;
   skos:inScheme smn:CycleLineScheme ;
   skos:definition "The cycle line of a two-year-cycle population whose years, under the declared year basis, are even-numbered."@en ;
@@ -671,78 +769,3 @@ smn:EvenYearCycleLine a skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
-
-smn:SalmonSpeciesScheme a skos:ConceptScheme ;
-  skos:prefLabel "Salmon species scheme"@en ;
-  skos:hasTopConcept smn:SalmonSpecies ;
-  skos:definition "Controlled vocabulary of salmon species, for use where a species must be named as a coded value in tabular exchange rather than asserted as a taxon."@en ;
-  skos:scopeNote "The species concepts here are code-list handles, not taxa. The taxon itself is an OWL class in the NCBI Taxonomy, referenced from each concept with rdfs:seeAlso: a SKOS mapping predicate between a concept and an owl:Class is the type confusion this repository lints against, so no skos:*Match is asserted. An open vocabulary carrying the five species of the DFO Conservation Unit species-code list; Steelhead and other Oncorhynchus species are the obvious extension and are not minted here."@en ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Species axis of the DFO Conservation Unit species-code list (CK, CM, CO, SEL, SER, PKE, PKO), documented in the Salmon Population Summary Repository data dictionary crosswalk for demo_cu.CU_ID."@en ;
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html> .
-
-smn:SalmonSpecies a skos:Concept ;
-  skos:prefLabel "Salmon species"@en ;
-  skos:inScheme smn:SalmonSpeciesScheme ;
-  skos:topConceptOf smn:SalmonSpeciesScheme ;
-  skos:definition "A salmon species named as a controlled value."@en ;
-  skos:scopeNote "No concept in this scheme carries a skos:notation, because the DFO Conservation Unit species-code list has no code for a species alone: SEL and SER encode Sockeye with a life-history type, PKE and PKO encode Pink with a cycle line. Agency code lists that need those composite codes should hold them in the agency's own vocabulary and decompose each code onto this scheme, smn:LifeHistoryTypeScheme, and smn:CycleLineScheme."@en ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Species axis of the DFO Conservation Unit species-code list (CK, CM, CO, SEL, SER, PKE, PKO), documented in the Salmon Population Summary Repository data dictionary crosswalk for demo_cu.CU_ID."@en .
-
-smn:ChinookSalmon a skos:Concept ;
-  skos:prefLabel "Chinook Salmon"@en ;
-  skos:altLabel "King Salmon"@en ;
-  skos:broader smn:SalmonSpecies ;
-  skos:inScheme smn:SalmonSpeciesScheme ;
-  skos:definition "The Pacific salmon species Oncorhynchus tshawytscha."@en ;
-  rdfs:seeAlso <http://purl.obolibrary.org/obo/NCBITaxon_74940> ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Species axis of the DFO Conservation Unit species-code list, code CK."@en ;
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html> .
-
-smn:ChumSalmon a skos:Concept ;
-  skos:prefLabel "Chum Salmon"@en ;
-  skos:altLabel "Dog Salmon"@en ;
-  skos:broader smn:SalmonSpecies ;
-  skos:inScheme smn:SalmonSpeciesScheme ;
-  skos:definition "The Pacific salmon species Oncorhynchus keta."@en ;
-  rdfs:seeAlso <http://purl.obolibrary.org/obo/NCBITaxon_8018> ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Species axis of the DFO Conservation Unit species-code list, code CM."@en ;
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html> .
-
-smn:CohoSalmon a skos:Concept ;
-  skos:prefLabel "Coho Salmon"@en ;
-  skos:altLabel "Silver Salmon"@en ;
-  skos:broader smn:SalmonSpecies ;
-  skos:inScheme smn:SalmonSpeciesScheme ;
-  skos:definition "The Pacific salmon species Oncorhynchus kisutch."@en ;
-  rdfs:seeAlso <http://purl.obolibrary.org/obo/NCBITaxon_8019> ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Species axis of the DFO Conservation Unit species-code list, code CO."@en ;
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html> .
-
-smn:PinkSalmon a skos:Concept ;
-  skos:prefLabel "Pink Salmon"@en ;
-  skos:altLabel "Humpback Salmon"@en ;
-  skos:broader smn:SalmonSpecies ;
-  skos:inScheme smn:SalmonSpeciesScheme ;
-  skos:definition "The Pacific salmon species Oncorhynchus gorbuscha."@en ;
-  skos:scopeNote "Pink Salmon have a fixed two-year life cycle, so their populations divide into an odd-year and an even-year line. State the line with a concept from smn:CycleLineScheme; the DFO codes PKO and PKE encode both facts at once."@en ;
-  rdfs:seeAlso <http://purl.obolibrary.org/obo/NCBITaxon_8017> ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Species axis of the DFO Conservation Unit species-code list, codes PKE and PKO."@en ;
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html> .
-
-smn:SockeyeSalmon a skos:Concept ;
-  skos:prefLabel "Sockeye Salmon"@en ;
-  skos:altLabel "Red Salmon"@en ;
-  skos:broader smn:SalmonSpecies ;
-  skos:inScheme smn:SalmonSpeciesScheme ;
-  skos:definition "The Pacific salmon species Oncorhynchus nerka."@en ;
-  skos:scopeNote "State a lake-type or river-type life history with a concept from smn:LifeHistoryTypeScheme; the DFO codes SEL and SER encode both facts at once."@en ;
-  rdfs:seeAlso <http://purl.obolibrary.org/obo/NCBITaxon_8023> ;
-  rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Species axis of the DFO Conservation Unit species-code list, codes SEL and SER."@en ;
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html> .

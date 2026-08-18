@@ -2,10 +2,12 @@
 <rdf:RDF xmlns="https://w3id.org/smn#"
      xml:base="https://w3id.org/smn"
      xmlns:qb="http://purl.org/linked-data/cube#"
+     xmlns:dwc="http://rs.tdwg.org/dwc/terms/"
      xmlns:geo="http://www.opengis.net/ont/geosparql#"
-     xmlns:ns1="http://purl.obolibrary.org/obo/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:smn="https://w3id.org/smn/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -62,6 +64,12 @@
     <!-- http://purl.org/linked-data/cube#concept -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/linked-data/cube#concept"/>
+
+
+
+    <!-- http://rs.tdwg.org/dwc/terms/scientificName -->
+
+    <owl:AnnotationProperty rdf:about="http://rs.tdwg.org/dwc/terms/scientificName"/>
 
 
 
@@ -229,11 +237,24 @@
         <owl:inverseOf rdf:resource="https://w3id.org/smn/hasDeme"/>
         <rdfs:domain rdf:resource="https://w3id.org/smn/Deme"/>
         <rdfs:range rdf:resource="https://w3id.org/smn/Population"/>
-        <ns1:IAO_0000115 xml:lang="en">Relates a deme to the population it belongs to.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:demeOf.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">Relates a deme to the population it belongs to.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:demeOf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">deme of</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/smn/hasCycleLine -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasCycleLine">
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit, population, or stock whose age at return is invariant to the cycle line that constitutes it as a reproductive lineage.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">This property makes the strong claim: the year series is closed under reproduction, so the line is a lineage and not merely a stratification. It is valid only where age at return is invariant — Pink Salmon, which return at age 2. Assigning a line to an individual fish is likewise only valid under that same invariance. Where age at return varies, as in Fraser Sockeye, use smn:stratifiedByCycleLine on the return-year record instead; a fish spawned on one line can return on another, so the class is not closed and the claim would be false.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">has cycle line</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
     </owl:ObjectProperty>
 
 
@@ -244,8 +265,8 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
         <rdfs:domain rdf:resource="https://w3id.org/smn/Population"/>
         <rdfs:range rdf:resource="https://w3id.org/smn/Deme"/>
-        <ns1:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:hasDeme.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:hasDeme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">has deme</rdfs:label>
@@ -260,6 +281,45 @@
         <rdfs:range rdf:resource="https://w3id.org/smn/EventType"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">has event type</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/smn/hasJuvenileFreshwaterResidence -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasJuvenileFreshwaterResidence">
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a named life-history type to its value on the juvenile freshwater residence duration axis.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">A vocabulary-structure property: its subject is a concept in smn:LifeHistoryTypeScheme, and it records the decomposition that defines that named type rather than an observation about any fish. Domain is omitted rather than asserted as skos:Concept, which would be true of every concept in module 07 and therefore say nothing.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">has juvenile freshwater residence</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidenceScheme"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/smn/hasJuvenileNurseryHabitat -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasJuvenileNurseryHabitat">
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a named life-history type to its value on the juvenile nursery habitat axis.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">A vocabulary-structure property, like smn:hasJuvenileFreshwaterResidence. A named type may carry no value on this axis: smn:SockeyeSeaTypeLifeHistory does not, because juveniles that leave in their first year have no freshwater nursery worth naming. That asymmetry is the evidence that the two axes are separable rather than one bundled type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">has juvenile nursery habitat</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitatScheme"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/smn/hasLifeHistoryType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasLifeHistoryType">
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit, population, or stock to a named life-history type from smn:LifeHistoryTypeScheme.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Life-history type is asserted at Conservation Unit, population, or stock level, not for an individual fish (Brett Johnson, 2026-08-17). The range is skos:Concept because the values are SKOS concepts; take them from smn:LifeHistoryTypeScheme, whose members are species-scoped.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">has life-history type</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
     </owl:ObjectProperty>
 
 
@@ -282,7 +342,7 @@
         <owl:inverseOf rdf:resource="https://w3id.org/smn/populationOf"/>
         <rdfs:domain rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
         <rdfs:range rdf:resource="https://w3id.org/smn/Population"/>
-        <ns1:IAO_0000115 xml:lang="en">Relates a reporting or management stratum to one of its constituent populations.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates a reporting or management stratum to one of its constituent populations.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">has population</rdfs:label>
     </owl:ObjectProperty>
@@ -316,9 +376,23 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/smn/populationOf">
         <rdfs:domain rdf:resource="https://w3id.org/smn/Population"/>
         <rdfs:range rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
-        <ns1:IAO_0000115 xml:lang="en">Relates a population to the reporting or management stratum it belongs to.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to the reporting or management stratum it belongs to.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">population of</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/smn/stratifiedByCycleLine -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/stratifiedByCycleLine">
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a data record or observation carrying a return year to the cycle line that year falls in, as a stratification of the year series only.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">The weak, always-safe claim: the subject year belongs to that residue class under the declared year basis. It asserts nothing about reproductive independence and nothing about the fish, which is why it is the correct property for a population with variable age at return such as Fraser Sockeye. Use smn:hasCycleLine, on the population rather than the record, where age at return is invariant and the line really is a lineage. Domain is deliberately omitted for the same reason as on smn:broodYear: the subject may be an observation or a table row.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">stratified by cycle line</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/ReturnYearBasis"/>
     </owl:ObjectProperty>
 
 
@@ -522,7 +596,7 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/Abundance">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
-        <ns1:IAO_0000115 xml:lang="en">A characteristic representing the quantity of salmon or other organisms associated with a defined entity, place, and time.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A characteristic representing the quantity of salmon or other organisms associated with a defined entity, place, and time.</obo:IAO_0000115>
         <dcterms:source rdf:resource="http://qudt.org/vocab/quantitykind/Population"/>
         <rdfs:comment xml:lang="en">Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
@@ -565,8 +639,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/CatchAbundance">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
-        <ns1:IAO_0000115 xml:lang="en">A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Catch abundance</rdfs:label>
@@ -591,7 +665,7 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/DataQualityAssessment">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <ns1:IAO_0000115 xml:lang="en">An assessment artifact describing confidence, uncertainty, and quality constraints for a salmon data product or metric.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">An assessment artifact describing confidence, uncertainty, and quality constraints for a salmon data product or metric.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Data quality assessment</rdfs:label>
     </owl:Class>
@@ -602,8 +676,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/Deme">
         <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
-        <ns1:IAO_0000115 xml:lang="en">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:Deme.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:Deme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Deme</rdfs:label>
@@ -626,8 +700,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/Escapement">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <ns1:IAO_0000115 xml:lang="en">The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2005. Canada&apos;s Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2005. Canada&apos;s Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Escapement</rdfs:label>
@@ -639,8 +713,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/EscapementEstimate">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <ns1:IAO_0000115 xml:lang="en">A measurement or estimate of escapement tied to a stock and a survey event.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A measurement or estimate of escapement tied to a stock and a survey event.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementMeasurement.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:comment xml:lang="en">A datum (IAO measurement datum), not an activity: the corresponding survey activity is smn:EscapementSurveyEvent. Renamed from smn:EscapementMeasurement on 2026-08-13 (alignment pass, finding F6) because every other *Measurement class in this module is a subclass of the activity smn:Measurement, and this one is not — the name was the defect, inherited verbatim from gcdfo:EscapementMeasurement, whose hyponym family should be coordinated in the boundary pass.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
@@ -654,8 +728,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/EscapementSurveyEvent">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SurveyEvent"/>
-        <ns1:IAO_0000115 xml:lang="en">A survey event specifically for estimating escapement.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A survey event specifically for estimating escapement.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Escapement survey event</rdfs:label>
@@ -667,7 +741,7 @@
     <!-- https://w3id.org/smn/EventType -->
 
     <owl:Class rdf:about="https://w3id.org/smn/EventType">
-        <ns1:IAO_0000115 xml:lang="en">A class used to categorize fisheries or survey event instances by operational type.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A class used to categorize fisheries or survey event instances by operational type.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Event type</rdfs:label>
     </owl:Class>
@@ -678,8 +752,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/ExploitationRate">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/TargetOrLimitRateOrAbundance"/>
-        <ns1:IAO_0000115 xml:lang="en">The proportion of returning adult salmon removed by fishing activity over a defined period.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">The proportion of returning adult salmon removed by fishing activity over a defined period.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Exploitation rate</rdfs:label>
@@ -780,7 +854,7 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/IndicatorRiver">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/GeographicFeature"/>
-        <ns1:IAO_0000115 xml:lang="en">A river or stream used as a relatively reliable abundance index for nearby salmon returns due to survey intensity and method quality.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A river or stream used as a relatively reliable abundance index for nearby salmon returns due to survey intensity and method quality.</obo:IAO_0000115>
         <dcterms:source rdf:resource="https://www.salmonexplorer.ca/methods/glossary.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Indicator river</rdfs:label>
@@ -804,7 +878,7 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/Life-HistoryCharacteristic">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Characteristic"/>
-        <rdfs:comment xml:lang="en">A characteristic that can be observed, not a controlled value. Do not use this IRI as the vocabulary identifier for a coded life-history column: the values belong to module 07&apos;s smn:LifeHistoryTypeScheme, and a code list needs a skos:ConceptScheme, not an owl:Class (CONVENTIONS sections 3 and 4).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A characteristic that can be observed, not a controlled value. Do not use this IRI as the vocabulary identifier for a coded life-history column: the values belong to module 07&apos;s smn:LifeHistoryTypeScheme and its two axis schemes, and a code list needs a skos:ConceptScheme, not an owl:Class (CONVENTIONS sections 3 and 4).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Life-history characteristic</rdfs:label>
     </owl:Class>
@@ -815,8 +889,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/LimitReferencePoint">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReferencePoint"/>
-        <ns1:IAO_0000115 xml:lang="en">A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Limit reference point</rdfs:label>
@@ -840,7 +914,7 @@
                 <owl:someValuesFrom rdf:resource="https://w3id.org/smn/Characteristic"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <ns1:IAO_0000115 xml:lang="en">A salmon-domain observation focused on one feature of interest and one characteristic.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A salmon-domain observation focused on one feature of interest and one characteristic.</obo:IAO_0000115>
         <rdfs:comment xml:lang="en">A salmon-domain observation focused on one feature of interest and one characteristic.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Measurement</rdfs:label>
@@ -852,7 +926,7 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/MethodDocumentation">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <ns1:IAO_0000115 xml:lang="en">A documented method description linked to how a salmon metric or estimate was produced.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A documented method description linked to how a salmon metric or estimate was produced.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Method documentation</rdfs:label>
     </owl:Class>
@@ -863,8 +937,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/MetricBenchmark">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <ns1:IAO_0000115 xml:lang="en">Benchmark value for a metric used to delineate status categories.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada&apos;s Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">Benchmark value for a metric used to delineate status categories.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada&apos;s Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://publications.gc.ca/site/eng/9.928944/publication.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Metric benchmark</rdfs:label>
@@ -916,8 +990,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/ObservedRateOrAbundance">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <ns1:IAO_0000115 xml:lang="en">A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:ObservedRateOrAbundance.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:ObservedRateOrAbundance.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Observed rate or abundance</rdfs:label>
@@ -929,8 +1003,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/Population">
         <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
-        <ns1:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:Population.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:Population.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Population</rdfs:label>
@@ -942,8 +1016,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/RecruitAbundance">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
-        <ns1:IAO_0000115 xml:lang="en">A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A measurement datum recording the abundance of recruits contributing to a salmon stock, population, or indicator return series.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:comment xml:lang="en">Represent the measured characteristic with smn:Abundance. Use smn:broodYear and smn:returnYear for row-varying xsd:gYear coordinates, and use the separate SKOS basis concepts when a standalone variable description needs the corresponding fixed semantic qualifier.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
@@ -961,8 +1035,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/ReferencePoint">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <ns1:IAO_0000115 xml:lang="en">A target or limit used to guide management actions.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A target or limit used to guide management actions.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Reference point</rdfs:label>
@@ -975,8 +1049,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/ReportingOrManagementStratum">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <ns1:IAO_0000115 xml:lang="en">An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs).</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs).</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Reporting or management stratum</rdfs:label>
@@ -1067,7 +1141,7 @@
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Instant"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <ns1:IAO_0000115 xml:lang="en">A sampling activity that targets a geographic feature, yields a sample, and records a time.</ns1:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A sampling activity that targets a geographic feature, yields a sample, and records a time.</obo:IAO_0000115>
         <rdfs:comment xml:lang="en">A sampling activity that targets a geographic feature, yields a sample, and records a time.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Sampling event</rdfs:label>
@@ -1089,8 +1163,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/Stock">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
-        <ns1:IAO_0000115 xml:lang="en">An operationally defined grouping of salmon used for assessment and management purposes.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">An operationally defined grouping of salmon used for assessment and management purposes.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Stock</rdfs:label>
@@ -1104,8 +1178,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/StockAssessment">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <ns1:IAO_0000115 xml:lang="en">The scientific process of analyzing data to estimate abundance and productivity across time.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">The scientific process of analyzing data to estimate abundance and productivity across time.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Stock assessment</rdfs:label>
@@ -1117,8 +1191,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/SurveyEvent">
         <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Event"/>
-        <ns1:IAO_0000115 xml:lang="en">A field event that collects information about fish populations to evaluate status and support management decisions.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A field event that collects information about fish populations to evaluate status and support management decisions.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Survey event</rdfs:label>
@@ -1131,8 +1205,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/TargetOrLimitRateOrAbundance">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <ns1:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:TargetOrLimitRateOrAbundance.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:TargetOrLimitRateOrAbundance.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Target or limit rate or abundance</rdfs:label>
@@ -1144,8 +1218,8 @@
 
     <owl:Class rdf:about="https://w3id.org/smn/TotalExploitationRate">
         <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ExploitationRate"/>
-        <ns1:IAO_0000115 xml:lang="en">The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:TotalExploitationRate.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:TotalExploitationRate.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">Total exploitation rate</rdfs:label>
@@ -1248,7 +1322,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeAtMaturityBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeBasis"/>
@@ -1264,7 +1338,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeAtReturnBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtReturnBasis.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtReturnBasis.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeBasis"/>
@@ -1281,7 +1355,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeAtSamplingBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtSamplingBasis.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtSamplingBasis.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeBasis"/>
@@ -1297,7 +1371,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasis.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
@@ -1313,7 +1387,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeBasisScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasisScheme.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeBasisScheme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
@@ -1328,7 +1402,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValue.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
@@ -1345,7 +1419,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue1">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age1YearClass.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age1YearClass.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
@@ -1362,7 +1436,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue2">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age2YearClass.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age2YearClass.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
@@ -1379,7 +1453,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue3">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age3YearClass.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age3YearClass.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
@@ -1396,7 +1470,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue4">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age4YearClass.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age4YearClass.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
@@ -1413,7 +1487,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue5">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age5YearClass.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age5YearClass.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
@@ -1430,7 +1504,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue6">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age6YearClass.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age6YearClass.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
@@ -1447,7 +1521,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValue7">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age7YearClass.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:Age7YearClass.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeClassValue"/>
@@ -1464,7 +1538,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeClassValueScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValueScheme.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated and relabeled from GC DFO Salmon Ontology term gcdfo:AgeClassValueScheme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -1480,7 +1554,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimension.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimension.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
@@ -1496,7 +1570,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeDimensionScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimensionScheme.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeDimensionScheme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
@@ -1511,7 +1585,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeNotation">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
@@ -1527,7 +1601,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/AgeNotationScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotationScheme.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotationScheme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:seeAlso rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotationScheme"/>
@@ -1542,7 +1616,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/BroodYearBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/YearBasis"/>
@@ -1560,7 +1634,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/CatchContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:CatchContext.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:CatchContext.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
@@ -1575,7 +1649,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/CatchYearBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:CatchYear, modeled there as a SKOS concept.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:CatchYear, modeled there as a SKOS concept.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/YearBasis"/>
@@ -1584,57 +1658,6 @@
         <skos:inScheme rdf:resource="https://w3id.org/smn/YearBasisScheme"/>
         <skos:prefLabel xml:lang="en">Catch-year basis</skos:prefLabel>
         <skos:scopeNote xml:lang="en">Use smn:catchYear for the xsd:gYear coordinate. A catch year is not interchangeable with the return year of the fish.</skos:scopeNote>
-    </owl:NamedIndividual>
-
-
-
-    <!-- https://w3id.org/smn/ChinookSalmon -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ChinookSalmon">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, code CK.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_74940"/>
-        <skos:altLabel xml:lang="en">King Salmon</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
-        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus tshawytscha.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
-        <skos:prefLabel xml:lang="en">Chinook Salmon</skos:prefLabel>
-    </owl:NamedIndividual>
-
-
-
-    <!-- https://w3id.org/smn/ChumSalmon -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/ChumSalmon">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, code CM.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8018"/>
-        <skos:altLabel xml:lang="en">Dog Salmon</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
-        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus keta.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
-        <skos:prefLabel xml:lang="en">Chum Salmon</skos:prefLabel>
-    </owl:NamedIndividual>
-
-
-
-    <!-- https://w3id.org/smn/CohoSalmon -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/CohoSalmon">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, code CO.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8019"/>
-        <skos:altLabel xml:lang="en">Silver Salmon</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
-        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus kisutch.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
-        <skos:prefLabel xml:lang="en">Coho Salmon</skos:prefLabel>
     </owl:NamedIndividual>
 
 
@@ -1657,14 +1680,14 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/CycleLine">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:altLabel xml:lang="en">Brood line</skos:altLabel>
-        <skos:definition xml:lang="en">One of the reproductive lines of a salmon population, comprising the years congruent to each other modulo the population&apos;s cycle period, whose returns are largely independent of the other lines.</skos:definition>
+        <skos:definition xml:lang="en">One year series of a salmon population&apos;s returns, comprising the years congruent to one another modulo the population&apos;s cycle period under a declared year basis.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
         <skos:prefLabel xml:lang="en">Cycle line</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">Cyclic dominance — whether a line is the dominant, subdominant, or off-cycle line of its system — is a status a line holds in a given population and period, not the identity of the line. It is a separate axis and is not modelled in this scheme.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">Cyclic dominance is a separate, deferred model and is not represented here: whether a line is dominant, subdominant, or off-cycle is a time-scoped status a line holds in one system, not the identity of the line. Its successor is named rather than left open — DFO&apos;s three Conservation Unit fields Cyclic (a boolean of the CU), Cyc_Dom, and Cyc_Dom_Year (which line, for that CU, in that period), whose values are dominant, subdominant, and off-cycle. Modelling those retires this deferral. Note that the fields cut across this scheme rather than along it: DFO records Fraser Pink as Cyclic = FALSE while still assigning it a cycle line.</skos:scopeNote>
         <skos:topConceptOf rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
     </owl:NamedIndividual>
 
@@ -1674,13 +1697,13 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/CycleLineScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:definition xml:lang="en">Controlled vocabulary for cycle lines: the largely independent reproductive lines that arise in a salmon population when its generation length divides its returns into separate year series.</skos:definition>
+        <skos:definition xml:lang="en">Controlled vocabulary for cycle lines: the year series a population&apos;s returns fall into when the years are partitioned modulo the population&apos;s cycle period, under a declared year basis.</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/smn/CycleLine"/>
         <skos:prefLabel xml:lang="en">Cycle line scheme</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">A cycle line is defined relative to a declared year basis from smn:YearBasisScheme. For Pink Salmon the fixed two-year life cycle makes brood-year and return-year parity identical, so the odd-year and even-year concepts here are unambiguous; a system with variable age at return, such as a four-year Fraser Sockeye cycle, must state the basis its lines are counted on.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">The construct is a year series, not a lineage. Reproductive independence is an additional claim that holds only where age at return is invariant, and it is asserted with smn:hasCycleLine rather than built into these definitions. Pink Salmon return at age 2 invariantly, so the brood-year and return-year partitions coincide and each line is closed under reproduction. Fraser Sockeye are the counter-case: roughly 89 to 92 percent return at age 4 but real age-3 and age-5 components exist, so a fish spawned on one line can return on another, the class is not closed, and the brood-year and return-year partitions of the same fish are not equivalent. Declaring a year basis from smn:YearBasisScheme therefore selects which assertion is being made; it does not reconcile the two.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1690,7 +1713,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/EnumerationMethod">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">A method used to enumerate or count salmon in the field.</skos:definition>
@@ -1705,7 +1728,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/EuropeanAgeNotation">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:EuropeanAgeNotation.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:EuropeanAgeNotation.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeNotation"/>
@@ -1723,10 +1746,10 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/EvenYearCycleLine">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:altLabel xml:lang="en">Even year</skos:altLabel>
+        <skos:altLabel xml:lang="en">Even Year</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/smn/CycleLine"/>
         <skos:definition xml:lang="en">The cycle line of a two-year-cycle population whose years, under the declared year basis, are even-numbered.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
@@ -1805,7 +1828,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/FreshwaterAgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:FreshwaterAgeDimension.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:FreshwaterAgeDimension.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeDimension"/>
@@ -1821,7 +1844,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/GilbertRichAgeNotation">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:GilbertRichAgeNotation.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:GilbertRichAgeNotation.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:altLabel xml:lang="en">GR age notation</skos:altLabel>
@@ -1840,7 +1863,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/HatcheryOrigin">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
@@ -1855,7 +1878,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/InRiverPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:InRiverPhase.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:InRiverPhase.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
@@ -1866,19 +1889,72 @@
 
 
 
-    <!-- https://w3id.org/smn/LakeTypeLifeHistory -->
+    <!-- https://w3id.org/smn/JuvenileFreshwaterResidence -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/LakeTypeLifeHistory">
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/JuvenileFreshwaterResidence">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <obo:IAO_0000119 xml:lang="en">The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:altLabel xml:lang="en">Lake type</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
-        <skos:definition xml:lang="en">Life-history type in which juveniles rear in a lake for one or more years before migrating to sea.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
-        <skos:prefLabel xml:lang="en">Lake-type life history</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">Applied to Sockeye Salmon in the DFO Conservation Unit system, where it is one half of the composite species code SEL. The concept states the rearing pattern only; state the species with a concept from smn:SalmonSpeciesScheme.</skos:scopeNote>
+        <skos:definition xml:lang="en">The length of time juveniles of a salmon group remain in fresh water between emergence and seaward migration, expressed as a controlled value.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidenceScheme"/>
+        <skos:prefLabel xml:lang="en">Juvenile freshwater residence</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidenceScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/JuvenileFreshwaterResidenceScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/JuvenileFreshwaterResidenceScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <obo:IAO_0000119 xml:lang="en">The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for the duration axis of juvenile salmon life history: how long juveniles remain in fresh water before migrating to sea.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidence"/>
+        <skos:prefLabel xml:lang="en">Juvenile freshwater residence scheme</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Species-neutral by construction. This is an axis a named life-history type is defined from, not a life-history type itself: a value here carries no claim about where juveniles reared, how adults behave, or what genetic structure the group has. It is also not age at maturity, which Healey (1991) treats as tactical variation within a race rather than as race-defining.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/JuvenileNurseryHabitat -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/JuvenileNurseryHabitat">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">The kind of fresh water in which juveniles of a salmon group rear before migrating to sea, expressed as a controlled value.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitatScheme"/>
+        <skos:prefLabel xml:lang="en">Juvenile nursery habitat</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitatScheme"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/JuvenileNurseryHabitatScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/JuvenileNurseryHabitatScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <obo:IAO_0000119 xml:lang="en">The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for the nursery-habitat axis of juvenile salmon life history: the kind of fresh water in which juveniles rear before migrating to sea.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitat"/>
+        <skos:prefLabel xml:lang="en">Juvenile nursery habitat scheme</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Species-neutral by construction, and independent of the duration axis: a group that migrates seaward as a subyearling may have no freshwater nursery habitat worth asserting at all. Do not populate this scheme with the potamodromous vocabulary adfluvial / fluvial / lacustrine (Rieman and McIntyre 1993), despite lacustrine resembling lake and fluvial resembling river. That vocabulary classifies migration patterns completed within fresh water and treats anadromy as a separate category alongside them, so calling an anadromous Sockeye population adfluvial is a category error. Applying it to non-anadromous Oncorhynchus nerka (kokanee) is defensible and would be a different scheme.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/LakeNurseryHabitat -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/LakeNurseryHabitat">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitat"/>
+        <skos:definition xml:lang="en">Nursery habitat in which juveniles rear in a lake.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitatScheme"/>
+        <skos:prefLabel xml:lang="en">Lake nursery habitat</skos:prefLabel>
     </owl:NamedIndividual>
 
 
@@ -1887,13 +1963,13 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifeHistoryType">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:definition xml:lang="en">A recurring pattern of habitat use and life-cycle timing that distinguishes one group of salmon from another within the same species.</skos:definition>
+        <skos:definition xml:lang="en">A named, recurring pattern of habitat use and life-cycle timing that distinguishes one group of salmon from another within a single species.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
         <skos:prefLabel xml:lang="en">Life-history type</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">An open vocabulary. The narrower concepts minted so far cover the juvenile freshwater rearing axis; stream-type and ocean-type Chinook, and sea-type Sockeye, are the obvious next values and are deliberately not minted here because no source in scope names them. Run timing is modelled separately as the OWL class smn:Run.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">An open vocabulary; the minted narrower concepts cover Sockeye Salmon only. Chinook ocean-type and stream-type are deliberately not minted: the bundle they name is not stable across the species range (Waples et al. 2004 report a deep interior-Columbia division alongside within-basin run-type divergence an order of magnitude smaller, and Moran et al. 2013 find the two-race model does not hold coast-wide), and Healey (1991) states he cannot classify the Sacramento winter run, which pairs stream-type adult behaviour with ocean-type juvenile behaviour. The axis schemes exist so that such a group can be described exactly, one axis at a time, without forcing a named type that does not fit. Run timing is modelled separately as the OWL class smn:Run.</skos:scopeNote>
         <skos:topConceptOf rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
     </owl:NamedIndividual>
 
@@ -1903,13 +1979,13 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifeHistoryTypeScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:definition xml:lang="en">Controlled vocabulary for reusable life-history types: recurring, heritable patterns in how salmon use freshwater and marine habitat that are used to distinguish groups within a species.</skos:definition>
+        <skos:definition xml:lang="en">Controlled vocabulary of named salmon life-history types. Each concept is scoped to a single species and is defined as a combination of values from the life-history axis schemes rather than as a primitive.</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
         <skos:prefLabel xml:lang="en">Life-history type scheme</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">This scheme classifies a life-history strategy, not a species and not a reproductive line. Cycle line (odd-year, even-year) is a distinct axis with its own vocabulary, smn:CycleLineScheme; do not add cycle-line values here. That mixing is the defect this scheme was created to separate.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">Every named type in this scheme is species-scoped, and a type from one species is never assumed to mean a type from another: sockeye river-type is not chinook stream-type, and sea-type is a homograph (Gilbert 1913 named the chinook ocean-type race sea-type; today the string denotes a sockeye type). A flat cross-species enumeration of these names is the failure mode this scheme is shaped to prevent, because the strings are similar enough to merge automatically and wrong to merge. Assertion is at Conservation Unit, population, or stock level, never for an individual fish (Brett Johnson, 2026-08-17), using smn:hasLifeHistoryType. Cycle line has its own vocabulary, smn:CycleLineScheme; do not add cycle-line values here.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -1918,7 +1994,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifePhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:LifePhase.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:LifePhase.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</skos:definition>
@@ -1932,7 +2008,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/LifePhaseScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:LifePhaseScheme.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:LifePhaseScheme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</skos:definition>
@@ -1946,7 +2022,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/MainstemPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:MainstemPhase.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:MainstemPhase.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
@@ -1991,7 +2067,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/MeasurementContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContext.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContext.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">A context qualifier used to disambiguate the interpretation of a measurement column.</skos:definition>
@@ -2005,7 +2081,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/MeasurementContextScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContextScheme.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:MeasurementContextScheme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</skos:definition>
@@ -2062,7 +2138,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/NaturalOrigin">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
@@ -2077,7 +2153,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/OceanAgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:OceanAgeDimension.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:OceanAgeDimension.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:altLabel xml:lang="en">Marine-age dimension</skos:altLabel>
@@ -2094,7 +2170,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/OceanPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:OceanPhase.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:OceanPhase.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:altLabel xml:lang="en">Marine phase</skos:altLabel>
@@ -2110,15 +2186,15 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/OddYearCycleLine">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Cycle-line axis of the typology used to delimit Pacific salmon Conservation Units, which separates odd-year and even-year Pink Salmon. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:altLabel xml:lang="en">Odd year</skos:altLabel>
+        <skos:altLabel xml:lang="en">Odd Year</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/smn/CycleLine"/>
         <skos:definition xml:lang="en">The cycle line of a two-year-cycle population whose years, under the declared year basis, are odd-numbered.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/CycleLineScheme"/>
         <skos:prefLabel xml:lang="en">Odd-year cycle line</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">One half of the composite DFO Conservation Unit species code PKO, Pink-Odd. The concept states the line only; state the species with a concept from smn:SalmonSpeciesScheme.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">One half of the composite DFO Conservation Unit species code PKO, Pink-Odd, whose other half is the species. Scoped to two-year-cycle populations because that is the case in which the odd-year series is also closed under reproduction; for a longer or variable cycle period the parity of a year is not a lineage.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -2137,29 +2213,11 @@
 
 
 
-    <!-- https://w3id.org/smn/PinkSalmon -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/PinkSalmon">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, codes PKE and PKO.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8017"/>
-        <skos:altLabel xml:lang="en">Humpback Salmon</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
-        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus gorbuscha.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
-        <skos:prefLabel xml:lang="en">Pink Salmon</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">Pink Salmon have a fixed two-year life cycle, so their populations divide into an odd-year and an even-year line. State the line with a concept from smn:CycleLineScheme; the DFO codes PKO and PKE encode both facts at once.</skos:scopeNote>
-    </owl:NamedIndividual>
-
-
-
     <!-- https://w3id.org/smn/ReturnYearBasis -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/ReturnYearBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/YearBasis"/>
@@ -2172,19 +2230,16 @@
 
 
 
-    <!-- https://w3id.org/smn/RiverTypeLifeHistory -->
+    <!-- https://w3id.org/smn/RiverineNurseryHabitat -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/RiverTypeLifeHistory">
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/RiverineNurseryHabitat">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Life-history axis of the typology used to delimit Pacific salmon Conservation Units. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <obo:IAO_0000119 xml:lang="en">The lake-versus-river nursery distinction within yearling-and-older sockeye is described in Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:altLabel xml:lang="en">River type</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
-        <skos:definition xml:lang="en">Life-history type in which juveniles rear in flowing fresh water or an estuary rather than a lake before migrating to sea.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
-        <skos:prefLabel xml:lang="en">River-type life history</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">Applied to Sockeye Salmon in the DFO Conservation Unit system, where it is one half of the composite species code SER. Sources that separate sea-type Sockeye, whose juveniles migrate to sea in their first months, from river-type Sockeye need a further concept that this scheme does not yet mint.</skos:scopeNote>
+        <skos:broader rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitat"/>
+        <skos:definition xml:lang="en">Nursery habitat in which juveniles rear in flowing fresh water, or in an associated slough or estuary, rather than in a lake.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/JuvenileNurseryHabitatScheme"/>
+        <skos:prefLabel xml:lang="en">Riverine nursery habitat</skos:prefLabel>
     </owl:NamedIndividual>
 
 
@@ -2193,7 +2248,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/RunContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:RunContext.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:RunContext.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
@@ -2208,7 +2263,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonOrigin">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:SalmonOrigin.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:SalmonOrigin.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</skos:definition>
@@ -2222,7 +2277,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonOriginScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:SalmonOriginScheme.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.2, term gcdfo:SalmonOriginScheme.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</skos:definition>
@@ -2232,50 +2287,60 @@
 
 
 
-    <!-- https://w3id.org/smn/SalmonSpecies -->
+    <!-- https://w3id.org/smn/SockeyeLakeTypeLifeHistory -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonSpecies">
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SockeyeLakeTypeLifeHistory">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list (CK, CM, CO, SEL, SER, PKE, PKO), documented in the Salmon Population Summary Repository data dictionary crosswalk for demo_cu.CU_ID.</ns1:IAO_0000119>
+        <smn:hasJuvenileFreshwaterResidence rdf:resource="https://w3id.org/smn/YearlingFreshwaterResidence"/>
+        <smn:hasJuvenileNurseryHabitat rdf:resource="https://w3id.org/smn/LakeNurseryHabitat"/>
+        <obo:IAO_0000119 xml:lang="en">Sockeye lake-type, river-type, and sea-type life histories. Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press. Used as a Conservation Unit delimiting axis by Holtby, L.B. and Ciruna, K.A. 2007. DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <dwc:scientificName>Oncorhynchus nerka</dwc:scientificName>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:definition xml:lang="en">A salmon species named as a controlled value.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
-        <skos:prefLabel xml:lang="en">Salmon species</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">No concept in this scheme carries a skos:notation, because the DFO Conservation Unit species-code list has no code for a species alone: SEL and SER encode Sockeye with a life-history type, PKE and PKO encode Pink with a cycle line. Agency code lists that need those composite codes should hold them in the agency&apos;s own vocabulary and decompose each code onto this scheme, smn:LifeHistoryTypeScheme, and smn:CycleLineScheme.</skos:scopeNote>
-        <skos:topConceptOf rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
+        <skos:altLabel xml:lang="en">Lake Type</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
+        <skos:definition xml:lang="en">Life-history type of Sockeye Salmon in which juveniles rear in a lake for one or more years before migrating to sea: yearling-or-older freshwater residence combined with lake nursery habitat.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
+        <skos:prefLabel xml:lang="en">Lake-type Sockeye life history</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">One half of the composite DFO Conservation Unit species code SEL, whose other half is the species. The altLabel is the bare string used in source data; outside the SEL context that string does not name a species, which is why the concept does.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
 
-    <!-- https://w3id.org/smn/SalmonSpeciesScheme -->
+    <!-- https://w3id.org/smn/SockeyeRiverTypeLifeHistory -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SalmonSpeciesScheme">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list (CK, CM, CO, SEL, SER, PKE, PKO), documented in the Salmon Population Summary Repository data dictionary crosswalk for demo_cu.CU_ID.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SockeyeRiverTypeLifeHistory">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <smn:hasJuvenileFreshwaterResidence rdf:resource="https://w3id.org/smn/YearlingFreshwaterResidence"/>
+        <smn:hasJuvenileNurseryHabitat rdf:resource="https://w3id.org/smn/RiverineNurseryHabitat"/>
+        <obo:IAO_0000119 xml:lang="en">Sockeye lake-type, river-type, and sea-type life histories. Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press. Used as a Conservation Unit delimiting axis by Holtby, L.B. and Ciruna, K.A. 2007. DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm"/>
+        <dwc:scientificName>Oncorhynchus nerka</dwc:scientificName>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <skos:definition xml:lang="en">Controlled vocabulary of salmon species, for use where a species must be named as a coded value in tabular exchange rather than asserted as a taxon.</skos:definition>
-        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
-        <skos:prefLabel xml:lang="en">Salmon species scheme</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">The species concepts here are code-list handles, not taxa. The taxon itself is an OWL class in the NCBI Taxonomy, referenced from each concept with rdfs:seeAlso: a SKOS mapping predicate between a concept and an owl:Class is the type confusion this repository lints against, so no skos:*Match is asserted. An open vocabulary carrying the five species of the DFO Conservation Unit species-code list; Steelhead and other Oncorhynchus species are the obvious extension and are not minted here.</skos:scopeNote>
+        <skos:altLabel xml:lang="en">River Type</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
+        <skos:definition xml:lang="en">Life-history type of Sockeye Salmon in which juveniles rear for one or more years in flowing fresh water or an associated slough rather than a lake before migrating to sea: yearling-or-older freshwater residence combined with riverine nursery habitat.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
+        <skos:prefLabel xml:lang="en">River-type Sockeye life history</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">One half of the composite DFO Conservation Unit species code SER, whose other half is the species. This concept is not chinook stream-type: the English is near-identical, the species differs, and the chinook term additionally carries an adult behavioural syndrome that this concept does not assert.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
 
-    <!-- https://w3id.org/smn/SockeyeSalmon -->
+    <!-- https://w3id.org/smn/SockeyeSeaTypeLifeHistory -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SockeyeSalmon">
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SockeyeSeaTypeLifeHistory">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Species axis of the DFO Conservation Unit species-code list, codes SEL and SER.</ns1:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/facts-infos-eng.html"/>
+        <smn:hasJuvenileFreshwaterResidence rdf:resource="https://w3id.org/smn/SubyearlingFreshwaterResidence"/>
+        <obo:IAO_0000119 xml:lang="en">Sockeye sea-type life history: Burgner, R.L. 1991. Life history of sockeye salmon (Oncorhynchus nerka). In Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press. Prior chinook sense of the same name: Gilbert, C.H. 1913. Age at maturity of the Pacific coast salmon of the genus Oncorhynchus. Bulletin of the United States Bureau of Fisheries.</obo:IAO_0000119>
+        <dwc:scientificName>Oncorhynchus nerka</dwc:scientificName>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
-        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_8023"/>
-        <skos:altLabel xml:lang="en">Red Salmon</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/smn/SalmonSpecies"/>
-        <skos:definition xml:lang="en">The Pacific salmon species Oncorhynchus nerka.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonSpeciesScheme"/>
-        <skos:prefLabel xml:lang="en">Sockeye Salmon</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">State a lake-type or river-type life history with a concept from smn:LifeHistoryTypeScheme; the DFO codes SEL and SER encode both facts at once.</skos:scopeNote>
+        <skos:altLabel xml:lang="en">Sea Type</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifeHistoryType"/>
+        <skos:definition xml:lang="en">Life-history type of Sockeye Salmon in which juveniles migrate to sea during their first year, without overwintering in fresh water: subyearling freshwater residence, with no freshwater nursery habitat asserted.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifeHistoryTypeScheme"/>
+        <skos:prefLabel xml:lang="en">Sea-type Sockeye life history</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Minted with the two yearling types because it is the third value of the same duration axis, and because the string it carries is dangerous: sea-type was Gilbert&apos;s 1913 name for what is now called ocean-type chinook, so the same altLabel denotes a chinook race in the older literature and a sockeye type in current use. Two species-scoped meanings, similar enough in sense to be merged automatically and wrong to merge. Any future chinook ocean-type concept must be a separate, species-scoped IRI.</skos:scopeNote>
     </owl:NamedIndividual>
 
 
@@ -2284,7 +2349,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/SpawnerStageContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:SpawnerStageContext.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:SpawnerStageContext.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
@@ -2313,11 +2378,26 @@
 
 
 
+    <!-- https://w3id.org/smn/SubyearlingFreshwaterResidence -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/SubyearlingFreshwaterResidence">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">Subyearling migrant</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidence"/>
+        <skos:definition xml:lang="en">Juvenile freshwater residence of less than one year: juveniles migrate seaward during their first year, without overwintering in fresh water.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidenceScheme"/>
+        <skos:prefLabel xml:lang="en">Subyearling freshwater residence</skos:prefLabel>
+    </owl:NamedIndividual>
+
+
+
     <!-- https://w3id.org/smn/SurvivalOrMortalityContext -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/SurvivalOrMortalityContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:SurvivalOrMortalityContext.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:SurvivalOrMortalityContext.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
@@ -2332,7 +2412,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/TerminalPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:TerminalPhase.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">GC DFO Salmon Ontology release 0.0.8, term smn:TerminalPhase.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
@@ -2347,7 +2427,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/TotalAgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:TotalAgeDimension.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:TotalAgeDimension.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:broader rdf:resource="https://w3id.org/smn/AgeDimension"/>
@@ -2378,7 +2458,7 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/YearBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:YearBasis, modeled there as a SKOS concept.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology release 0.0.8 term gcdfo:YearBasis, modeled there as a SKOS concept.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:comment xml:lang="en">A fixed year basis may qualify a standalone I-ADOPT variable, while row-varying year coordinates remain Data Cube dimensions.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
@@ -2395,13 +2475,28 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/YearBasisScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from the GC DFO Salmon Ontology release 0.0.8 SKOS year-basis vocabulary.</ns1:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Adapted from the GC DFO Salmon Ontology release 0.0.8 SKOS year-basis vocabulary.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.8/gcdfo.ttl"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <skos:definition xml:lang="en">Controlled vocabulary for the biological, assessment, or fishery role that gives meaning to a calendar-year coordinate.</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/smn/YearBasis"/>
         <skos:prefLabel xml:lang="en">Year basis scheme</skos:prefLabel>
         <skos:scopeNote xml:lang="en">Calendar representation is not itself a year basis. Use a separate datatype property with an xsd:gYear value for the coordinate.</skos:scopeNote>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://w3id.org/smn/YearlingFreshwaterResidence -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/YearlingFreshwaterResidence">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">The duration axis separating subyearling from yearling-and-older seaward migrants is the shared basis of the sockeye sea-type/lake-type/river-type distinction (Burgner 1991) and the chinook ocean-type/stream-type distinction (Healey 1991), both in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press.</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <skos:altLabel xml:lang="en">Yearling migrant</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidence"/>
+        <skos:definition xml:lang="en">Juvenile freshwater residence of one year or more: juveniles overwinter at least once in fresh water before migrating seaward.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/JuvenileFreshwaterResidenceScheme"/>
+        <skos:prefLabel xml:lang="en">Yearling or older freshwater residence</skos:prefLabel>
     </owl:NamedIndividual>
 
 
@@ -2450,8 +2545,8 @@
         <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Property"/>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/smn/broodYear">
-        <ns1:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Adapted from the Government of Canada Pacific Salmon Glossary definition of brood year.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <qb:concept rdf:resource="https://w3id.org/smn/BroodYearBasis"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
@@ -2460,8 +2555,8 @@
         <rdfs:seeAlso rdf:resource="https://w3id.org/smn/BroodYearBasis"/>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/smn/catchYear">
-        <ns1:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year in which the represented fishery catch occurred.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:CatchYear.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year in which the represented fishery catch occurred.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Adapted from GC DFO Salmon Ontology term gcdfo:CatchYear.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl"/>
         <qb:concept rdf:resource="https://w3id.org/smn/CatchYearBasis"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
@@ -2470,8 +2565,8 @@
         <rdfs:seeAlso rdf:resource="https://w3id.org/smn/CatchYearBasis"/>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/smn/returnYear">
-        <ns1:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year in which members of a salmon cohort make the adult return relevant to the dataset&apos;s declared location or event.</ns1:IAO_0000115>
-        <ns1:IAO_0000119 xml:lang="en">Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data.</ns1:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">Relates a data record or observation to the calendar year in which members of a salmon cohort make the adult return relevant to the dataset&apos;s declared location or event.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.psc.org/publications/data/fraser-sockeye-stock-recruit-dataset/"/>
         <qb:concept rdf:resource="https://w3id.org/smn/ReturnYearBasis"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
