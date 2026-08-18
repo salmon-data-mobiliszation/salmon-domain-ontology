@@ -15,21 +15,43 @@
   owl:imports <https://w3id.org/smn> .
 
 #################################################################
-# External class stubs (readability)
+# External class stubs (declaration only)
 #################################################################
 
-<http://www.w3.org/ns/sosa/Observation> a owl:Class ; rdfs:label "SOSA Observation"@en .
-<http://www.w3.org/ns/sosa/Sampling> a owl:Class ; rdfs:label "SOSA Sampling"@en .
-<http://www.w3.org/ns/sosa/Sample> a owl:Class ; rdfs:label "SOSA Sample"@en .
-<http://www.w3.org/ns/sosa/FeatureOfInterest> a owl:Class ; rdfs:label "SOSA Feature of Interest"@en .
-<http://www.w3.org/ns/sosa/Procedure> a owl:Class ; rdfs:label "SOSA Procedure"@en .
-<http://www.w3.org/ns/sosa/Result> a owl:Class ; rdfs:label "SOSA Result"@en .
+# These are bare declaration stubs (CONVENTIONS 5b rule 2): they type the
+# foreign terms the axioms below reference so the module is well-formed OWL
+# when read on its own.
+#
+# They carried an `rdfs:label` until 2026-08-16 ("SOSA Observation",
+# "I-ADOPT Variable", …), inherited verbatim from the gcdfo alignment branch
+# at the 46a4a51 bootstrap — before `ontology/imports/` vendored SOSA and
+# before CONVENTIONS 5b rule 3 ("import upstream alignments; do not restate
+# them") existed. Those labels restated upstream and disagreed with it:
+# merging the research build gave `sosa:Observation` two English
+# `rdfs:label`s, "Observation" (vendored upstream) and "SOSA Observation"
+# (here). A label-consuming renderer such as OWL2VOWL then picks one
+# arbitrarily and its output differs between runs for no semantic reason —
+# the same ambiguity dfo-salmon-ontology's ADR-007 had to work around
+# downstream. Upstream owns the label; smn declares the term and stops there.
+# Labels for SOSA now come from the vendored import; I-ADOPT is not vendored,
+# so its terms render as IRIs until it is imported — the honest state, and
+# preferable to a locally invented label that upstream contradicts.
+#
+# Enforced by `check_foreign_subject_labels()` in
+# scripts/verify_mapping_policy.py.
 
-<https://w3id.org/iadopt/ont/Variable> a owl:Class ; rdfs:label "I-ADOPT Variable"@en .
-<https://w3id.org/iadopt/ont/Entity> a owl:Class ; rdfs:label "I-ADOPT Entity"@en .
-<https://w3id.org/iadopt/ont/Property> a owl:Class ; rdfs:label "I-ADOPT Property"@en .
-<https://w3id.org/iadopt/ont/Constraint> a owl:Class ; rdfs:label "I-ADOPT Constraint"@en .
-<https://w3id.org/iadopt/ont/StatisticalModifier> a owl:Class ; rdfs:label "I-ADOPT Statistical Modifier"@en .
+<http://www.w3.org/ns/sosa/Observation> a owl:Class .
+<http://www.w3.org/ns/sosa/Sampling> a owl:Class .
+<http://www.w3.org/ns/sosa/Sample> a owl:Class .
+<http://www.w3.org/ns/sosa/FeatureOfInterest> a owl:Class .
+<http://www.w3.org/ns/sosa/Procedure> a owl:Class .
+<http://www.w3.org/ns/sosa/Result> a owl:Class .
+
+<https://w3id.org/iadopt/ont/Variable> a owl:Class .
+<https://w3id.org/iadopt/ont/Entity> a owl:Class .
+<https://w3id.org/iadopt/ont/Property> a owl:Class .
+<https://w3id.org/iadopt/ont/Constraint> a owl:Class .
+<https://w3id.org/iadopt/ont/StatisticalModifier> a owl:Class .
 
 #################################################################
 # Stronger subclass candidates
