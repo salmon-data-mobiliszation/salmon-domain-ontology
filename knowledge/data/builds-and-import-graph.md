@@ -23,6 +23,29 @@ Verified 2026-08-12 against the working tree at commit `3995a17` (main).
 The root flat artifact shares a basename with the modular source — only a
 header comment distinguishes them, which invites wrong-file edits.
 
+**The flat artifact was not reproducible, and now is (2026-08-17).**
+`build_flat_smn_ttl.py` merges the modules by copying triples only, so the
+merged graph inherited none of their prefix bindings. rdflib's Turtle
+serializer then invented `ns1:`, `ns2:`, ... for each namespace it met in
+**predicate** position — and only there, which is why subjects and objects
+were written as full IRIs — numbering them in store-iteration order, which is
+hash-randomized per process. With exactly one such namespace
+(`http://purl.obolibrary.org/obo/`, reached through `iao:` annotation
+predicates) the numbering was stable by luck, so `make verify-flat-ttl` passed
+on every commit up to 0.0.3. Measured 2026-08-17: eight runs of the generator
+on `main`'s content produced one hash; eight runs on a branch whose module 07
+had gained an `smn:` and a `dwc:` predicate produced **four distinct hashes**.
+The gate would have flaked in CI with no source change behind it.
+
+Fixed by binding the prefixes the modules already declare
+(`apply_stable_prefixes`), so nothing is auto-numbered and the artifact reads
+`smn:hasCycleLine` rather than `ns3:hasCycleLine`. Anything the sources do not
+name falls back to rdflib's numbering, applied in sorted IRI order so the
+fallback is deterministic too. Consequence: the flat TTL and the ROBOT-derived
+`docs/smn.ttl` rewrite every `<https://w3id.org/smn/Term>` as `smn:Term` and
+`ns1:` as `obo:` — one large, semantically empty diff, taken once. Retire the
+function only if the merge itself starts carrying the source bindings.
+
 ## Import-graph facts that surprise people
 
 - **Cycle:** `<https://w3id.org/smn>` imports `alignment-main`
