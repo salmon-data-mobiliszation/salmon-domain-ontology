@@ -91,3 +91,16 @@
   methods-as-SKOS in smn:MethodScheme, smn:StatisticalModifierScheme,
   EscapementEstimate rename, step-3 boundary updates). PSC anchoring (S9
   step 4) pins against this release.
+- 2026-08-21 — Reproducibility fix split out of PR 27 (found and fixed
+  2026-08-17 on branch `feat/spsr-shared-life-history-schemes` while proposing
+  the SPSR-derived terms; landed separately because the term proposal is
+  contested and this half is not): the generated root flat TTL was
+  **hash-order dependent**. The merged graph carried no prefix bindings, so
+  rdflib invented `ns1:`/`ns2:`/... for predicate namespaces in
+  store-iteration order; one such namespace was stable by luck, two were not.
+  Eight generator runs on `main` gave one hash; eight on the branch gave four.
+  `make verify-flat-ttl` would have flaked in CI with no source change behind
+  it. Fixed by binding the prefixes the modules declare; see the builds card.
+  The artifact now reads `smn:Term` instead of `<https://w3id.org/smn/Term>`,
+  which is a large one-time diff in `salmon-domain-ontology.ttl` and
+  `docs/smn.ttl` with no semantic content.
