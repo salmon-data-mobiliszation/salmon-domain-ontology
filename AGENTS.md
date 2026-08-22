@@ -26,6 +26,34 @@ Sequencing for cross-vocabulary work lives in the **metasalmon hub**
 `metasalmon/knowledge/plans/2026-08-12-ontology-alignment-pass.md`. Do not
 maintain a competing roadmap here.
 
+## Domain knowledge goes to the commons
+
+`knowledge/` here records facts about **this repo** — the import graph, where
+practice diverges from `CONVENTIONS.md`, the alignment state. Facts about
+**salmon** go to
+[`salmon-knowledge-commons`](https://github.com/salmon-data-mobilization/salmon-knowledge-commons):
+biology, ecology, management, what a term actually means, why a modelling
+choice went the way it did.
+
+Write them there rather than into a PR description, a commit message or a chat
+transcript. Those evaporate, and the next agent re-derives the finding — which
+in an ontology means minting a second term for a distinction someone already
+worked out and did not write down. The reasoning behind a class is usually
+worth more than the class, and `rdfs:comment` is too small to hold it.
+
+If you can push there, open a PR. If you cannot, put the finding **in your
+report with its sources** so a maintainer can. Source-backed claims only — the
+commons rejects a claim with no citation — and **never assert your own
+verification**: `generated` says who wrote a card, `verified` says who
+independently checked it.
+
+**This repo is the far end of the commons' gap register.** A commons card that
+finds no term for a concept records a gap with a `mint_target`, and for shared
+all-agency biology that target is `smn` — here. Those gaps are drafted term
+requests, and they arrive with the sources already attached. Reading them is a
+reasonable way to decide what to mint next; **no agent mints from them
+unilaterally**, and the commons says so on its own side too.
+
 ## Before changing docs / ontology / builds
 
 - `knowledge/index.md` — verified repo knowledge (OKF bundle)

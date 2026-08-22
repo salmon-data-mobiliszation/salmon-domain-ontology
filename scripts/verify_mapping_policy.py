@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Enforce CONVENTIONS section 5b mapping placement and coherence rules.
 
-Three checks, all CI-fatal:
+Five checks, all CI-fatal:
 
 1. Foreign-subject statements outside alignment modules: a subject smn does
-   not own may carry only documentation annotations (label/comment/seeAlso/
+   not own may carry only documentation annotations (comment/seeAlso/
    isDefinedBy) and bare declaration stubs. Everything else — Tier-1 axioms
    AND instance-level property assertions — is confined to the alignment
    modules; the annotated NCBITaxon MIREOT mirror in module 02 is the one
@@ -16,8 +16,34 @@ Three checks, all CI-fatal:
    excludes alignment-research, the documented staging exception).
 3. Reasoner-clean typing invariant: no IRI in the flattened build may be
    typed both owl:Class and skos:Concept (the dual-representation rule).
+4. No lexical labels on foreign-namespace subjects, anywhere in smn's
+   sources — alignment modules included. Upstream owns its own labels
+   (CONVENTIONS 5b rule 3, "import upstream alignments; do not restate
+   them"); smn may declare a foreign term and annotate it with prose, but
+   restating its name is how a mirror drifts out of agreement with the
+   thing it mirrors.
+5. Label unambiguity across each build closure: at most one rdfs:label and
+   one skos:prefLabel per subject per language tag, and no rdfs:label that
+   disagrees with its subject's skos:prefLabel by case or whitespace alone.
+
+Checks 4 and 5 were added 2026-08-16. A label-consuming renderer given two
+equally-valid English labels for one subject picks one arbitrarily, so its
+output changes between runs with no semantic change behind it — that is what
+OWL2VOWL did to dfo-salmon-ontology's docs pipeline, which had to pin to
+skos:prefLabel to work around it (its ADR-007). Check 4 stops smn creating
+that ambiguity in someone else's terms; check 5 stops it appearing in smn's
+own merged artifacts from any direction.
+
+Retirement condition for checks 4 and 5: retire them when label uniqueness is
+enforced for the whole ecosystem by a shared upstream gate — a SHACL shape or
+ROBOT report run identically by smn, gcdfo, and the PSC vocabularies — so that
+this repo-local restatement is redundant rather than load-bearing. Until then
+they stay: this repo publishes terms other repos re-serialize, and it is the
+only place the invariant is checked at the source.
 """
 
+import re
+import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
 
@@ -26,6 +52,17 @@ from rdflib.namespace import SKOS
 
 ROOT = Path(__file__).resolve().parents[1]
 SMN = "https://w3id.org/smn"
+CATALOG = ROOT / "ontology" / "catalog-v001.xml"
+CATALOG_NS = "{urn:oasis:names:tc:entity:xmlns:xml:catalog}"
+# The two published build entrypoints. Both are checked: alignment-research
+# is not in the default build, so a defect confined to it is invisible in the
+# flat artifact — which is exactly where the 2026-08-16 SOSA label duplicates
+# had been hiding since the 46a4a51 bootstrap.
+BUILD_ROOTS = [
+    Path("ontology") / "salmon-domain-ontology.ttl",
+    Path("ontology") / "salmon-domain-ontology-research.ttl",
+]
+LEXICAL_LABEL_PREDICATES = (RDFS.label, SKOS.prefLabel, SKOS.altLabel)
 ALIGNMENT_MODULES = {
     "alignment-main.ttl",
     "alignment-upper.ttl",
@@ -54,13 +91,12 @@ TIER3 = {SKOS.closeMatch, SKOS.broadMatch, SKOS.narrowMatch, SKOS.relatedMatch}
 
 
 # Predicates a foreign-namespace subject may carry outside alignment
-# modules: declaration stubs and documentation annotations only.
+# modules: declaration stubs and prose annotations only.
 # Everything else — Tier-1 axioms AND instance-level property assertions
 # (the old `sosa:FeatureOfInterest sosa:hasSample sosa:Sample` class of
 # mistake) — must live in an alignment module (CONVENTIONS 5b rule 2).
 FOREIGN_ALLOWED_PREDICATES = {
     RDFS.comment,
-    RDFS.label,
     RDFS.seeAlso,
     RDFS.isDefinedBy,
 }
@@ -89,6 +125,10 @@ def check_foreign_subjects() -> list:
                 continue
             if predicate in FOREIGN_ALLOWED_PREDICATES:
                 continue
+            if predicate in LEXICAL_LABEL_PREDICATES:
+                continue  # delegated to check_foreign_subject_labels(), which
+                # covers alignment modules too — reporting here as well would
+                # print two failures for one defect.
             if predicate == RDF.type and obj in FOREIGN_ALLOWED_TYPE_OBJECTS:
                 continue  # bare declaration stub
             if path.name == "02-observation-measurement.ttl" and "NCBITaxon" in str(subject):
@@ -159,14 +199,130 @@ def check_dual_typing() -> list:
     ]
 
 
+def check_foreign_subject_labels() -> list:
+    """No smn source may name a term it does not own (CONVENTIONS 5b rule 3).
+
+    Unlike check_foreign_subjects() this covers the alignment modules, because
+    they are precisely where foreign subjects are allowed to appear — and so
+    the only place a foreign label can hide. Declaring the term and annotating
+    it with prose stays legal; only the lexical predicates are refused.
+    """
+    failures = []
+    paths = sorted((ROOT / "ontology" / "modules").glob("*.ttl")) + sorted(
+        (ROOT / "ontology" / "views").glob("*.ttl")
+    )
+    for path in paths:
+        graph = Graph()
+        graph.parse(path, format="turtle")
+        for predicate in LEXICAL_LABEL_PREDICATES:
+            for subject, _, obj in sorted(graph.triples((None, predicate, None)), key=str):
+                if not isinstance(subject, URIRef) or str(subject).startswith(SMN):
+                    continue
+                failures.append(
+                    f"{path.relative_to(ROOT)}: label on a foreign-namespace subject "
+                    f"(upstream owns its own labels; declare the term, do not rename it): "
+                    f"{subject.n3(graph.namespace_manager)} "
+                    f"{predicate.n3(graph.namespace_manager)} {str(obj)!r}"
+                    f"@{getattr(obj, 'language', None)}"
+                )
+    return failures
+
+
+def _catalog_index() -> dict:
+    """Map ontology IRI -> local file, from the catalog ROBOT itself resolves.
+
+    Reusing the catalog rather than re-deriving the mapping keeps this check
+    honest about what the reasoner gate actually merges, vendored upstream
+    imports included.
+    """
+    index = {}
+    for entry in ET.parse(CATALOG).getroot().iter(f"{CATALOG_NS}uri"):
+        index[entry.get("name")] = (CATALOG.parent / entry.get("uri")).resolve()
+    return index
+
+
+def _import_closure(root_path: Path) -> Graph:
+    index = _catalog_index()
+    graph = Graph()
+    seen = set()
+
+    def visit(path: Path) -> None:
+        path = path.resolve()
+        if path in seen or not path.exists():
+            return
+        seen.add(path)
+        local = Graph()
+        local.parse(path, format="turtle")
+        for triple in local:
+            graph.add(triple)
+        for imported in sorted(local.objects(None, OWL.imports), key=str):
+            target = index.get(str(imported))
+            if target is not None:
+                visit(target)
+
+    visit(root_path)
+    return graph
+
+
+def _collapse(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip().casefold()
+
+
+def check_label_unambiguity() -> list:
+    """One name per subject per language, in every build closure.
+
+    Two equally-valid labels for one subject leave a renderer to choose, and
+    nothing makes it choose the same way twice.
+    """
+    failures = []
+    for root in BUILD_ROOTS:
+        graph = _import_closure(ROOT / root)
+        for predicate in (RDFS.label, SKOS.prefLabel):
+            by_subject_language = defaultdict(set)
+            for subject, _, obj in graph.triples((None, predicate, None)):
+                by_subject_language[(subject, getattr(obj, "language", None))].add(str(obj))
+            for (subject, language), values in sorted(
+                by_subject_language.items(), key=lambda item: str(item[0][0])
+            ):
+                if len(values) > 1:
+                    rendered = ", ".join(repr(v) for v in sorted(values))
+                    failures.append(
+                        f"{root}: {subject} has {len(values)} "
+                        f"{predicate.n3(graph.namespace_manager)} values "
+                        f"in @{language}: {rendered}"
+                    )
+        for subject in sorted(
+            set(graph.subjects(RDFS.label, None)) & set(graph.subjects(SKOS.prefLabel, None)),
+            key=str,
+        ):
+            labels = {str(o) for o in graph.objects(subject, RDFS.label)}
+            preferred = {str(o) for o in graph.objects(subject, SKOS.prefLabel)}
+            for label in sorted(labels):
+                for pref in sorted(preferred):
+                    if label != pref and _collapse(label) == _collapse(pref):
+                        failures.append(
+                            f"{root}: {subject} rdfs:label {label!r} differs from "
+                            f"skos:prefLabel {pref!r} by case or whitespace only"
+                        )
+    return failures
+
+
 def main() -> None:
-    failures = check_foreign_subjects() + check_tier_mixing() + check_dual_typing()
+    failures = (
+        check_foreign_subjects()
+        + check_tier_mixing()
+        + check_dual_typing()
+        + check_foreign_subject_labels()
+        + check_label_unambiguity()
+    )
     if failures:
         for failure in failures:
             print(failure)
         raise SystemExit(1)
     print("Mapping policy verified: no foreign-subject axioms outside alignment "
-          "modules, no tier-mixed pairs in the default spine, no dual-typed IRIs.")
+          "modules, no tier-mixed pairs in the default spine, no dual-typed IRIs, "
+          "no labels on foreign-namespace subjects, one label per subject per "
+          "language in every build closure.")
 
 
 if __name__ == "__main__":

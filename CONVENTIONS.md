@@ -146,6 +146,24 @@ These close the policy gaps the alignment pass found (findings F1/F2/F5/F7).
    IRI may be typed both `owl:Class` and `skos:Concept` anywhere in it.
    A DL-profile gate does not catch class-as-individual modelling mistakes
    (legal punning), so the CI check for those is a targeted SPARQL report.
+6. **One name per term, and only for terms we own (2026-08-16).** A subject
+   carries at most one `rdfs:label` and one `skos:prefLabel` per language tag
+   in every build closure, and where both are present they agree exactly —
+   differing by case or whitespace alone is a defect, not a variant. Genuine
+   synonyms are `skos:altLabel`; a capitalisation of the preferred label is
+   not a synonym. smn never asserts `rdfs:label`, `skos:prefLabel`, or
+   `skos:altLabel` on a foreign-namespace subject at all: declaring the term
+   and annotating it with `rdfs:comment` is in scope, renaming it is rule 3's
+   restatement problem in lexical form.
+
+   The reason is downstream, not aesthetic. Given two equally-valid English
+   labels for one subject a renderer must pick one, and nothing obliges it to
+   pick the same one twice — so its output changes between runs with no
+   semantic change behind it. That is what OWL2VOWL did to
+   dfo-salmon-ontology's docs pipeline, which pinned to `skos:prefLabel` to
+   work around it (its ADR-007). Enforced by
+   `scripts/verify_mapping_policy.py` (checks 4 and 5), which carries the
+   condition that would retire it.
 
 ## 6) Profile-to-domain bridge pattern
 
