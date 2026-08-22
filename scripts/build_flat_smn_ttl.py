@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Dict
 
 from rdflib import Graph, URIRef
-from rdflib.namespace import OWL, RDF
+from rdflib.namespace import OWL, RDF, split_uri
 
 ROOT = Path(__file__).resolve().parents[1]
 ONTOLOGY_ROOT = ROOT / "ontology"
@@ -43,9 +43,16 @@ def discover_local_ontology_index() -> Dict[str, Path]:
     return index
 
 
-def collect_import_closure(source_path: Path, index: Dict[str, Path]) -> Graph:
+def collect_import_closure(
+    source_path: Path, index: Dict[str, Path]
+) -> tuple[Graph, Dict[str, str]]:
     graph = Graph()
     visited_paths = set()
+    # namespace IRI -> the prefix the module sources declare for it. Visit
+    # order is deterministic (sorted imports) and first declaration wins, so
+    # two modules disagreeing about a prefix cannot make the output depend on
+    # which was parsed first.
+    source_prefixes: Dict[str, str] = {}
 
     def visit(path: Path) -> None:
         if path in visited_paths:
@@ -57,6 +64,8 @@ def collect_import_closure(source_path: Path, index: Dict[str, Path]) -> Graph:
         local_graph.parse(path, format="turtle")
         for triple in local_graph:
             graph.add(triple)
+        for prefix, namespace in local_graph.namespaces():
+            source_prefixes.setdefault(str(namespace), prefix)
         visited_paths.add(path)
 
         # Recurse deterministically through local imports.
@@ -94,7 +103,51 @@ def collect_import_closure(source_path: Path, index: Dict[str, Path]) -> Graph:
             for s, p, o in list(graph.triples((ontology, None, None))):
                 graph.remove((s, p, o))
 
-    return graph
+    return graph, source_prefixes
+
+
+def apply_stable_prefixes(graph: Graph, source_prefixes: Dict[str, str]) -> None:
+    """Give every predicate namespace a stable, meaningful prefix.
+
+    The merged graph is built by copying triples only, so it inherits none of
+    the modules' prefix bindings. rdflib's Turtle serializer then invents a
+    prefix for each namespace it meets in *predicate* position — and only
+    there, which is why subjects and objects were previously written in full —
+    numbering them ns1, ns2, ... in store-iteration order. That order is
+    hash-randomized per process, so with two or more such namespaces the same
+    commit serialized to different bytes on different runs and
+    `make verify-flat-ttl` reported the difference as drift. One namespace was
+    stable by luck, which is why this stayed dormant until module 07 gained an
+    `smn:` and a `dwc:` predicate on the same day.
+
+    Binding the prefix the sources already declare removes the generated
+    numbering altogether, which is both deterministic and readable: the
+    artifact says `smn:hasCycleLine`, not `ns3:hasCycleLine`. Namespaces
+    rdflib has already bound are left alone, and a prefix the sources declare
+    for two different namespaces is used for the first only; anything left
+    unnamed falls back to rdflib's numbering, applied here in sorted order so
+    that the fallback is deterministic too. Retire this function only if the
+    merge itself starts carrying the source bindings.
+    """
+    bound_namespaces = {str(ns) for _, ns in graph.namespace_manager.namespaces()}
+    bound_prefixes = {prefix for prefix, _ in graph.namespace_manager.namespaces()}
+
+    for predicate in sorted({p for _, p, _ in graph}, key=str):
+        try:
+            namespace, _local = split_uri(str(predicate))
+        except Exception:
+            # A predicate IRI rdflib cannot split needs no prefix; the
+            # serializer writes it in full.
+            continue
+        if namespace in bound_namespaces:
+            continue
+        prefix = source_prefixes.get(namespace)
+        if prefix and prefix not in bound_prefixes:
+            graph.namespace_manager.bind(prefix, URIRef(namespace))
+            bound_prefixes.add(prefix)
+        else:
+            graph.namespace_manager.compute_qname(str(predicate), generate=True)
+        bound_namespaces.add(namespace)
 
 
 def build_flat_ttl(*, source_path: Path, output_path: Path) -> None:
@@ -102,7 +155,10 @@ def build_flat_ttl(*, source_path: Path, output_path: Path) -> None:
         raise FileNotFoundError(f"Source ontology not found: {source_path}")
 
     index = discover_local_ontology_index()
-    flat_graph = collect_import_closure(source_path=source_path, index=index)
+    flat_graph, source_prefixes = collect_import_closure(
+        source_path=source_path, index=index
+    )
+    apply_stable_prefixes(flat_graph, source_prefixes)
 
     serialized = flat_graph.serialize(format="turtle", sort_keys=True)
     if isinstance(serialized, bytes):
