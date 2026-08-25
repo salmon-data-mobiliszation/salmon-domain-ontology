@@ -145,7 +145,7 @@ smn:populationOf a owl:ObjectProperty ;
 
 #################################################################
 # Life-history and cycle-line assertions
-# (proposed 2026-08-17 — see
+# (proposed 2026-08-17, revised 2026-08-25 — see
 #  docs/adr/0003-life-history-axes-cycle-lines-no-species.md)
 #
 # Both properties omit rdfs:domain deliberately. Their legitimate
@@ -157,12 +157,12 @@ smn:populationOf a owl:ObjectProperty ;
 # and assessment strata exists.
 #################################################################
 
-smn:hasLifeHistoryType a owl:ObjectProperty ;
-  rdfs:label "has life-history type"@en ;
+smn:hasLifeHistory a owl:ObjectProperty ;
+  rdfs:label "has life history"@en ;
   iao:0000115 "Relates a Conservation Unit, population, or stock to a named life-history type from smn:LifeHistoryTypeScheme."@en ;
   rdfs:range skos:Concept ;
   rdfs:seeAlso smn:LifeHistoryTypeScheme ;
-  rdfs:comment "Life-history type is asserted at Conservation Unit, population, or stock level, not for an individual fish (Brett Johnson, 2026-08-17). The range is skos:Concept because the values are SKOS concepts; take them from smn:LifeHistoryTypeScheme, whose members are species-scoped."@en ;
+  rdfs:comment "One of the three life-history properties (Brett Johnson, 2026-08-24): this one assigns a named type, and smn:hasJuvenileFreshwaterResidenceDuration and smn:hasJuvenileRearingHabitat decompose what that type means. No generic axis-value property is minted. Assertion is at Conservation Unit, population, or stock level, not for an individual fish (Brett Johnson, 2026-08-17). The range is skos:Concept because the values are SKOS concepts; take them from smn:LifeHistoryTypeScheme, whose members are species-scoped."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:hasCycleLine a owl:ObjectProperty ;

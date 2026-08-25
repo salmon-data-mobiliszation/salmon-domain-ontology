@@ -31,6 +31,73 @@
   never-declared smn:FisheriesReferencePointLower retarget the re-namespaced
   gcdfo:FisheriesReferencePointLower (gcdfo PR 78 carries the rename and the
   new gcdfo-to-smn SSSOM mapping set, 28 rows, pinned both sides).
+- 2026-08-25 — ADR-0003 reworked on five rulings (Brett Johnson, 2026-08-24/25)
+  plus a defect and a citation audit that were **not** asked for. Rulings:
+  species is a `dwc:scientificName` literal plus a WoRMS `dwc:scientificNameID`
+  and **smn mints no species concept or class, ever** (Q6-1); keep
+  `dwc:scientificName` on life-history concepts (Q6-2); **three** life-history
+  properties — `smn:hasLifeHistory`, `smn:hasJuvenileFreshwaterResidenceDuration`,
+  `smn:hasJuvenileRearingHabitat` — and no generic axis-value property (Q6-3);
+  **mint from the source vocabulary always** (Q6-4), now `CONVENTIONS.md` §8b
+  with reach beyond this PR; the flat-TTL prefix rewrite stands (Q6-5).
+  **Q6-8 (are the three Sockeye types flat peers) is NOT ruled** and nothing on
+  the branch pre-empts it.
+- 2026-08-25 — **`SER` is not a code for river-type sockeye, and the shared
+  layer must not map it as one.** Verified against DFO's own published data:
+  the Conservation Unit data dictionary glosses `SP_QUAL` `SER` as *"River or
+  Ocean Type Sockeye Salmon"* (FR: *"type rivière ou océan"*), while the
+  `LIFE_HISTORY_TYPE` field it accompanies offers only *"Lake Type, River
+  Type"* — DFO's coded column cannot express the second half of DFO's own
+  code. `WIDGEON` (`FULL_CU_IN` = `SER-02`) and `HARRISON RIVER` (`SER-03`) are
+  filed under it and are the two populations Beacham & Withler (2017) study as
+  **sea-type**, defined by lacking a freshwater annulus. DFO CSAS **SAR
+  2022/003** says of DU24 Widgeon-RT that *"it is not a true river-type
+  population; these fish migrate to sea in their first year"*. The mechanism is
+  a residual rule in Holtby & Ciruna 2007 — lake-type if seen at/in/above a
+  lake >≈50 ha, *"otherwise it was considered river-type"* — plus footnote 27,
+  which records the Harrison assignment as an assumption (*"We have assumed the
+  latter"*). Consequence for mapping: `SER` decomposes onto the species
+  annotations plus `smn:RiverineRearingHabitat` **only**, never onto a named
+  life-history type, and a `gcdfo:SER` concept must carry no `exactMatch` or
+  `closeMatch` to `smn:SockeyeRiverTypeLifeHistory`.
+- 2026-08-25 — **Citation audit of the ADR-0003 terms, three findings.**
+  (1) Holtby & Ciruna 2007 contains "sea-type" **exactly once, in a
+  reference-list entry** (p. 80, the Gustafson & Winans 1999 title); its own
+  sockeye trio is lake / river-ocean / **kokanee**, and it excludes kokanee
+  from CU definition. A full-text search for the term therefore *succeeds* and
+  is misleading — a bibliography hit is indistinguishable from a real one until
+  you open the page. (2) The same document contains "cycle line" **zero
+  times**; its term is **broodline**, with a glossary definition (p. 327) whose
+  conditional — *"if the age of reproduction is fixed or nearly so"* — is
+  exactly the invariance condition `smn:hasCycleLine` vs
+  `smn:stratifiedByCycleLine` splits over. Substance corroborated, label not.
+  (3) **Burgner 1991 was mis-cited for sea-type** and for both axes; it is the
+  customary citation for *lake-type* only, and could not be read (paywalled).
+  Correct attributions now on the terms: the label "sea-type sockeye" to Wood,
+  Riddell & Rutherford 1987; the scale term to Gilbert 1913 (read, and
+  cross-checked against a second scan); "river-type" to Semko 1954 via Wood et
+  al.; with Pavey et al. 2010's inverted attribution recorded as contested.
+- 2026-08-25 — **The sea-type "homograph" in the 2026-08-17 draft was
+  backwards.** Gilbert 1913 coined "sea type" **in his Sockeye section**
+  (p. 8), applied it across five species, and his chinook section (p. 13)
+  defines its types *by reference to sockeye*; his contrasting term is "stream
+  type", and "lake type"/"river type" appear zero times. It was **chinook**
+  that renamed — Healey 1991 p. 314 designates it *"ocean-type" ("sea-type" in
+  Gilbert 1913)*. So the sockeye sense is the original and continuous one and
+  there is no homograph on that string. **The genuinely ambiguous label is
+  "ocean-type"**: DFO Res. Doc. 2017/074 p. 3 declares *"River-type is
+  synonymous with ocean-type"* (broad) while Res. Doc. 2023/003 p. 5 opposes
+  the two (narrow). Both current. Carried as an `skos:altLabel` flagged
+  ambiguous, with the real discriminator — freshwater age zero, no freshwater
+  annulus — in the `skos:definition` instead.
+- 2026-08-25 — **WoRMS content-negotiates to RDF where NCBI did not.**
+  `https://www.marinespecies.org/aphia.php?p=taxdetails&id=254569` under
+  `Accept: application/rdf+xml` redirects to `authority/metadata.php?lsid=…`
+  and returns `application/rdf+xml` describing the LSID with Darwin Core terms;
+  AphiaID 254569 is `status: accepted`. This is the check that admits the one
+  `rdfs:seeAlso` in the proposal, and the contrast with the NCBI OBO PURL
+  (HTML under every RDF `Accept`, verified 2026-08-17) is why the earlier ones
+  were removed. Re-running it is what would retire the link.
 - 2026-08-17 — SPSR-derived term proposal (branch
   `feat/spsr-shared-life-history-schemes`, ADR-0003, **not merged**): the DFO
   Conservation Unit species code is decomposed rather than minted whole. Four
